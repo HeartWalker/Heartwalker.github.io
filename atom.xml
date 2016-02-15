@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HeartWalker&#39;s Blog</title>
+  <subtitle>萌与正义</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-02-15T16:52:15.534Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Heart Walker</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>clear float</title>
+    <link href="http://yoursite.com/2016/02/16/clear-float/"/>
+    <id>http://yoursite.com/2016/02/16/clear-float/</id>
+    <published>2016-02-15T16:19:23.000Z</published>
+    <updated>2016-02-15T16:52:15.534Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u6E05_u9664_u6D6E_u52A8&quot;&gt;&lt;a href=&quot;#u6E05_u9664_u6D6E_u52A8&quot; class=&quot;headerlink&quot; title=&quot;清除浮动&quot;&gt;&lt;/a&gt;清除浮动&lt;/h2&gt;&lt;p&gt;在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法&lt;/p&gt;
+&lt;h5 id=&quot;1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6&quot;&gt;&lt;a href=&quot;#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6&quot; class=&quot;headerlink&quot; title=&quot;1.：给父盒子一个高度&quot;&gt;&lt;/a&gt;1.：给父盒子一个高度&lt;/h5&gt;&lt;h5 id=&quot;2-_uFF1Aclear_3Aleft_7C_right_7C_both&quot;&gt;&lt;a href=&quot;#2-_uFF1Aclear_3Aleft_7C_right_7C_both&quot; class=&quot;headerlink&quot; title=&quot;2.：clear:left| right| both&quot;&gt;&lt;/a&gt;2.：clear:left| right| both&lt;/h5&gt;&lt;p&gt;　　不推荐 基本没人用吧&lt;/p&gt;
+&lt;h5 id=&quot;3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden&quot;&gt;&lt;a href=&quot;#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden&quot; class=&quot;headerlink&quot; title=&quot;3.：给父盒子设置overflow:hidden&quot;&gt;&lt;/a&gt;3.：给父盒子设置overflow:hidden&lt;/h5&gt;&lt;p&gt;　　有定位的话不推荐 应为可能超出盒子 看需求使用  &lt;/p&gt;
+&lt;h5 id=&quot;4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B&quot;&gt;&lt;a href=&quot;#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B&quot; class=&quot;headerlink&quot; title=&quot;4.：使用伪类&quot;&gt;&lt;/a&gt;4.：使用伪类&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;.clearfix:after{
+    content:””;
+    height:0;
+    line-height:0;
+    visibility:hidden;
+    display:block;
+    clear:both;
+}
+.clearfix{
+    *zoom:1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;　　目前通用方法&lt;/p&gt;
+&lt;h5 id=&quot;5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5&quot;&gt;&lt;a href=&quot;#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;5. : 双伪元素法&quot;&gt;&lt;/a&gt;5. : 双伪元素法&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;.clearfix:before, .clearfix:after {
+    content: &amp;quot;&amp;quot;;
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;　　应该是目前最好的方法了吧&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u6E05_u9664_u6D6E_u52A8&quot;&gt;&lt;a href=&quot;#u6E05_u9664_u6D6E_u52A8&quot; class=&quot;headerlink&quot; title=&quot;清除浮动&quot;&gt;&lt;/a&gt;清除浮动&lt;/h2&gt;&lt;p&gt;在css布局时经常会用到浮动,但浮动脱标后会带来
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>my new post</title>
+    <link href="http://yoursite.com/2016/02/15/my-new-post/"/>
+    <id>http://yoursite.com/2016/02/15/my-new-post/</id>
+    <published>2016-02-14T16:53:11.000Z</published>
+    <updated>2016-02-15T03:08:51.354Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;偶然知道了github,一直都想试一下&lt;br&gt;后来发现github上可以写博客,正好可以写一些平时思考的问题&lt;br&gt;&lt;strong&gt;就以此作为开始吧&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;偶然知道了github,一直都想试一下&lt;br&gt;后来发现github上可以写博客,正好可以写一些平时思考的
+    
+    </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/02/10/hello-world/"/>
+    <id>http://yoursite.com/2016/02/10/hello-world/</id>
+    <published>2016-02-10T14:16:43.797Z</published>
+    <updated>2016-01-13T00:05:26.027Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick_Start&quot;&gt;&lt;a href=&quot;#Quick_Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create_a_new_post&quot;&gt;&lt;a href=&quot;#Create_a_new_post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run_server&quot;&gt;&lt;a href=&quot;#Run_server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate_static_files&quot;&gt;&lt;a href=&quot;#Generate_static_files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy_to_remote_sites&quot;&gt;&lt;a href=&quot;#Deploy_to_remote_sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

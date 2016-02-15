@@ -1,10 +1,10 @@
 
- <!DOCTYPE HTML>
+  <!DOCTYPE HTML>
 <html >
 <head>
   <meta charset="UTF-8">
   
-    <title>tags | HeartWalker&#39;s Blog</title>
+    <title>分類 : css | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
@@ -13,13 +13,12 @@
     
     <meta name="description" content="js,html,css">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta property="og:title" content="HeartWalker's Blog">
+<meta property="og:url" content="http://yoursite.com/categories/css/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
 <meta property="og:description" content="js,html,css">
-<meta property="og:updated_time" content="2016-02-10T15:05:04.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="HeartWalker's Blog">
 <meta name="twitter:description" content="js,html,css">
 
     
@@ -74,19 +73,31 @@
 </div>
       </header>
       <div id="container">
-          
+        
+
 <div class="archive-title" >
-<h2 class="tag-icon">標簽</h2>
-
-<a data-src="/tags/随笔/" href="#随笔" title="随笔">随笔<sup>1</sup></a>
-
+  <h2 class="category-icon">css</h2>
+  
 </div>
-<div id="main" class="archive-part">
-<div class="all-list-box"></div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/02/16/clear-float/" title="clear float" itemprop="url">
+  
+
+    <time datetime="2016-02-15T16:19:23.000Z" itemprop="datePublished">2016-02-16</time>
+
+
+    <h1 itemprop="name">clear float</h1>
+
+  </a>
+</section>
+
+
+  </div>
 </div>
-
-
-
 
       </div>
       <footer><div id="footer" >
@@ -185,24 +196,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var list    = $('.archive-title a'),
-      box     = $('.all-list-box'),
-      first   = $('.archive-title a:first-of-type');
-      box.load(first.attr('data-src').toString()+' #archive-page');
-      first.addClass('current');
-  list.each(function(){
-    $(this).click(function(){
-      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
-      box.load(listSrc);
-      list.removeClass('current');
-      $(this).addClass('current');
-     });  
-    });
-  }); 
-</script>
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
