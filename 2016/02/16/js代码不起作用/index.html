@@ -4,22 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>HeartWalker&#39;s Blog</title>
+    <title>js代码不起作用 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="js,html,css">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HeartWalker's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="新人学习js时经常会遇到这样的问题:代码明明正确,就是不起作用,这时你可能需要这样做:
+将js代码标签放到html标签最后,或者添加onload事件12345&amp;lt;script&amp;gt;window.onload = function ()&amp;#123;    //你的js代码&amp;#125;&amp;lt;/script&amp;gt;
+注意:一个js或者html中只能有一个window.onload函数
+如果是1&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js代码不起作用">
+<meta property="og:url" content="http://yoursite.com/2016/02/16/js代码不起作用/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="js,html,css">
+<meta property="og:description" content="新人学习js时经常会遇到这样的问题:代码明明正确,就是不起作用,这时你可能需要这样做:
+将js代码标签放到html标签最后,或者添加onload事件12345&amp;lt;script&amp;gt;window.onload = function ()&amp;#123;    //你的js代码&amp;#125;&amp;lt;/script&amp;gt;
+注意:一个js或者html中只能有一个window.onload函数
+如果是1&amp;">
+<meta property="og:updated_time" content="2016-02-16T10:47:04.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HeartWalker's Blog">
-<meta name="twitter:description" content="js,html,css">
+<meta name="twitter:title" content="js代码不起作用">
+<meta name="twitter:description" content="新人学习js时经常会遇到这样的问题:代码明明正确,就是不起作用,这时你可能需要这样做:
+将js代码标签放到html标签最后,或者添加onload事件12345&amp;lt;script&amp;gt;window.onload = function ()&amp;#123;    //你的js代码&amp;#125;&amp;lt;/script&amp;gt;
+注意:一个js或者html中只能有一个window.onload函数
+如果是1&amp;">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -73,12 +83,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/02/16/js代码不起作用/" title="js代码不起作用" itemprop="url">js代码不起作用</a>
@@ -92,21 +100,23 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>新人学习js时经常会遇到这样的问题:<br>代码明明正确,就是不起作用,这时你可能需要这样做:</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			
+		
+		</div>
+		
+		<p>新人学习js时经常会遇到这样的问题:<br>代码明明正确,就是不起作用,这时你可能需要这样做:</p>
 <p>将<script>js代码</script>标签放到html标签最后,或者添加onload事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">    //你的js代码</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <pre><code>注意:一个js或者html中只能有一个window.onload函数
 </code></pre><p>如果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"tools.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p> 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -119,224 +129,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/02/16/js代码不起作用/" data-title="js代码不起作用 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/16/clear-float/" title="clear float" itemprop="url">clear float</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-15T16:19:23.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u6E05_u9664_u6D6E_u52A8"><a href="#u6E05_u9664_u6D6E_u52A8" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法</p>
-<h5 id="1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><a href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6" class="headerlink" title="1.：给父盒子一个高度"></a>1.：给父盒子一个高度</h5><h5 id="2-_uFF1Aclear_3Aleft_7C_right_7C_both"><a href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both" class="headerlink" title="2.：clear:left| right| both"></a>2.：clear:left| right| both</h5><p>　　不推荐 基本没人用吧</p>
-<h5 id="3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><a href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden" class="headerlink" title="3.：给父盒子设置overflow:hidden"></a>3.：给父盒子设置overflow:hidden</h5><p>　　有定位的话不推荐 应为可能超出盒子 看需求使用  </p>
-<h5 id="4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><a href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B" class="headerlink" title="4.：使用伪类"></a>4.：使用伪类</h5><pre><code>.clearfix:after{
-    content:””;
-    height:0;
-    line-height:0;
-    visibility:hidden;
-    display:block;
-    clear:both;
-}
-.clearfix{
-    *zoom:1;
-}
-</code></pre><p>　　目前通用方法</p>
-<h5 id="5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5"><a href="#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5" class="headerlink" title="5. : 双伪元素法"></a>5. : 双伪元素法</h5><pre><code>.clearfix:before, .clearfix:after {
-    content: &quot;&quot;;
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1; /*IE/7/6*/
-}
-</code></pre><p>　　应该是目前最好的方法了吧</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/02/16/clear-float/"  title="clear float">
+ <strong>下一篇：</strong><br/> 
+ <span>clear float
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/15/my-new-post/" title="my new post" itemprop="url">my new post</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-14T16:53:11.000Z" itemprop="datePublished"> 發表於 2016-02-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u521D_u59CB"><a href="#u521D_u59CB" class="headerlink" title="初始"></a>初始</h2><p>偶然知道了github,一直都想试一下<br>后来发现github上可以写博客,正好可以写一些平时思考的问题<br><strong>就以此作为开始吧</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/随笔/">随笔</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-10T14:16:43.797Z" itemprop="datePublished"> 發表於 2016-02-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
@@ -491,12 +320,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -567,4 +473,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>

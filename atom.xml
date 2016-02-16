@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-15T16:52:15.534Z</updated>
+  <updated>2016-02-16T10:47:04.169Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js代码不起作用</title>
+    <link href="http://yoursite.com/2016/02/16/js%E4%BB%A3%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/02/16/js代码不起作用/</id>
+    <published>2016-02-16T10:26:56.000Z</published>
+    <updated>2016-02-16T10:47:04.169Z</updated>
+    
+    <content type="html">&lt;p&gt;新人学习js时经常会遇到这样的问题:&lt;br&gt;代码明明正确,就是不起作用,这时你可能需要这样做:&lt;/p&gt;
+&lt;p&gt;将&lt;script&gt;js代码&lt;/script&gt;标签放到html标签最后,或者添加onload事件&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.onload = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; ()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //你的js代码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;注意:一个js或者html中只能有一个window.onload函数
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果是&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;tools.js&quot;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新人学习js时经常会遇到这样的问题:&lt;br&gt;代码明明正确,就是不起作用,这时你可能需要这样做:&lt;/p&gt;
+&lt;p&gt;将&lt;script&gt;js代码&lt;/script&gt;标签放到html标签最后,或者添加onload事件&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>clear float</title>
