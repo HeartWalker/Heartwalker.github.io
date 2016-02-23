@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-21T01:56:58.993Z</updated>
+  <updated>2016-02-23T03:07:29.073Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>美工css与js</title>
+    <link href="http://yoursite.com/2016/02/23/%E7%BE%8E%E5%B7%A5css%E4%B8%8Ejs/"/>
+    <id>http://yoursite.com/2016/02/23/美工css与js/</id>
+    <published>2016-02-23T02:03:30.000Z</published>
+    <updated>2016-02-23T03:07:29.073Z</updated>
+    
+    <content type="html">&lt;p&gt;书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码
+    
+    </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>编程是门艺术</title>
