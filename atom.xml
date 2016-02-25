@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-23T03:07:29.073Z</updated>
+  <updated>2016-02-25T16:12:24.624Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>=和==与===</title>
+    <link href="http://yoursite.com/2016/02/25/=%E5%92%8C==%E4%B8%8E===/"/>
+    <id>http://yoursite.com/2016/02/25/=和==与===/</id>
+    <published>2016-02-25T15:38:57.000Z</published>
+    <updated>2016-02-25T16:12:24.624Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u5173_u4E8E_3D&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_3D&quot; class=&quot;headerlink&quot; title=&quot;关于=&quot;&gt;&lt;/a&gt;关于=&lt;/h2&gt;&lt;p&gt;首先一定要区别=与==;=与===有本质的区别&lt;br&gt;    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.&lt;/p&gt;
+&lt;h2 id=&quot;u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C&quot; class=&quot;headerlink&quot; title=&quot;关于==与===的异同&quot;&gt;&lt;/a&gt;关于==与===的异同&lt;/h2&gt;&lt;p&gt;== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.&lt;/p&gt;
+&lt;p&gt;=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.&lt;/p&gt;
+&lt;p&gt;强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a. 如果两个操作对象是同样类型使用 ===&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b. undefined == null&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Javascript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var a = &amp;#123;a: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var b = &amp;#123;a: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a == b //&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a === b //&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var c = a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a == c//&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a === c //&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u5173_u4E8E_3D&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_3D&quot; class=&quot;headerlink&quot; title=&quot;关于=&quot;&gt;&lt;/a&gt;关于=&lt;/h2&gt;&lt;p&gt;首先一定要区别=与==;=与===有本质的区别&lt;br&gt;    =号是赋值;而==与===
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>美工css与js</title>
