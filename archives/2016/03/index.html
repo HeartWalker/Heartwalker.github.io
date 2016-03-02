@@ -1,10 +1,10 @@
 
- <!DOCTYPE HTML>
+  <!DOCTYPE HTML>
 <html >
 <head>
   <meta charset="UTF-8">
   
-    <title>categories | HeartWalker&#39;s Blog</title>
+    <title>歸檔: 2016/3 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
@@ -13,13 +13,12 @@
     
     <meta name="description" content="js,html,css,前端,HeartWalker&apos;s Blog,心行者的博客,JavaScript">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:title" content="HeartWalker's Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
 <meta property="og:description" content="js,html,css,前端,HeartWalker&apos;s Blog,心行者的博客,JavaScript">
-<meta property="og:updated_time" content="2016-02-10T15:10:44.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="HeartWalker's Blog">
 <meta name="twitter:description" content="js,html,css,前端,HeartWalker&apos;s Blog,心行者的博客,JavaScript">
 
     
@@ -74,21 +73,35 @@
 </div>
       </header>
       <div id="container">
-          
+        
+
 <div class="archive-title" >
-<h2 class="category-icon">分類</h2>
-
-<a data-src="/categories/css/" href="#css" title="css">css<sup>4</sup></a>
-
-<a data-src="/categories/js/" href="#js" title="js">js<sup>3</sup></a>
-
-<a data-src="/categories/生活/" href="#生活" title="生活">生活<sup>3</sup></a>
-
+  <h2 class="archive-icon">2016/3</h2>
+  
+  <div class="archiveslist archive-float clearfix">
+   <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">2016 年 03 月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2016 年 02 月</a><span class="archive-list-count">10</span></li></ul>
+ </div>
+  
 </div>
-<div id="main" class="archive-part">
-<div class="all-list-box"></div>
-</div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
 
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/03/03/css透明度/" title="css透明度" itemprop="url">
+  
+
+    <time datetime="2016-03-02T16:13:41.000Z" itemprop="datePublished">2016-03-03</time>
+
+
+    <h1 itemprop="name">css透明度</h1>
+
+  </a>
+</section>
+
+
+  </div>
+</div>
 
       </div>
       <footer><div id="footer" >
@@ -187,24 +200,6 @@ $(document).ready(function(){
 
 
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var list    = $('.archive-title a'),
-      box     = $('.all-list-box'),
-      first   = $('.archive-title a:first-of-type');
-      box.load(first.attr('data-src').toString()+' #archive-page');
-      first.addClass('current');
-  list.each(function(){
-    $(this).click(function(){
-      var listSrc=$(this).attr('data-src').toString()+' #archive-page';
-      box.load(listSrc);
-      list.removeClass('current');
-      $(this).addClass('current');
-     });  
-    });
-  }); 
-</script>
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">

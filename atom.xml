@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-28T15:33:34.264Z</updated>
+  <updated>2016-03-02T16:33:19.624Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css透明度</title>
+    <link href="http://yoursite.com/2016/03/03/css%E9%80%8F%E6%98%8E%E5%BA%A6/"/>
+    <id>http://yoursite.com/2016/03/03/css透明度/</id>
+    <published>2016-03-02T16:13:41.000Z</published>
+    <updated>2016-03-02T16:33:19.624Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;想要实现透明有下面四个方法&quot;&gt;&lt;/a&gt;想要实现透明有下面四个方法&lt;/h2&gt;&lt;h3 id=&quot;opacity&quot;&gt;&lt;a href=&quot;#opacity&quot; class=&quot;headerlink&quot; title=&quot;opacity&quot;&gt;&lt;/a&gt;opacity&lt;/h3&gt;&lt;p&gt;通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果&lt;/p&gt;
+&lt;h3 id=&quot;transparent&quot;&gt;&lt;a href=&quot;#transparent&quot; class=&quot;headerlink&quot; title=&quot;transparent&quot;&gt;&lt;/a&gt;transparent&lt;/h3&gt;&lt;p&gt;如background:transparent;表示全透明 无法设置具体的值,对border同样适用 &lt;/p&gt;
+&lt;h3 id=&quot;rgba&quot;&gt;&lt;a href=&quot;#rgba&quot; class=&quot;headerlink&quot; title=&quot;rgba&quot;&gt;&lt;/a&gt;rgba&lt;/h3&gt;&lt;p&gt;如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用&lt;/p&gt;
+&lt;h3 id=&quot;hsla&quot;&gt;&lt;a href=&quot;#hsla&quot; class=&quot;headerlink&quot; title=&quot;hsla&quot;&gt;&lt;/a&gt;hsla&lt;/h3&gt;&lt;p&gt;如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)&lt;br&gt;S 饱和度 取值范围0%~100%&lt;br&gt;L 亮度 取值范围0%~100%&lt;br&gt;A 透明度 取值范围0~1;用法及效果与rgba一致&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;注:它们在ie &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;上都有兼容性问题&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>z-index层级</title>
@@ -251,13 +275,13 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     <link href="http://yoursite.com/2016/02/16/clear-float/"/>
     <id>http://yoursite.com/2016/02/16/clear-float/</id>
     <published>2016-02-15T16:19:23.000Z</published>
-    <updated>2016-02-15T16:52:15.534Z</updated>
+    <updated>2016-03-02T08:05:49.898Z</updated>
     
     <content type="html">&lt;h2 id=&quot;u6E05_u9664_u6D6E_u52A8&quot;&gt;&lt;a href=&quot;#u6E05_u9664_u6D6E_u52A8&quot; class=&quot;headerlink&quot; title=&quot;清除浮动&quot;&gt;&lt;/a&gt;清除浮动&lt;/h2&gt;&lt;p&gt;在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法&lt;/p&gt;
 &lt;h5 id=&quot;1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6&quot;&gt;&lt;a href=&quot;#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6&quot; class=&quot;headerlink&quot; title=&quot;1.：给父盒子一个高度&quot;&gt;&lt;/a&gt;1.：给父盒子一个高度&lt;/h5&gt;&lt;h5 id=&quot;2-_uFF1Aclear_3Aleft_7C_right_7C_both&quot;&gt;&lt;a href=&quot;#2-_uFF1Aclear_3Aleft_7C_right_7C_both&quot; class=&quot;headerlink&quot; title=&quot;2.：clear:left| right| both&quot;&gt;&lt;/a&gt;2.：clear:left| right| both&lt;/h5&gt;&lt;p&gt;　　不推荐 基本没人用吧&lt;/p&gt;
 &lt;h5 id=&quot;3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden&quot;&gt;&lt;a href=&quot;#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden&quot; class=&quot;headerlink&quot; title=&quot;3.：给父盒子设置overflow:hidden&quot;&gt;&lt;/a&gt;3.：给父盒子设置overflow:hidden&lt;/h5&gt;&lt;p&gt;　　有定位的话不推荐 应为可能超出盒子 看需求使用  &lt;/p&gt;
 &lt;h5 id=&quot;4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B&quot;&gt;&lt;a href=&quot;#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B&quot; class=&quot;headerlink&quot; title=&quot;4.：使用伪类&quot;&gt;&lt;/a&gt;4.：使用伪类&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;.clearfix:after{
-    content:””;
+    content:&amp;quot;&amp;quot;;
     height:0;
     line-height:0;
     visibility:hidden;

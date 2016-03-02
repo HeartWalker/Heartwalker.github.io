@@ -81,6 +81,64 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/03/css透明度/" title="css透明度" itemprop="url">css透明度</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-02T16:13:41.000Z" itemprop="datePublished"> 發表於 2016-03-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><a href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5" class="headerlink" title="想要实现透明有下面四个方法"></a>想要实现透明有下面四个方法</h2><h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><p>通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果</p>
+<h3 id="transparent"><a href="#transparent" class="headerlink" title="transparent"></a>transparent</h3><p>如background:transparent;表示全透明 无法设置具体的值,对border同样适用 </p>
+<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><p>如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用</p>
+<h3 id="hsla"><a href="#hsla" class="headerlink" title="hsla"></a>hsla</h3><p>如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)<br>S 饱和度 取值范围0%~100%<br>L 亮度 取值范围0%~100%<br>A 透明度 取值范围0~1;用法及效果与rgba一致<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注:它们在ie <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>上都有兼容性问题</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/02/28/z-index层级/" title="z-index层级" itemprop="url">z-index层级</a>
   </h1>
   <p class="article-author">By
@@ -572,7 +630,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 <h5 id="1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><a href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6" class="headerlink" title="1.：给父盒子一个高度"></a>1.：给父盒子一个高度</h5><h5 id="2-_uFF1Aclear_3Aleft_7C_right_7C_both"><a href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both" class="headerlink" title="2.：clear:left| right| both"></a>2.：clear:left| right| both</h5><p>　　不推荐 基本没人用吧</p>
 <h5 id="3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><a href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden" class="headerlink" title="3.：给父盒子设置overflow:hidden"></a>3.：给父盒子设置overflow:hidden</h5><p>　　有定位的话不推荐 应为可能超出盒子 看需求使用  </p>
 <h5 id="4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><a href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B" class="headerlink" title="4.：使用伪类"></a>4.：使用伪类</h5><pre><code>.clearfix:after{
-    content:””;
+    content:&quot;&quot;;
     height:0;
     line-height:0;
     visibility:hidden;
@@ -691,64 +749,10 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-10T14:16:43.797Z" itemprop="datePublished"> 發表於 2016-02-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
@@ -766,7 +770,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		<ul>
 		
 		  
-			<li><a href="/categories/css/" title="css">css<sup>3</sup></a></li>
+			<li><a href="/categories/css/" title="css">css<sup>4</sup></a></li>
 		  
 		
 		  
