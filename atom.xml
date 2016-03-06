@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-02T16:33:19.624Z</updated>
+  <updated>2016-03-06T02:53:53.521Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>border-image-width</title>
+    <link href="http://yoursite.com/2016/03/06/border-image-width/"/>
+    <id>http://yoursite.com/2016/03/06/border-image-width/</id>
+    <published>2016-03-06T02:36:09.000Z</published>
+    <updated>2016-03-06T02:53:53.521Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;border-image-width&quot;&gt;&lt;a href=&quot;#border-image-width&quot; class=&quot;headerlink&quot; title=&quot;border-image-width&quot;&gt;&lt;/a&gt;border-image-width&lt;/h2&gt;&lt;p&gt;border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小&lt;/p&gt;
+&lt;h3 id=&quot;border-width_u4E0Eborder-image-width&quot;&gt;&lt;a href=&quot;#border-width_u4E0Eborder-image-width&quot; class=&quot;headerlink&quot; title=&quot;border-width与border-image-width&quot;&gt;&lt;/a&gt;border-width与border-image-width&lt;/h3&gt;&lt;p&gt;那么它们有什么关联呢?&lt;br&gt;首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它&lt;/p&gt;
+&lt;h3 id=&quot;border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898&quot;&gt;&lt;a href=&quot;#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898&quot; class=&quot;headerlink&quot; title=&quot;border-image-width的兼容性问题&quot;&gt;&lt;/a&gt;border-image-width的兼容性问题&lt;/h3&gt;&lt;p&gt;经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 &lt;/p&gt;
+&lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;若果要使用border-image最好在border上使用:即要有border-width属性&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;border-image-width&quot;&gt;&lt;a href=&quot;#border-image-width&quot; class=&quot;headerlink&quot; title=&quot;border-image-width&quot;&gt;&lt;/a&gt;border-image-width&lt;/h2&gt;&lt;p&gt;border
+    
+    </summary>
+    
+      <category term="css3" scheme="http://yoursite.com/categories/css3/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>css透明度</title>

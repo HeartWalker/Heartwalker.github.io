@@ -81,6 +81,64 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/06/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-06T02:36:09.000Z" itemprop="datePublished"> 發表於 2016-03-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="border-image-width"><a href="#border-image-width" class="headerlink" title="border-image-width"></a>border-image-width</h2><p>border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小</p>
+<h3 id="border-width_u4E0Eborder-image-width"><a href="#border-width_u4E0Eborder-image-width" class="headerlink" title="border-width与border-image-width"></a>border-width与border-image-width</h3><p>那么它们有什么关联呢?<br>首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它</p>
+<h3 id="border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><a href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898" class="headerlink" title="border-image-width的兼容性问题"></a>border-image-width的兼容性问题</h3><p>经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 </p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>若果要使用border-image最好在border上使用:即要有border-width属性</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css3/">css3</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/03/css透明度/" title="css透明度" itemprop="url">css透明度</a>
   </h1>
   <p class="article-author">By
@@ -689,66 +747,6 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/15/my-new-post/" title="my new post" itemprop="url">my new post</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-14T16:53:11.000Z" itemprop="datePublished"> 發表於 2016-02-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u521D_u59CB"><a href="#u521D_u59CB" class="headerlink" title="初始"></a>初始</h2><p>偶然知道了github,一直都想试一下<br>后来发现github上可以写博客,正好可以写一些平时思考的问题<br><strong>就以此作为开始吧</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/随笔/">随笔</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -771,6 +769,10 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		
 		  
 			<li><a href="/categories/css/" title="css">css<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/css3/" title="css3">css3<sup>1</sup></a></li>
 		  
 		
 		  
