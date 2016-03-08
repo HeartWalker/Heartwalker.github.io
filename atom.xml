@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-06T02:53:53.521Z</updated>
+  <updated>2016-03-08T15:23:15.009Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css与@import引入css</title>
+    <link href="http://yoursite.com/2016/03/08/css%E4%B8%8E@import%E5%BC%95%E5%85%A5css/"/>
+    <id>http://yoursite.com/2016/03/08/css与@import引入css/</id>
+    <published>2016-03-08T14:54:18.000Z</published>
+    <updated>2016-03-08T15:23:15.009Z</updated>
+    
+    <content type="html">&lt;p&gt;  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.&lt;/p&gt;
+&lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@import url(style.css)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;link rel=&lt;span class=&quot;string&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; href=&lt;span class=&quot;string&quot;&gt;&quot;style.css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u533A_u522B&quot;&gt;&lt;a href=&quot;#u533A_u522B&quot; class=&quot;headerlink&quot; title=&quot;区别&quot;&gt;&lt;/a&gt;区别&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除了可以加载CSS外，还可以做很多其它的事情，比如定义RSS，定义rel连接属性等，@import就只能加载CSS了。&lt;/li&gt;
+&lt;li&gt;加载顺序的差别。当一个页面被加载的时候（就是被浏览者浏览的时候），link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。所以有时候浏览@import加载CSS的页面时开始会没有样式（就是闪烁），网速慢的时候还挺明显。&lt;/li&gt;
+&lt;li&gt;兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。&lt;/li&gt;
+&lt;li&gt;使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。&lt;/li&gt;
+&lt;li&gt;@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表&lt;h3 id=&quot;u6CE8_3A&quot;&gt;&lt;a href=&quot;#u6CE8_3A&quot; class=&quot;headerlink&quot; title=&quot;注:&quot;&gt;&lt;/a&gt;注:&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;当页面中同时使用@import与其他样式书写的css时,用@import引入的样式必须在css样式的最前方.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;由于前端css压缩与合成工具的流行,@import用的越来越少了,这种方式也并不被推荐使用&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.&lt;/p&gt;
+&lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>border-image-width</title>

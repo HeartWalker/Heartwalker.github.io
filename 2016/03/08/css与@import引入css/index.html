@@ -4,29 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>=和==与=== | HeartWalker&#39;s Blog</title>
+    <title>css与@import引入css | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="关于=首先一定要区别=与==;=与===有本质的区别    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.
-关于==与===的异同== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.
-=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比">
+    <meta name="description" content="在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.
+语法12@import url(style.css)&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&amp;gt;
+区别
+link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除">
 <meta property="og:type" content="article">
-<meta property="og:title" content="=和==与===">
-<meta property="og:url" content="http://yoursite.com/2016/02/25/=和==与===/index.html">
+<meta property="og:title" content="css与@import引入css">
+<meta property="og:url" content="http://yoursite.com/2016/03/08/css与@import引入css/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="关于=首先一定要区别=与==;=与===有本质的区别    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.
-关于==与===的异同== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.
-=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比">
-<meta property="og:updated_time" content="2016-02-25T16:12:24.624Z">
+<meta property="og:description" content="在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.
+语法12@import url(style.css)&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&amp;gt;
+区别
+link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除">
+<meta property="og:updated_time" content="2016-03-08T15:23:15.009Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="=和==与===">
-<meta name="twitter:description" content="关于=首先一定要区别=与==;=与===有本质的区别    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.
-关于==与===的异同== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.
-=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比">
+<meta name="twitter:title" content="css与@import引入css">
+<meta name="twitter:description" content="在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.
+语法12@import url(style.css)&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&amp;gt;
+区别
+link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -86,14 +89,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/25/=和==与===/" title="=和==与===" itemprop="url">=和==与===</a>
+      <a href="/2016/03/08/css与@import引入css/" title="css与@import引入css" itemprop="url">css与@import引入css</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-25T15:38:57.000Z" itemprop="datePublished"> 發表於 2016-02-25</time>
+    <time datetime="2016-03-08T14:54:18.000Z" itemprop="datePublished"> 發表於 2016-03-08</time>
     
   </p>
 </header>
@@ -102,16 +105,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D"><span class="toc-number">1.</span> <span class="toc-text">关于=</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><span class="toc-number">2.</span> <span class="toc-text">关于==与===的异同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BED_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u533A_u522B"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8_3A"><span class="toc-number">3.</span> <span class="toc-text">注:</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="u5173_u4E8E_3D"><a href="#u5173_u4E8E_3D" class="headerlink" title="关于="></a>关于=</h2><p>首先一定要区别=与==;=与===有本质的区别<br>    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.</p>
-<h2 id="u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><a href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C" class="headerlink" title="关于==与===的异同"></a>关于==与===的异同</h2><p>== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.</p>
-<p>=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.</p>
-<p>强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a. 如果两个操作对象是同样类型使用 ===</span><br><span class="line">b. undefined == null</span><br><span class="line">c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.</span><br><span class="line">d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.</span><br><span class="line">e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.</span><br></pre></td></tr></table></figure></p>
-<p>当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Javascript</span><br><span class="line">var a = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">var b = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">a == b //<span class="literal">false</span></span><br><span class="line">a === b //<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">var c = a;</span><br><span class="line">a == c//<span class="literal">true</span></span><br><span class="line">a === c //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.</p>
+		<p>  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.</p>
+<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import url(style.css)</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除了可以加载CSS外，还可以做很多其它的事情，比如定义RSS，定义rel连接属性等，@import就只能加载CSS了。</li>
+<li>加载顺序的差别。当一个页面被加载的时候（就是被浏览者浏览的时候），link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。所以有时候浏览@import加载CSS的页面时开始会没有样式（就是闪烁），网速慢的时候还挺明显。</li>
+<li>兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。</li>
+<li>使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。</li>
+<li>@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表<h3 id="u6CE8_3A"><a href="#u6CE8_3A" class="headerlink" title="注:"></a>注:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面中同时使用@import与其他样式书写的css时,用@import引入的样式必须在css样式的最前方.</span><br><span class="line">由于前端css压缩与合成工具的流行,@import用的越来越少了,这种方式也并不被推荐使用</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +126,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
+  <a class="article-category-link" href="/categories/css/">css</a>
 </div>
 
 
@@ -129,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/02/25/=和==与===/" data-title="=和==与=== | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/08/css与@import引入css/" data-title="css与@import引入css | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,19 +149,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/28/z-index层级/" title="z-index层级">
-  <strong>上一篇：</strong><br/>
-  <span>
-  z-index层级</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/23/美工css与js/"  title="美工css与js">
+<a href="/2016/03/06/border-image-width/"  title="border-image-width">
  <strong>下一篇：</strong><br/> 
- <span>美工css与js
+ <span>border-image-width
 </span>
 </a>
 </div>
@@ -169,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D"><span class="toc-number">1.</span> <span class="toc-text">关于=</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><span class="toc-number">2.</span> <span class="toc-text">关于==与===的异同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BED_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u533A_u522B"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8_3A"><span class="toc-number">3.</span> <span class="toc-text">注:</span></a></li></ol>
  
   </div>
 
