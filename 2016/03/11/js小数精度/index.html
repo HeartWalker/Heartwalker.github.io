@@ -4,29 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>=和==与=== | HeartWalker&#39;s Blog</title>
+    <title>js小数精度 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="关于=首先一定要区别=与==;=与===有本质的区别    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.
-关于==与===的异同== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.
-=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比">
+    <meta name="description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
+console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+为什么不是0.3与0.1呢?
+原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="=和==与===">
-<meta property="og:url" content="http://yoursite.com/2016/02/25/=和==与===/index.html">
+<meta property="og:title" content="js小数精度">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/js小数精度/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="关于=首先一定要区别=与==;=与===有本质的区别    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.
-关于==与===的异同== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.
-=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比">
-<meta property="og:updated_time" content="2016-02-25T16:12:24.624Z">
+<meta property="og:description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
+console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+为什么不是0.3与0.1呢?
+原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示">
+<meta property="og:updated_time" content="2016-03-11T01:07:47.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="=和==与===">
-<meta name="twitter:description" content="关于=首先一定要区别=与==;=与===有本质的区别    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.
-关于==与===的异同== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.
-=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比">
+<meta name="twitter:title" content="js小数精度">
+<meta name="twitter:description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
+console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+为什么不是0.3与0.1呢?
+原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -86,14 +98,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/25/=和==与===/" title="=和==与===" itemprop="url">=和==与===</a>
+      <a href="/2016/03/11/js小数精度/" title="js小数精度" itemprop="url">js小数精度</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-25T15:38:57.000Z" itemprop="datePublished"> 發表於 2016-02-25</time>
+    <time datetime="2016-03-10T17:36:33.000Z" itemprop="datePublished"> 發表於 2016-03-11</time>
     
   </p>
 </header>
@@ -102,17 +114,29 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D"><span class="toc-number">1.</span> <span class="toc-text">关于=</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><span class="toc-number">2.</span> <span class="toc-text">关于==与===的异同</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u793A_u4F8B"><span class="toc-number">1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u56E0"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><span class="toc-number">3.</span> <span class="toc-text">为什么java可以</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="u5173_u4E8E_3D"><a href="#u5173_u4E8E_3D" class="headerlink" title="关于="></a>关于=</h2><p>首先一定要区别=与==;=与===有本质的区别<br>    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.</p>
-<h2 id="u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><a href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C" class="headerlink" title="关于==与===的异同"></a>关于==与===的异同</h2><p>== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.</p>
-<p>=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.</p>
-<p>强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a. 如果两个操作对象是同样类型使用 ===</span><br><span class="line">b. undefined == null</span><br><span class="line">c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.</span><br><span class="line">d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.</span><br><span class="line">e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.</span><br></pre></td></tr></table></figure></p>
-<p>当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Javascript</span><br><span class="line">var a = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">var b = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">a == b //<span class="literal">false</span></span><br><span class="line">a === b //<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">var c = a;</span><br><span class="line">a == c//<span class="literal">true</span></span><br><span class="line">a === c //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.</p>
-  
+		<h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:</p>
+<pre><code>console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+</code></pre><p>为什么不是0.3与0.1呢?</p>
+<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><pre><code>Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
+</code></pre><p>那么让我们看一下二进制中0.1与0.2到底是多少</p>
+<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
+0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
+</code></pre><p>但是在js中小数位数是有限的:</p>
+<pre><code>console.log(Number(0.1).toString(2))
+0.0001100110011001100110011001100110011001100110011001101
+
+console.log(Number(0.2).toString(2))
+0.001100110011001100110011001100110011001100110011001101
+</code></pre><p>将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
+<h3 id="u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><a href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5" class="headerlink" title="为什么java可以"></a>为什么java可以</h3><p>像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装</p>
+<h3 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在运算前我们把参加运算的数先升级(<span class="number">10</span>的X的次方)到整数，等运算完后再降级(<span class="number">0.1</span>的X的次方)</span><br><span class="line">根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()</span><br><span class="line">根据需要保留指定位数的小数:如toFixed()</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -129,7 +153,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/02/25/=和==与===/" data-title="=和==与=== | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/11/js小数精度/" data-title="js小数精度 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,18 +167,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/02/28/z-index层级/" title="z-index层级">
+ <a href="/2016/03/11/css垂直居中/" title="css垂直居中">
   <strong>上一篇：</strong><br/>
   <span>
-  z-index层级</span>
+  css垂直居中</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/02/23/美工css与js/"  title="美工css与js">
+<a href="/2016/03/08/css与@import引入css/"  title="css与@import引入css">
  <strong>下一篇：</strong><br/> 
- <span>美工css与js
+ <span>css与@import引入css
 </span>
 </a>
 </div>
@@ -169,7 +193,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D"><span class="toc-number">1.</span> <span class="toc-text">关于=</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><span class="toc-number">2.</span> <span class="toc-text">关于==与===的异同</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u793A_u4F8B"><span class="toc-number">1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u56E0"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><span class="toc-number">3.</span> <span class="toc-text">为什么java可以</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li></ol>
  
   </div>
 

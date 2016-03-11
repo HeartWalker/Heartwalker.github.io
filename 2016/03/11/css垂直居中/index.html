@@ -4,22 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>HeartWalker&#39;s Blog</title>
+    <title>css垂直居中 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="js,html,css,前端,HeartWalker&apos;s Blog,心行者的博客,JavaScript">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HeartWalker's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="css中经常会遇到盒子需要垂直居中,现总结出以下几种方法例如:实现content盒子居中
+margin与padding最简单的方法就是设置margin或padding值,以margin为例123456789101112131415161718192021222324252627282930313233343536&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css垂直居中">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/css垂直居中/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="js,html,css,前端,HeartWalker&apos;s Blog,心行者的博客,JavaScript">
+<meta property="og:description" content="css中经常会遇到盒子需要垂直居中,现总结出以下几种方法例如:实现content盒子居中
+margin与padding最简单的方法就是设置margin或padding值,以margin为例123456789101112131415161718192021222324252627282930313233343536&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;">
+<meta property="og:updated_time" content="2016-03-11T15:30:53.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HeartWalker's Blog">
-<meta name="twitter:description" content="js,html,css,前端,HeartWalker&apos;s Blog,心行者的博客,JavaScript">
+<meta name="twitter:title" content="css垂直居中">
+<meta name="twitter:description" content="css中经常会遇到盒子需要垂直居中,现总结出以下几种方法例如:实现content盒子居中
+margin与padding最简单的方法就是设置margin或padding值,以margin为例123456789101112131415161718192021222324252627282930313233343536&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -73,12 +77,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/03/11/css垂直居中/" title="css垂直居中" itemprop="url">css垂直居中</a>
@@ -92,9 +94,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>css中经常会遇到盒子需要垂直居中,现总结出以下几种方法<br>例如:实现content盒子居中</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#margin_u4E0Epadding"><span class="toc-number">1.</span> <span class="toc-text">margin与padding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7_u5B9A_u4F4D"><span class="toc-number">2.</span> <span class="toc-text">通过定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7vertical-align_u5176_u4E00"><span class="toc-number">3.</span> <span class="toc-text">通过vertical-align其一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7vertical-align_u5176_u4E8C"><span class="toc-number">4.</span> <span class="toc-text">通过vertical-align其二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7_u4F38_u7F29_u76D2"><span class="toc-number">5.</span> <span class="toc-text">通过伸缩盒</span></a></li></ol>
+		
+		</div>
+		
+		<p>css中经常会遇到盒子需要垂直居中,现总结出以下几种方法<br>例如:实现content盒子居中</p>
 <h3 id="margin_u4E0Epadding"><a href="#margin_u4E0Epadding" class="headerlink" title="margin与padding"></a>margin与padding</h3><p>最简单的方法就是设置margin或padding值,以margin为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line"></span><br><span class="line">                /*  垂直居中相关css */</span><br><span class="line">                margin:<span class="number">125</span>px auto;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
 <p>缺点:需要计算且没有灵活性</p>
 <h3 id="u901A_u8FC7_u5B9A_u4F4D"><a href="#u901A_u8FC7_u5B9A_u4F4D" class="headerlink" title="通过定位"></a>通过定位</h3><p>利用定于和css3的transform属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line"></span><br><span class="line">                /* 垂直居中相关css */</span><br><span class="line">                position: relative;</span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line"></span><br><span class="line">                /* 垂直居中相关css */</span><br><span class="line">                position: absolute;</span><br><span class="line">                top: <span class="number">50</span>%;</span><br><span class="line">                left: <span class="number">50</span>%;</span><br><span class="line">                transform:translate(-<span class="number">50</span>%,-<span class="number">50</span>%);</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
@@ -106,14 +115,9 @@
 <p>缺点:同样是会改变布局</p>
 <h3 id="u901A_u8FC7_u4F38_u7F29_u76D2"><a href="#u901A_u8FC7_u4F38_u7F29_u76D2" class="headerlink" title="通过伸缩盒"></a>通过伸缩盒</h3><p>css3新增了伸缩盒,通过给父盒子设置display:flex;使用它自动的居中属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line"></span><br><span class="line">                /*  垂直居中相关css */</span><br><span class="line">                display: flex;</span><br><span class="line">                align-items:center;</span><br><span class="line">                    /* 水平居中 */</span><br><span class="line">                justify-content:center;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
 <p>缺点:伸缩盒的兼容性就更差了</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -126,584 +130,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/03/11/css垂直居中/" data-title="css垂直居中 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/11/js小数精度/" title="js小数精度" itemprop="url">js小数精度</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-10T17:36:33.000Z" itemprop="datePublished"> 發表於 2016-03-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:</p>
-<pre><code>console.log(0.1+0.2)
-0.30000000000000004
-console.log(0.3 - 0.2)
-0.09999999999999998
-</code></pre><p>为什么不是0.3与0.1呢?</p>
-<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><pre><code>Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
-</code></pre><p>那么让我们看一下二进制中0.1与0.2到底是多少</p>
-<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
-0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
-</code></pre><p>但是在js中小数位数是有限的:</p>
-<pre><code>console.log(Number(0.1).toString(2))
-0.0001100110011001100110011001100110011001100110011001101
-
-console.log(Number(0.2).toString(2))
-0.001100110011001100110011001100110011001100110011001101
-</code></pre><p>将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
-<h3 id="u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><a href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5" class="headerlink" title="为什么java可以"></a>为什么java可以</h3><p>像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装</p>
-<h3 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在运算前我们把参加运算的数先升级(<span class="number">10</span>的X的次方)到整数，等运算完后再降级(<span class="number">0.1</span>的X的次方)</span><br><span class="line">根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()</span><br><span class="line">根据需要保留指定位数的小数:如toFixed()</span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/11/js小数精度/"  title="js小数精度">
+ <strong>下一篇：</strong><br/> 
+ <span>js小数精度
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/08/css与@import引入css/" title="css与@import引入css" itemprop="url">css与@import引入css</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-08T14:54:18.000Z" itemprop="datePublished"> 發表於 2016-03-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.</p>
-<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import url(style.css)</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
-<li>link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除了可以加载CSS外，还可以做很多其它的事情，比如定义RSS，定义rel连接属性等，@import就只能加载CSS了。</li>
-<li>加载顺序的差别。当一个页面被加载的时候（就是被浏览者浏览的时候），link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。所以有时候浏览@import加载CSS的页面时开始会没有样式（就是闪烁），网速慢的时候还挺明显。</li>
-<li>兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。</li>
-<li>使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。</li>
-<li>@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表<h3 id="u6CE8_3A"><a href="#u6CE8_3A" class="headerlink" title="注:"></a>注:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面中同时使用@import与其他样式书写的css时,用@import引入的样式必须在css样式的最前方.</span><br><span class="line">由于前端css压缩与合成工具的流行,@import用的越来越少了,这种方式也并不被推荐使用</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/06/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-06T02:36:09.000Z" itemprop="datePublished"> 發表於 2016-03-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="border-image-width"><a href="#border-image-width" class="headerlink" title="border-image-width"></a>border-image-width</h2><p>border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小</p>
-<h3 id="border-width_u4E0Eborder-image-width"><a href="#border-width_u4E0Eborder-image-width" class="headerlink" title="border-width与border-image-width"></a>border-width与border-image-width</h3><p>那么它们有什么关联呢?<br>首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它</p>
-<h3 id="border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><a href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898" class="headerlink" title="border-image-width的兼容性问题"></a>border-image-width的兼容性问题</h3><p>经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 </p>
-<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>若果要使用border-image最好在border上使用:即要有border-width属性</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css3/">css3</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/03/css透明度/" title="css透明度" itemprop="url">css透明度</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-02T16:13:41.000Z" itemprop="datePublished"> 發表於 2016-03-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><a href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5" class="headerlink" title="想要实现透明有下面四个方法"></a>想要实现透明有下面四个方法</h2><h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><p>通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果</p>
-<h3 id="transparent"><a href="#transparent" class="headerlink" title="transparent"></a>transparent</h3><p>如background:transparent;表示全透明 无法设置具体的值,对border同样适用 </p>
-<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><p>如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用</p>
-<h3 id="hsla"><a href="#hsla" class="headerlink" title="hsla"></a>hsla</h3><p>如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)<br>S 饱和度 取值范围0%~100%<br>L 亮度 取值范围0%~100%<br>A 透明度 取值范围0~1;用法及效果与rgba一致<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注:它们在ie <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>上都有兼容性问题</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/28/z-index层级/" title="z-index层级" itemprop="url">z-index层级</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-28T13:53:23.000Z" itemprop="datePublished"> 發表於 2016-02-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5"><a href="#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5" class="headerlink" title="先说一下概念"></a>先说一下概念</h2><p>因为显示器显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别，表示一个元素在叠加顺序上的上下立体关系。</p>
-<p>注释：  所有主流浏览器都支持 z-index 属性。任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。</p>
-<pre><code>IE6/7下position不为static，且z-index不存在时z-index为0，除此之外的浏览器z-index为auto。
-
-z-index为auto的元素不参与层级关系的比较，由向上遍历至此且z-index不为auto的元素来参与比较。
-</code></pre><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<strong>z-index 仅能在定位元素上奏效。</strong><br>注释：元素可拥有负的 z-index 属性值。</p>
-<h2 id="u4E00_u4E9B_u603B_u7ED3"><a href="#u4E00_u4E9B_u603B_u7ED3" class="headerlink" title="一些总结"></a>一些总结</h2><p>关于z-index的介绍网络上有许多,为了能简单快速的学会使用层级,我在这里总结了一些效果如下:</p>
-<pre><code>1. z-index仅在定位中起作用
-2. 正常情况浮动层级大于标准流 ,定位流大于浮动流 ,值为auto, 但它们都在0到1之间
-3. 如果父子元素都有z-index值,不论正负,那么以父盒子为准,不管父子的z-index是多少
-所以如果两个此时盒子是兄弟盒子并且都有定位的z-index值, 那么它们子盒子的层级由父盒子决定
-4. 如果父盒子没有定位或只定位没有写z-index值,父盒子的的z-index是auto,  此时会有两种情况
-a:如果给子盒子一个正的z-index值,此时子盒子的z-index起作用
-b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/25/=和==与===/" title="=和==与===" itemprop="url">=和==与===</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-25T15:38:57.000Z" itemprop="datePublished"> 發表於 2016-02-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u5173_u4E8E_3D"><a href="#u5173_u4E8E_3D" class="headerlink" title="关于="></a>关于=</h2><p>首先一定要区别=与==;=与===有本质的区别<br>    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.</p>
-<h2 id="u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><a href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C" class="headerlink" title="关于==与===的异同"></a>关于==与===的异同</h2><p>== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.</p>
-<p>=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.</p>
-<p>强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a. 如果两个操作对象是同样类型使用 ===</span><br><span class="line">b. undefined == null</span><br><span class="line">c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.</span><br><span class="line">d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.</span><br><span class="line">e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.</span><br></pre></td></tr></table></figure></p>
-<p>当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Javascript</span><br><span class="line">var a = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">var b = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">a == b //<span class="literal">false</span></span><br><span class="line">a === b //<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">var c = a;</span><br><span class="line">a == c//<span class="literal">true</span></span><br><span class="line">a === c //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/23/美工css与js/" title="美工css与js" itemprop="url">美工css与js</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-23T02:03:30.000Z" itemprop="datePublished"> 發表於 2016-02-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/随笔/">随笔</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/21/编程是门艺术/" title="编程是门艺术" itemprop="url">编程是门艺术</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-21T01:10:17.000Z" itemprop="datePublished"> 發表於 2016-02-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/随笔/">随笔</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/19/JS中用-点与-中括号获取css属性的异同/" title="JS中用.点与[]中括号获取css属性的异同" itemprop="url">JS中用.点与[]中括号获取css属性的异同</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-19T13:52:24.000Z" itemprop="datePublished"> 發表於 2016-02-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>在js中获取css属性可以用.与[]两种方式</strong><br>这两种方式的效果基本相同<br>比如，有一个div我们想得到他的宽度，可以通过<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.style.width</span><br></pre></td></tr></table></figure></p>
-<p>这样的写法虽然简单，但是不灵活，<font color="red">没有办法通过传参的形式获取属性</font><br>即无法使用变量<br>因此我们还有另外一种写法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.style[<span class="string">"width"</span>]</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#margin_u4E0Epadding"><span class="toc-number">1.</span> <span class="toc-text">margin与padding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7_u5B9A_u4F4D"><span class="toc-number">2.</span> <span class="toc-text">通过定位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7vertical-align_u5176_u4E00"><span class="toc-number">3.</span> <span class="toc-text">通过vertical-align其一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7vertical-align_u5176_u4E8C"><span class="toc-number">4.</span> <span class="toc-text">通过vertical-align其二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u8FC7_u4F38_u7F29_u76D2"><span class="toc-number">5.</span> <span class="toc-text">通过伸缩盒</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
@@ -864,12 +327,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -940,4 +480,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
