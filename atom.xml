@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-11T15:30:53.401Z</updated>
+  <updated>2016-03-16T16:10:33.409Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用js在html中写入内容</title>
+    <link href="http://yoursite.com/2016/03/13/%E7%94%A8js%E5%9C%A8html%E4%B8%AD%E5%86%99%E5%85%A5%E5%86%85%E5%AE%B9/"/>
+    <id>http://yoursite.com/2016/03/13/用js在html中写入内容/</id>
+    <published>2016-03-12T17:08:17.000Z</published>
+    <updated>2016-03-16T16:10:33.409Z</updated>
+    
+    <content type="html">&lt;p&gt;document.write(), innerHTML, innerText,  value, nodevalue&lt;/p&gt;
+&lt;h3 id=&quot;document-write&quot;&gt;&lt;a href=&quot;#document-write&quot; class=&quot;headerlink&quot; title=&quot;document.write&quot;&gt;&lt;/a&gt;document.write&lt;/h3&gt;&lt;p&gt;document.write是直接写入到页面的内容流，如果在写之前没有调用document.open, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。即第一次调用document.write会将当前页面的内容清空, 其后再次调用会在原来的内容上继续添加, 如果之后调用了document.close()或将页面关闭, 再次使用document.write会再次将页面内容清空并输出, 识别标签&lt;/p&gt;
+&lt;h3 id=&quot;innerHTML&quot;&gt;&lt;a href=&quot;#innerHTML&quot; class=&quot;headerlink&quot; title=&quot;innerHTML&quot;&gt;&lt;/a&gt;innerHTML&lt;/h3&gt;&lt;p&gt;innerHTML是dom元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement, 识别标签&lt;/p&gt;
+&lt;h3 id=&quot;innerText&quot;&gt;&lt;a href=&quot;#innerText&quot; class=&quot;headerlink&quot; title=&quot;innerText&quot;&gt;&lt;/a&gt;innerText&lt;/h3&gt;&lt;p&gt;innerText设置的内容不识别标签, 获取内容是从起始位置到终止位置的内容, 但它去除Html标签, innerText并非W3C标准属性, 原为ie特有属性,经测试到目前为止已经得到主流浏览器最新版本的支持&lt;/p&gt;
+&lt;h3 id=&quot;value&quot;&gt;&lt;a href=&quot;#value&quot; class=&quot;headerlink&quot; title=&quot;value&quot;&gt;&lt;/a&gt;value&lt;/h3&gt;&lt;p&gt;用来设置和获取具有value属性标签的value值, 主要用于表单中&lt;/p&gt;
+&lt;h3 id=&quot;nodevalue&quot;&gt;&lt;a href=&quot;#nodevalue&quot; class=&quot;headerlink&quot; title=&quot;nodevalue&quot;&gt;&lt;/a&gt;nodevalue&lt;/h3&gt;&lt;p&gt;对于文本节点，nodeValue 属性包含文本。&lt;br&gt;对于属性节点，nodeValue 属性包含属性值。&lt;br&gt;nodeValue 属性对于文档节点和元素节点是不可用的。&lt;br&gt;nodeValue是W3C标准属性&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;document.write(), innerHTML, innerText,  value, nodevalue&lt;/p&gt;
+&lt;h3 id=&quot;document-write&quot;&gt;&lt;a href=&quot;#document-write&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>css垂直居中</title>

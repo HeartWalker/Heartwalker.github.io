@@ -81,6 +81,61 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/13/用js在html中写入内容/" title="用js在html中写入内容" itemprop="url">用js在html中写入内容</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-12T17:08:17.000Z" itemprop="datePublished"> 發表於 2016-03-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>document.write(), innerHTML, innerText,  value, nodevalue</p>
+<h3 id="document-write"><a href="#document-write" class="headerlink" title="document.write"></a>document.write</h3><p>document.write是直接写入到页面的内容流，如果在写之前没有调用document.open, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。即第一次调用document.write会将当前页面的内容清空, 其后再次调用会在原来的内容上继续添加, 如果之后调用了document.close()或将页面关闭, 再次使用document.write会再次将页面内容清空并输出, 识别标签</p>
+<h3 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h3><p>innerHTML是dom元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement, 识别标签</p>
+<h3 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a>innerText</h3><p>innerText设置的内容不识别标签, 获取内容是从起始位置到终止位置的内容, 但它去除Html标签, innerText并非W3C标准属性, 原为ie特有属性,经测试到目前为止已经得到主流浏览器最新版本的支持</p>
+<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>用来设置和获取具有value属性标签的value值, 主要用于表单中</p>
+<h3 id="nodevalue"><a href="#nodevalue" class="headerlink" title="nodevalue"></a>nodevalue</h3><p>对于文本节点，nodeValue 属性包含文本。<br>对于属性节点，nodeValue 属性包含属性值。<br>nodeValue 属性对于文档节点和元素节点是不可用的。<br>nodeValue是W3C标准属性</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/11/css垂直居中/" title="css垂直居中" itemprop="url">css垂直居中</a>
   </h1>
   <p class="article-author">By
@@ -621,62 +676,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
   
   <span></span> <a href="/tags/随笔/">随笔</a>
   </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/19/JS中用-点与-中括号获取css属性的异同/" title="JS中用.点与[]中括号获取css属性的异同" itemprop="url">JS中用.点与[]中括号获取css属性的异同</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-19T13:52:24.000Z" itemprop="datePublished"> 發表於 2016-02-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>在js中获取css属性可以用.与[]两种方式</strong><br>这两种方式的效果基本相同<br>比如，有一个div我们想得到他的宽度，可以通过<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.style.width</span><br></pre></td></tr></table></figure></p>
-<p>这样的写法虽然简单，但是不灵活，<font color="red">没有办法通过传参的形式获取属性</font><br>即无法使用变量<br>因此我们还有另外一种写法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.style[<span class="string">"width"</span>]</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
 
 </div>
 
