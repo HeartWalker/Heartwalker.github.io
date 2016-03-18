@@ -1,0 +1,482 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>消除inline-block之间的空隙 | HeartWalker&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Heart Walker">
+    
+
+    
+    <meta name="description" content="inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:1234567891011121314151617181920212223242526272829303132333435&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消除inline-block之间的空隙">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/消除inline-block之间的空隙/index.html">
+<meta property="og:site_name" content="HeartWalker's Blog">
+<meta property="og:description" content="inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:1234567891011121314151617181920212223242526272829303132333435&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF">
+<meta property="og:updated_time" content="2016-03-18T13:05:38.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="消除inline-block之间的空隙">
+<meta name="twitter:description" content="inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:1234567891011121314151617181920212223242526272829303132333435&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta charset=&quot;UTF">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="HeartWalker&#39;s Blog" title="HeartWalker&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HeartWalker&#39;s Blog">HeartWalker&#39;s Blog</a></h1>
+				<h2 class="blog-motto">萌与正义</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">目录</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/17/消除inline-block之间的空隙/" title="消除inline-block之间的空隙" itemprop="url">消除inline-block之间的空隙</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-16T16:32:50.000Z" itemprop="datePublished"> 發表於 2016-03-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C"><span class="toc-number">1.</span> <span class="toc-text">去除空格,将代码放到一行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528margin_u8D1F_u503C"><span class="toc-number">2.</span> <span class="toc-text">使用margin负值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_u6CE8_u91CA"><span class="toc-number">3.</span> <span class="toc-text">使用注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528letter-spacing"><span class="toc-number">4.</span> <span class="toc-text">使用letter-spacing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528word-spacing"><span class="toc-number">5.</span> <span class="toc-text">使用word-spacing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528font-size_3A0_3B"><span class="toc-number">6.</span> <span class="toc-text">使用font-size:0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5229_u7528_u6D6E_u52A8"><span class="toc-number">7.</span> <span class="toc-text">利用浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7279_u6B8A_u7684img_u6807_u7B7E"><span class="toc-number">8.</span> <span class="toc-text">特殊的img标签</span></a></li></ol>
+		
+		</div>
+		
+		<p>inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        .space span &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>下面列出几种方法</p>
+<h3 id="u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C"><a href="#u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C" class="headerlink" title="去除空格,将代码放到一行"></a>去除空格,将代码放到一行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>视情况可以使用</p>
+<h3 id="u4F7F_u7528margin_u8D1F_u503C"><a href="#u4F7F_u7528margin_u8D1F_u503C" class="headerlink" title="使用margin负值"></a>使用margin负值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">    margin-right:-<span class="number">5</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不仅会改变布局,还会有各种问题,不推荐</p>
+<h3 id="u4F7F_u7528_u6CE8_u91CA"><a href="#u4F7F_u7528_u6CE8_u91CA" class="headerlink" title="使用注释"></a>使用注释</h3><p>同样利用的是去除空格的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同样会有一些问题,不推荐</p>
+<h3 id="u4F7F_u7528letter-spacing"><a href="#u4F7F_u7528letter-spacing" class="headerlink" title="使用letter-spacing"></a>使用letter-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        letter-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>难以控制且会影响到后代,不推荐</p>
+<h3 id="u4F7F_u7528word-spacing"><a href="#u4F7F_u7528word-spacing" class="headerlink" title="使用word-spacing"></a>使用word-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        word-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>同样不推荐</p>
+<h3 id="u4F7F_u7528font-size_3A0_3B"><a href="#u4F7F_u7528font-size_3A0_3B" class="headerlink" title="使用font-size:0;"></a>使用font-size:0;</h3><p>将空格的大小设置为0,但会影响到后代,需要给后代单独设置font-size大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        font-size:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5229_u7528_u6D6E_u52A8"><a href="#u5229_u7528_u6D6E_u52A8" class="headerlink" title="利用浮动"></a>利用浮动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u7279_u6B8A_u7684img_u6807_u7B7E"><a href="#u7279_u6B8A_u7684img_u6807_u7B7E" class="headerlink" title="特殊的img标签"></a>特殊的img标签</h3><p>img也是一个行内块元素,但它比较特殊<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .space img &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>img标签不仅左右之间有空隙 而且上下之间也有空隙<br>原因:<br>img是行内块元素,如文字一样会有默认的基线对齐,图片的最底部就是基线的位置,所以图片和文字一样距离底部会有一定的距离<br>解决方法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用font-size:<span class="number">0</span>;</span><br><span class="line">使用<span class="built_in">float</span>与display:block;结合</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/03/17/消除inline-block之间的空隙/" data-title="消除inline-block之间的空隙 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/13/用js在html中写入内容/"  title="用js在html中写入内容">
+ <strong>下一篇：</strong><br/> 
+ <span>用js在html中写入内容
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C"><span class="toc-number">1.</span> <span class="toc-text">去除空格,将代码放到一行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528margin_u8D1F_u503C"><span class="toc-number">2.</span> <span class="toc-text">使用margin负值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_u6CE8_u91CA"><span class="toc-number">3.</span> <span class="toc-text">使用注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528letter-spacing"><span class="toc-number">4.</span> <span class="toc-text">使用letter-spacing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528word-spacing"><span class="toc-number">5.</span> <span class="toc-text">使用word-spacing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528font-size_3A0_3B"><span class="toc-number">6.</span> <span class="toc-text">使用font-size:0;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5229_u7528_u6D6E_u52A8"><span class="toc-number">7.</span> <span class="toc-text">利用浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7279_u6B8A_u7684img_u6807_u7B7E"><span class="toc-number">8.</span> <span class="toc-text">特殊的img标签</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/css/" title="css">css<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/css3/" title="css3">css3<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活/" title="生活">生活<sup>3</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://dn-coderq.qbox.me/" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m HeartWalker. <br/>
+			Enjoy code and Like anime</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:2235609909@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Heart Walker">Heart Walker</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

@@ -81,6 +81,76 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/17/消除inline-block之间的空隙/" title="消除inline-block之间的空隙" itemprop="url">消除inline-block之间的空隙</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-16T16:32:50.000Z" itemprop="datePublished"> 發表於 2016-03-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        .space span &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>下面列出几种方法</p>
+<h3 id="u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C"><a href="#u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C" class="headerlink" title="去除空格,将代码放到一行"></a>去除空格,将代码放到一行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>视情况可以使用</p>
+<h3 id="u4F7F_u7528margin_u8D1F_u503C"><a href="#u4F7F_u7528margin_u8D1F_u503C" class="headerlink" title="使用margin负值"></a>使用margin负值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">    margin-right:-<span class="number">5</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不仅会改变布局,还会有各种问题,不推荐</p>
+<h3 id="u4F7F_u7528_u6CE8_u91CA"><a href="#u4F7F_u7528_u6CE8_u91CA" class="headerlink" title="使用注释"></a>使用注释</h3><p>同样利用的是去除空格的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同样会有一些问题,不推荐</p>
+<h3 id="u4F7F_u7528letter-spacing"><a href="#u4F7F_u7528letter-spacing" class="headerlink" title="使用letter-spacing"></a>使用letter-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        letter-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>难以控制且会影响到后代,不推荐</p>
+<h3 id="u4F7F_u7528word-spacing"><a href="#u4F7F_u7528word-spacing" class="headerlink" title="使用word-spacing"></a>使用word-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        word-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>同样不推荐</p>
+<h3 id="u4F7F_u7528font-size_3A0_3B"><a href="#u4F7F_u7528font-size_3A0_3B" class="headerlink" title="使用font-size:0;"></a>使用font-size:0;</h3><p>将空格的大小设置为0,但会影响到后代,需要给后代单独设置font-size大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        font-size:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5229_u7528_u6D6E_u52A8"><a href="#u5229_u7528_u6D6E_u52A8" class="headerlink" title="利用浮动"></a>利用浮动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u7279_u6B8A_u7684img_u6807_u7B7E"><a href="#u7279_u6B8A_u7684img_u6807_u7B7E" class="headerlink" title="特殊的img标签"></a>特殊的img标签</h3><p>img也是一个行内块元素,但它比较特殊<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .space img &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>img标签不仅左右之间有空隙 而且上下之间也有空隙<br>原因:<br>img是行内块元素,如文字一样会有默认的基线对齐,图片的最底部就是基线的位置,所以图片和文字一样距离底部会有一定的距离<br>解决方法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用font-size:<span class="number">0</span>;</span><br><span class="line">使用<span class="built_in">float</span>与display:block;结合</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/13/用js在html中写入内容/" title="用js在html中写入内容" itemprop="url">用js在html中写入内容</a>
   </h1>
   <p class="article-author">By
@@ -636,66 +706,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/21/编程是门艺术/" title="编程是门艺术" itemprop="url">编程是门艺术</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-21T01:10:17.000Z" itemprop="datePublished"> 發表於 2016-02-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/随笔/">随笔</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -717,7 +727,7 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
 		<ul>
 		
 		  
-			<li><a href="/categories/css/" title="css">css<sup>5</sup></a></li>
+			<li><a href="/categories/css/" title="css">css<sup>6</sup></a></li>
 		  
 		
 		  
