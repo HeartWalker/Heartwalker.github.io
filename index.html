@@ -81,6 +81,68 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/21/JS事件中target与currentTarget/" title="JS事件中target与currentTarget " itemprop="url">JS事件中target与currentTarget </a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-21T12:43:59.000Z" itemprop="datePublished"> 發表於 2016-03-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA"><a href="#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA" class="headerlink" title="先来一段网上流行的解释"></a>先来一段网上流行的解释</h3><p>target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)</p>
+<p>target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。</p>
+<p><strong><em>是不是有点晦涩,看了以后还是似懂非懂,一般网上的案例也是难以明白,于是我又专门测试了一下,然后用通俗的语言总结起来</em></strong></p>
+<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;    </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"按钮"</span> id=<span class="string">"btn"</span>/&gt;</span><br><span class="line">&lt;div id=<span class="string">"div"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"div里面的按钮"</span> id=<span class="string">"btnStop"</span>/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.getElementById(<span class="string">'btn'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btn.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'div'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'div.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'btnStop'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btnStop.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>下边是测试在控制台的结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line"></span><br><span class="line">btnStop.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"></span><br><span class="line">div.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br></pre></td></tr></table></figure></p>
+<pre><code>注:测试环境为当前最新版的firefox与chrome浏览器
+</code></pre><h3 id="u603B_u7ED3_3A"><a href="#u603B_u7ED3_3A" class="headerlink" title="总结:"></a>总结:</h3><ol>
+<li>currentTarget就是绑定事件的节点,哪个节点绑定事件就是哪个节点</li>
+<li>currentTarget与this总是相同的</li>
+<li>target是最终触发事件的节点</li>
+<li>currentTarget与target有时相同有时不同</li>
+<li>只有当绑定事件的节点对象是最终触发事件的节点对象时currentTarget才等于target</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/17/消除inline-block之间的空隙/" title="消除inline-block之间的空隙" itemprop="url">消除inline-block之间的空隙</a>
   </h1>
   <p class="article-author">By
@@ -344,7 +406,7 @@ console.log(Number(0.2).toString(2))
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/08/css与@import引入css/" title="css与@import引入css" itemprop="url">css与@import引入css</a>
+      <a href="/2016/03/08/link与@import引入css/" title="css与@import引入css" itemprop="url">css与@import引入css</a>
   </h1>
   <p class="article-author">By
        
@@ -626,66 +688,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
   <a class="article-category-link" href="/categories/js/">js</a>
 </div>
 
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/23/美工css与js/" title="美工css与js" itemprop="url">美工css与js</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-23T02:03:30.000Z" itemprop="datePublished"> 發表於 2016-02-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/随笔/">随笔</a>
-  </div>
 
 </div>
 

@@ -1,0 +1,477 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JS事件中target与currentTarget  | HeartWalker&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Heart Walker">
+    
+
+    
+    <meta name="description" content="先来一段网上流行的解释target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)
+target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS事件中target与currentTarget ">
+<meta property="og:url" content="http://yoursite.com/2016/03/21/JS事件中target与currentTarget/index.html">
+<meta property="og:site_name" content="HeartWalker's Blog">
+<meta property="og:description" content="先来一段网上流行的解释target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)
+target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向">
+<meta property="og:updated_time" content="2016-03-21T14:39:18.556Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS事件中target与currentTarget ">
+<meta name="twitter:description" content="先来一段网上流行的解释target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)
+target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="HeartWalker&#39;s Blog" title="HeartWalker&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HeartWalker&#39;s Blog">HeartWalker&#39;s Blog</a></h1>
+				<h2 class="blog-motto">萌与正义</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">目录</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/21/JS事件中target与currentTarget/" title="JS事件中target与currentTarget " itemprop="url">JS事件中target与currentTarget </a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-21T12:43:59.000Z" itemprop="datePublished"> 發表於 2016-03-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA"><span class="toc-number">1.</span> <span class="toc-text">先来一段网上流行的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6848_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3_3A"><span class="toc-number">3.</span> <span class="toc-text">总结:</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA"><a href="#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA" class="headerlink" title="先来一段网上流行的解释"></a>先来一段网上流行的解释</h3><p>target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)</p>
+<p>target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。</p>
+<p><strong><em>是不是有点晦涩,看了以后还是似懂非懂,一般网上的案例也是难以明白,于是我又专门测试了一下,然后用通俗的语言总结起来</em></strong></p>
+<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;    </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"按钮"</span> id=<span class="string">"btn"</span>/&gt;</span><br><span class="line">&lt;div id=<span class="string">"div"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"div里面的按钮"</span> id=<span class="string">"btnStop"</span>/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.getElementById(<span class="string">'btn'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btn.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'div'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'div.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'btnStop'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btnStop.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>下边是测试在控制台的结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line"></span><br><span class="line">btnStop.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"></span><br><span class="line">div.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br></pre></td></tr></table></figure></p>
+<pre><code>注:测试环境为当前最新版的firefox与chrome浏览器
+</code></pre><h3 id="u603B_u7ED3_3A"><a href="#u603B_u7ED3_3A" class="headerlink" title="总结:"></a>总结:</h3><ol>
+<li>currentTarget就是绑定事件的节点,哪个节点绑定事件就是哪个节点</li>
+<li>currentTarget与this总是相同的</li>
+<li>target是最终触发事件的节点</li>
+<li>currentTarget与target有时相同有时不同</li>
+<li>只有当绑定事件的节点对象是最终触发事件的节点对象时currentTarget才等于target</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/03/21/JS事件中target与currentTarget/" data-title="JS事件中target与currentTarget  | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/17/消除inline-block之间的空隙/"  title="消除inline-block之间的空隙">
+ <strong>下一篇：</strong><br/> 
+ <span>消除inline-block之间的空隙
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA"><span class="toc-number">1.</span> <span class="toc-text">先来一段网上流行的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6848_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3_3A"><span class="toc-number">3.</span> <span class="toc-text">总结:</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/css/" title="css">css<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/css3/" title="css3">css3<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/js/" title="js">js<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活/" title="生活">生活<sup>3</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://dn-coderq.qbox.me/" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m HeartWalker. <br/>
+			Enjoy code and Like anime</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:2235609909@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Heart Walker">Heart Walker</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
