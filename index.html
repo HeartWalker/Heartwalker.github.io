@@ -81,6 +81,69 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/24/js的Dom对象与jQuery的Dom对象/" title="js的Dom对象与jQuery的Dom对象" itemprop="url">js的Dom对象与jQuery的Dom对象</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-24T02:35:34.000Z" itemprop="datePublished"> 發表於 2016-03-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>前一段时间有人问了我一个问题, 大概是下面这样</p>
+<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        div &#123;</span><br><span class="line">            width: <span class="number">400</span>px;</span><br><span class="line">            height: <span class="number">400</span>px;</span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#000;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">"id1"</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 请自行引用jquery --&gt;</span><br><span class="line">&lt;script src=<span class="string">"jquery-1.11.1.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        $(<span class="string">'#id1'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            $(this).css(<span class="string">'backgroundColor'</span>,<span class="string">'gold'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>结果是什么呢:报错了,先来正确的代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        $(<span class="string">'#id1'</span>)[<span class="number">0</span>].addEventListener(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            $(this).css(<span class="string">'backgroundColor'</span>,<span class="string">'gold'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        console.log($(<span class="string">'#id1'</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>只需要在$(‘#id1’)后边加上[0]就可以了,为什么呢:再来看看console.log($(‘#id1’))的结果(详细信息请自行测试)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.fn.init[1]&#10;0: div#id1&#10;context: document&#10;length: 1&#10;selector: &#34;#id1&#34;&#10;__proto__: jQuery[0]</span><br></pre></td></tr></table></figure></p>
+<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><p>js的DOM对象指的是：使用js操作DOM返回的结果。<br>jQuery对象指的是：使用jQuery提供的操作DOM的方法返回的结果。<br>jQuery拿到DOM对象后又对其做了封装，让其具有了jQuery方法的jQuery对象,如上例。<br>js的DOM对象以伪数组的方式存在于jQuery之下,而jQuery对象是不能使用addEventlistener的,想要使用它必须将jQuery对象转化为js的DOM对象</p>
+<h3 id="jQuery_u5BF9_u8C61_u8F6C_u5316_u4E3Ajs_u7684DOM_u5BF9_u8C61"><a href="#jQuery_u5BF9_u8C61_u8F6C_u5316_u4E3Ajs_u7684DOM_u5BF9_u8C61" class="headerlink" title="jQuery对象转化为js的DOM对象"></a>jQuery对象转化为js的DOM对象</h3><ol>
+<li>采用对象的方法直接取到对应键的值如: $(‘#id1’)[0]</li>
+<li>采用jQuery中的get()取到对应键的值如$(‘#id1’).get(0)</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/21/JS事件中target与currentTarget/" title="JS事件中target与currentTarget " itemprop="url">JS事件中target与currentTarget </a>
   </h1>
   <p class="article-author">By
@@ -648,66 +711,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/25/=和==与===/" title="=和==与===" itemprop="url">=和==与===</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-25T15:38:57.000Z" itemprop="datePublished"> 發表於 2016-02-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u5173_u4E8E_3D"><a href="#u5173_u4E8E_3D" class="headerlink" title="关于="></a>关于=</h2><p>首先一定要区别=与==;=与===有本质的区别<br>    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.</p>
-<h2 id="u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><a href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C" class="headerlink" title="关于==与===的异同"></a>关于==与===的异同</h2><p>== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.</p>
-<p>=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.</p>
-<p>强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a. 如果两个操作对象是同样类型使用 ===</span><br><span class="line">b. undefined == null</span><br><span class="line">c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.</span><br><span class="line">d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.</span><br><span class="line">e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.</span><br></pre></td></tr></table></figure></p>
-<p>当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Javascript</span><br><span class="line">var a = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">var b = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">a == b //<span class="literal">false</span></span><br><span class="line">a === b //<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">var c = a;</span><br><span class="line">a == c//<span class="literal">true</span></span><br><span class="line">a === c //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -737,7 +740,7 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>4</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>5</sup></a></li>
 		  
 		
 		  
