@@ -81,6 +81,74 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/02/28/z-index层级/" title="z-index层级" itemprop="url">z-index层级</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-28T13:53:23.000Z" itemprop="datePublished"> 發表於 2016-02-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5"><a href="#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5" class="headerlink" title="先说一下概念"></a>先说一下概念</h2><p>因为显示器显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别，表示一个元素在叠加顺序上的上下立体关系。</p>
+<p>注释：  所有主流浏览器都支持 z-index 属性。任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。</p>
+<pre><code>IE6/7下position不为static，且z-index不存在时z-index为0，除此之外的浏览器z-index为auto。
+
+z-index为auto的元素不参与层级关系的比较，由向上遍历至此且z-index不为auto的元素来参与比较。
+</code></pre><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<strong>z-index 仅能在定位元素上奏效。</strong><br>注释：元素可拥有负的 z-index 属性值。</p>
+<h2 id="u4E00_u4E9B_u603B_u7ED3"><a href="#u4E00_u4E9B_u603B_u7ED3" class="headerlink" title="一些总结"></a>一些总结</h2><p>关于z-index的介绍网络上有许多,为了能简单快速的学会使用层级,我在这里总结了一些效果如下:</p>
+<pre><code>1. z-index仅在定位中起作用
+2. 正常情况浮动层级大于标准流 ,定位流大于浮动流 ,值为auto, 但它们都在0到1之间
+3. 如果父子元素都有z-index值,不论正负,那么以父盒子为准,不管父子的z-index是多少
+所以如果两个此时盒子是兄弟盒子并且都有定位的z-index值, 那么它们子盒子的层级由父盒子决定
+4. 如果父盒子没有定位或只定位没有写z-index值,父盒子的的z-index是auto,  此时会有两种情况
+a:如果给子盒子一个正的z-index值,此时子盒子的z-index起作用
+b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/02/25/=和==与===/" title="=和==与===" itemprop="url">=和==与===</a>
   </h1>
   <p class="article-author">By
@@ -582,7 +650,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 </header>
     <div class="article-content">
         
-        <h2 id="u521D_u59CB"><a href="#u521D_u59CB" class="headerlink" title="初始"></a>初始</h2><p>偶然知道了github,一直都想试一下<br>后来发现github上可以写博客,正好可以写一些平时思考的问题<br><strong>就以此作为开始吧</strong></p>
+        <h2 id="u521D_u59CB"><a href="#u521D_u59CB" class="headerlink" title="初始"></a>初始</h2><p>俗话说师傅领进门,修行靠个人<br>关键是要有人领进门那,有人教实在是太好了,太省心,太省时间了<br>但是不可能总是有人教的,仅仅是自己研究这一个hexo模板也是费了几天,狠狠的伤了伤神,<br>去网上查资料总是在小细节地方有很多坑,再加上某朝的网络环境,真是狠狠的吐了一口老血<br><strong>就以此作为开始吧</strong></p>
 
         
         
@@ -710,7 +778,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>5</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>8</sup></a></li>
 		  
 		
 		  

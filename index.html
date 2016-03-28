@@ -81,6 +81,68 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/28/JS中值类型和引用类型与赋值/" title="JS中值类型和引用类型与赋值" itemprop="url">JS中值类型和引用类型与赋值</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-28T15:03:24.000Z" itemprop="datePublished"> 發表於 2016-03-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h3><p>js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等</p>
+<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>值类型保存在栈中,变量保存的就是变量的值;</li>
+<li>引用类型保存在值中,变量保存的值是数据的引用(地址);</li>
+<li>不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性值是undefined</li>
+</ol>
+<h3 id="u5173_u4E8E_u8D4B_u503C"><a href="#u5173_u4E8E_u8D4B_u503C" class="headerlink" title="关于赋值"></a>关于赋值</h3><p>值类型是按值传递,通俗的来说就是将变量中的数据完整的拷贝一份, 赋值给新的变量例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//值类型赋值</span><br><span class="line">var num = <span class="number">123</span>;</span><br><span class="line">var num2 = num;</span><br><span class="line">// 此时内存中有两个 <span class="number">123</span> 的副本</span><br><span class="line">console.log(<span class="string">"num = "</span> + num + <span class="string">", num2 = "</span> + num2);//num = <span class="number">123</span>;num2 = <span class="number">123</span>;</span><br><span class="line">num = <span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"num = "</span> + num + <span class="string">", num2 = "</span> + num2);//num  = <span class="number">1</span> ;num2 = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">//引用类型赋值</span><br><span class="line">var o = &#123; n: <span class="number">123</span> &#125;;</span><br><span class="line">var o2 = o;</span><br><span class="line">//内存中只有一个数据对象, 是将 o 中地址复制一份, 赋值给 o2,即 o2 和 o 同时指向数据</span><br><span class="line">console.log(<span class="string">"o.n = "</span> + o.n + <span class="string">", o2.n = "</span> + o2.n);//o.n= <span class="number">123</span>; o2.n = <span class="number">123</span>;</span><br><span class="line">o.n = <span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"o.n = "</span> + o.n + <span class="string">", o2.n = "</span> + o2.n);//o.n1= <span class="number">1</span>; o2.n =<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><a href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B" class="headerlink" title="引用类型赋值的更复杂案例"></a>引用类型赋值的更复杂案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var o1 = &#123;  age: <span class="number">10</span> &#125;;</span><br><span class="line">var o2 = o1; //将o1的引用赋值给o2</span><br><span class="line">o1 = &#123; age: <span class="number">55</span> &#125;;//给将一个新对象赋值给o1,改变了o1的引用</span><br><span class="line">console.log(o1);//&#123;  age: <span class="number">55</span> &#125;;o1指向新对象</span><br><span class="line">console.log(o2);//&#123;  age: <span class="number">10</span> &#125;;o2的引用仍然指向原来的引用</span><br><span class="line"></span><br><span class="line">o2 = o1;//再次将o1的引用赋值给o2,此时它们指向同一个对象</span><br><span class="line">console.log(o1);//&#123;  age: <span class="number">55</span> &#125;;</span><br><span class="line">console.log(o2);//&#123;  age: <span class="number">55</span> &#125;;</span><br><span class="line"></span><br><span class="line">o2.age = <span class="number">66</span>;          </span><br><span class="line">o1.age = <span class="number">77</span>;//由于o1与o2指向的都是同一个对象,这两次改变的都是同一个对象的age属性的值</span><br><span class="line">console.log( o1.age );//<span class="number">77</span></span><br><span class="line">console.log( o2.age );//<span class="number">77</span></span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/24/js的Dom对象与jQuery的Dom对象/" title="js的Dom对象与jQuery的Dom对象" itemprop="url">js的Dom对象与jQuery的Dom对象</a>
   </h1>
   <p class="article-author">By
@@ -179,6 +241,11 @@
     </div>
     <footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
 
 
 </div>
@@ -304,6 +371,11 @@
     </div>
     <footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
 
 
 </div>
@@ -643,74 +715,6 @@ console.log(Number(0.2).toString(2))
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/28/z-index层级/" title="z-index层级" itemprop="url">z-index层级</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-28T13:53:23.000Z" itemprop="datePublished"> 發表於 2016-02-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5"><a href="#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5" class="headerlink" title="先说一下概念"></a>先说一下概念</h2><p>因为显示器显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别，表示一个元素在叠加顺序上的上下立体关系。</p>
-<p>注释：  所有主流浏览器都支持 z-index 属性。任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。</p>
-<pre><code>IE6/7下position不为static，且z-index不存在时z-index为0，除此之外的浏览器z-index为auto。
-
-z-index为auto的元素不参与层级关系的比较，由向上遍历至此且z-index不为auto的元素来参与比较。
-</code></pre><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<strong>z-index 仅能在定位元素上奏效。</strong><br>注释：元素可拥有负的 z-index 属性值。</p>
-<h2 id="u4E00_u4E9B_u603B_u7ED3"><a href="#u4E00_u4E9B_u603B_u7ED3" class="headerlink" title="一些总结"></a>一些总结</h2><p>关于z-index的介绍网络上有许多,为了能简单快速的学会使用层级,我在这里总结了一些效果如下:</p>
-<pre><code>1. z-index仅在定位中起作用
-2. 正常情况浮动层级大于标准流 ,定位流大于浮动流 ,值为auto, 但它们都在0到1之间
-3. 如果父子元素都有z-index值,不论正负,那么以父盒子为准,不管父子的z-index是多少
-所以如果两个此时盒子是兄弟盒子并且都有定位的z-index值, 那么它们子盒子的层级由父盒子决定
-4. 如果父盒子没有定位或只定位没有写z-index值,父盒子的的z-index是auto,  此时会有两种情况
-a:如果给子盒子一个正的z-index值,此时子盒子的z-index起作用
-b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -740,7 +744,7 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>5</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>8</sup></a></li>
 		  
 		
 		  

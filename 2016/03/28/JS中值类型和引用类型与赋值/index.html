@@ -4,35 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>clear float | HeartWalker&#39;s Blog</title>
+    <title>JS中值类型和引用类型与赋值 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="清除浮动在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法
-1.：给父盒子一个高度2.：clear:left| right| both　　不推荐 基本没人用吧
-3.：给父盒子设置overflow:hidden　　有定位的话不推荐 应为可能超出盒子 看需求使用  
-4.：使用伪类.clearfix:after{
-    content:&amp;quot;&amp;quot;;">
+    <meta name="description" content="概念js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等
+区别
+值类型保存在栈中,变量保存的就是变量的值;
+引用类型保存在值中,变量保存的值是数据的引用(地址);
+不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="clear float">
-<meta property="og:url" content="http://yoursite.com/2016/02/16/clear-float/index.html">
+<meta property="og:title" content="JS中值类型和引用类型与赋值">
+<meta property="og:url" content="http://yoursite.com/2016/03/28/JS中值类型和引用类型与赋值/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="清除浮动在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法
-1.：给父盒子一个高度2.：clear:left| right| both　　不推荐 基本没人用吧
-3.：给父盒子设置overflow:hidden　　有定位的话不推荐 应为可能超出盒子 看需求使用  
-4.：使用伪类.clearfix:after{
-    content:&amp;quot;&amp;quot;;">
-<meta property="og:updated_time" content="2016-03-02T08:05:49.898Z">
+<meta property="og:description" content="概念js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等
+区别
+值类型保存在栈中,变量保存的就是变量的值;
+引用类型保存在值中,变量保存的值是数据的引用(地址);
+不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性">
+<meta property="og:updated_time" content="2016-03-28T16:09:51.135Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="clear float">
-<meta name="twitter:description" content="清除浮动在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法
-1.：给父盒子一个高度2.：clear:left| right| both　　不推荐 基本没人用吧
-3.：给父盒子设置overflow:hidden　　有定位的话不推荐 应为可能超出盒子 看需求使用  
-4.：使用伪类.clearfix:after{
-    content:&amp;quot;&amp;quot;;">
+<meta name="twitter:title" content="JS中值类型和引用类型与赋值">
+<meta name="twitter:description" content="概念js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等
+区别
+值类型保存在栈中,变量保存的就是变量的值;
+引用类型保存在值中,变量保存的值是数据的引用(地址);
+不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -92,14 +92,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/16/clear-float/" title="clear float" itemprop="url">clear float</a>
+      <a href="/2016/03/28/JS中值类型和引用类型与赋值/" title="JS中值类型和引用类型与赋值" itemprop="url">JS中值类型和引用类型与赋值</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-15T16:19:23.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
+    <time datetime="2016-03-28T15:03:24.000Z" itemprop="datePublished"> 發表於 2016-03-28</time>
     
   </p>
 </header>
@@ -108,38 +108,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u6E05_u9664_u6D6E_u52A8"><span class="toc-number">1.</span> <span class="toc-text">清除浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.：给父盒子一个高度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2.：clear:left| right| both</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3.：给父盒子设置overflow:hidden</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4.：使用伪类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">5. : 双伪元素法</span></a></li></ol></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u5FF5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u533A_u522B"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5173_u4E8E_u8D4B_u503C"><span class="toc-number">3.</span> <span class="toc-text">关于赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><span class="toc-number">4.</span> <span class="toc-text">引用类型赋值的更复杂案例</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="u6E05_u9664_u6D6E_u52A8"><a href="#u6E05_u9664_u6D6E_u52A8" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法</p>
-<h5 id="1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><a href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6" class="headerlink" title="1.：给父盒子一个高度"></a>1.：给父盒子一个高度</h5><h5 id="2-_uFF1Aclear_3Aleft_7C_right_7C_both"><a href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both" class="headerlink" title="2.：clear:left| right| both"></a>2.：clear:left| right| both</h5><p>　　不推荐 基本没人用吧</p>
-<h5 id="3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><a href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden" class="headerlink" title="3.：给父盒子设置overflow:hidden"></a>3.：给父盒子设置overflow:hidden</h5><p>　　有定位的话不推荐 应为可能超出盒子 看需求使用  </p>
-<h5 id="4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><a href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B" class="headerlink" title="4.：使用伪类"></a>4.：使用伪类</h5><pre><code>.clearfix:after{
-    content:&quot;&quot;;
-    height:0;
-    line-height:0;
-    visibility:hidden;
-    display:block;
-    clear:both;
-}
-.clearfix{
-    *zoom:1;
-}
-</code></pre><p>　　目前通用方法</p>
-<h5 id="5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5"><a href="#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5" class="headerlink" title="5. : 双伪元素法"></a>5. : 双伪元素法</h5><pre><code>.clearfix:before, .clearfix:after {
-    content: &quot;&quot;;
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1; /*IE/7/6*/
-}
-</code></pre><p>　　应该是目前最好的方法了吧</p>
+		<h3 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h3><p>js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等</p>
+<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>值类型保存在栈中,变量保存的就是变量的值;</li>
+<li>引用类型保存在值中,变量保存的值是数据的引用(地址);</li>
+<li>不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性值是undefined</li>
+</ol>
+<h3 id="u5173_u4E8E_u8D4B_u503C"><a href="#u5173_u4E8E_u8D4B_u503C" class="headerlink" title="关于赋值"></a>关于赋值</h3><p>值类型是按值传递,通俗的来说就是将变量中的数据完整的拷贝一份, 赋值给新的变量例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//值类型赋值</span><br><span class="line">var num = <span class="number">123</span>;</span><br><span class="line">var num2 = num;</span><br><span class="line">// 此时内存中有两个 <span class="number">123</span> 的副本</span><br><span class="line">console.log(<span class="string">"num = "</span> + num + <span class="string">", num2 = "</span> + num2);//num = <span class="number">123</span>;num2 = <span class="number">123</span>;</span><br><span class="line">num = <span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"num = "</span> + num + <span class="string">", num2 = "</span> + num2);//num  = <span class="number">1</span> ;num2 = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">//引用类型赋值</span><br><span class="line">var o = &#123; n: <span class="number">123</span> &#125;;</span><br><span class="line">var o2 = o;</span><br><span class="line">//内存中只有一个数据对象, 是将 o 中地址复制一份, 赋值给 o2,即 o2 和 o 同时指向数据</span><br><span class="line">console.log(<span class="string">"o.n = "</span> + o.n + <span class="string">", o2.n = "</span> + o2.n);//o.n= <span class="number">123</span>; o2.n = <span class="number">123</span>;</span><br><span class="line">o.n = <span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"o.n = "</span> + o.n + <span class="string">", o2.n = "</span> + o2.n);//o.n1= <span class="number">1</span>; o2.n =<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><a href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B" class="headerlink" title="引用类型赋值的更复杂案例"></a>引用类型赋值的更复杂案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var o1 = &#123;  age: <span class="number">10</span> &#125;;</span><br><span class="line">var o2 = o1; //将o1的引用赋值给o2</span><br><span class="line">o1 = &#123; age: <span class="number">55</span> &#125;;//给将一个新对象赋值给o1,改变了o1的引用</span><br><span class="line">console.log(o1);//&#123;  age: <span class="number">55</span> &#125;;o1指向新对象</span><br><span class="line">console.log(o2);//&#123;  age: <span class="number">10</span> &#125;;o2的引用仍然指向原来的引用</span><br><span class="line"></span><br><span class="line">o2 = o1;//再次将o1的引用赋值给o2,此时它们指向同一个对象</span><br><span class="line">console.log(o1);//&#123;  age: <span class="number">55</span> &#125;;</span><br><span class="line">console.log(o2);//&#123;  age: <span class="number">55</span> &#125;;</span><br><span class="line"></span><br><span class="line">o2.age = <span class="number">66</span>;          </span><br><span class="line">o1.age = <span class="number">77</span>;//由于o1与o2指向的都是同一个对象,这两次改变的都是同一个对象的age属性的值</span><br><span class="line">console.log( o1.age );//<span class="number">77</span></span><br><span class="line">console.log( o2.age );//<span class="number">77</span></span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -147,7 +127,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
+  <a class="article-category-link" href="/categories/js/">js</a>
 </div>
 
 
@@ -157,7 +137,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/02/16/clear-float/" data-title="clear float | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/28/JS中值类型和引用类型与赋值/" data-title="JS中值类型和引用类型与赋值 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -170,19 +150,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/16/js代码不起作用/" title="js代码不起作用">
-  <strong>上一篇：</strong><br/>
-  <span>
-  js代码不起作用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/15/my-new-post/"  title="my new post">
+<a href="/2016/03/24/js的Dom对象与jQuery的Dom对象/"  title="js的Dom对象与jQuery的Dom对象">
  <strong>下一篇：</strong><br/> 
- <span>my new post
+ <span>js的Dom对象与jQuery的Dom对象
 </span>
 </a>
 </div>
@@ -197,7 +169,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u6E05_u9664_u6D6E_u52A8"><span class="toc-number">1.</span> <span class="toc-text">清除浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.：给父盒子一个高度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2.：clear:left| right| both</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3.：给父盒子设置overflow:hidden</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4.：使用伪类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">5. : 双伪元素法</span></a></li></ol></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u5FF5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u533A_u522B"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5173_u4E8E_u8D4B_u503C"><span class="toc-number">3.</span> <span class="toc-text">关于赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><span class="toc-number">4.</span> <span class="toc-text">引用类型赋值的更复杂案例</span></a></li></ol>
  
   </div>
 

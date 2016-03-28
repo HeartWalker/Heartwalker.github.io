@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-24T06:18:34.865Z</updated>
+  <updated>2016-03-28T16:09:51.135Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS中值类型和引用类型与赋值</title>
+    <link href="http://yoursite.com/2016/03/28/JS%E4%B8%AD%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%B5%8B%E5%80%BC/"/>
+    <id>http://yoursite.com/2016/03/28/JS中值类型和引用类型与赋值/</id>
+    <published>2016-03-28T15:03:24.000Z</published>
+    <updated>2016-03-28T16:09:51.135Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等&lt;/p&gt;
+&lt;h3 id=&quot;u533A_u522B&quot;&gt;&lt;a href=&quot;#u533A_u522B&quot; class=&quot;headerlink&quot; title=&quot;区别&quot;&gt;&lt;/a&gt;区别&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;值类型保存在栈中,变量保存的就是变量的值;&lt;/li&gt;
+&lt;li&gt;引用类型保存在值中,变量保存的值是数据的引用(地址);&lt;/li&gt;
+&lt;li&gt;不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性值是undefined&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u5173_u4E8E_u8D4B_u503C&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_u8D4B_u503C&quot; class=&quot;headerlink&quot; title=&quot;关于赋值&quot;&gt;&lt;/a&gt;关于赋值&lt;/h3&gt;&lt;p&gt;值类型是按值传递,通俗的来说就是将变量中的数据完整的拷贝一份, 赋值给新的变量例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//值类型赋值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var num = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var num2 = num;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 此时内存中有两个 &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt; 的副本&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;num = &quot;&lt;/span&gt; + num + &lt;span class=&quot;string&quot;&gt;&quot;, num2 = &quot;&lt;/span&gt; + num2);//num = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;num2 = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;num = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;num = &quot;&lt;/span&gt; + num + &lt;span class=&quot;string&quot;&gt;&quot;, num2 = &quot;&lt;/span&gt; + num2);//num  = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ;num2 = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//引用类型赋值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o = &amp;#123; n: &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o2 = o;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//内存中只有一个数据对象, 是将 o 中地址复制一份, 赋值给 o2,即 o2 和 o 同时指向数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;o.n = &quot;&lt;/span&gt; + o.n + &lt;span class=&quot;string&quot;&gt;&quot;, o2.n = &quot;&lt;/span&gt; + o2.n);//o.n= &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;; o2.n = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o.n = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;o.n = &quot;&lt;/span&gt; + o.n + &lt;span class=&quot;string&quot;&gt;&quot;, o2.n = &quot;&lt;/span&gt; + o2.n);//o.n1= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; o2.n =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B&quot;&gt;&lt;a href=&quot;#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;引用类型赋值的更复杂案例&quot;&gt;&lt;/a&gt;引用类型赋值的更复杂案例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var o1 = &amp;#123;  age: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o2 = o1; //将o1的引用赋值给o2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o1 = &amp;#123; age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;//给将一个新对象赋值给o1,改变了o1的引用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o1);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;o1指向新对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o2);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &amp;#125;;o2的引用仍然指向原来的引用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o2 = o1;//再次将o1的引用赋值给o2,此时它们指向同一个对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o1);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o2);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o2.age = &lt;span class=&quot;number&quot;&gt;66&lt;/span&gt;;          &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o1.age = &lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;;//由于o1与o2指向的都是同一个对象,这两次改变的都是同一个对象的age属性的值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( o1.age );//&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( o2.age );//&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、bo
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>js的Dom对象与jQuery的Dom对象</title>
@@ -50,7 +78,7 @@
     <link href="http://yoursite.com/2016/03/21/JS%E4%BA%8B%E4%BB%B6%E4%B8%ADtarget%E4%B8%8EcurrentTarget/"/>
     <id>http://yoursite.com/2016/03/21/JS事件中target与currentTarget/</id>
     <published>2016-03-21T12:43:59.000Z</published>
-    <updated>2016-03-21T14:39:18.556Z</updated>
+    <updated>2016-03-28T09:42:22.710Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA&quot;&gt;&lt;a href=&quot;#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA&quot; class=&quot;headerlink&quot; title=&quot;先来一段网上流行的解释&quot;&gt;&lt;/a&gt;先来一段网上流行的解释&lt;/h3&gt;&lt;p&gt;target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)&lt;/p&gt;
 &lt;p&gt;target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。&lt;/p&gt;
@@ -72,6 +100,8 @@
       &lt;h3 id=&quot;u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA&quot;&gt;&lt;a href=&quot;#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u
     
     </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
     
     
   </entry>
@@ -117,7 +147,7 @@
     <link href="http://yoursite.com/2016/03/13/%E7%94%A8js%E5%9C%A8html%E4%B8%AD%E5%86%99%E5%85%A5%E5%86%85%E5%AE%B9/"/>
     <id>http://yoursite.com/2016/03/13/用js在html中写入内容/</id>
     <published>2016-03-12T17:08:17.000Z</published>
-    <updated>2016-03-16T16:10:33.409Z</updated>
+    <updated>2016-03-28T09:43:16.375Z</updated>
     
     <content type="html">&lt;p&gt;document.write(), innerHTML, innerText,  value, nodevalue&lt;/p&gt;
 &lt;h3 id=&quot;document-write&quot;&gt;&lt;a href=&quot;#document-write&quot; class=&quot;headerlink&quot; title=&quot;document.write&quot;&gt;&lt;/a&gt;document.write&lt;/h3&gt;&lt;p&gt;document.write是直接写入到页面的内容流，如果在写之前没有调用document.open, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。即第一次调用document.write会将当前页面的内容清空, 其后再次调用会在原来的内容上继续添加, 如果之后调用了document.close()或将页面关闭, 再次使用document.write会再次将页面内容清空并输出, 识别标签&lt;/p&gt;
@@ -133,6 +163,8 @@
 &lt;h3 id=&quot;document-write&quot;&gt;&lt;a href=&quot;#document-write&quot; class=&quot;headerlink&quot; title=
     
     </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
     
     
   </entry>
@@ -572,14 +604,14 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     <link href="http://yoursite.com/2016/02/15/my-new-post/"/>
     <id>http://yoursite.com/2016/02/15/my-new-post/</id>
     <published>2016-02-14T16:53:11.000Z</published>
-    <updated>2016-02-15T03:08:51.354Z</updated>
+    <updated>2016-03-24T16:54:40.250Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;偶然知道了github,一直都想试一下&lt;br&gt;后来发现github上可以写博客,正好可以写一些平时思考的问题&lt;br&gt;&lt;strong&gt;就以此作为开始吧&lt;/strong&gt;&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;俗话说师傅领进门,修行靠个人&lt;br&gt;关键是要有人领进门那,有人教实在是太好了,太省心,太省时间了&lt;br&gt;但是不可能总是有人教的,仅仅是自己研究这一个hexo模板也是费了几天,狠狠的伤了伤神,&lt;br&gt;去网上查资料总是在小细节地方有很多坑,再加上某朝的网络环境,真是狠狠的吐了一口老血&lt;br&gt;&lt;strong&gt;就以此作为开始吧&lt;/strong&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;偶然知道了github,一直都想试一下&lt;br&gt;后来发现github上可以写博客,正好可以写一些平时思考的
+      &lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;俗话说师傅领进门,修行靠个人&lt;br&gt;关键是要有人领进门那,有人教实在是太好了,太省心,太省时间了&lt;br&gt;
     
     </summary>
     
