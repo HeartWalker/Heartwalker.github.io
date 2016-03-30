@@ -385,7 +385,7 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     <link href="http://HeartWalker.github.io/2016/02/23/%E7%BE%8E%E5%B7%A5css%E4%B8%8Ejs/"/>
     <id>http://HeartWalker.github.io/2016/02/23/美工css与js/</id>
     <published>2016-02-23T02:03:30.000Z</published>
-    <updated>2016-02-23T03:07:29.073Z</updated>
+    <updated>2016-03-30T04:35:41.171Z</updated>
     
     <content type="html">&lt;p&gt;书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码.&lt;/p&gt;
 </content>
@@ -399,8 +399,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
       <category term="生活" scheme="http://HeartWalker.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="随笔" scheme="http://HeartWalker.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
   </entry>
   
   <entry>
@@ -408,7 +406,7 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     <link href="http://HeartWalker.github.io/2016/02/21/%E7%BC%96%E7%A8%8B%E6%98%AF%E9%97%A8%E8%89%BA%E6%9C%AF/"/>
     <id>http://HeartWalker.github.io/2016/02/21/编程是门艺术/</id>
     <published>2016-02-21T01:10:17.000Z</published>
-    <updated>2016-02-21T01:56:58.993Z</updated>
+    <updated>2016-03-30T04:35:07.810Z</updated>
     
     <content type="html">&lt;p&gt;　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!&lt;/p&gt;
 </content>
@@ -421,8 +419,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     
       <category term="生活" scheme="http://HeartWalker.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
-    
-      <category term="随笔" scheme="http://HeartWalker.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -604,7 +600,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     <link href="http://HeartWalker.github.io/2016/02/15/my-new-post/"/>
     <id>http://HeartWalker.github.io/2016/02/15/my-new-post/</id>
     <published>2016-02-14T16:53:11.000Z</published>
-    <updated>2016-03-24T16:54:40.250Z</updated>
+    <updated>2016-03-30T04:36:36.850Z</updated>
     
     <content type="html">&lt;h2 id=&quot;u521D_u59CB&quot;&gt;&lt;a href=&quot;#u521D_u59CB&quot; class=&quot;headerlink&quot; title=&quot;初始&quot;&gt;&lt;/a&gt;初始&lt;/h2&gt;&lt;p&gt;俗话说师傅领进门,修行靠个人&lt;br&gt;关键是要有人领进门那,有人教实在是太好了,太省心,太省时间了&lt;br&gt;但是不可能总是有人教的,仅仅是自己研究这一个hexo模板也是费了几天,狠狠的伤了伤神,&lt;br&gt;去网上查资料总是在小细节地方有很多坑,再加上某朝的网络环境,真是狠狠的吐了一口老血&lt;br&gt;&lt;strong&gt;就以此作为开始吧&lt;/strong&gt;&lt;/p&gt;
 </content>
@@ -617,8 +613,6 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     
       <category term="生活" scheme="http://HeartWalker.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
-    
-      <category term="随笔" scheme="http://HeartWalker.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
