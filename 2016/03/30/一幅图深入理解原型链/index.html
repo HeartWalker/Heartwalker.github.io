@@ -4,26 +4,33 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | HeartWalker&#39;s Blog</title>
+    <title>一幅图深入理解原型链 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="综述原型是JavaScript中比较难以理解也容易令人困惑的部分,但它又是如此的重要,下边我将用一幅图深入的讲解
+原型链图  
+概念详解构造函数构造函数和普通的函数没有什么不同, 只要通过new操作符来调用就称它为构造函数, 如果不用new操作符调用, 那么它和普通的函数一样; 不过如果在定义一个函数的时候就准备用new调用, 为了区分它一般将构造函数名首字母大写
+实例对象如图中f是F()的实例对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://HeartWalker.github.io/2016/02/10/hello-world/index.html">
+<meta property="og:title" content="一幅图深入理解原型链">
+<meta property="og:url" content="http://HeartWalker.github.io/2016/03/30/一幅图深入理解原型链/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-01-13T00:05:26.027Z">
+<meta property="og:description" content="综述原型是JavaScript中比较难以理解也容易令人困惑的部分,但它又是如此的重要,下边我将用一幅图深入的讲解
+原型链图  
+概念详解构造函数构造函数和普通的函数没有什么不同, 只要通过new操作符来调用就称它为构造函数, 如果不用new操作符调用, 那么它和普通的函数一样; 不过如果在定义一个函数的时候就准备用new调用, 为了区分它一般将构造函数名首字母大写
+实例对象如图中f是F()的实例对">
+<meta property="og:image" content="http://HeartWalker.github.io/images/proto.png">
+<meta property="og:updated_time" content="2016-03-31T02:27:58.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="一幅图深入理解原型链">
+<meta name="twitter:description" content="综述原型是JavaScript中比较难以理解也容易令人困惑的部分,但它又是如此的重要,下边我将用一幅图深入的讲解
+原型链图  
+概念详解构造函数构造函数和普通的函数没有什么不同, 只要通过new操作符来调用就称它为构造函数, 如果不用new操作符调用, 那么它和普通的函数一样; 不过如果在定义一个函数的时候就准备用new调用, 为了区分它一般将构造函数名首字母大写
+实例对象如图中f是F()的实例对">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -82,14 +89,14 @@ Quick">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/03/30/一幅图深入理解原型链/" title="一幅图深入理解原型链" itemprop="url">一幅图深入理解原型链</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-10T14:16:43.797Z" itemprop="datePublished"> 發表於 2016-02-10</time>
+    <time datetime="2016-03-30T14:37:43.000Z" itemprop="datePublished"> 發表於 2016-03-30</time>
     
   </p>
 </header>
@@ -98,23 +105,38 @@ Quick">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EFC_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u539F_u578B_u94FE_u56FE"><span class="toc-number">2.</span> <span class="toc-text">原型链图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6982_u5FF5_u8BE6_u89E3"><span class="toc-number">3.</span> <span class="toc-text">概念详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6784_u9020_u51FD_u6570"><span class="toc-number">3.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u5BF9_u8C61"><span class="toc-number">3.2.</span> <span class="toc-text">实例对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u578B_u5C5E_u6027prototype"><span class="toc-number">3.3.</span> <span class="toc-text">原型属性prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u578B_u5BF9_u8C61__proto"><span class="toc-number">3.4.</span> <span class="toc-text">原型对象__proto__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">3.5.</span> <span class="toc-text">constructor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">4.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u578B_u94FE_u4E09_u89D2_u5F62"><span class="toc-number">4.1.</span> <span class="toc-text">原型链三角形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<h2 id="u7EFC_u8FF0"><a href="#u7EFC_u8FF0" class="headerlink" title="综述"></a>综述</h2><p>原型是JavaScript中比较难以理解也容易令人困惑的部分,但它又是如此的重要,下边我将用一幅图深入的讲解</p>
+<h2 id="u539F_u578B_u94FE_u56FE"><a href="#u539F_u578B_u94FE_u56FE" class="headerlink" title="原型链图"></a>原型链图</h2><p>  <img src="/images/proto.png" alt=""></p>
+<h2 id="u6982_u5FF5_u8BE6_u89E3"><a href="#u6982_u5FF5_u8BE6_u89E3" class="headerlink" title="概念详解"></a>概念详解</h2><h3 id="u6784_u9020_u51FD_u6570"><a href="#u6784_u9020_u51FD_u6570" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数和普通的函数没有什么不同, 只要通过new操作符来调用就称它为构造函数, 如果不用new操作符调用, 那么它和普通的函数一样; 不过如果在定义一个函数的时候就准备用new调用, 为了区分它一般将构造函数名首字母大写</p>
+<h3 id="u5B9E_u4F8B_u5BF9_u8C61"><a href="#u5B9E_u4F8B_u5BF9_u8C61" class="headerlink" title="实例对象"></a>实例对象</h3><p>如图中f是F()的实例对象, o是Object()的实例对象, 它们通过new操作符来实现; 同时F又是Function()的实例, Object也是Function的实例, 它们是默认的</p>
+<h3 id="u539F_u578B_u5C5E_u6027prototype"><a href="#u539F_u578B_u5C5E_u6027prototype" class="headerlink" title="原型属性prototype"></a>原型属性prototype</h3><p>每一个函数都有原型属性prototype</p>
+<h3 id="u539F_u578B_u5BF9_u8C61__proto"><a href="#u539F_u578B_u5BF9_u8C61__proto" class="headerlink" title="原型对象__proto__"></a>原型对象__proto__</h3><p>对象都有一个内部指针(它是内部属性)指向构造这个对象的函数的原型属性prototype,在高级浏览其中被命名为__proto__, __proto__是一个非标准的属性,在早期的ie中并不被支持,但是为了方便理解, 仍然称它为__proto__</p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>每一个构造函数的默认的原型属性中都有一个属性constructor,它是一个指向这个构造函数的引用</p>
+<h2 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h2><p>如图中对象f是构造函数F()的实例, F有默认的原型属性prototye, prototye中有constructor, constructor指向F, 同时f会自动拥有一个指向F.prototype的属性__proto__</p>
+<h3 id="u539F_u578B_u94FE_u4E09_u89D2_u5F62"><a href="#u539F_u578B_u94FE_u4E09_u89D2_u5F62" class="headerlink" title="原型链三角形"></a>原型链三角形</h3><p>如图与上面分析, 每一个对象都有一个实例它的构造函数与一个默认的__proto__, 该__proto__指向构造函数的prototype, 而在prototype又有一个constructor指挥构造函数,  它们之间就形成了一个三角形,可以称之为原型链三角形, 所有的原型链都有原型链三角形构成的; 可以通过给prototype重新赋值来改变它的指向,此时原型链将被延长,原型链结构将会发生变化,此处暂时不考虑</p>
+<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>对象都有原型对象__proto__</li>
+<li>通过构造函数实例的对象的__proto__指向该构造函数的prototype</li>
+<li>函数的原型属性prototype的原型对象__proto__默认是Object.prototye; 而Object.prototype.__proto__指向null</li>
+<li>函数被定义后就有原型属性prototype,原型属性中有默认的属性constructor,constructor指向这个函数</li>
+<li>函数的原型属性也是一个对象,该对象的原型对象__proto__默认继承自Object.prototype</li>
+<li>所有函数都是Function()的实例</li>
+<li>函数本身也是对象,所以它同时又prototype与__proto__</li>
+<li><strong> Function()是唯一的一个特例,可以认为它是它本身的实例,所以Function.prototype === Function.__proto__ </strong></li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
 
 
 </div>
@@ -123,7 +145,7 @@ Quick">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.github.io/2016/02/10/hello-world/" data-title="Hello World | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.github.io/2016/03/30/一幅图深入理解原型链/" data-title="一幅图深入理解原型链 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,20 +158,20 @@ Quick">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/15/my-new-post/" title="my new post">
-  <strong>上一篇：</strong><br/>
-  <span>
-  my new post</span>
+
+<div class="next">
+<a href="/2016/03/28/JS中值类型和引用类型与赋值/"  title="JS中值类型和引用类型与赋值">
+ <strong>下一篇：</strong><br/> 
+ <span>JS中值类型和引用类型与赋值
+</span>
 </a>
 </div>
-
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/10/hello-world/" data-title="Hello World" data-url="http://HeartWalker.github.io/2016/02/10/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/30/一幅图深入理解原型链/" data-title="一幅图深入理解原型链" data-url="http://HeartWalker.github.io/2016/03/30/一幅图深入理解原型链/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -172,7 +194,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u7EFC_u8FF0"><span class="toc-number">1.</span> <span class="toc-text">综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u539F_u578B_u94FE_u56FE"><span class="toc-number">2.</span> <span class="toc-text">原型链图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6982_u5FF5_u8BE6_u89E3"><span class="toc-number">3.</span> <span class="toc-text">概念详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6784_u9020_u51FD_u6570"><span class="toc-number">3.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u5BF9_u8C61"><span class="toc-number">3.2.</span> <span class="toc-text">实例对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u578B_u5C5E_u6027prototype"><span class="toc-number">3.3.</span> <span class="toc-text">原型属性prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u578B_u5BF9_u8C61__proto"><span class="toc-number">3.4.</span> <span class="toc-text">原型对象__proto__</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">3.5.</span> <span class="toc-text">constructor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">4.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u578B_u94FE_u4E09_u89D2_u5F62"><span class="toc-number">4.1.</span> <span class="toc-text">原型链三角形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
