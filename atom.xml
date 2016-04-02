@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.github.io/"/>
-  <updated>2016-03-31T14:39:22.432Z</updated>
+  <updated>2016-04-01T14:17:12.130Z</updated>
   <id>http://HeartWalker.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://HeartWalker.github.io/2016/03/31/%E5%9B%BD%E5%86%85%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A4%A7%E4%B8%8D%E6%98%93/"/>
     <id>http://HeartWalker.github.io/2016/03/31/国内程序员大不易/</id>
     <published>2016-03-31T13:33:30.000Z</published>
-    <updated>2016-03-31T14:39:22.432Z</updated>
+    <updated>2016-04-01T14:17:12.130Z</updated>
     
     <content type="html">&lt;p&gt;　　在上国过生活工作本来就不易, 体现在程序员身上就更加明显,不仅有错综复杂的人际关系,社会关系, 还要提防祸从口出,天降横祸…&lt;/p&gt;
 &lt;p&gt;　　程序员想要学习一些先进的技术,大多是要翻过去的, 奈何墙太高太深, 最近封的越来越厉害,github不翻都经常上不去, 平时像使用npm必须要翻过去,虽有梯子,但总是浪费了许多时间与精力, 本来宝贵的时间就流失了&lt;/p&gt;
@@ -38,6 +38,8 @@
       <category term="生活" scheme="http://HeartWalker.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
+      <category term="吐槽" scheme="http://HeartWalker.github.io/tags/%E5%90%90%E6%A7%BD/"/>
+    
   </entry>
   
   <entry>
@@ -45,7 +47,7 @@
     <link href="http://HeartWalker.github.io/2016/03/30/%E4%B8%80%E5%B9%85%E5%9B%BE%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     <id>http://HeartWalker.github.io/2016/03/30/一幅图深入理解原型链/</id>
     <published>2016-03-30T14:37:43.000Z</published>
-    <updated>2016-03-31T02:27:58.435Z</updated>
+    <updated>2016-04-01T15:26:27.396Z</updated>
     
     <content type="html">&lt;h2 id=&quot;u7EFC_u8FF0&quot;&gt;&lt;a href=&quot;#u7EFC_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;综述&quot;&gt;&lt;/a&gt;综述&lt;/h2&gt;&lt;p&gt;原型是JavaScript中比较难以理解也容易令人困惑的部分,但它又是如此的重要,下边我将用一幅图深入的讲解&lt;/p&gt;
 &lt;h2 id=&quot;u539F_u578B_u94FE_u56FE&quot;&gt;&lt;a href=&quot;#u539F_u578B_u94FE_u56FE&quot; class=&quot;headerlink&quot; title=&quot;原型链图&quot;&gt;&lt;/a&gt;原型链图&lt;/h2&gt;&lt;p&gt;  &lt;img src=&quot;/images/proto.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -76,6 +78,8 @@
     
       <category term="js" scheme="http://HeartWalker.github.io/categories/js/"/>
     
+    
+      <category term="原型" scheme="http://HeartWalker.github.io/tags/%E5%8E%9F%E5%9E%8B/"/>
     
   </entry>
   
@@ -112,7 +116,7 @@
     <link href="http://HeartWalker.github.io/2016/03/24/js%E7%9A%84Dom%E5%AF%B9%E8%B1%A1%E4%B8%8EjQuery%E7%9A%84Dom%E5%AF%B9%E8%B1%A1/"/>
     <id>http://HeartWalker.github.io/2016/03/24/js的Dom对象与jQuery的Dom对象/</id>
     <published>2016-03-24T02:35:34.000Z</published>
-    <updated>2016-03-24T06:18:34.865Z</updated>
+    <updated>2016-04-01T15:28:36.304Z</updated>
     
     <content type="html">&lt;p&gt;前一段时间有人问了我一个问题, 大概是下面这样&lt;/p&gt;
 &lt;h3 id=&quot;u6848_u4F8B&quot;&gt;&lt;a href=&quot;#u6848_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;案例&quot;&gt;&lt;/a&gt;案例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        div &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            border: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;px solid &lt;span class=&quot;comment&quot;&gt;#000;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div id=&lt;span class=&quot;string&quot;&gt;&quot;id1&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- 请自行引用jquery --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;jquery-1.11.1.js&quot;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&#39;#id1&#39;&lt;/span&gt;).addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;click&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(this).css(&lt;span class=&quot;string&quot;&gt;&#39;backgroundColor&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;gold&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -135,6 +139,8 @@
       <category term="js" scheme="http://HeartWalker.github.io/categories/js/"/>
     
     
+      <category term="DOM" scheme="http://HeartWalker.github.io/tags/DOM/"/>
+    
   </entry>
   
   <entry>
@@ -142,7 +148,7 @@
     <link href="http://HeartWalker.github.io/2016/03/21/JS%E4%BA%8B%E4%BB%B6%E4%B8%ADtarget%E4%B8%8EcurrentTarget/"/>
     <id>http://HeartWalker.github.io/2016/03/21/JS事件中target与currentTarget/</id>
     <published>2016-03-21T12:43:59.000Z</published>
-    <updated>2016-03-28T09:42:22.710Z</updated>
+    <updated>2016-04-01T15:26:55.543Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA&quot;&gt;&lt;a href=&quot;#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA&quot; class=&quot;headerlink&quot; title=&quot;先来一段网上流行的解释&quot;&gt;&lt;/a&gt;先来一段网上流行的解释&lt;/h3&gt;&lt;p&gt;target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)&lt;/p&gt;
 &lt;p&gt;target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。&lt;/p&gt;
@@ -167,6 +173,8 @@
     
       <category term="js" scheme="http://HeartWalker.github.io/categories/js/"/>
     
+    
+      <category term="事件" scheme="http://HeartWalker.github.io/tags/%E4%BA%8B%E4%BB%B6/"/>
     
   </entry>
   
@@ -238,7 +246,7 @@
     <link href="http://HeartWalker.github.io/2016/03/11/css%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
     <id>http://HeartWalker.github.io/2016/03/11/css垂直居中/</id>
     <published>2016-03-11T12:28:23.000Z</published>
-    <updated>2016-03-11T15:30:53.401Z</updated>
+    <updated>2016-04-01T15:32:58.867Z</updated>
     
     <content type="html">&lt;p&gt;css中经常会遇到盒子需要垂直居中,现总结出以下几种方法&lt;br&gt;例如:实现content盒子居中&lt;/p&gt;
 &lt;h3 id=&quot;margin_u4E0Epadding&quot;&gt;&lt;a href=&quot;#margin_u4E0Epadding&quot; class=&quot;headerlink&quot; title=&quot;margin与padding&quot;&gt;&lt;/a&gt;margin与padding&lt;/h3&gt;&lt;p&gt;最简单的方法就是设置margin或padding值,以margin为例&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            body &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                margin: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                padding: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                background-color: &lt;span class=&quot;comment&quot;&gt;#F7F7F7;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .wrap &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                width: &lt;span class=&quot;number&quot;&gt;600&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                height: &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                margin: &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;px auto;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                border: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;px solid &lt;span class=&quot;comment&quot;&gt;#CCC;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                background-color: &lt;span class=&quot;comment&quot;&gt;#FFF;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .content &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                width: &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                height: &lt;span class=&quot;number&quot;&gt;150&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                background-color: orange;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                /*  垂直居中相关css */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                margin:&lt;span class=&quot;number&quot;&gt;125&lt;/span&gt;px auto;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;wrap&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;content&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -263,6 +271,8 @@
     
       <category term="css3" scheme="http://HeartWalker.github.io/categories/css3/"/>
     
+    
+      <category term="css布局" scheme="http://HeartWalker.github.io/tags/css%E5%B8%83%E5%B1%80/"/>
     
   </entry>
   
@@ -389,7 +399,7 @@ console.log(Number(0.2).toString(2))
     <link href="http://HeartWalker.github.io/2016/02/28/z-index%E5%B1%82%E7%BA%A7/"/>
     <id>http://HeartWalker.github.io/2016/02/28/z-index层级/</id>
     <published>2016-02-28T13:53:23.000Z</published>
-    <updated>2016-02-28T15:33:34.264Z</updated>
+    <updated>2016-04-01T15:32:13.236Z</updated>
     
     <content type="html">&lt;h2 id=&quot;u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;先说一下概念&quot;&gt;&lt;/a&gt;先说一下概念&lt;/h2&gt;&lt;p&gt;因为显示器显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别，表示一个元素在叠加顺序上的上下立体关系。&lt;/p&gt;
 &lt;p&gt;注释：  所有主流浏览器都支持 z-index 属性。任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。&lt;/p&gt;
@@ -415,6 +425,8 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     
       <category term="css" scheme="http://HeartWalker.github.io/categories/css/"/>
     
+    
+      <category term="css布局" scheme="http://HeartWalker.github.io/tags/css%E5%B8%83%E5%B1%80/"/>
     
   </entry>
   
@@ -449,7 +461,7 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     <link href="http://HeartWalker.github.io/2016/02/23/%E7%BE%8E%E5%B7%A5css%E4%B8%8Ejs/"/>
     <id>http://HeartWalker.github.io/2016/02/23/美工css与js/</id>
     <published>2016-02-23T02:03:30.000Z</published>
-    <updated>2016-03-30T04:35:41.171Z</updated>
+    <updated>2016-04-01T15:29:26.268Z</updated>
     
     <content type="html">&lt;p&gt;书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码.&lt;/p&gt;
 </content>
@@ -462,6 +474,8 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     
       <category term="生活" scheme="http://HeartWalker.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
+    
+      <category term="吐槽" scheme="http://HeartWalker.github.io/tags/%E5%90%90%E6%A7%BD/"/>
     
   </entry>
   
@@ -616,7 +630,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     <link href="http://HeartWalker.github.io/2016/02/16/clear-float/"/>
     <id>http://HeartWalker.github.io/2016/02/16/clear-float/</id>
     <published>2016-02-15T16:19:23.000Z</published>
-    <updated>2016-03-02T08:05:49.898Z</updated>
+    <updated>2016-04-01T15:32:26.066Z</updated>
     
     <content type="html">&lt;h2 id=&quot;u6E05_u9664_u6D6E_u52A8&quot;&gt;&lt;a href=&quot;#u6E05_u9664_u6D6E_u52A8&quot; class=&quot;headerlink&quot; title=&quot;清除浮动&quot;&gt;&lt;/a&gt;清除浮动&lt;/h2&gt;&lt;p&gt;在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法&lt;/p&gt;
 &lt;h5 id=&quot;1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6&quot;&gt;&lt;a href=&quot;#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6&quot; class=&quot;headerlink&quot; title=&quot;1.：给父盒子一个高度&quot;&gt;&lt;/a&gt;1.：给父盒子一个高度&lt;/h5&gt;&lt;h5 id=&quot;2-_uFF1Aclear_3Aleft_7C_right_7C_both&quot;&gt;&lt;a href=&quot;#2-_uFF1Aclear_3Aleft_7C_right_7C_both&quot; class=&quot;headerlink&quot; title=&quot;2.：clear:left| right| both&quot;&gt;&lt;/a&gt;2.：clear:left| right| both&lt;/h5&gt;&lt;p&gt;　　不推荐 基本没人用吧&lt;/p&gt;
@@ -656,6 +670,8 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     
       <category term="css" scheme="http://HeartWalker.github.io/categories/css/"/>
     
+    
+      <category term="css布局" scheme="http://HeartWalker.github.io/tags/css%E5%B8%83%E5%B1%80/"/>
     
   </entry>
   
