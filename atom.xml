@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-03T02:21:32.802Z</updated>
+  <updated>2016-04-03T03:02:29.453Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -16,23 +16,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试</title>
+    <title>hexo博客完工感言</title>
     <link href="http://HeartWalker.cc/2016/04/02/%E6%B5%8B%E8%AF%95/"/>
     <id>http://HeartWalker.cc/2016/04/02/测试/</id>
     <published>2016-04-02T04:19:33.000Z</published>
-    <updated>2016-04-03T02:21:32.802Z</updated>
+    <updated>2016-04-03T03:02:29.453Z</updated>
     
-    <content type="html">&lt;p&gt;asdfffffff啊水水水水水水水水&lt;br&gt;啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊aaaaaaaaaaaaa&lt;/p&gt;
-&lt;p&gt;ceshi 22222222222222&lt;br&gt;3333333333333333&lt;br&gt;444444444444555555555555666666&lt;/p&gt;
+    <content type="html">&lt;p&gt;　　github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　&lt;br&gt;　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞… &lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;asdfffffff啊水水水水水水水水&lt;br&gt;啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊aaaaaaaaaaaaa&lt;/p&gt;
-&lt;p&gt;ceshi 22222222222222&lt;br&gt;3333333333333333&lt;br&gt;444444444444555555555555666666&lt;/
+      &lt;p&gt;　　github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　&lt;br&gt;　　但是不得不吐槽好多坑啊, 有的漏
     
     </summary>
     
+      <category term="生活" scheme="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="吐槽" scheme="http://HeartWalker.cc/tags/%E5%90%90%E6%A7%BD/"/>
     
   </entry>
   
