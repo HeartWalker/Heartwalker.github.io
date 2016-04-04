@@ -119,12 +119,12 @@ a img {
 }
 body {
   background: #ddd;
-  background-image: url("/img/bg.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   opacity: 0.95;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
   filter: alpha(opacity=95);
+  background-image: url("/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 100%;
   color: #817c7c;
