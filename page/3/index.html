@@ -80,6 +80,69 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/02/16/js代码不起作用/" title="js代码不起作用" itemprop="url">js代码不起作用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-16T10:26:56.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>新人学习js时经常会遇到这样的问题:<br>代码明明正确,就是不起作用,这时你可能需要这样做:</p>
+<p>将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;//你的js代码&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>标签放到html标签最后,由于不同浏览器的优化问题(例如chrome中会最后加载图片)js代码可能仍然不起作用<br>此时你最好添加onload事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">    //你的js代码</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<pre><code>注意:一个js或者html中只能有一个window.onload函数
+</code></pre><p>如果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"tools.js"</span>&gt;//不要放代码 不会起作用&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/02/16/js代码不起作用/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/16/js代码不起作用/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/02/16/clear-float/" title="clear float" itemprop="url">clear float</a>
   </h1>
   <p class="article-author">By
@@ -319,7 +382,7 @@
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>9</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>10</sup></a></li>
 		  
 		
 		  
@@ -334,7 +397,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
     </div>
   </div>
 
@@ -342,7 +405,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">歸檔</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
   </div>
 
 

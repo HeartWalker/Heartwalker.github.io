@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-03T03:02:29.453Z</updated>
+  <updated>2016-04-04T03:07:09.885Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -16,9 +16,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>js作用域其一:概念详细</title>
+    <link href="http://HeartWalker.cc/2016/04/04/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%B8%80-%E6%A6%82%E5%BF%B5%E8%AF%A6%E7%BB%86/"/>
+    <id>http://HeartWalker.cc/2016/04/04/js作用域其一-概念详细/</id>
+    <published>2016-04-03T16:19:58.000Z</published>
+    <updated>2016-04-04T03:07:09.885Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;什么是作用域&quot;&gt;&lt;/a&gt;什么是作用域&lt;/h3&gt;&lt;p&gt;顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域&lt;/p&gt;
+&lt;h3 id=&quot;u5757_u7EA7_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u5757_u7EA7_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;块级作用域&quot;&gt;&lt;/a&gt;块级作用域&lt;/h3&gt;&lt;p&gt;所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//C语言 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;/span&gt;() &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int i=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(i) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int j=&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d/n&quot;&lt;/span&gt;,j); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;会报 error: ‘j’ undeclared (first use in this function),因为 C语言拥有块级作用域，因为j是在if的语句块中定义的，因此，它在块外是无法访问的.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(i)&amp;#123;var j =&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(j);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;控制台输出3, 可见在块级作用域{}之外j仍能访问.&lt;/p&gt;
+&lt;h3 id=&quot;u8BCD_u6CD5_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u8BCD_u6CD5_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;词法作用域&quot;&gt;&lt;/a&gt;词法作用域&lt;/h3&gt;&lt;p&gt;词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数. 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;&lt;/span&gt;()&amp;#123;var i =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; f();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; console.log(i);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; 控制台会报错, Uncaught ReferenceError: i is not defined(…), 因为i 只在词法作用域函数f内生效, 例:&lt;br&gt; &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   var i =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;console.log(i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   f();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;控制台输出1 &lt;/p&gt;
+&lt;h3 id=&quot;u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;全局变量与局部变量&quot;&gt;&lt;/a&gt;全局变量与局部变量&lt;/h3&gt;&lt;p&gt;全局变量指的是在整个window下都可以生效的变量, 所有不在词法作用域内声明的变量都是全局变量; 局部变量指的就是在词法作用域内用var声明的变量, 但是不用var声明的变量(如:a = 1;)则具有全局性, 词法作用域内的变量必须要函数执行以后才能生效&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u4EC0_u4E48_u662F_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;什么是作用域&quot;&gt;&lt;/a&gt;什么是作用域&lt;/h3
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="作用域" scheme="http://HeartWalker.cc/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo博客完工感言</title>
-    <link href="http://HeartWalker.cc/2016/04/02/%E6%B5%8B%E8%AF%95/"/>
-    <id>http://HeartWalker.cc/2016/04/02/测试/</id>
+    <link href="http://HeartWalker.cc/2016/04/02/hexo%E5%8D%9A%E5%AE%A2%E5%AE%8C%E5%B7%A5%E6%84%9F%E8%A8%80/"/>
+    <id>http://HeartWalker.cc/2016/04/02/hexo博客完工感言/</id>
     <published>2016-04-02T04:19:33.000Z</published>
     <updated>2016-04-03T03:02:29.453Z</updated>
     
@@ -617,33 +647,6 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
     </summary>
     
       <category term="css" scheme="http://HeartWalker.cc/categories/css/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>js代码不起作用</title>
-    <link href="http://HeartWalker.cc/2016/02/16/js%E4%BB%A3%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/"/>
-    <id>http://HeartWalker.cc/2016/02/16/js代码不起作用/</id>
-    <published>2016-02-16T10:26:56.000Z</published>
-    <updated>2016-02-19T10:05:35.189Z</updated>
-    
-    <content type="html">&lt;p&gt;新人学习js时经常会遇到这样的问题:&lt;br&gt;代码明明正确,就是不起作用,这时你可能需要这样做:&lt;/p&gt;
-&lt;p&gt;将&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;//你的js代码&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;标签放到html标签最后,由于不同浏览器的优化问题(例如chrome中会最后加载图片)js代码可能仍然不起作用&lt;br&gt;此时你最好添加onload事件&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.onload = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; ()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //你的js代码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;注意:一个js或者html中只能有一个window.onload函数
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果是&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;tools.js&quot;&lt;/span&gt;&amp;gt;//不要放代码 不会起作用&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt; 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;新人学习js时经常会遇到这样的问题:&lt;br&gt;代码明明正确,就是不起作用,这时你可能需要这样做:&lt;/p&gt;
-&lt;p&gt;将&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
     
     
   </entry>

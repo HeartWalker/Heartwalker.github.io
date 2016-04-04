@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>hexo博客完工感言 | HeartWalker&#39;s Blog</title>
+    <title>js作用域其一:概念详细 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞…">
+    <meta name="description" content="什么是作用域顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域
+块级作用域所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:12345678910//C语言 void m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo博客完工感言">
-<meta property="og:url" content="http://HeartWalker.cc/2016/04/02/测试/index.html">
+<meta property="og:title" content="js作用域其一:概念详细">
+<meta property="og:url" content="http://HeartWalker.cc/2016/04/04/js作用域其一-概念详细/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞…">
-<meta property="og:updated_time" content="2016-04-03T03:02:29.453Z">
+<meta property="og:description" content="什么是作用域顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域
+块级作用域所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:12345678910//C语言 void m">
+<meta property="og:updated_time" content="2016-04-04T03:07:09.885Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo博客完工感言">
-<meta name="twitter:description" content="github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞…">
+<meta name="twitter:title" content="js作用域其一:概念详细">
+<meta name="twitter:description" content="什么是作用域顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域
+块级作用域所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:12345678910//C语言 void m">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -79,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/02/测试/" title="hexo博客完工感言" itemprop="url">hexo博客完工感言</a>
+      <a href="/2016/04/04/js作用域其一-概念详细/" title="js作用域其一:概念详细" itemprop="url">js作用域其一:概念详细</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-02T04:19:33.000Z" itemprop="datePublished"> 發表於 2016-04-02</time>
+    <time datetime="2016-04-03T16:19:58.000Z" itemprop="datePublished"> 發表於 2016-04-04</time>
     
   </p>
 </header>
@@ -95,11 +98,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF"><span class="toc-number">1.</span> <span class="toc-text">什么是作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5757_u7EA7_u4F5C_u7528_u57DF"><span class="toc-number">2.</span> <span class="toc-text">块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BCD_u6CD5_u4F5C_u7528_u57DF"><span class="toc-number">3.</span> <span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF"><span class="toc-number">4.</span> <span class="toc-text">全局变量与局部变量</span></a></li></ol>
 		
 		</div>
 		
-		<p>　　github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　<br>　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞… </p>
+		<h3 id="u4EC0_u4E48_u662F_u4F5C_u7528_u57DF"><a href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF" class="headerlink" title="什么是作用域"></a>什么是作用域</h3><p>顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域</p>
+<h3 id="u5757_u7EA7_u4F5C_u7528_u57DF"><a href="#u5757_u7EA7_u4F5C_u7528_u57DF" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//C语言 </span><br><span class="line">void <span class="function"><span class="title">main</span></span>() </span><br><span class="line">&#123; </span><br><span class="line">int i=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>(i) </span><br><span class="line">&#123; </span><br><span class="line">int j=<span class="number">3</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d/n"</span>,j); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>会报 error: ‘j’ undeclared (first use in this function),因为 C语言拥有块级作用域，因为j是在if的语句块中定义的，因此，它在块外是无法访问的.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//JavaScript</span><br><span class="line">var i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(i)&#123;var j =<span class="number">3</span>;&#125; </span><br><span class="line">console.log(j);</span><br></pre></td></tr></table></figure></p>
+<p>控制台输出3, 可见在块级作用域{}之外j仍能访问.</p>
+<h3 id="u8BCD_u6CD5_u4F5C_u7528_u57DF"><a href="#u8BCD_u6CD5_u4F5C_u7528_u57DF" class="headerlink" title="词法作用域"></a>词法作用域</h3><p>词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数. 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//JavaScript</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;var i =<span class="number">1</span>;&#125;;</span><br><span class="line"> f();</span><br><span class="line"> console.log(i);</span><br></pre></td></tr></table></figure></p>
+<p> 控制台会报错, Uncaught ReferenceError: i is not defined(…), 因为i 只在词法作用域函数f内生效, 例:<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</span><br><span class="line">   var i =<span class="number">1</span>;console.log(i);</span><br><span class="line">   &#125;; </span><br><span class="line">   f();</span><br></pre></td></tr></table></figure></p>
+<p>控制台输出1 </p>
+<h3 id="u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF"><a href="#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF" class="headerlink" title="全局变量与局部变量"></a>全局变量与局部变量</h3><p>全局变量指的是在整个window下都可以生效的变量, 所有不在词法作用域内声明的变量都是全局变量; 局部变量指的就是在词法作用域内用var声明的变量, 但是不用var声明的变量(如:a = 1;)则具有全局性, 词法作用域内的变量必须要函数执行以后才能生效</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -107,13 +117,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
+  <a class="article-category-link" href="/categories/js/">js</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/吐槽/">吐槽</a>
+  <span></span> <a href="/tags/作用域/">作用域</a>
   </div>
 
 </div>
@@ -122,7 +132,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/04/02/测试/" data-title="hexo博客完工感言 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/04/04/js作用域其一-概念详细/" data-title="js作用域其一:概念详细 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -137,9 +147,9 @@
  
 
 <div class="next">
-<a href="/2016/03/31/国内程序员大不易/"  title="国内程序员大不易">
+<a href="/2016/04/02/hexo博客完工感言/"  title="hexo博客完工感言">
  <strong>下一篇：</strong><br/> 
- <span>国内程序员大不易
+ <span>hexo博客完工感言
 </span>
 </a>
 </div>
@@ -148,7 +158,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/02/测试/" data-title="hexo博客完工感言" data-url="http://HeartWalker.cc/2016/04/02/测试/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/04/js作用域其一-概念详细/" data-title="js作用域其一:概念详细" data-url="http://HeartWalker.cc/2016/04/04/js作用域其一-概念详细/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -171,7 +181,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF"><span class="toc-number">1.</span> <span class="toc-text">什么是作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5757_u7EA7_u4F5C_u7528_u57DF"><span class="toc-number">2.</span> <span class="toc-text">块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BCD_u6CD5_u4F5C_u7528_u57DF"><span class="toc-number">3.</span> <span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF"><span class="toc-number">4.</span> <span class="toc-text">全局变量与局部变量</span></a></li></ol>
  
   </div>
 
@@ -203,7 +213,7 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>9</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>10</sup></a></li>
 		  
 		
 		  
@@ -218,7 +228,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
     </div>
   </div>
 
@@ -226,7 +236,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">歸檔</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
   </div>
 
 

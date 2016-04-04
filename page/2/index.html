@@ -80,6 +80,81 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/11/js小数精度/" title="js小数精度" itemprop="url">js小数精度</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-10T17:36:33.000Z" itemprop="datePublished"> 發表於 2016-03-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:</p>
+<pre><code>console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+</code></pre><p>为什么不是0.3与0.1呢?</p>
+<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><pre><code>Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
+</code></pre><p>那么让我们看一下二进制中0.1与0.2到底是多少</p>
+<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
+0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
+</code></pre><p>但是在js中小数位数是有限的:</p>
+<pre><code>console.log(Number(0.1).toString(2))
+0.0001100110011001100110011001100110011001100110011001101
+
+console.log(Number(0.2).toString(2))
+0.001100110011001100110011001100110011001100110011001101
+</code></pre><p>将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
+<h3 id="u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><a href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5" class="headerlink" title="为什么java可以"></a>为什么java可以</h3><p>像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装</p>
+<h3 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在运算前我们把参加运算的数先升级(<span class="number">10</span>的X的次方)到整数，等运算完后再降级(<span class="number">0.1</span>的X的次方)</span><br><span class="line">根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()</span><br><span class="line">根据需要保留指定位数的小数:如toFixed()</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/11/js小数精度/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/11/js小数精度/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/08/link与@import引入css/" title="css与@import引入css" itemprop="url">css与@import引入css</a>
   </h1>
   <p class="article-author">By
@@ -695,69 +770,6 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/16/js代码不起作用/" title="js代码不起作用" itemprop="url">js代码不起作用</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-16T10:26:56.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>新人学习js时经常会遇到这样的问题:<br>代码明明正确,就是不起作用,这时你可能需要这样做:</p>
-<p>将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;//你的js代码&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>标签放到html标签最后,由于不同浏览器的优化问题(例如chrome中会最后加载图片)js代码可能仍然不起作用<br>此时你最好添加onload事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">    //你的js代码</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<pre><code>注意:一个js或者html中只能有一个window.onload函数
-</code></pre><p>如果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"tools.js"</span>&gt;//不要放代码 不会起作用&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p> 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/16/js代码不起作用/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/16/js代码不起作用/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -794,7 +806,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>9</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>10</sup></a></li>
 		  
 		
 		  
@@ -809,7 +821,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
     </div>
   </div>
 
@@ -817,7 +829,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">歸檔</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
   </div>
 
 
