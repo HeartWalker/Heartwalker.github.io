@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="HeartWalker's Blog">
 <meta property="og:description" content="什么是作用域顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域
 块级作用域所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:12345678910//C语言 void m">
-<meta property="og:updated_time" content="2016-04-04T03:07:09.885Z">
+<meta property="og:updated_time" content="2016-04-04T16:44:19.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js作用域其一:概念详细">
 <meta name="twitter:description" content="什么是作用域顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域
@@ -109,7 +109,7 @@
 <h3 id="u8BCD_u6CD5_u4F5C_u7528_u57DF"><a href="#u8BCD_u6CD5_u4F5C_u7528_u57DF" class="headerlink" title="词法作用域"></a>词法作用域</h3><p>词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数. 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//JavaScript</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;var i =<span class="number">1</span>;&#125;;</span><br><span class="line"> f();</span><br><span class="line"> console.log(i);</span><br></pre></td></tr></table></figure></p>
 <p> 控制台会报错, Uncaught ReferenceError: i is not defined(…), 因为i 只在词法作用域函数f内生效, 例:<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</span><br><span class="line">   var i =<span class="number">1</span>;console.log(i);</span><br><span class="line">   &#125;; </span><br><span class="line">   f();</span><br></pre></td></tr></table></figure></p>
 <p>控制台输出1 </p>
-<h3 id="u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF"><a href="#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF" class="headerlink" title="全局变量与局部变量"></a>全局变量与局部变量</h3><p>全局变量指的是在整个window下都可以生效的变量, 所有不在词法作用域内声明的变量都是全局变量; 局部变量指的就是在词法作用域内用var声明的变量, 但是不用var声明的变量(如:a = 1;)则具有全局性, 词法作用域内的变量必须要函数执行以后才能生效</p>
+<h3 id="u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF"><a href="#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF" class="headerlink" title="全局变量与局部变量"></a>全局变量与局部变量</h3><p>全局变量指的是在整个window下都可以生效的变量, 所有不在词法作用域内声明的变量都是全局变量; 局部变量指的就是在词法作用域内用var声明的变量, 但是不用var声明的变量(如:a = 1;)则具有全局性, 词法作用域内的变量必须要函数执行以后才能生效<br>全局变量可以再任何地方访问到, 为局部变量只能在其作用域内被访问到</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -145,6 +145,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/04/04/js作用域其二-预解析/" title="js作用域其二:预解析">
+  <strong>上一篇：</strong><br/>
+  <span>
+  js作用域其二:预解析</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/04/02/hexo博客完工感言/"  title="hexo博客完工感言">
@@ -213,7 +221,7 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>10</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>11</sup></a></li>
 		  
 		
 		  
@@ -228,7 +236,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/作用域/" style="font-size: 15px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
     </div>
   </div>
 
@@ -236,7 +244,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">歸檔</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
   </div>
 
 
