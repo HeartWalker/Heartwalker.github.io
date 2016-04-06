@@ -80,6 +80,159 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/06/前端优化/" title="前端优化(持续更新中)" itemprop="url">前端优化(持续更新中)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-05T17:39:44.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><a href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219" class="headerlink" title="性能黄金法则"></a>性能黄金法则</h3><p>只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上</p>
+<h3 id="u51CF_u5C11HTTP_u8BF7_u6C42"><a href="#u51CF_u5C11HTTP_u8BF7_u6C42" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h3><ol>
+<li><strong>合并背景图片</strong><br>就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.</li>
+<li><strong>合并样式表</strong><br>将多个css文件合并成一个css文件 </li>
+<li><strong>合并脚本</strong><br>将多个js文件合并成一个js文件</li>
+<li><strong>图片地图(图像映射)</strong><br>通过&lt; img /&gt;后添加&lt; map &gt;和&lt; area &gt;设置。<br>&lt; map &gt;元素表明映射的开始<br>&lt; area &gt;元素表明每个区域，如果要把一个图片分4个区域，则用4个area。<br>&lt; map &gt;元素只有一个name属性.<br>下面介绍area元素的属性：<br>(1) shape：必须的属性，用于描述区域的形状，rectangle\poly\circle\default可选,default指的是还没有被定义的区域。<br>(2) coords：指定区域的坐标。比如矩形有4个坐标，前两个是左上角的x,y坐标，后两个是右下角的x,y坐标。<br>(3) href和nohref：href指定目的的链接，如果不指定href属性，则需要指定nohref，nohref=”nohref”<br>(4) target：和&lt; a &gt;一样。<br>注：<br>(1)在&lt; img&gt;中设置usemap属性。<br>(2)在&lt; map&gt;中设置name属性。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"planets.jpg"</span> border=<span class="string">"0"</span> usemap=<span class="string">"#planetmap"</span> alt=<span class="string">"Planets"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;map name=<span class="string">"planetmap"</span> id=<span class="string">"planetmap"</span>&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"circle"</span> coords=<span class="string">"180,139,14"</span> href =<span class="string">"venus.html"</span> alt=<span class="string">"Venus"</span> /&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"circle"</span> coords=<span class="string">"129,161,10"</span> href =<span class="string">"mercur.html"</span> alt=<span class="string">"Mercury"</span> /&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"rect"</span> coords=<span class="string">"0,0,110,260"</span> href =<span class="string">"sun.html"</span> alt=<span class="string">"Sun"</span> /&gt;</span><br><span class="line">&lt;/map&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/web/">web</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/优化/">优化</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/04/06/前端优化/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/06/前端优化/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/05/js作用域其三-作用域链/" title="js作用域其三:作用域链" itemprop="url">js作用域其三:作用域链</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-04T16:25:32.000Z" itemprop="datePublished"> 發表於 2016-04-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE"><a href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="什么是作用域链"></a>什么是作用域链</h3><p>每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var o = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">A</span></span>()&#123;</span><br><span class="line">    var a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">        var B =<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">C</span></span>()&#123;</span><br><span class="line">            var c = <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　可以在全局环境访问o, 在函数A与B之间访问o与a, 在函数B与C之间访问o与a和b, 在函数C中访问o与a和b与c.<br>　　当代码在一个环境中执行时，会创建变量对象的的一个作用域链（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。———–引自Javascript高级程序设计（第三版）（P73）<br>　　对于一个变量时, 作用域链的最顶端就是当前的函数环境, 下一级就是包含这个变量的下一个函数环境… 直到最后全局环境为止<br>简而言之作用域链就是变量其执行环境按生效的顺序形成的一种链式结构</p>
+<h3 id="u7ED8_u5236_u539F_u578B_u94FE"><a href="#u7ED8_u5236_u539F_u578B_u94FE" class="headerlink" title="绘制原型链"></a>绘制原型链</h3><p>绘制作用域链可以清晰的理清代码的结构, 并且在代码执行的时候, 能去准确的定位应该改变的变量的位置<br>绘制原型链的规则:</p>
+<ol>
+<li>将全部的&lt; script &gt;标签看做一个整体. 是一个 0 级别的链, 链中所有的全局范围内的变量, 函数, 对象… 都是链中的成员, 由于声明会提升, 因此在绘制链之前将代码可以进行调整, 在开始的时候, 将声明都写在前面, 绘图的时候按照顺序绘制, 较为简单.</li>
+<li>由于只有函数才可以限定作用域. 因此在函数上引出一条新链, 级别为 n + 1, 在函数内部, 又是一个完整, 独立的作用域结构, 因此在函数内部定义的任何成员也按照 1 中的规则在该链上展开</li>
+<li>如果有函数, 继续绘制下去<br>注: 由于函数声明提升在不同的&lt; script &gt;标签中并不起作用, 需要注意</li>
+</ol>
+<h3 id="u5229_u7528_u539F_u578B_u94FE_u641C_u7D22_u53D8_u91CF"><a href="#u5229_u7528_u539F_u578B_u94FE_u641C_u7D22_u53D8_u91CF" class="headerlink" title="利用原型链搜索变量"></a>利用原型链搜索变量</h3><ol>
+<li>在代码的执行过程中, 如果访问到某一个变量, 那么首先在当前链上找 ( 无序 )</li>
+<li>如果没有, 在 n-1 级上找( 在函数内部允许访问定义在函数外部的变量 ). </li>
+<li>如此往复, 直到 0 级链, 如果还没有, 抛出异常; 如果找到, 则结束寻找, 直接获得该链上变量的数据</li>
+<li>不允许跨链查找<h3 id="u56FE_u4F8B"><a href="#u56FE_u4F8B" class="headerlink" title="图例"></a>图例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var a = <span class="number">123</span>;</span><br><span class="line">    var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        </span><br><span class="line">        var n = <span class="number">456</span>;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        var arr = [];</span><br><span class="line">        var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var d= <span class="number">000</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    var arr = [];</span><br><span class="line">    var fo = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            a= <span class="number">456</span>;</span><br><span class="line">    &#125;;   </span><br><span class="line"></span><br><span class="line">    fo(); </span><br><span class="line">    console.log(a);  //<span class="number">456</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>绘制其作用链图如下:</p>
+<p><img src="/images/zyyl1.gif" alt=""></p>
+<p>执行fo(), 执行a = 456; 在fo的1级链没有定义a ,于是向0级链查找; 0级链定义了a, 于是给其赋值456.<br>如果改变代码, 在函数fo内声明a ,如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var a = <span class="number">123</span>;</span><br><span class="line">    var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        </span><br><span class="line">        var n = <span class="number">456</span>;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        var arr = [];</span><br><span class="line">        var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var d= <span class="number">000</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    var arr = [];</span><br><span class="line">    var fo = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        var a;</span><br><span class="line">        a= <span class="number">456</span>;</span><br><span class="line">    &#125;;   </span><br><span class="line"></span><br><span class="line">    fo(); </span><br><span class="line">    console.log(a);  //<span class="number">123</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>绘制其作用链图如下:</p>
+<p><img src="/images/zyyl2.gif" alt=""><br>执行fo(), 执行a = 456; 在fo的1级链定义了a, 于是给其赋值456, 然后结束查找, 全局作用域的a 的值并没有改变</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/作用域/">作用域</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/04/05/js作用域其三-作用域链/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/05/js作用域其三-作用域链/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/04/js作用域其二-预解析/" title="js作用域其二:预解析" itemprop="url">js作用域其二:预解析</a>
   </h1>
   <p class="article-author">By
@@ -180,7 +333,7 @@
 <h3 id="u5757_u7EA7_u4F5C_u7528_u57DF"><a href="#u5757_u7EA7_u4F5C_u7528_u57DF" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//C语言 </span><br><span class="line">void <span class="function"><span class="title">main</span></span>() </span><br><span class="line">&#123; </span><br><span class="line">int i=<span class="number">1</span>; </span><br><span class="line"><span class="keyword">if</span>(i) </span><br><span class="line">&#123; </span><br><span class="line">int j=<span class="number">3</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d/n"</span>,j); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>会报 error: ‘j’ undeclared (first use in this function),因为 C语言拥有块级作用域，因为j是在if的语句块中定义的，因此，它在块外是无法访问的.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//JavaScript</span><br><span class="line">var i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(i)&#123;var j =<span class="number">3</span>;&#125; </span><br><span class="line">console.log(j);</span><br></pre></td></tr></table></figure></p>
 <p>控制台输出3, 可见在块级作用域{}之外j仍能访问.</p>
-<h3 id="u8BCD_u6CD5_u4F5C_u7528_u57DF"><a href="#u8BCD_u6CD5_u4F5C_u7528_u57DF" class="headerlink" title="词法作用域"></a>词法作用域</h3><p>词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数. 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//JavaScript</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;var i =<span class="number">1</span>;&#125;;</span><br><span class="line"> f();</span><br><span class="line"> console.log(i);</span><br></pre></td></tr></table></figure></p>
+<h3 id="u8BCD_u6CD5_u4F5C_u7528_u57DF"><a href="#u8BCD_u6CD5_u4F5C_u7528_u57DF" class="headerlink" title="词法作用域"></a>词法作用域</h3><p>词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数, 函数内部允许访问函数外部的变量. 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//JavaScript</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;var i =<span class="number">1</span>;&#125;;</span><br><span class="line"> f();</span><br><span class="line"> console.log(i);</span><br></pre></td></tr></table></figure></p>
 <p> 控制台会报错, Uncaught ReferenceError: i is not defined(…), 因为i 只在词法作用域函数f内生效, 例:<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>()&#123;</span><br><span class="line">   var i =<span class="number">1</span>;console.log(i);</span><br><span class="line">   &#125;; </span><br><span class="line">   f();</span><br></pre></td></tr></table></figure></p>
 <p>控制台输出1 </p>
 <h3 id="u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF"><a href="#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF" class="headerlink" title="全局变量与局部变量"></a>全局变量与局部变量</h3><p>全局变量指的是在整个window下都可以生效的变量, 所有不在词法作用域内声明的变量都是全局变量; 局部变量指的就是在词法作用域内用var声明的变量, 但是不用var声明的变量(如:a = 1;)则具有全局性, 词法作用域内的变量必须要函数执行以后才能生效<br>全局变量可以再任何地方访问到, 为局部变量只能在其作用域内被访问到</p>
@@ -480,6 +633,11 @@
 </div>
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/变量类型/">变量类型</a>
+  </div>
+
 </div>
 
 
@@ -648,142 +806,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/17/消除inline-block之间的空隙/" title="消除inline-block之间的空隙" itemprop="url">消除inline-block之间的空隙</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-16T16:32:50.000Z" itemprop="datePublished"> 發表於 2016-03-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        .space span &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>下面列出几种方法</p>
-<h3 id="u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C"><a href="#u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C" class="headerlink" title="去除空格,将代码放到一行"></a>去除空格,将代码放到一行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>视情况可以使用</p>
-<h3 id="u4F7F_u7528margin_u8D1F_u503C"><a href="#u4F7F_u7528margin_u8D1F_u503C" class="headerlink" title="使用margin负值"></a>使用margin负值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">    margin-right:-<span class="number">5</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>不仅会改变布局,还会有各种问题,不推荐</p>
-<h3 id="u4F7F_u7528_u6CE8_u91CA"><a href="#u4F7F_u7528_u6CE8_u91CA" class="headerlink" title="使用注释"></a>使用注释</h3><p>同样利用的是去除空格的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>同样会有一些问题,不推荐</p>
-<h3 id="u4F7F_u7528letter-spacing"><a href="#u4F7F_u7528letter-spacing" class="headerlink" title="使用letter-spacing"></a>使用letter-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        letter-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>难以控制且会影响到后代,不推荐</p>
-<h3 id="u4F7F_u7528word-spacing"><a href="#u4F7F_u7528word-spacing" class="headerlink" title="使用word-spacing"></a>使用word-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        word-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>同样不推荐</p>
-<h3 id="u4F7F_u7528font-size_3A0_3B"><a href="#u4F7F_u7528font-size_3A0_3B" class="headerlink" title="使用font-size:0;"></a>使用font-size:0;</h3><p>将空格的大小设置为0,但会影响到后代,需要给后代单独设置font-size大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        font-size:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="u5229_u7528_u6D6E_u52A8"><a href="#u5229_u7528_u6D6E_u52A8" class="headerlink" title="利用浮动"></a>利用浮动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="u7279_u6B8A_u7684img_u6807_u7B7E"><a href="#u7279_u6B8A_u7684img_u6807_u7B7E" class="headerlink" title="特殊的img标签"></a>特殊的img标签</h3><p>img也是一个行内块元素,但它比较特殊<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .space img &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>img标签不仅左右之间有空隙 而且上下之间也有空隙<br>原因:<br>img是行内块元素,如文字一样会有默认的基线对齐,图片的最底部就是基线的位置,所以图片和文字一样距离底部会有一定的距离<br>解决方法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用font-size:<span class="number">0</span>;</span><br><span class="line">使用<span class="built_in">float</span>与display:block;结合</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/03/17/消除inline-block之间的空隙/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/17/消除inline-block之间的空隙/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/13/用js在html中写入内容/" title="用js在html中写入内容" itemprop="url">用js在html中写入内容</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-12T17:08:17.000Z" itemprop="datePublished"> 發表於 2016-03-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>document.write(), innerHTML, innerText,  value, nodevalue</p>
-<h3 id="document-write"><a href="#document-write" class="headerlink" title="document.write"></a>document.write</h3><p>document.write是直接写入到页面的内容流，如果在写之前没有调用document.open, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。即第一次调用document.write会将当前页面的内容清空, 其后再次调用会在原来的内容上继续添加, 如果之后调用了document.close()或将页面关闭, 再次使用document.write会再次将页面内容清空并输出, 识别标签</p>
-<h3 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h3><p>innerHTML是dom元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement, 识别标签</p>
-<h3 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a>innerText</h3><p>innerText设置的内容不识别标签, 获取内容是从起始位置到终止位置的内容, 但它去除Html标签, innerText并非W3C标准属性, 原为ie特有属性,经测试到目前为止已经得到主流浏览器最新版本的支持</p>
-<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>用来设置和获取具有value属性标签的value值, 主要用于表单中</p>
-<h3 id="nodevalue"><a href="#nodevalue" class="headerlink" title="nodevalue"></a>nodevalue</h3><p>对于文本节点，nodeValue 属性包含文本。<br>对于属性节点，nodeValue 属性包含属性值。<br>nodeValue 属性对于文档节点和元素节点是不可用的。<br>nodeValue是W3C标准属性</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/03/13/用js在html中写入内容/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/13/用js在html中写入内容/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -820,7 +842,11 @@
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>11</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/web/" title="web">web<sup>1</sup></a></li>
 		  
 		
 		  
@@ -835,15 +861,8 @@
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/作用域/" style="font-size: 15px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 20px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 10px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 20px;">吐槽</a>
     </div>
-  </div>
-
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">歸檔</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">10</span></li></ul>
   </div>
 
 

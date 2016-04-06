@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-04T11:41:47.603Z</updated>
+  <updated>2016-04-06T17:41:26.197Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,79 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端优化(持续更新中)</title>
+    <link href="http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
+    <id>http://HeartWalker.cc/2016/04/06/前端优化/</id>
+    <published>2016-04-05T17:39:44.000Z</published>
+    <updated>2016-04-06T17:41:26.197Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3&gt;&lt;p&gt;只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上&lt;/p&gt;
+&lt;h3 id=&quot;u51CF_u5C11HTTP_u8BF7_u6C42&quot;&gt;&lt;a href=&quot;#u51CF_u5C11HTTP_u8BF7_u6C42&quot; class=&quot;headerlink&quot; title=&quot;减少HTTP请求&quot;&gt;&lt;/a&gt;减少HTTP请求&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;合并背景图片&lt;/strong&gt;&lt;br&gt;就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合并样式表&lt;/strong&gt;&lt;br&gt;将多个css文件合并成一个css文件 &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合并脚本&lt;/strong&gt;&lt;br&gt;将多个js文件合并成一个js文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图片地图(图像映射)&lt;/strong&gt;&lt;br&gt;通过&amp;lt; img /&amp;gt;后添加&amp;lt; map &amp;gt;和&amp;lt; area &amp;gt;设置。&lt;br&gt;&amp;lt; map &amp;gt;元素表明映射的开始&lt;br&gt;&amp;lt; area &amp;gt;元素表明每个区域，如果要把一个图片分4个区域，则用4个area。&lt;br&gt;&amp;lt; map &amp;gt;元素只有一个name属性.&lt;br&gt;下面介绍area元素的属性：&lt;br&gt;(1) shape：必须的属性，用于描述区域的形状，rectangle\poly\circle\default可选,default指的是还没有被定义的区域。&lt;br&gt;(2) coords：指定区域的坐标。比如矩形有4个坐标，前两个是左上角的x,y坐标，后两个是右下角的x,y坐标。&lt;br&gt;(3) href和nohref：href指定目的的链接，如果不指定href属性，则需要指定nohref，nohref=”nohref”&lt;br&gt;(4) target：和&amp;lt; a &amp;gt;一样。&lt;br&gt;注：&lt;br&gt;(1)在&amp;lt; img&amp;gt;中设置usemap属性。&lt;br&gt;(2)在&amp;lt; map&amp;gt;中设置name属性。&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;img src=&lt;span class=&quot;string&quot;&gt;&quot;planets.jpg&quot;&lt;/span&gt; border=&lt;span class=&quot;string&quot;&gt;&quot;0&quot;&lt;/span&gt; usemap=&lt;span class=&quot;string&quot;&gt;&quot;#planetmap&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Planets&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;map name=&lt;span class=&quot;string&quot;&gt;&quot;planetmap&quot;&lt;/span&gt; id=&lt;span class=&quot;string&quot;&gt;&quot;planetmap&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;area shape=&lt;span class=&quot;string&quot;&gt;&quot;circle&quot;&lt;/span&gt; coords=&lt;span class=&quot;string&quot;&gt;&quot;180,139,14&quot;&lt;/span&gt; href =&lt;span class=&quot;string&quot;&gt;&quot;venus.html&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Venus&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;area shape=&lt;span class=&quot;string&quot;&gt;&quot;circle&quot;&lt;/span&gt; coords=&lt;span class=&quot;string&quot;&gt;&quot;129,161,10&quot;&lt;/span&gt; href =&lt;span class=&quot;string&quot;&gt;&quot;mercur.html&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Mercury&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;area shape=&lt;span class=&quot;string&quot;&gt;&quot;rect&quot;&lt;/span&gt; coords=&lt;span class=&quot;string&quot;&gt;&quot;0,0,110,260&quot;&lt;/span&gt; href =&lt;span class=&quot;string&quot;&gt;&quot;sun.html&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Sun&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/map&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&amp;lt;&amp;lt;高性能网站建设指南&amp;gt;&amp;gt;&lt;br&gt;&amp;lt;&amp;lt;高性能网站建设进阶指南&amp;gt;&amp;gt;&lt;br&gt;这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3
+    
+    </summary>
+    
+      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
+    
+    
+      <category term="优化" scheme="http://HeartWalker.cc/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js作用域其三:作用域链</title>
+    <link href="http://HeartWalker.cc/2016/04/05/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%B8%89-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/"/>
+    <id>http://HeartWalker.cc/2016/04/05/js作用域其三-作用域链/</id>
+    <published>2016-04-04T16:25:32.000Z</published>
+    <updated>2016-04-05T14:23:58.057Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE&quot; class=&quot;headerlink&quot; title=&quot;什么是作用域链&quot;&gt;&lt;/a&gt;什么是作用域链&lt;/h3&gt;&lt;p&gt;每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var o = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;A&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;b&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var B =&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;C&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var c = &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;　　可以在全局环境访问o, 在函数A与B之间访问o与a, 在函数B与C之间访问o与a和b, 在函数C中访问o与a和b与c.&lt;br&gt;　　当代码在一个环境中执行时，会创建变量对象的的一个作用域链（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。———–引自Javascript高级程序设计（第三版）（P73）&lt;br&gt;　　对于一个变量时, 作用域链的最顶端就是当前的函数环境, 下一级就是包含这个变量的下一个函数环境… 直到最后全局环境为止&lt;br&gt;简而言之作用域链就是变量其执行环境按生效的顺序形成的一种链式结构&lt;/p&gt;
+&lt;h3 id=&quot;u7ED8_u5236_u539F_u578B_u94FE&quot;&gt;&lt;a href=&quot;#u7ED8_u5236_u539F_u578B_u94FE&quot; class=&quot;headerlink&quot; title=&quot;绘制原型链&quot;&gt;&lt;/a&gt;绘制原型链&lt;/h3&gt;&lt;p&gt;绘制作用域链可以清晰的理清代码的结构, 并且在代码执行的时候, 能去准确的定位应该改变的变量的位置&lt;br&gt;绘制原型链的规则:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将全部的&amp;lt; script &amp;gt;标签看做一个整体. 是一个 0 级别的链, 链中所有的全局范围内的变量, 函数, 对象… 都是链中的成员, 由于声明会提升, 因此在绘制链之前将代码可以进行调整, 在开始的时候, 将声明都写在前面, 绘图的时候按照顺序绘制, 较为简单.&lt;/li&gt;
+&lt;li&gt;由于只有函数才可以限定作用域. 因此在函数上引出一条新链, 级别为 n + 1, 在函数内部, 又是一个完整, 独立的作用域结构, 因此在函数内部定义的任何成员也按照 1 中的规则在该链上展开&lt;/li&gt;
+&lt;li&gt;如果有函数, 继续绘制下去&lt;br&gt;注: 由于函数声明提升在不同的&amp;lt; script &amp;gt;标签中并不起作用, 需要注意&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u5229_u7528_u539F_u578B_u94FE_u641C_u7D22_u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u5229_u7528_u539F_u578B_u94FE_u641C_u7D22_u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;利用原型链搜索变量&quot;&gt;&lt;/a&gt;利用原型链搜索变量&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在代码的执行过程中, 如果访问到某一个变量, 那么首先在当前链上找 ( 无序 )&lt;/li&gt;
+&lt;li&gt;如果没有, 在 n-1 级上找( 在函数内部允许访问定义在函数外部的变量 ). &lt;/li&gt;
+&lt;li&gt;如此往复, 直到 0 级链, 如果还没有, 抛出异常; 如果找到, 则结束寻找, 直接获得该链上变量的数据&lt;/li&gt;
+&lt;li&gt;不允许跨链查找&lt;h3 id=&quot;u56FE_u4F8B&quot;&gt;&lt;a href=&quot;#u56FE_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;图例&quot;&gt;&lt;/a&gt;图例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var f = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var n = &lt;span class=&quot;number&quot;&gt;456&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var o = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var arr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var f = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var d= &lt;span class=&quot;number&quot;&gt;000&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var arr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var fo = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            a= &lt;span class=&quot;number&quot;&gt;456&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fo(); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(a);  //&lt;span class=&quot;number&quot;&gt;456&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;绘制其作用链图如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/zyyl1.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;执行fo(), 执行a = 456; 在fo的1级链没有定义a ,于是向0级链查找; 0级链定义了a, 于是给其赋值456.&lt;br&gt;如果改变代码, 在函数fo内声明a ,如下:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var f = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var n = &lt;span class=&quot;number&quot;&gt;456&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var o = &amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var arr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var f = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var d= &lt;span class=&quot;number&quot;&gt;000&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var arr = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var fo = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        a= &lt;span class=&quot;number&quot;&gt;456&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    fo(); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(a);  //&lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;绘制其作用链图如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/zyyl2.gif&quot; alt=&quot;&quot;&gt;&lt;br&gt;执行fo(), 执行a = 456; 在fo的1级链定义了a, 于是给其赋值456, 然后结束查找, 全局作用域的a 的值并没有改变&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE&quot; class=&quot;headerlink&quot; title=&quot;什么是作用域链&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="作用域" scheme="http://HeartWalker.cc/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>js作用域其二:预解析</title>
@@ -63,13 +136,13 @@
     <link href="http://HeartWalker.cc/2016/04/04/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%B8%80-%E6%A6%82%E5%BF%B5%E8%AF%A6%E7%BB%86/"/>
     <id>http://HeartWalker.cc/2016/04/04/js作用域其一-概念详细/</id>
     <published>2016-04-03T16:19:58.000Z</published>
-    <updated>2016-04-04T16:44:19.033Z</updated>
+    <updated>2016-04-06T04:39:02.064Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;什么是作用域&quot;&gt;&lt;/a&gt;什么是作用域&lt;/h3&gt;&lt;p&gt;顾名思义, 作用域就变量是起作用的区域, 作用域约束了定义变量后可以使用它的范围, 在编程语言中常见的作用域规则有: 块级作用域与词法作用域&lt;/p&gt;
 &lt;h3 id=&quot;u5757_u7EA7_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u5757_u7EA7_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;块级作用域&quot;&gt;&lt;/a&gt;块级作用域&lt;/h3&gt;&lt;p&gt;所谓的块级作用域就是用块将变量分隔, 在块中定义的所有变量在代码块外都是不可见的, 通常块指的就是一对{}, 大多数C系语言都有块级作用域, 但在JavaScript中并没有这个规则. 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//C语言 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;/span&gt;() &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int i=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(i) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int j=&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d/n&quot;&lt;/span&gt;,j); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;会报 error: ‘j’ undeclared (first use in this function),因为 C语言拥有块级作用域，因为j是在if的语句块中定义的，因此，它在块外是无法访问的.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(i)&amp;#123;var j =&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(j);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;控制台输出3, 可见在块级作用域{}之外j仍能访问.&lt;/p&gt;
-&lt;h3 id=&quot;u8BCD_u6CD5_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u8BCD_u6CD5_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;词法作用域&quot;&gt;&lt;/a&gt;词法作用域&lt;/h3&gt;&lt;p&gt;词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数. 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;&lt;/span&gt;()&amp;#123;var i =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; f();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; console.log(i);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u8BCD_u6CD5_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u8BCD_u6CD5_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;词法作用域&quot;&gt;&lt;/a&gt;词法作用域&lt;/h3&gt;&lt;p&gt;词法作用域又称为函数作用域, 就是变量的做用范围在书写代码的时候已经决定, 与运行的时候无关, 在JavaScript中用的便是词法作用域的规则, 分隔词法作用域的只有函数, 函数内部允许访问函数外部的变量. 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;&lt;/span&gt;()&amp;#123;var i =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; f();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; console.log(i);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt; 控制台会报错, Uncaught ReferenceError: i is not defined(…), 因为i 只在词法作用域函数f内生效, 例:&lt;br&gt; &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   var i =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;console.log(i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   f();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;控制台输出1 &lt;/p&gt;
 &lt;h3 id=&quot;u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u5168_u5C40_u53D8_u91CF_u4E0E_u5C40_u90E8_u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;全局变量与局部变量&quot;&gt;&lt;/a&gt;全局变量与局部变量&lt;/h3&gt;&lt;p&gt;全局变量指的是在整个window下都可以生效的变量, 所有不在词法作用域内声明的变量都是全局变量; 局部变量指的就是在词法作用域内用var声明的变量, 但是不用var声明的变量(如:a = 1;)则具有全局性, 词法作用域内的变量必须要函数执行以后才能生效&lt;br&gt;全局变量可以再任何地方访问到, 为局部变量只能在其作用域内被访问到&lt;/p&gt;
@@ -184,7 +257,7 @@
     <link href="http://HeartWalker.cc/2016/03/28/JS%E4%B8%AD%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%B5%8B%E5%80%BC/"/>
     <id>http://HeartWalker.cc/2016/03/28/JS中值类型和引用类型与赋值/</id>
     <published>2016-03-28T15:03:24.000Z</published>
-    <updated>2016-03-28T16:09:51.135Z</updated>
+    <updated>2016-04-06T04:47:38.254Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等&lt;/p&gt;
 &lt;h3 id=&quot;u533A_u522B&quot;&gt;&lt;a href=&quot;#u533A_u522B&quot; class=&quot;headerlink&quot; title=&quot;区别&quot;&gt;&lt;/a&gt;区别&lt;/h3&gt;&lt;ol&gt;
@@ -204,6 +277,8 @@
     
       <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
     
+    
+      <category term="变量类型" scheme="http://HeartWalker.cc/tags/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"/>
     
   </entry>
   
@@ -572,49 +647,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     
     
       <category term="吐槽" scheme="http://HeartWalker.cc/tags/%E5%90%90%E6%A7%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编程是门艺术</title>
-    <link href="http://HeartWalker.cc/2016/02/21/%E7%BC%96%E7%A8%8B%E6%98%AF%E9%97%A8%E8%89%BA%E6%9C%AF/"/>
-    <id>http://HeartWalker.cc/2016/02/21/编程是门艺术/</id>
-    <published>2016-02-21T01:10:17.000Z</published>
-    <updated>2016-03-30T04:35:07.810Z</updated>
-    
-    <content type="html">&lt;p&gt;　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要
-    
-    </summary>
-    
-      <category term="生活" scheme="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JS中用.点与[]中括号获取css属性的异同</title>
-    <link href="http://HeartWalker.cc/2016/02/19/JS%E4%B8%AD%E7%94%A8-%E7%82%B9%E4%B8%8E-%E4%B8%AD%E6%8B%AC%E5%8F%B7%E8%8E%B7%E5%8F%96css%E5%B1%9E%E6%80%A7%E7%9A%84%E5%BC%82%E5%90%8C/"/>
-    <id>http://HeartWalker.cc/2016/02/19/JS中用-点与-中括号获取css属性的异同/</id>
-    <published>2016-02-19T13:52:24.000Z</published>
-    <updated>2016-02-19T14:27:46.315Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;strong&gt;在js中获取css属性可以用.与[]两种方式&lt;/strong&gt;&lt;br&gt;这两种方式的效果基本相同&lt;br&gt;比如，有一个div我们想得到他的宽度，可以通过&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;div.style.width&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;这样的写法虽然简单，但是不灵活，&lt;font color=&quot;red&quot;&gt;没有办法通过传参的形式获取属性&lt;/font&gt;&lt;br&gt;即无法使用变量&lt;br&gt;因此我们还有另外一种写法&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;div.style[&lt;span class=&quot;string&quot;&gt;&quot;width&quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;在js中获取css属性可以用.与[]两种方式&lt;/strong&gt;&lt;br&gt;这两种方式的效果基本相同&lt;br&gt;比如，有一个div我们想得到他的宽度，可以通过&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
     
   </entry>
   

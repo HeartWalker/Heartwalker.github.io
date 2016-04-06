@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>编程是门艺术 | HeartWalker&#39;s Blog</title>
+    <title>前端优化(持续更新中) | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!">
+    <meta name="description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
+减少HTTP请求
+合并背景图片就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编程是门艺术">
-<meta property="og:url" content="http://HeartWalker.cc/2016/02/21/编程是门艺术/index.html">
+<meta property="og:title" content="前端优化(持续更新中)">
+<meta property="og:url" content="http://HeartWalker.cc/2016/04/06/前端优化/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!">
-<meta property="og:updated_time" content="2016-03-30T04:35:07.810Z">
+<meta property="og:description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
+减少HTTP请求
+合并背景图片就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.">
+<meta property="og:updated_time" content="2016-04-06T17:41:26.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编程是门艺术">
-<meta name="twitter:description" content="我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!">
+<meta name="twitter:title" content="前端优化(持续更新中)">
+<meta name="twitter:description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
+减少HTTP请求
+合并背景图片就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -79,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/21/编程是门艺术/" title="编程是门艺术" itemprop="url">编程是门艺术</a>
+      <a href="/2016/04/06/前端优化/" title="前端优化(持续更新中)" itemprop="url">前端优化(持续更新中)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-21T01:10:17.000Z" itemprop="datePublished"> 發表於 2016-02-21</time>
+    <time datetime="2016-04-05T17:39:44.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
     
   </p>
 </header>
@@ -95,11 +101,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
 		
 		</div>
 		
-		<p>　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!</p>
+		<h3 id="u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><a href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219" class="headerlink" title="性能黄金法则"></a>性能黄金法则</h3><p>只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上</p>
+<h3 id="u51CF_u5C11HTTP_u8BF7_u6C42"><a href="#u51CF_u5C11HTTP_u8BF7_u6C42" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h3><ol>
+<li><strong>合并背景图片</strong><br>就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.</li>
+<li><strong>合并样式表</strong><br>将多个css文件合并成一个css文件 </li>
+<li><strong>合并脚本</strong><br>将多个js文件合并成一个js文件</li>
+<li><strong>图片地图(图像映射)</strong><br>通过&lt; img /&gt;后添加&lt; map &gt;和&lt; area &gt;设置。<br>&lt; map &gt;元素表明映射的开始<br>&lt; area &gt;元素表明每个区域，如果要把一个图片分4个区域，则用4个area。<br>&lt; map &gt;元素只有一个name属性.<br>下面介绍area元素的属性：<br>(1) shape：必须的属性，用于描述区域的形状，rectangle\poly\circle\default可选,default指的是还没有被定义的区域。<br>(2) coords：指定区域的坐标。比如矩形有4个坐标，前两个是左上角的x,y坐标，后两个是右下角的x,y坐标。<br>(3) href和nohref：href指定目的的链接，如果不指定href属性，则需要指定nohref，nohref=”nohref”<br>(4) target：和&lt; a &gt;一样。<br>注：<br>(1)在&lt; img&gt;中设置usemap属性。<br>(2)在&lt; map&gt;中设置name属性。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"planets.jpg"</span> border=<span class="string">"0"</span> usemap=<span class="string">"#planetmap"</span> alt=<span class="string">"Planets"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;map name=<span class="string">"planetmap"</span> id=<span class="string">"planetmap"</span>&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"circle"</span> coords=<span class="string">"180,139,14"</span> href =<span class="string">"venus.html"</span> alt=<span class="string">"Venus"</span> /&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"circle"</span> coords=<span class="string">"129,161,10"</span> href =<span class="string">"mercur.html"</span> alt=<span class="string">"Mercury"</span> /&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"rect"</span> coords=<span class="string">"0,0,110,260"</span> href =<span class="string">"sun.html"</span> alt=<span class="string">"Sun"</span> /&gt;</span><br><span class="line">&lt;/map&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -107,9 +121,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
+  <a class="article-category-link" href="/categories/web/">web</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/优化/">优化</a>
+  </div>
 
 </div>
 
@@ -117,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/02/21/编程是门艺术/" data-title="编程是门艺术 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/04/06/前端优化/" data-title="前端优化(持续更新中) | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -130,19 +149,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/23/美工css与js/" title="美工css与js">
-  <strong>上一篇：</strong><br/>
-  <span>
-  美工css与js</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/19/JS中用-点与-中括号获取css属性的异同/"  title="JS中用.点与[]中括号获取css属性的异同">
+<a href="/2016/04/05/js作用域其三-作用域链/"  title="js作用域其三:作用域链">
  <strong>下一篇：</strong><br/> 
- <span>JS中用.点与[]中括号获取css属性的异同
+ <span>js作用域其三:作用域链
 </span>
 </a>
 </div>
@@ -151,7 +162,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/21/编程是门艺术/" data-title="编程是门艺术" data-url="http://HeartWalker.cc/2016/02/21/编程是门艺术/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/06/前端优化/" data-title="前端优化(持续更新中)" data-url="http://HeartWalker.cc/2016/04/06/前端优化/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -174,7 +185,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
  
   </div>
 
