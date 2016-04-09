@@ -184,7 +184,15 @@ ExpiresDefault &quot;access plus 10 years&quot;
 &lt;FilesMatch&gt;
 </code></pre><p>如果你用一个遥远的未来时间做有效期，就不得不在组件发生变化后及时修改组件的文件名; 为能够获取最新的文件，最有效的解决方案是修改其所有链接，这样，全新的请求将从原始服务器下载最新的内容</p>
 <h3 id="u5E94_u7528_u7F13_u5B58cache_manifest"><a href="#u5E94_u7528_u7F13_u5B58cache_manifest" class="headerlink" title="应用缓存cache manifest"></a>应用缓存cache manifest</h3><p>H5</p>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
+<h3 id="Gzip_u538B_u7F29"><a href="#Gzip_u538B_u7F29" class="headerlink" title="Gzip压缩"></a>Gzip压缩</h3><p>从HTTP/1.1开始，web客户端就有了支持压缩的Accept-Encoding HTTP请求头。</p>
+<pre><code>Accept-Encoding: gzip
+</code></pre><p>如果web服务器看到这个请求头，它就会用客户端列出的一种方式来压缩响应。web服务器通过Content-Encoding相应头来通知客户端。</p>
+<pre><code>Content-Encoding: gzip
+</code></pre><p>Gzip是目前最常见的高效压缩方法，由GNU项目开发的免费格式, 并被标准化为 RFC 1952 。 </p>
+<p>压缩脚本和样式表是非常值得的，同时还有XML和JSON在内的文本。图片和PDF不应该压缩，因为它们本来就已经被压缩了。但是压缩本身也有成本–服务器要压缩,客户端要解压; 根据经验通常对大于1KB或2KB的文件进行压缩.</p>
+<p>代理缓存问题：<br>Web服务器基于Accept-Encoding来检测是否对响应进行压缩。不管是否压缩过，浏览器都会基于响应中的其他HTTP头如Expires和Cache-Control来缓存响应。由于代理服务器的存在, 代理服务器在响应设置gzip压缩或未设置gzip压缩的请求时会产生混乱, 因此需要在服务器的Vary响应头中包含Accept-Encoding, 这样服务器会给没有设置gzip压缩的请求缓存未压缩内容, 给设置gzip压缩的的请求缓存压缩内容。</p>
+<pre><code>Vary: Accept-Encoding
+</code></pre><h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
 
         
         
@@ -894,6 +902,12 @@ ExpiresDefault &quot;access plus 10 years&quot;
           <li>
             
             	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.luuxii.com/" target="_blank" title="路西博客">路西博客</a>
             
           </li>
         
