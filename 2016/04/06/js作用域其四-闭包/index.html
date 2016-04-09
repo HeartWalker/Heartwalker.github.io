@@ -21,7 +21,7 @@
 <meta property="og:description" content="什么是闭包闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问
 为什么要用闭包闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.
 闭包怎么用创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:1234567891011121314">
-<meta property="og:updated_time" content="2016-04-09T13:36:10.215Z">
+<meta property="og:updated_time" content="2016-04-09T13:44:52.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js作用域其四:闭包">
 <meta name="twitter:description" content="什么是闭包闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问
@@ -119,6 +119,8 @@
     console.log(arr[4].name);
 }
 </code></pre><p>很明显数组并没有arr[4]存在, 所以报错</p>
+<p>解决这个问题最简单的方法是用 this<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var arr =   [   &#123;   name:   <span class="string">'jim'</span>   &#125;,</span><br><span class="line">               &#123;   name:   <span class="string">'tom'</span>   &#125;,                                              </span><br><span class="line">               &#123;   name:   <span class="string">'jack'</span>  &#125;,                                              </span><br><span class="line">               &#123;   name:   <span class="string">'clark'</span> &#125;  </span><br><span class="line">            ]; </span><br><span class="line">       //赋值循环</span><br><span class="line">       <span class="keyword">for</span>  (var i = <span class="number">0</span>;  i &lt; arr.length; i++ ) &#123;               </span><br><span class="line">       arr[i].sayHellow  =   <span class="function"><span class="title">function</span></span> ()  &#123;                               </span><br><span class="line">       console.log( this.name  );              </span><br><span class="line">       &#125;; &#125;</span><br><span class="line">       //输出循环</span><br><span class="line">       <span class="keyword">for</span> ( var k  <span class="keyword">in</span>  arr )   &#123;               </span><br><span class="line">           arr[ k ].sayHellow(); </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p>关于this将在后面详解</p>
   
 	</div>
 		<footer class="article-footer clearfix">
