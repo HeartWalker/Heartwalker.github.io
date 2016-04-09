@@ -4,8 +4,48 @@
 
     
   <url>
+    <loc>http://HeartWalker.cc/2016/04/06/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E5%9B%9B-%E9%97%AD%E5%8C%85/</loc>
+    <lastmod>2016-04-09T13:36:10.215Z</lastmod>
+    <data>
+        <display>
+        <title>js作用域其四:闭包</title>
+        <pubTime>2016-04-05T17:37:41.000Z</pubTime>
+        
+        <tag>作用域</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/04/05/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%B8%89-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/</loc>
+    <lastmod>2016-04-09T11:00:48.953Z</lastmod>
+    <data>
+        <display>
+        <title>js作用域其三:作用域链</title>
+        <pubTime>2016-04-04T16:25:32.000Z</pubTime>
+        
+        <tag>作用域</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2016-04-06T17:41:26.197Z</lastmod>
+    <lastmod>2016-04-08T14:21:14.114Z</lastmod>
     <data>
         <display>
         <title>前端优化(持续更新中)</title>
@@ -17,6 +57,46 @@
            
              
               <breadCrumb title="web" url="http://HeartWalker.cc/categories/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/03/30/%E4%B8%80%E5%B9%85%E5%9B%BE%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    <lastmod>2016-04-06T14:20:46.319Z</lastmod>
+    <data>
+        <display>
+        <title>一幅图深入理解原型链</title>
+        <pubTime>2016-03-30T14:37:43.000Z</pubTime>
+        
+        <tag>原型</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/04/06/JS%E4%B8%AD%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BF%9B%E9%98%B6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82/</loc>
+    <lastmod>2016-04-06T12:06:54.767Z</lastmod>
+    <data>
+        <display>
+        <title>JS中值类型与引用类型进阶之函数传参</title>
+        <pubTime>2016-04-06T04:51:07.000Z</pubTime>
+        
+        <tag>变量类型</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
           
         </display>
     </data>
@@ -50,26 +130,6 @@
         <display>
         <title>js作用域其一:概念详细</title>
         <pubTime>2016-04-03T16:19:58.000Z</pubTime>
-        
-        <tag>作用域</tag>
-         
-         
-           
-             
-              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/04/05/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%B8%89-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/</loc>
-    <lastmod>2016-04-05T14:23:58.057Z</lastmod>
-    <data>
-        <display>
-        <title>js作用域其三:作用域链</title>
-        <pubTime>2016-04-04T16:25:32.000Z</pubTime>
         
         <tag>作用域</tag>
          
@@ -234,26 +294,6 @@
         <pubTime>2016-03-21T12:43:59.000Z</pubTime>
         
         <tag>事件</tag>
-         
-         
-           
-             
-              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/03/30/%E4%B8%80%E5%B9%85%E5%9B%BE%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
-    <lastmod>2016-04-01T15:26:27.396Z</lastmod>
-    <data>
-        <display>
-        <title>一幅图深入理解原型链</title>
-        <pubTime>2016-03-30T14:37:43.000Z</pubTime>
-        
-        <tag>原型</tag>
          
          
            

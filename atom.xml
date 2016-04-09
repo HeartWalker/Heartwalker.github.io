@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-06T17:41:26.197Z</updated>
+  <updated>2016-04-06T12:06:54.767Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS中值类型与引用类型进阶之函数传参</title>
+    <link href="http://HeartWalker.cc/2016/04/06/JS%E4%B8%AD%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E8%BF%9B%E9%98%B6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82/"/>
+    <id>http://HeartWalker.cc/2016/04/06/JS中值类型与引用类型进阶之函数传参/</id>
+    <published>2016-04-06T04:51:07.000Z</published>
+    <updated>2016-04-06T12:06:54.767Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;前一段时间写过一篇博客介绍&lt;a href=&quot;/2016/03/28/JS中值类型和引用类型与赋值/&quot;&gt;JS中值类型与引用类型和它们的赋值&lt;/a&gt;, 下面通过一个案例说明它们在函数传参方面的应用&lt;/p&gt;
+&lt;h3 id=&quot;u6848_u4F8B&quot;&gt;&lt;a href=&quot;#u6848_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;案例&quot;&gt;&lt;/a&gt;案例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;Name( obj )&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    obj.name = &lt;span class=&quot;string&quot;&gt;&#39;jim&#39;&lt;/span&gt;;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    obj = new Object(); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    obj.name = &lt;span class=&quot;string&quot;&gt;&#39;tom&#39;&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = new Object();  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;Name( person );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert( person.name );&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;运行结果: 窗口弹出jim&lt;/p&gt;
+&lt;h3 id=&quot;u5206_u6790&quot;&gt;&lt;a href=&quot;#u5206_u6790&quot; class=&quot;headerlink&quot; title=&quot;分析&quot;&gt;&lt;/a&gt;分析&lt;/h3&gt;&lt;p&gt;首先进行预解析, 然后执行, 步骤如下&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;Name( obj )&amp;#123;    //&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;.  将person的值赋值给obj, 相当于执行obj = person, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            //    此时person与obj的值都是引用并指向同一个对象 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    obj.name = &lt;span class=&quot;string&quot;&gt;&#39;jim&#39;&lt;/span&gt;;       //&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;. 给空对象添加属性name, 并赋值jim&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    obj = new Object();     //&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;. 创建第二个新的空对象, 并将它的引用赋值给obj, 注意: 此时person的引用并未改变&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    obj.name = &lt;span class=&quot;string&quot;&gt;&#39;tom&#39;&lt;/span&gt;;       //&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;. 给第二个空对象添加属性name, 并赋值tom , person指向的空对象的name属性并没有发生变化&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = new Object();   //&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;. 定义变量person并给其赋值为一个空对象, 注意: 此处是将空对象的引用赋值给p&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;Name( person );          //&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;. 执行&lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;Name( person ) ,调用&lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;Name函数并给其传参 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert( person.name );       //&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;. 弹出person引用指向的对象的name属性的值&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这个案例的关键是要理解函数传参: 函数传参是将实参的值赋值给形参, 实参与形参的在内存中的存储的地址并不相同&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;前一段时间写过一篇博客介绍&lt;a href=&quot;/2016/03/28/JS中值类型和引用类型与赋值/&quot;&gt;J
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="变量类型" scheme="http://HeartWalker.cc/tags/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端优化(持续更新中)</title>
     <link href="http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
     <id>http://HeartWalker.cc/2016/04/06/前端优化/</id>
     <published>2016-04-05T17:39:44.000Z</published>
-    <updated>2016-04-06T17:41:26.197Z</updated>
+    <updated>2016-04-08T14:21:14.114Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3&gt;&lt;p&gt;只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上&lt;/p&gt;
 &lt;h3 id=&quot;u51CF_u5C11HTTP_u8BF7_u6C42&quot;&gt;&lt;a href=&quot;#u51CF_u5C11HTTP_u8BF7_u6C42&quot; class=&quot;headerlink&quot; title=&quot;减少HTTP请求&quot;&gt;&lt;/a&gt;减少HTTP请求&lt;/h3&gt;&lt;ol&gt;
@@ -30,6 +57,22 @@
 &lt;li&gt;&lt;strong&gt;图片地图(图像映射)&lt;/strong&gt;&lt;br&gt;通过&amp;lt; img /&amp;gt;后添加&amp;lt; map &amp;gt;和&amp;lt; area &amp;gt;设置。&lt;br&gt;&amp;lt; map &amp;gt;元素表明映射的开始&lt;br&gt;&amp;lt; area &amp;gt;元素表明每个区域，如果要把一个图片分4个区域，则用4个area。&lt;br&gt;&amp;lt; map &amp;gt;元素只有一个name属性.&lt;br&gt;下面介绍area元素的属性：&lt;br&gt;(1) shape：必须的属性，用于描述区域的形状，rectangle\poly\circle\default可选,default指的是还没有被定义的区域。&lt;br&gt;(2) coords：指定区域的坐标。比如矩形有4个坐标，前两个是左上角的x,y坐标，后两个是右下角的x,y坐标。&lt;br&gt;(3) href和nohref：href指定目的的链接，如果不指定href属性，则需要指定nohref，nohref=”nohref”&lt;br&gt;(4) target：和&amp;lt; a &amp;gt;一样。&lt;br&gt;注：&lt;br&gt;(1)在&amp;lt; img&amp;gt;中设置usemap属性。&lt;br&gt;(2)在&amp;lt; map&amp;gt;中设置name属性。&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;img src=&lt;span class=&quot;string&quot;&gt;&quot;planets.jpg&quot;&lt;/span&gt; border=&lt;span class=&quot;string&quot;&gt;&quot;0&quot;&lt;/span&gt; usemap=&lt;span class=&quot;string&quot;&gt;&quot;#planetmap&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Planets&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;map name=&lt;span class=&quot;string&quot;&gt;&quot;planetmap&quot;&lt;/span&gt; id=&lt;span class=&quot;string&quot;&gt;&quot;planetmap&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;area shape=&lt;span class=&quot;string&quot;&gt;&quot;circle&quot;&lt;/span&gt; coords=&lt;span class=&quot;string&quot;&gt;&quot;180,139,14&quot;&lt;/span&gt; href =&lt;span class=&quot;string&quot;&gt;&quot;venus.html&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Venus&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;area shape=&lt;span class=&quot;string&quot;&gt;&quot;circle&quot;&lt;/span&gt; coords=&lt;span class=&quot;string&quot;&gt;&quot;129,161,10&quot;&lt;/span&gt; href =&lt;span class=&quot;string&quot;&gt;&quot;mercur.html&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Mercury&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;area shape=&lt;span class=&quot;string&quot;&gt;&quot;rect&quot;&lt;/span&gt; coords=&lt;span class=&quot;string&quot;&gt;&quot;0,0,110,260&quot;&lt;/span&gt; href =&lt;span class=&quot;string&quot;&gt;&quot;sun.html&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;Sun&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/map&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3 id=&quot;u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29&quot;&gt;&lt;a href=&quot;#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29&quot; class=&quot;headerlink&quot; title=&quot;内容发布网络(CDN)&quot;&gt;&lt;/a&gt;内容发布网络(CDN)&lt;/h3&gt;&lt;p&gt;　　毫无疑问用户与服务器的物理距离越近, 则HTTP响应时间越短. 但是不要尝试使用分布式架构重新设计Web应用程序, 这样的应用程序决定了重新设计将带来令人恐惧的任务, 如同步会话状态和在服务器放置地点之间复制数据库事务. 重新设计这一步骤可能会推迟-甚至无法实现缩短用户和你的内容之间的距离这一愿望.&lt;br&gt;　　更靠谱更简单的方法是将组件Web服务器分散开.&lt;br&gt;　　内容分发网络（CDN）是一组分散在不同地理位置的web服务器，用来更有效的给用户发送内容. 选择用来发送内容的服务器是基于网络可用度的测量. 例如：选跳数（hop）最少的或者响应时间最快的服务器&lt;br&gt;CDN用于发布静态内容, 如图片 脚本 样式表 和Flash, 除了缩短响应时间外, 它们的服务包括备份 扩展存储能力和进行缓存.  CDN还有利于缓和Web流量峰值压力. &lt;/p&gt;
+&lt;h3 id=&quot;u6DFB_u52A0Expires_u5934_u548CCache-control&quot;&gt;&lt;a href=&quot;#u6DFB_u52A0Expires_u5934_u548CCache-control&quot; class=&quot;headerlink&quot; title=&quot;添加Expires头和Cache-control&quot;&gt;&lt;/a&gt;添加Expires头和Cache-control&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;对于静态组件：通过设置一个遥远的将来时间作为 Expires 来实现永不失效
+多余动态组件：用合适的 Cache-Control HTTP头来让浏览器进行条件性的请求
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Web服务器使用Expires头来告诉Web客户端它可以使用一个组件的的当前副本, 直到指定的时间为止, 如:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Expires: Thu, 15 Apr 2030 20:00:00 GMT
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是一个有效期非常长久的Expires头, 它告诉浏览器这个响应在2030年4月15日前不会改变&lt;/p&gt;
+&lt;p&gt;但是因为Expires头使用了一个特定的时间, 它要求服务器和客户端的时钟严格同步. 另外, 过期日期需要经常检查, 并且一旦未来这一天到来了, 还需要在服务器配置中提供一个新的日期.&lt;/p&gt;
+&lt;p&gt;因此在 HTTP1.1中引入了Cache-control头来克服Expires头的限制. Cache-control使用max-age指令指定组件被缓存多久. 它以秒为单位定义了一个更新床. 如果从组件被请求开始过去的秒数小于max-age, 浏览器就使用缓存的版本, 这就避免了额外的HTTP请求. 一个长久的 max-age头 可以将刷新窗设置为未来 10 年. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Cache-Control:  max-age= 315360000
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果Expires和 max-age同时出现, max-age指令将重写Expires头&lt;/p&gt;
+&lt;p&gt;如果你用的是Apache服务器，用ExpiresDefault指令来设置相对于当前日期的有效期。下面的例子设置了图片 脚本和样式表从请求时间起10年的有效期：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;FilesMatch &amp;quot;\.(gif|gpg|js|css)$&amp;quot;&amp;gt;
+ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
+&amp;lt;FilesMatch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你用一个遥远的未来时间做有效期，就不得不在组件发生变化后及时修改组件的文件名; 为能够获取最新的文件，最有效的解决方案是修改其所有链接，这样，全新的请求将从原始服务器下载最新的内容&lt;/p&gt;
+&lt;h3 id=&quot;u5E94_u7528_u7F13_u5B58cache_manifest&quot;&gt;&lt;a href=&quot;#u5E94_u7528_u7F13_u5B58cache_manifest&quot; class=&quot;headerlink&quot; title=&quot;应用缓存cache manifest&quot;&gt;&lt;/a&gt;应用缓存cache manifest&lt;/h3&gt;&lt;p&gt;H5&lt;/p&gt;
 &lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&amp;lt;&amp;lt;高性能网站建设指南&amp;gt;&amp;gt;&lt;br&gt;&amp;lt;&amp;lt;高性能网站建设进阶指南&amp;gt;&amp;gt;&lt;br&gt;这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时&lt;/p&gt;
 </content>
     
@@ -47,21 +90,57 @@
   </entry>
   
   <entry>
+    <title>js作用域其四:闭包</title>
+    <link href="http://HeartWalker.cc/2016/04/06/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E5%9B%9B-%E9%97%AD%E5%8C%85/"/>
+    <id>http://HeartWalker.cc/2016/04/06/js作用域其四-闭包/</id>
+    <published>2016-04-05T17:37:41.000Z</published>
+    <updated>2016-04-09T13:36:10.215Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u95ED_u5305&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u95ED_u5305&quot; class=&quot;headerlink&quot; title=&quot;什么是闭包&quot;&gt;&lt;/a&gt;什么是闭包&lt;/h3&gt;&lt;p&gt;闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问&lt;/p&gt;
+&lt;h3 id=&quot;u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305&quot;&gt;&lt;a href=&quot;#u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305&quot; class=&quot;headerlink&quot; title=&quot;为什么要用闭包&quot;&gt;&lt;/a&gt;为什么要用闭包&lt;/h3&gt;&lt;p&gt;闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.&lt;/p&gt;
+&lt;h3 id=&quot;u95ED_u5305_u600E_u4E48_u7528&quot;&gt;&lt;a href=&quot;#u95ED_u5305_u600E_u4E48_u7528&quot; class=&quot;headerlink&quot; title=&quot;闭包怎么用&quot;&gt;&lt;/a&gt;闭包怎么用&lt;/h3&gt;&lt;p&gt;创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;fo&lt;/span&gt;&lt;/span&gt; ()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var num = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;set&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (n)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            num = n;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        get: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; ()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; num;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var f = fo();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f.set(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var m = f.get();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(m);  //&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在全局环境中只能使用特权方法 set 与 get 设置与得到函数中的 num 值&lt;/p&gt;
+&lt;h3 id=&quot;u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A&quot;&gt;&lt;a href=&quot;#u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A&quot; class=&quot;headerlink&quot; title=&quot;闭包的优缺点 ：&quot;&gt;&lt;/a&gt;闭包的优缺点 ：&lt;/h3&gt;&lt;p&gt;优点：不产生全局变量，实现属性私有化.&lt;br&gt;缺点：闭包中的数据会常驻内存，在不用的时候要手动删除，否则可能会导致内存溢出.&lt;br&gt;例如在上边代码中, f始终包含fo 中匿名函数的引用 , 导致匿名函数的作用域始终存在.  更好的做法是在函数调用完成之后解除对匿名函数的引用,  例如在上边的代码中最后加上&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;f = null;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u95ED_u5305_u4E0E_u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u95ED_u5305_u4E0E_u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;闭包与变量&quot;&gt;&lt;/a&gt;闭包与变量&lt;/h3&gt;&lt;p&gt;由于作用域链的配置机制引出了一个值得注意的副作用，即闭包只能取得包含函数中任何变量的 后一个值. 别忘了闭包所保存的是整个变量对象，而不是某个特殊的变量下面这个例子可以清晰地说明这个问题:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var arr =   [   &amp;#123;   name:   &lt;span class=&quot;string&quot;&gt;&#39;jim&#39;&lt;/span&gt;   &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;   name:   &lt;span class=&quot;string&quot;&gt;&#39;tom&#39;&lt;/span&gt;   &amp;#125;,                                              &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;   name:   &lt;span class=&quot;string&quot;&gt;&#39;jack&#39;&lt;/span&gt;  &amp;#125;,                                              &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;   name:   &lt;span class=&quot;string&quot;&gt;&#39;clark&#39;&lt;/span&gt; &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         ]; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //赋值循环&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;  (var i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;  i &amp;lt; arr.length; i++ ) &amp;#123;               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    arr[i].sayHellow  =   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; ()  &amp;#123;                               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log( arr[ i ].name  );              &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //输出循环&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; ( var k  &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;  arr )   &amp;#123;               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        arr[ k ].sayHellow(); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; 表面上看，赋值循环给数组arr的每一项添加了一个sayHellow方法, 该方法能输出数组中每一项的name属性 ,然而实际上这段代码会报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Uncaught TypeError: Cannot read property &amp;apos;name&amp;apos; of undefined(…)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在赋值循环给数组 arr 中的每一项添加属性时实际上是赋值的函数体, 匿名函数并没有执行; 当输出循环时才执行匿名函数, 因为匿名函数内并没有 i, 所以会向作用域链的下一级查找, 在这段代码中就是全局环境, 全局环境中的 i 执行完赋值循环后的值是 4, 所以数组arr中每一项的 sayHellow方法都是&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function (){
+    console.log(arr[4].name);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;很明显数组并没有arr[4]存在, 所以报错&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u4EC0_u4E48_u662F_u95ED_u5305&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u95ED_u5305&quot; class=&quot;headerlink&quot; title=&quot;什么是闭包&quot;&gt;&lt;/a&gt;什么是闭包&lt;/h3&gt;&lt;p&gt;闭包就是受保护的变量
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="作用域" scheme="http://HeartWalker.cc/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js作用域其三:作用域链</title>
     <link href="http://HeartWalker.cc/2016/04/05/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%B8%89-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/"/>
     <id>http://HeartWalker.cc/2016/04/05/js作用域其三-作用域链/</id>
     <published>2016-04-04T16:25:32.000Z</published>
-    <updated>2016-04-05T14:23:58.057Z</updated>
+    <updated>2016-04-09T11:00:48.953Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE&quot; class=&quot;headerlink&quot; title=&quot;什么是作用域链&quot;&gt;&lt;/a&gt;什么是作用域链&lt;/h3&gt;&lt;p&gt;每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var o = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;A&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var a = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;b&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var B =&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;C&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var c = &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;　　可以在全局环境访问o, 在函数A与B之间访问o与a, 在函数B与C之间访问o与a和b, 在函数C中访问o与a和b与c.&lt;br&gt;　　当代码在一个环境中执行时，会创建变量对象的的一个作用域链（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。———–引自Javascript高级程序设计（第三版）（P73）&lt;br&gt;　　对于一个变量时, 作用域链的最顶端就是当前的函数环境, 下一级就是包含这个变量的下一个函数环境… 直到最后全局环境为止&lt;br&gt;简而言之作用域链就是变量其执行环境按生效的顺序形成的一种链式结构&lt;/p&gt;
-&lt;h3 id=&quot;u7ED8_u5236_u539F_u578B_u94FE&quot;&gt;&lt;a href=&quot;#u7ED8_u5236_u539F_u578B_u94FE&quot; class=&quot;headerlink&quot; title=&quot;绘制原型链&quot;&gt;&lt;/a&gt;绘制原型链&lt;/h3&gt;&lt;p&gt;绘制作用域链可以清晰的理清代码的结构, 并且在代码执行的时候, 能去准确的定位应该改变的变量的位置&lt;br&gt;绘制原型链的规则:&lt;/p&gt;
+&lt;h3 id=&quot;u7ED8_u5236_u4F5C_u7528_u57DF_u94FE&quot;&gt;&lt;a href=&quot;#u7ED8_u5236_u4F5C_u7528_u57DF_u94FE&quot; class=&quot;headerlink&quot; title=&quot;绘制作用域链&quot;&gt;&lt;/a&gt;绘制作用域链&lt;/h3&gt;&lt;p&gt;绘制作用域链可以清晰的理清代码的结构, 并且在代码执行的时候, 能去准确的定位应该改变的变量的位置&lt;br&gt;绘制原型链的规则:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;将全部的&amp;lt; script &amp;gt;标签看做一个整体. 是一个 0 级别的链, 链中所有的全局范围内的变量, 函数, 对象… 都是链中的成员, 由于声明会提升, 因此在绘制链之前将代码可以进行调整, 在开始的时候, 将声明都写在前面, 绘图的时候按照顺序绘制, 较为简单.&lt;/li&gt;
 &lt;li&gt;由于只有函数才可以限定作用域. 因此在函数上引出一条新链, 级别为 n + 1, 在函数内部, 又是一个完整, 独立的作用域结构, 因此在函数内部定义的任何成员也按照 1 中的规则在该链上展开&lt;/li&gt;
 &lt;li&gt;如果有函数, 继续绘制下去&lt;br&gt;注: 由于函数声明提升在不同的&amp;lt; script &amp;gt;标签中并不起作用, 需要注意&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;u5229_u7528_u539F_u578B_u94FE_u641C_u7D22_u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u5229_u7528_u539F_u578B_u94FE_u641C_u7D22_u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;利用原型链搜索变量&quot;&gt;&lt;/a&gt;利用原型链搜索变量&lt;/h3&gt;&lt;ol&gt;
+&lt;h3 id=&quot;u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;利用作用域链搜索变量&quot;&gt;&lt;/a&gt;利用作用域链搜索变量&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;在代码的执行过程中, 如果访问到某一个变量, 那么首先在当前链上找 ( 无序 )&lt;/li&gt;
 &lt;li&gt;如果没有, 在 n-1 级上找( 在函数内部允许访问定义在函数外部的变量 ). &lt;/li&gt;
 &lt;li&gt;如此往复, 直到 0 级链, 如果还没有, 抛出异常; 如果找到, 则结束寻找, 直接获得该链上变量的数据&lt;/li&gt;
@@ -216,7 +295,7 @@
     <link href="http://HeartWalker.cc/2016/03/30/%E4%B8%80%E5%B9%85%E5%9B%BE%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     <id>http://HeartWalker.cc/2016/03/30/一幅图深入理解原型链/</id>
     <published>2016-03-30T14:37:43.000Z</published>
-    <updated>2016-04-01T15:26:27.396Z</updated>
+    <updated>2016-04-06T14:20:46.319Z</updated>
     
     <content type="html">&lt;h2 id=&quot;u7EFC_u8FF0&quot;&gt;&lt;a href=&quot;#u7EFC_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;综述&quot;&gt;&lt;/a&gt;综述&lt;/h2&gt;&lt;p&gt;原型是JavaScript中比较难以理解也容易令人困惑的部分,但它又是如此的重要,下边我将用一幅图深入的讲解&lt;/p&gt;
 &lt;h2 id=&quot;u539F_u578B_u94FE_u56FE&quot;&gt;&lt;a href=&quot;#u539F_u578B_u94FE_u56FE&quot; class=&quot;headerlink&quot; title=&quot;原型链图&quot;&gt;&lt;/a&gt;原型链图&lt;/h2&gt;&lt;p&gt;  &lt;img src=&quot;/images/proto.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -598,55 +677,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
     
     
       <category term="css布局" scheme="http://HeartWalker.cc/tags/css%E5%B8%83%E5%B1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>=和==与===</title>
-    <link href="http://HeartWalker.cc/2016/02/25/=%E5%92%8C==%E4%B8%8E===/"/>
-    <id>http://HeartWalker.cc/2016/02/25/=和==与===/</id>
-    <published>2016-02-25T15:38:57.000Z</published>
-    <updated>2016-02-25T16:12:24.624Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;u5173_u4E8E_3D&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_3D&quot; class=&quot;headerlink&quot; title=&quot;关于=&quot;&gt;&lt;/a&gt;关于=&lt;/h2&gt;&lt;p&gt;首先一定要区别=与==;=与===有本质的区别&lt;br&gt;    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.&lt;/p&gt;
-&lt;h2 id=&quot;u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C&quot; class=&quot;headerlink&quot; title=&quot;关于==与===的异同&quot;&gt;&lt;/a&gt;关于==与===的异同&lt;/h2&gt;&lt;p&gt;== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.&lt;/p&gt;
-&lt;p&gt;=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.&lt;/p&gt;
-&lt;p&gt;强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a. 如果两个操作对象是同样类型使用 ===&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b. undefined == null&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Javascript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var a = &amp;#123;a: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var b = &amp;#123;a: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a == b //&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a === b //&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var c = a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a == c//&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a === c //&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;u5173_u4E8E_3D&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_3D&quot; class=&quot;headerlink&quot; title=&quot;关于=&quot;&gt;&lt;/a&gt;关于=&lt;/h2&gt;&lt;p&gt;首先一定要区别=与==;=与===有本质的区别&lt;br&gt;    =号是赋值;而==与===
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>美工css与js</title>
-    <link href="http://HeartWalker.cc/2016/02/23/%E7%BE%8E%E5%B7%A5css%E4%B8%8Ejs/"/>
-    <id>http://HeartWalker.cc/2016/02/23/美工css与js/</id>
-    <published>2016-02-23T02:03:30.000Z</published>
-    <updated>2016-04-01T15:29:26.268Z</updated>
-    
-    <content type="html">&lt;p&gt;书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;书写一个页面布局与css的难易程度跟美工有很大的关系,所以前端请一定要和美工搞好关系,这会让你在工作时轻松很多;但在写js时就要靠你自己了,离开了css布局js就是无根之木`无源之水,好的布局才能有简洁的js代码,所以一定要有统一的思想,在进行布局是不要忘了你还要写js代码
-    
-    </summary>
-    
-      <category term="生活" scheme="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="吐槽" scheme="http://HeartWalker.cc/tags/%E5%90%90%E6%A7%BD/"/>
     
   </entry>
   
