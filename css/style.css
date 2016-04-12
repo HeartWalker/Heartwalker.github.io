@@ -1536,9 +1536,9 @@ section.comment {
   line-height: 1.5em;
   font-size: 1em;
   color: #333;
-  opacity: 0.6;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
   -webkit-transition: opacity 1s ease-out;
   -moz-transition: opacity 1s ease-out;
   -o-transition: opacity 1s ease-out;

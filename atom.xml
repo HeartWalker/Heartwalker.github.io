@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-06T12:06:54.767Z</updated>
+  <updated>2016-04-12T13:53:24.178Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js作用域其五:仿块级作用域(沙箱模式)</title>
+    <link href="http://HeartWalker.cc/2016/04/12/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E4%BA%94-%E4%BB%BF%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>http://HeartWalker.cc/2016/04/12/js作用域其五-仿块级作用域/</id>
+    <published>2016-04-12T04:55:41.000Z</published>
+    <updated>2016-04-12T13:53:24.178Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF&quot; class=&quot;headerlink&quot; title=&quot;什么是仿块级作用域&quot;&gt;&lt;/a&gt;什么是仿块级作用域&lt;/h3&gt;&lt;p&gt;前面说过, 在JS中并没有块级作用域, 因此用 var 定义的变量可能会带来变量名污染的问题,  有些时候我们会使用闭包, 但是闭包会引起内存方面的一些问题, 自调用匿名函数可以用来模拟块级作用域, 这种方法通常又被称作沙箱模式或沙盒模式, 仿块级作用域可以看做是闭包的一种特殊用法&lt;/p&gt;
+&lt;p&gt;使用沙箱后, 在内部定义的代码, 访问数据; 在沙箱内部是一个完整的生态链, 也就是说只要保证变量有 var 那么内部和外部就完全隔离开了, 如果要声明多个数据在沙箱中 也不会出现污染全局的问题&lt;/p&gt;
+&lt;h3 id=&quot;u57FA_u672C_u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u57FA_u672C_u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     //这里是块级作用域 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然而下面却会出错&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     //这里是块级作用域 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;();    //出错！&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这段代码会导致语法错误，是因为 JavaScript将 function 关键字当作一个函数声明的开始，而函 数声明后面不能跟圆括号. 然而，函数表达式的后面可以跟圆括号. 要将函数声明转换成函数表达式， 只要给它加上一对圆括号即可.  &lt;/p&gt;
+&lt;h3 id=&quot;u5B9E_u4F8B_u8BB2_u89E3&quot;&gt;&lt;a href=&quot;#u5B9E_u4F8B_u8BB2_u89E3&quot; class=&quot;headerlink&quot; title=&quot;实例讲解&quot;&gt;&lt;/a&gt;实例讲解&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var sum = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; ( var i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt;= &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;; i++ ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sum += i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(sum);    //输出: &lt;span class=&quot;number&quot;&gt;5050&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( i );    //报错: i is not defined&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上例定义了一个全局变量 sum, 然后定义了一个匿名函数并立即执行, 求出0-100的和并赋值给sum, 在匿名函数结束时, 匿名函数内定义的局部变量会立即被销毁, 然后打印出 sum 和 i, 由于在全局环境中并不存在 i, 所以会报错. &lt;/p&gt;
+&lt;p&gt;这种做法看起来和闭包没有什么不同, 但是它可以减少闭包占用的内存问题，因为没有指向匿名函数的引用. 只要函 数执行完毕，就可以立即销毁其作用域链了&lt;/p&gt;
+&lt;p&gt;这种技术经常在全局作用域中被用在函数外部，从而限制向全局作用域中添加过多的变量和函数.  一般来说，我们都应该尽量少向全局作用域中添加变量和函数. 在一个由很多开发人员共同参与的大型 应用程序中，过多的全局变量和函数很容易导致命名冲突. 而通过创建私有作用域，每个开发人员既可 以使用自己的变量，又不必担心搞乱全局作用域&lt;/p&gt;
+&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;JavaScript高级程序设计(第三版)———— p185-p186&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF&quot; class=&quot;heade
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="作用域" scheme="http://HeartWalker.cc/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>JS中值类型与引用类型进阶之函数传参</title>
@@ -47,7 +79,7 @@
     <link href="http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
     <id>http://HeartWalker.cc/2016/04/06/前端优化/</id>
     <published>2016-04-05T17:39:44.000Z</published>
-    <updated>2016-04-09T14:35:25.824Z</updated>
+    <updated>2016-04-12T13:49:47.521Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3&gt;&lt;p&gt;只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上&lt;/p&gt;
 &lt;h3 id=&quot;u51CF_u5C11HTTP_u8BF7_u6C42&quot;&gt;&lt;a href=&quot;#u51CF_u5C11HTTP_u8BF7_u6C42&quot; class=&quot;headerlink&quot; title=&quot;减少HTTP请求&quot;&gt;&lt;/a&gt;减少HTTP请求&lt;/h3&gt;&lt;ol&gt;
@@ -81,7 +113,19 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
 &lt;p&gt;压缩脚本和样式表是非常值得的，同时还有XML和JSON在内的文本。图片和PDF不应该压缩，因为它们本来就已经被压缩了。但是压缩本身也有成本–服务器要压缩,客户端要解压; 根据经验通常对大于1KB或2KB的文件进行压缩.&lt;/p&gt;
 &lt;p&gt;代理缓存问题：&lt;br&gt;Web服务器基于Accept-Encoding来检测是否对响应进行压缩。不管是否压缩过，浏览器都会基于响应中的其他HTTP头如Expires和Cache-Control来缓存响应。由于代理服务器的存在, 代理服务器在响应设置gzip压缩或未设置gzip压缩的请求时会产生混乱, 因此需要在服务器的Vary响应头中包含Accept-Encoding, 这样服务器会给没有设置gzip压缩的请求缓存未压缩内容, 给设置gzip压缩的的请求缓存压缩内容。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Vary: Accept-Encoding
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&amp;lt;&amp;lt;高性能网站建设指南&amp;gt;&amp;gt;&lt;br&gt;&amp;lt;&amp;lt;高性能网站建设进阶指南&amp;gt;&amp;gt;&lt;br&gt;这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8&quot;&gt;&lt;a href=&quot;#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8&quot; class=&quot;headerlink&quot; title=&quot;将样式表放到顶部&quot;&gt;&lt;/a&gt;将样式表放到顶部&lt;/h3&gt;&lt;p&gt;将样式表放到顶部对于加载页面所需的实际时间没有太多影响，它影响更多的是浏览器对这些组件顺序的反应。&lt;br&gt;为避免当样式变化时重绘页面中的元素，浏览器会等待位于底部的样式表加载完成后才会呈现，这时浏览器会延迟任何可视化组件。&lt;br&gt;实际上，用户感觉缓慢的页面反而是可视化组建加载得更快的页面。使用LINK标签将样式表放在文档的HEAD中可以解决该问题。&lt;br&gt;可参考本人博客 &lt;a href=&quot;/2016/03/08/link与@import引入css/&quot;&gt;link与@import引入css&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8&quot;&gt;&lt;a href=&quot;#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8&quot; class=&quot;headerlink&quot; title=&quot;将脚本放在底部&quot;&gt;&lt;/a&gt;将脚本放在底部&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;并行下载&lt;/strong&gt;&lt;br&gt;对响应时间影响最大的是页面中组件的数量，如果一个Web页面平均地将其组件分别放在两个，整体响应时间将可以减少大约一半。但并行下载数量并不是越多越快，因为增加并行下载数销的，其优劣取决于带宽和cpu速度。&lt;br&gt;&lt;strong&gt;脚本阻塞下载&lt;/strong&gt;&lt;br&gt;并行下载组件的优点是很明显的，然而，在下载脚本时并行下载实际上被禁用的。即使使用了不同的主机名，浏览器也不会启动其他的下载。其中一个原因是，脚本可能使用document.write来修改，因此浏览器会等待，已确保页面能够恰当地布局。另一个原因是为了保证脚本能够按照正确行。&lt;/p&gt;
+&lt;p&gt;在使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面的底部，这不会阻止页面内容的呈现, 而且页面中的可视内容可以尽早下载。但是有时很难将脚本移到底部，例如document.write向页面中插入内容，就不能移动到其页面后面的位置了。&lt;/p&gt;
+&lt;h3 id=&quot;u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F&quot;&gt;&lt;a href=&quot;#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;避免使用CSS表达式&quot;&gt;&lt;/a&gt;避免使用CSS表达式&lt;/h3&gt;&lt;p&gt;基本已经无人使用&lt;/p&gt;
+&lt;p&gt;从IE5开始支持，但 从IE8起就不推荐使用了 。&lt;/p&gt;
+&lt;p&gt;表达式最大的问题是它们经常被重复计算，比我们想象的次数还要多。&lt;/p&gt;
+&lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;所有的优化都和可以总结为一下几方面:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小&lt;/li&gt;
+&lt;li&gt;优化显示的效果&lt;/li&gt;
+&lt;li&gt;优化解析性能 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&amp;lt;&amp;lt;高性能网站建设指南&amp;gt;&amp;gt;&lt;br&gt;&amp;lt;&amp;lt;高性能网站建设进阶指南&amp;gt;&amp;gt;&lt;br&gt;这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -576,11 +620,11 @@ console.log(Number(0.2).toString(2))
   </entry>
   
   <entry>
-    <title>css与@import引入css</title>
+    <title>link与@import引入css</title>
     <link href="http://HeartWalker.cc/2016/03/08/link%E4%B8%8E@import%E5%BC%95%E5%85%A5css/"/>
     <id>http://HeartWalker.cc/2016/03/08/link与@import引入css/</id>
     <published>2016-03-08T14:54:18.000Z</published>
-    <updated>2016-03-08T15:23:15.009Z</updated>
+    <updated>2016-04-10T02:17:19.241Z</updated>
     
     <content type="html">&lt;p&gt;  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.&lt;/p&gt;
 &lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@import url(style.css)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;link rel=&lt;span class=&quot;string&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; href=&lt;span class=&quot;string&quot;&gt;&quot;style.css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -651,42 +695,6 @@ console.log(Number(0.2).toString(2))
     
       <category term="css" scheme="http://HeartWalker.cc/categories/css/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>z-index层级</title>
-    <link href="http://HeartWalker.cc/2016/02/28/z-index%E5%B1%82%E7%BA%A7/"/>
-    <id>http://HeartWalker.cc/2016/02/28/z-index层级/</id>
-    <published>2016-02-28T13:53:23.000Z</published>
-    <updated>2016-04-01T15:32:13.236Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;先说一下概念&quot;&gt;&lt;/a&gt;先说一下概念&lt;/h2&gt;&lt;p&gt;因为显示器显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别，表示一个元素在叠加顺序上的上下立体关系。&lt;/p&gt;
-&lt;p&gt;注释：  所有主流浏览器都支持 z-index 属性。任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;IE6/7下position不为static，且z-index不存在时z-index为0，除此之外的浏览器z-index为auto。
-
-z-index为auto的元素不参与层级关系的比较，由向上遍历至此且z-index不为auto的元素来参与比较。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。&lt;strong&gt;z-index 仅能在定位元素上奏效。&lt;/strong&gt;&lt;br&gt;注释：元素可拥有负的 z-index 属性值。&lt;/p&gt;
-&lt;h2 id=&quot;u4E00_u4E9B_u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u4E00_u4E9B_u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;一些总结&quot;&gt;&lt;/a&gt;一些总结&lt;/h2&gt;&lt;p&gt;关于z-index的介绍网络上有许多,为了能简单快速的学会使用层级,我在这里总结了一些效果如下:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. z-index仅在定位中起作用
-2. 正常情况浮动层级大于标准流 ,定位流大于浮动流 ,值为auto, 但它们都在0到1之间
-3. 如果父子元素都有z-index值,不论正负,那么以父盒子为准,不管父子的z-index是多少
-所以如果两个此时盒子是兄弟盒子并且都有定位的z-index值, 那么它们子盒子的层级由父盒子决定
-4. 如果父盒子没有定位或只定位没有写z-index值,父盒子的的z-index是auto,  此时会有两种情况
-a:如果给子盒子一个正的z-index值,此时子盒子的z-index起作用
-b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;先说一下概念&quot;&gt;&lt;/a&gt;先说一下概念&lt;/h2
-    
-    </summary>
-    
-      <category term="css" scheme="http://HeartWalker.cc/categories/css/"/>
-    
-    
-      <category term="css布局" scheme="http://HeartWalker.cc/tags/css%E5%B8%83%E5%B1%80/"/>
     
   </entry>
   

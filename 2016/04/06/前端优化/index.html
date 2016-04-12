@@ -21,7 +21,7 @@
 <meta property="og:description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
 减少HTTP请求
 合并背景图片就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.">
-<meta property="og:updated_time" content="2016-04-09T14:35:25.824Z">
+<meta property="og:updated_time" content="2016-04-12T13:49:47.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端优化(持续更新中)">
 <meta name="twitter:description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
@@ -101,7 +101,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><span class="toc-number">7.</span> <span class="toc-text">将样式表放到顶部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><span class="toc-number">8.</span> <span class="toc-text">将脚本放在底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><span class="toc-number">9.</span> <span class="toc-text">避免使用CSS表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">11.</span> <span class="toc-text">参考</span></a></li></ol>
 		
 		</div>
 		
@@ -137,7 +137,19 @@ ExpiresDefault &quot;access plus 10 years&quot;
 <p>压缩脚本和样式表是非常值得的，同时还有XML和JSON在内的文本。图片和PDF不应该压缩，因为它们本来就已经被压缩了。但是压缩本身也有成本–服务器要压缩,客户端要解压; 根据经验通常对大于1KB或2KB的文件进行压缩.</p>
 <p>代理缓存问题：<br>Web服务器基于Accept-Encoding来检测是否对响应进行压缩。不管是否压缩过，浏览器都会基于响应中的其他HTTP头如Expires和Cache-Control来缓存响应。由于代理服务器的存在, 代理服务器在响应设置gzip压缩或未设置gzip压缩的请求时会产生混乱, 因此需要在服务器的Vary响应头中包含Accept-Encoding, 这样服务器会给没有设置gzip压缩的请求缓存未压缩内容, 给设置gzip压缩的的请求缓存压缩内容。</p>
 <pre><code>Vary: Accept-Encoding
-</code></pre><h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
+</code></pre><h3 id="u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><a href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8" class="headerlink" title="将样式表放到顶部"></a>将样式表放到顶部</h3><p>将样式表放到顶部对于加载页面所需的实际时间没有太多影响，它影响更多的是浏览器对这些组件顺序的反应。<br>为避免当样式变化时重绘页面中的元素，浏览器会等待位于底部的样式表加载完成后才会呈现，这时浏览器会延迟任何可视化组件。<br>实际上，用户感觉缓慢的页面反而是可视化组建加载得更快的页面。使用LINK标签将样式表放在文档的HEAD中可以解决该问题。<br>可参考本人博客 <a href="/2016/03/08/link与@import引入css/">link与@import引入css</a></p>
+<h3 id="u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><a href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8" class="headerlink" title="将脚本放在底部"></a>将脚本放在底部</h3><p><strong>并行下载</strong><br>对响应时间影响最大的是页面中组件的数量，如果一个Web页面平均地将其组件分别放在两个，整体响应时间将可以减少大约一半。但并行下载数量并不是越多越快，因为增加并行下载数销的，其优劣取决于带宽和cpu速度。<br><strong>脚本阻塞下载</strong><br>并行下载组件的优点是很明显的，然而，在下载脚本时并行下载实际上被禁用的。即使使用了不同的主机名，浏览器也不会启动其他的下载。其中一个原因是，脚本可能使用document.write来修改，因此浏览器会等待，已确保页面能够恰当地布局。另一个原因是为了保证脚本能够按照正确行。</p>
+<p>在使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面的底部，这不会阻止页面内容的呈现, 而且页面中的可视内容可以尽早下载。但是有时很难将脚本移到底部，例如document.write向页面中插入内容，就不能移动到其页面后面的位置了。</p>
+<h3 id="u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><a href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F" class="headerlink" title="避免使用CSS表达式"></a>避免使用CSS表达式</h3><p>基本已经无人使用</p>
+<p>从IE5开始支持，但 从IE8起就不推荐使用了 。</p>
+<p>表达式最大的问题是它们经常被重复计算，比我们想象的次数还要多。</p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
+<ol>
+<li>减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小</li>
+<li>优化显示的效果</li>
+<li>优化解析性能 </li>
+</ol>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -217,7 +229,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><span class="toc-number">7.</span> <span class="toc-text">将样式表放到顶部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><span class="toc-number">8.</span> <span class="toc-text">将脚本放在底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><span class="toc-number">9.</span> <span class="toc-text">避免使用CSS表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">11.</span> <span class="toc-text">参考</span></a></li></ol>
  
   </div>
 
@@ -249,7 +261,7 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>14</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>15</sup></a></li>
 		  
 		
 		  

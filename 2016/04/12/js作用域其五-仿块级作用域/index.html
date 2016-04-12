@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>hexo博客完工感言 | HeartWalker&#39;s Blog</title>
+    <title>js作用域其五:仿块级作用域(沙箱模式) | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞…">
+    <meta name="description" content="什么是仿块级作用域前面说过, 在JS中并没有块级作用域, 因此用 var 定义的变量可能会带来变量名污染的问题,  有些时候我们会使用闭包, 但是闭包会引起内存方面的一些问题, 自调用匿名函数可以用来模拟块级作用域, 这种方法通常又被称作沙箱模式或沙盒模式, 仿块级作用域可以看做是闭包的一种特殊用法
+使用沙箱后, 在内部定义的代码, 访问数据; 在沙箱内部是一个完整的生态链, 也就是说只要保证变量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo博客完工感言">
-<meta property="og:url" content="http://HeartWalker.cc/2016/04/02/hexo博客完工感言/index.html">
+<meta property="og:title" content="js作用域其五:仿块级作用域(沙箱模式)">
+<meta property="og:url" content="http://HeartWalker.cc/2016/04/12/js作用域其五-仿块级作用域/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞…">
-<meta property="og:updated_time" content="2016-04-03T03:02:29.453Z">
+<meta property="og:description" content="什么是仿块级作用域前面说过, 在JS中并没有块级作用域, 因此用 var 定义的变量可能会带来变量名污染的问题,  有些时候我们会使用闭包, 但是闭包会引起内存方面的一些问题, 自调用匿名函数可以用来模拟块级作用域, 这种方法通常又被称作沙箱模式或沙盒模式, 仿块级作用域可以看做是闭包的一种特殊用法
+使用沙箱后, 在内部定义的代码, 访问数据; 在沙箱内部是一个完整的生态链, 也就是说只要保证变量">
+<meta property="og:updated_time" content="2016-04-12T13:53:24.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo博客完工感言">
-<meta name="twitter:description" content="github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞…">
+<meta name="twitter:title" content="js作用域其五:仿块级作用域(沙箱模式)">
+<meta name="twitter:description" content="什么是仿块级作用域前面说过, 在JS中并没有块级作用域, 因此用 var 定义的变量可能会带来变量名污染的问题,  有些时候我们会使用闭包, 但是闭包会引起内存方面的一些问题, 自调用匿名函数可以用来模拟块级作用域, 这种方法通常又被称作沙箱模式或沙盒模式, 仿块级作用域可以看做是闭包的一种特殊用法
+使用沙箱后, 在内部定义的代码, 访问数据; 在沙箱内部是一个完整的生态链, 也就是说只要保证变量">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -79,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/02/hexo博客完工感言/" title="hexo博客完工感言" itemprop="url">hexo博客完工感言</a>
+      <a href="/2016/04/12/js作用域其五-仿块级作用域/" title="js作用域其五:仿块级作用域(沙箱模式)" itemprop="url">js作用域其五:仿块级作用域(沙箱模式)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-02T04:19:33.000Z" itemprop="datePublished"> 發表於 2016-04-02</time>
+    <time datetime="2016-04-12T04:55:41.000Z" itemprop="datePublished"> 發表於 2016-04-12</time>
     
   </p>
 </header>
@@ -95,11 +98,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF"><span class="toc-number">1.</span> <span class="toc-text">什么是仿块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u57FA_u672C_u8BED_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u8BB2_u89E3"><span class="toc-number">3.</span> <span class="toc-text">实例讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
 		
 		</div>
 		
-		<p>　　github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　<br>　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞… </p>
+		<h3 id="u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF"><a href="#u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF" class="headerlink" title="什么是仿块级作用域"></a>什么是仿块级作用域</h3><p>前面说过, 在JS中并没有块级作用域, 因此用 var 定义的变量可能会带来变量名污染的问题,  有些时候我们会使用闭包, 但是闭包会引起内存方面的一些问题, 自调用匿名函数可以用来模拟块级作用域, 这种方法通常又被称作沙箱模式或沙盒模式, 仿块级作用域可以看做是闭包的一种特殊用法</p>
+<p>使用沙箱后, 在内部定义的代码, 访问数据; 在沙箱内部是一个完整的生态链, 也就是说只要保证变量有 var 那么内部和外部就完全隔离开了, 如果要声明多个数据在沙箱中 也不会出现污染全局的问题</p>
+<h3 id="u57FA_u672C_u8BED_u6CD5"><a href="#u57FA_u672C_u8BED_u6CD5" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     //这里是块级作用域 </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>然而下面却会出错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     //这里是块级作用域 </span><br><span class="line">&#125;();    //出错！</span><br></pre></td></tr></table></figure></p>
+<p>这段代码会导致语法错误，是因为 JavaScript将 function 关键字当作一个函数声明的开始，而函 数声明后面不能跟圆括号. 然而，函数表达式的后面可以跟圆括号. 要将函数声明转换成函数表达式， 只要给它加上一对圆括号即可.  </p>
+<h3 id="u5B9E_u4F8B_u8BB2_u89E3"><a href="#u5B9E_u4F8B_u8BB2_u89E3" class="headerlink" title="实例讲解"></a>实例讲解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var sum = <span class="number">0</span>;</span><br><span class="line">(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    <span class="keyword">for</span> ( var i = <span class="number">0</span>; i &lt;= <span class="number">100</span>; i++ ) &#123;</span><br><span class="line">        sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">console.log(sum);    //输出: <span class="number">5050</span></span><br><span class="line">console.log( i );    //报错: i is not defined</span><br></pre></td></tr></table></figure>
+<p>上例定义了一个全局变量 sum, 然后定义了一个匿名函数并立即执行, 求出0-100的和并赋值给sum, 在匿名函数结束时, 匿名函数内定义的局部变量会立即被销毁, 然后打印出 sum 和 i, 由于在全局环境中并不存在 i, 所以会报错. </p>
+<p>这种做法看起来和闭包没有什么不同, 但是它可以减少闭包占用的内存问题，因为没有指向匿名函数的引用. 只要函 数执行完毕，就可以立即销毁其作用域链了</p>
+<p>这种技术经常在全局作用域中被用在函数外部，从而限制向全局作用域中添加过多的变量和函数.  一般来说，我们都应该尽量少向全局作用域中添加变量和函数. 在一个由很多开发人员共同参与的大型 应用程序中，过多的全局变量和函数很容易导致命名冲突. 而通过创建私有作用域，每个开发人员既可 以使用自己的变量，又不必担心搞乱全局作用域</p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>JavaScript高级程序设计(第三版)———— p185-p186</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -107,13 +119,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
+  <a class="article-category-link" href="/categories/js/">js</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/吐槽/">吐槽</a>
+  <span></span> <a href="/tags/作用域/">作用域</a>
   </div>
 
 </div>
@@ -122,7 +134,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/04/02/hexo博客完工感言/" data-title="hexo博客完工感言 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/04/12/js作用域其五-仿块级作用域/" data-title="js作用域其五:仿块级作用域(沙箱模式) | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +147,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/04/js作用域其一-概念详细/" title="js作用域其一:概念详细">
-  <strong>上一篇：</strong><br/>
-  <span>
-  js作用域其一:概念详细</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/31/国内程序员大不易/"  title="国内程序员大不易">
+<a href="/2016/04/06/JS中值类型与引用类型进阶之函数传参/"  title="JS中值类型与引用类型进阶之函数传参">
  <strong>下一篇：</strong><br/> 
- <span>国内程序员大不易
+ <span>JS中值类型与引用类型进阶之函数传参
 </span>
 </a>
 </div>
@@ -156,7 +160,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/02/hexo博客完工感言/" data-title="hexo博客完工感言" data-url="http://HeartWalker.cc/2016/04/02/hexo博客完工感言/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/12/js作用域其五-仿块级作用域/" data-title="js作用域其五:仿块级作用域(沙箱模式)" data-url="http://HeartWalker.cc/2016/04/12/js作用域其五-仿块级作用域/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -179,7 +183,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4EFF_u5757_u7EA7_u4F5C_u7528_u57DF"><span class="toc-number">1.</span> <span class="toc-text">什么是仿块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u57FA_u672C_u8BED_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B_u8BB2_u89E3"><span class="toc-number">3.</span> <span class="toc-text">实例讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
  
   </div>
 
