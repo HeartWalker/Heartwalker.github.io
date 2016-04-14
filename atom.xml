@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-12T13:53:24.178Z</updated>
+  <updated>2016-04-14T13:51:34.944Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>github静态博客搭建参考网址:基于hexo的janman主题</title>
+    <link href="http://HeartWalker.cc/2016/04/14/github%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%82%E8%80%83%E7%BD%91%E5%9D%80-%E5%9F%BA%E4%BA%8Ehexo%E7%9A%84janman%E4%B8%BB%E9%A2%98/"/>
+    <id>http://HeartWalker.cc/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/</id>
+    <published>2016-04-14T12:33:10.000Z</published>
+    <updated>2016-04-14T13:51:34.944Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;前三个网站若打不开, 可略过, 或自行找梯子&lt;/p&gt;
+&lt;h3 id=&quot;Hexo_u642D_u5EFA&quot;&gt;&lt;a href=&quot;#Hexo_u642D_u5EFA&quot; class=&quot;headerlink&quot; title=&quot;Hexo搭建&quot;&gt;&lt;/a&gt;Hexo搭建&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo官网&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://wuchong.me/blog/2014/11/20/how-to-use-jacman/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何使用 Jacman 主题&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/wuchong/jacman&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jacman主题github地址&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/categories/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;强烈推荐嘟嘟博客hexo系列&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/poem_of_sunshine/article/details/29369785/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;简明Github Pages与Hexo教程 &lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/a2023a601ceb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo–搭建&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swiftype站内搜索&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo常见问题解决方案&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Markdown&quot;&gt;&lt;a href=&quot;#Markdown&quot; class=&quot;headerlink&quot; title=&quot;Markdown&quot;&gt;&lt;/a&gt;Markdown&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/#list&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://sspai.com/25137&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;认识与入门 Markdown&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://mahua.jser.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MaHua 在线markdown编辑器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;前三个网站若打不开, 可略过, 或自行找梯子&lt;/p&gt;
+&lt;h3 id=&quot;Hexo_u642D_u5EFA&quot;
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js作用域其六:函数的四种调用模式与this</title>
+    <link href="http://HeartWalker.cc/2016/04/14/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%85%B6%E5%85%AD-%E5%87%BD%E6%95%B0%E7%9A%84%E5%9B%9B%E7%A7%8D%E8%B0%83%E7%94%A8%E6%A8%A1%E5%BC%8F%E4%B8%8Ethis/"/>
+    <id>http://HeartWalker.cc/2016/04/14/js作用域其六-函数的四种调用模式与this/</id>
+    <published>2016-04-14T11:59:42.000Z</published>
+    <updated>2016-04-14T12:27:54.849Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;this_u6307_u5411_u8C01&quot;&gt;&lt;a href=&quot;#this_u6307_u5411_u8C01&quot; class=&quot;headerlink&quot; title=&quot;this指向谁&quot;&gt;&lt;/a&gt;this指向谁&lt;/h2&gt;&lt;p&gt;this是js中一个非常有用的关键字并且方便的关键字, 但同时也会带来一些困惑: this到底指向谁 ? 事实上&lt;strong&gt;this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象&lt;/strong&gt;  , 除去不常用的with与eval, this的指向取决于函数的四种调用模式&lt;/p&gt;
+&lt;h2 id=&quot;u51FD_u6570_u7684_u56DB_u79CD_u8C03_u7528_u6A21_u5F0F&quot;&gt;&lt;a href=&quot;#u51FD_u6570_u7684_u56DB_u79CD_u8C03_u7528_u6A21_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;函数的四种调用模式&quot;&gt;&lt;/a&gt;函数的四种调用模式&lt;/h2&gt;&lt;h3 id=&quot;u51FD_u6570_u6A21_u5F0F&quot;&gt;&lt;a href=&quot;#u51FD_u6570_u6A21_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;函数模式&quot;&gt;&lt;/a&gt;函数模式&lt;/h3&gt;&lt;p&gt;定义一个函数, 如果单独的将其调用, 不将其与任何东西关联, 那么就是函数调用模式. 此时 this 的调用者默认就是全局对象( window )&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var num = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;f&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var num = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(this.num); //输出&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(num)       //输出&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u65B9_u6CD5_u6A21_u5F0F&quot;&gt;&lt;a href=&quot;#u65B9_u6CD5_u6A21_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;方法模式&quot;&gt;&lt;/a&gt;方法模式&lt;/h3&gt;&lt;p&gt;定义一个函数, 如果将函数赋值给一个对象的成员, 那么利用对象调用它就是方法模式. 方法模式 this 就是当前调用方法的对象&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var a = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    a: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    f: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log(this.a)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o.f(); //输出&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在看一个例子&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var name=&lt;span class=&quot;string&quot;&gt;&quot;张三&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var obj=&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name:&lt;span class=&quot;string&quot;&gt;&quot;李四&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  getName:&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(this.name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;obj.getName();               //输出：李四&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var getName=obj.getName;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;getName();                  //输出：张三&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;直接调用obj.getName（），这里的this是作为对象的方法调用，所以它指向obj，this.name就是李四；obj.getName赋值给getName后，getName就变成了普通函数，所以指向的是全局的window.name，结果是张三 &lt;/p&gt;
+&lt;h3 id=&quot;u6784_u9020_u5668_u6A21_u5F0F&quot;&gt;&lt;a href=&quot;#u6784_u9020_u5668_u6A21_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;构造器模式&quot;&gt;&lt;/a&gt;构造器模式&lt;/h3&gt;&lt;p&gt;定义一个函数, 使用 new 来调用创建对象就是构造器( constructor )模式 . 构造器模式 this 就是 new 出来的新的对象&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;myClass&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  this.name=&lt;span class=&quot;string&quot;&gt;&quot;张三&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var child=new myClass();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(child.name);    //输出：张三&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是当构造函数中有 return 时, 情况又有些不同:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 return 后面是&lt;strong&gt;基本数据类型&lt;/strong&gt;, 忽略, 和没写一样&lt;/li&gt;
+&lt;li&gt;如果 return 后面是一个有效的引用类型, 那么无论构造函数中写什么内容, 都返回 return 后面的对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;myClass&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      this.name=&lt;span class=&quot;string&quot;&gt;&quot;张三&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        name: &lt;span class=&quot;string&quot;&gt;&quot;李四&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var child=new myClass();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(child.name);    //输出：李四&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u4E0A_u4E0B_u6587_u6A21_u5F0F_28call_u4E0Eapply_29&quot;&gt;&lt;a href=&quot;#u4E0A_u4E0B_u6587_u6A21_u5F0F_28call_u4E0Eapply_29&quot; class=&quot;headerlink&quot; title=&quot;上下文模式(call与apply)&quot;&gt;&lt;/a&gt;上下文模式(call与apply)&lt;/h3&gt;&lt;p&gt;　　每个函数都包含两个非继承而来的方法：apply()和 call(). 这两个方法的用途都是在特定的作 用域中调用函数，实际上等于设置函数体内 this 对象的值.&lt;br&gt;　　首先，apply()方法接收两个参数：一个 是在其中运行函数的作用域，另一个是参数数组. 其中，第二个参数可以是 Array 的实例，也可以是 arguments 对象&lt;br&gt;　　call()方法与 apply()方法的作用相同，它们的区别仅在于接收参数的方式不同. 对于 call() 方法而言，第一个参数是 this 值没有变化，变化的是其余参数都直接传递给函数&lt;/p&gt;
+&lt;p&gt;调用方法:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;函数名.apply(参数1,参数2);&lt;/li&gt;
+&lt;li&gt;函数名.call(参数1, 参数2, …,参数n);&lt;br&gt;例:&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var name = &lt;span class=&quot;string&quot;&gt;&quot;张三&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            console.log( this.name );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o = &amp;#123; name: &lt;span class=&quot;string&quot;&gt;&#39;李四&#39;&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo.apply();               //张三&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo.apply( null );          //张三&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo.apply( o );            //李四&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo.call( o );              //李四&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;u4E25_u683C_u6A21_u5F0F_u4E0B_u7684this&quot;&gt;&lt;a href=&quot;#u4E25_u683C_u6A21_u5F0F_u4E0B_u7684this&quot; class=&quot;headerlink&quot; title=&quot;严格模式下的this&quot;&gt;&lt;/a&gt;严格模式下的this&lt;/h2&gt;&lt;p&gt;在严格模式下, 当this值为null或undefined时，不会再将其强制转换为全局对象. 也就是说，this保留了它的原始值，也因此可能会导致一些依赖于强制转换的代码发生错误. 例如：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　var color = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;sayColor&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;use strict&quot;&lt;/span&gt;;                 //开启严格模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　alert(this.color);           // 严格模式下，this不会指向window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　// 以下两种情况，在严格模式下都抛出错误&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　sayColor();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　sayColor.call(null);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;　　根本而言，this值必须赋值，否则将保留undefined值. 这意味着调用构造函数时若漏掉了new关键字也会导致错误：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; Person(name) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;use strict&quot;&lt;/span&gt;;                      //开启严格模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　this.name = name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　var me = Person(&lt;span class=&quot;string&quot;&gt;&quot;Nicholas&quot;&lt;/span&gt;);       // 严格模式下导致错误&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;　　在这段代码里，调用Person构造函数时缺少了new关键字，此时this值为undefined. 由于你不能给undefined添加属性，这段代码抛出了一个错误. 在非严格模式下，this会强制转换为全局对象，因此name属性能够被正确赋值为全局变量. &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;this_u6307_u5411_u8C01&quot;&gt;&lt;a href=&quot;#this_u6307_u5411_u8C01&quot; class=&quot;headerlink&quot; title=&quot;this指向谁&quot;&gt;&lt;/a&gt;this指向谁&lt;/h2&gt;&lt;p&gt;this是js中一个非常有用的关键字并且
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="作用域" scheme="http://HeartWalker.cc/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>js作用域其五:仿块级作用域(沙箱模式)</title>
@@ -79,7 +148,7 @@
     <link href="http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
     <id>http://HeartWalker.cc/2016/04/06/前端优化/</id>
     <published>2016-04-05T17:39:44.000Z</published>
-    <updated>2016-04-12T13:49:47.521Z</updated>
+    <updated>2016-04-14T05:03:03.172Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3&gt;&lt;p&gt;只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上&lt;/p&gt;
 &lt;h3 id=&quot;u51CF_u5C11HTTP_u8BF7_u6C42&quot;&gt;&lt;a href=&quot;#u51CF_u5C11HTTP_u8BF7_u6C42&quot; class=&quot;headerlink&quot; title=&quot;减少HTTP请求&quot;&gt;&lt;/a&gt;减少HTTP请求&lt;/h3&gt;&lt;ol&gt;
@@ -119,7 +188,10 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
 &lt;h3 id=&quot;u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F&quot;&gt;&lt;a href=&quot;#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;避免使用CSS表达式&quot;&gt;&lt;/a&gt;避免使用CSS表达式&lt;/h3&gt;&lt;p&gt;基本已经无人使用&lt;/p&gt;
 &lt;p&gt;从IE5开始支持，但 从IE8起就不推荐使用了 。&lt;/p&gt;
 &lt;p&gt;表达式最大的问题是它们经常被重复计算，比我们想象的次数还要多。&lt;/p&gt;
-&lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;所有的优化都和可以总结为一下几方面:&lt;/p&gt;
+&lt;h3 id=&quot;u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS&quot;&gt;&lt;a href=&quot;#u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS&quot; class=&quot;headerlink&quot; title=&quot;使用外部JavaScript与CSS&quot;&gt;&lt;/a&gt;使用外部JavaScript与CSS&lt;/h3&gt;&lt;p&gt;纯粹而言使用内联脚本与样式更快一些&lt;/p&gt;
+&lt;p&gt;但是使用外部的脚本与样式表可以设置缓存, 并且如果你的网站中的每一个页面都使用了相同的JavaScript和Css，使用外部文件可以提高这些组件的重用率, 因为当用户在页面间浏览时，JavaScript和Css组件已经位于浏览器的缓存中了&lt;/p&gt;
+&lt;p&gt;而且使用外部脚本与样式表符合行为 样式 结构分离, 有利于网站的维护&lt;/p&gt;
+&lt;h3 id=&quot;u51CF_u5C11DNS_u67E5_u627E&quot;&gt;&lt;a href=&quot;#u51CF_u5C11DNS_u67E5_u627E&quot; class=&quot;headerlink&quot; title=&quot;减少DNS查找&quot;&gt;&lt;/a&gt;减少DNS查找&lt;/h3&gt;&lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;所有的优化都和可以总结为一下几方面:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小&lt;/li&gt;
 &lt;li&gt;优化显示的效果&lt;/li&gt;
@@ -642,54 +714,6 @@ console.log(Number(0.2).toString(2))
     
       &lt;p&gt;  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.&lt;/p&gt;
 &lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;
-    
-    </summary>
-    
-      <category term="css" scheme="http://HeartWalker.cc/categories/css/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>border-image-width</title>
-    <link href="http://HeartWalker.cc/2016/03/06/border-image-width/"/>
-    <id>http://HeartWalker.cc/2016/03/06/border-image-width/</id>
-    <published>2016-03-06T02:36:09.000Z</published>
-    <updated>2016-03-06T02:53:53.521Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;border-image-width&quot;&gt;&lt;a href=&quot;#border-image-width&quot; class=&quot;headerlink&quot; title=&quot;border-image-width&quot;&gt;&lt;/a&gt;border-image-width&lt;/h2&gt;&lt;p&gt;border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小&lt;/p&gt;
-&lt;h3 id=&quot;border-width_u4E0Eborder-image-width&quot;&gt;&lt;a href=&quot;#border-width_u4E0Eborder-image-width&quot; class=&quot;headerlink&quot; title=&quot;border-width与border-image-width&quot;&gt;&lt;/a&gt;border-width与border-image-width&lt;/h3&gt;&lt;p&gt;那么它们有什么关联呢?&lt;br&gt;首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它&lt;/p&gt;
-&lt;h3 id=&quot;border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898&quot;&gt;&lt;a href=&quot;#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898&quot; class=&quot;headerlink&quot; title=&quot;border-image-width的兼容性问题&quot;&gt;&lt;/a&gt;border-image-width的兼容性问题&lt;/h3&gt;&lt;p&gt;经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 &lt;/p&gt;
-&lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;若果要使用border-image最好在border上使用:即要有border-width属性&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;border-image-width&quot;&gt;&lt;a href=&quot;#border-image-width&quot; class=&quot;headerlink&quot; title=&quot;border-image-width&quot;&gt;&lt;/a&gt;border-image-width&lt;/h2&gt;&lt;p&gt;border
-    
-    </summary>
-    
-      <category term="css3" scheme="http://HeartWalker.cc/categories/css3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>css透明度</title>
-    <link href="http://HeartWalker.cc/2016/03/03/css%E9%80%8F%E6%98%8E%E5%BA%A6/"/>
-    <id>http://HeartWalker.cc/2016/03/03/css透明度/</id>
-    <published>2016-03-02T16:13:41.000Z</published>
-    <updated>2016-03-02T16:33:19.624Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;想要实现透明有下面四个方法&quot;&gt;&lt;/a&gt;想要实现透明有下面四个方法&lt;/h2&gt;&lt;h3 id=&quot;opacity&quot;&gt;&lt;a href=&quot;#opacity&quot; class=&quot;headerlink&quot; title=&quot;opacity&quot;&gt;&lt;/a&gt;opacity&lt;/h3&gt;&lt;p&gt;通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果&lt;/p&gt;
-&lt;h3 id=&quot;transparent&quot;&gt;&lt;a href=&quot;#transparent&quot; class=&quot;headerlink&quot; title=&quot;transparent&quot;&gt;&lt;/a&gt;transparent&lt;/h3&gt;&lt;p&gt;如background:transparent;表示全透明 无法设置具体的值,对border同样适用 &lt;/p&gt;
-&lt;h3 id=&quot;rgba&quot;&gt;&lt;a href=&quot;#rgba&quot; class=&quot;headerlink&quot; title=&quot;rgba&quot;&gt;&lt;/a&gt;rgba&lt;/h3&gt;&lt;p&gt;如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用&lt;/p&gt;
-&lt;h3 id=&quot;hsla&quot;&gt;&lt;a href=&quot;#hsla&quot; class=&quot;headerlink&quot; title=&quot;hsla&quot;&gt;&lt;/a&gt;hsla&lt;/h3&gt;&lt;p&gt;如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)&lt;br&gt;S 饱和度 取值范围0%~100%&lt;br&gt;L 亮度 取值范围0%~100%&lt;br&gt;A 透明度 取值范围0~1;用法及效果与rgba一致&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;注:它们在ie &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;上都有兼容性问题&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u
     
     </summary>
     

@@ -4,35 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>JS中值类型和引用类型与赋值 | HeartWalker&#39;s Blog</title>
+    <title>github静态博客搭建参考网址:基于hexo的janman主题 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="概念js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等
-区别
-值类型保存在栈中,变量保存的就是变量的值;
-引用类型保存在值中,变量保存的值是数据的引用(地址);
-不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性">
+    <meta name="description" content="前言前三个网站若打不开, 可略过, 或自行找梯子
+Hexo搭建hexo官网如何使用 Jacman 主题jacman主题github地址强烈推荐嘟嘟博客hexo系列简明Github Pages与Hexo教程 hexo–搭建swiftype站内搜索Hexo常见问题解决方案
+MarkdownMarkdown 语法说明 (简体中文版)认识与入门 MarkdownMaHua 在线markdown编辑器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中值类型和引用类型与赋值">
-<meta property="og:url" content="http://HeartWalker.cc/2016/03/28/JS中值类型和引用类型与赋值/index.html">
+<meta property="og:title" content="github静态博客搭建参考网址:基于hexo的janman主题">
+<meta property="og:url" content="http://HeartWalker.cc/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="概念js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等
-区别
-值类型保存在栈中,变量保存的就是变量的值;
-引用类型保存在值中,变量保存的值是数据的引用(地址);
-不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性">
-<meta property="og:updated_time" content="2016-04-06T04:47:38.254Z">
+<meta property="og:description" content="前言前三个网站若打不开, 可略过, 或自行找梯子
+Hexo搭建hexo官网如何使用 Jacman 主题jacman主题github地址强烈推荐嘟嘟博客hexo系列简明Github Pages与Hexo教程 hexo–搭建swiftype站内搜索Hexo常见问题解决方案
+MarkdownMarkdown 语法说明 (简体中文版)认识与入门 MarkdownMaHua 在线markdown编辑器">
+<meta property="og:updated_time" content="2016-04-14T13:51:34.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS中值类型和引用类型与赋值">
-<meta name="twitter:description" content="概念js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等
-区别
-值类型保存在栈中,变量保存的就是变量的值;
-引用类型保存在值中,变量保存的值是数据的引用(地址);
-不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性">
+<meta name="twitter:title" content="github静态博客搭建参考网址:基于hexo的janman主题">
+<meta name="twitter:description" content="前言前三个网站若打不开, 可略过, 或自行找梯子
+Hexo搭建hexo官网如何使用 Jacman 主题jacman主题github地址强烈推荐嘟嘟博客hexo系列简明Github Pages与Hexo教程 hexo–搭建swiftype站内搜索Hexo常见问题解决方案
+MarkdownMarkdown 语法说明 (简体中文版)认识与入门 MarkdownMaHua 在线markdown编辑器">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -91,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/28/JS中值类型和引用类型与赋值/" title="JS中值类型和引用类型与赋值" itemprop="url">JS中值类型和引用类型与赋值</a>
+      <a href="/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/" title="github静态博客搭建参考网址:基于hexo的janman主题" itemprop="url">github静态博客搭建参考网址:基于hexo的janman主题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-28T15:03:24.000Z" itemprop="datePublished"> 發表於 2016-03-28</time>
+    <time datetime="2016-04-14T12:33:10.000Z" itemprop="datePublished"> 發表於 2016-04-14</time>
     
   </p>
 </header>
@@ -107,18 +101,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u5FF5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u533A_u522B"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5173_u4E8E_u8D4B_u503C"><span class="toc-number">3.</span> <span class="toc-text">关于赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><span class="toc-number">4.</span> <span class="toc-text">引用类型赋值的更复杂案例</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo_u642D_u5EFA"><span class="toc-number">2.</span> <span class="toc-text">Hexo搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown"><span class="toc-number">3.</span> <span class="toc-text">Markdown</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h3><p>js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等</p>
-<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
-<li>值类型保存在栈中,变量保存的就是变量的值;</li>
-<li>引用类型保存在值中,变量保存的值是数据的引用(地址);</li>
-<li>不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性值是undefined</li>
-</ol>
-<h3 id="u5173_u4E8E_u8D4B_u503C"><a href="#u5173_u4E8E_u8D4B_u503C" class="headerlink" title="关于赋值"></a>关于赋值</h3><p>值类型是按值传递,通俗的来说就是将变量中的数据完整的拷贝一份, 赋值给新的变量例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//值类型赋值</span><br><span class="line">var num = <span class="number">123</span>;</span><br><span class="line">var num2 = num;</span><br><span class="line">// 此时内存中有两个 <span class="number">123</span> 的副本</span><br><span class="line">console.log(<span class="string">"num = "</span> + num + <span class="string">", num2 = "</span> + num2);//num = <span class="number">123</span>;num2 = <span class="number">123</span>;</span><br><span class="line">num = <span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"num = "</span> + num + <span class="string">", num2 = "</span> + num2);//num  = <span class="number">1</span> ;num2 = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">//引用类型赋值</span><br><span class="line">var o = &#123; n: <span class="number">123</span> &#125;;</span><br><span class="line">var o2 = o;</span><br><span class="line">//内存中只有一个数据对象, 是将 o 中地址复制一份, 赋值给 o2,即 o2 和 o 同时指向数据</span><br><span class="line">console.log(<span class="string">"o.n = "</span> + o.n + <span class="string">", o2.n = "</span> + o2.n);//o.n= <span class="number">123</span>; o2.n = <span class="number">123</span>;</span><br><span class="line">o.n = <span class="number">1</span>;</span><br><span class="line">console.log(<span class="string">"o.n = "</span> + o.n + <span class="string">", o2.n = "</span> + o2.n);//o.n1= <span class="number">1</span>; o2.n =<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><a href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B" class="headerlink" title="引用类型赋值的更复杂案例"></a>引用类型赋值的更复杂案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var o1 = &#123;  age: <span class="number">10</span> &#125;;</span><br><span class="line">var o2 = o1; //将o1的引用赋值给o2</span><br><span class="line">o1 = &#123; age: <span class="number">55</span> &#125;;//给将一个新对象赋值给o1,改变了o1的引用</span><br><span class="line">console.log(o1);//&#123;  age: <span class="number">55</span> &#125;;o1指向新对象</span><br><span class="line">console.log(o2);//&#123;  age: <span class="number">10</span> &#125;;o2的引用仍然指向原来的引用</span><br><span class="line"></span><br><span class="line">o2 = o1;//再次将o1的引用赋值给o2,此时它们指向同一个对象</span><br><span class="line">console.log(o1);//&#123;  age: <span class="number">55</span> &#125;;</span><br><span class="line">console.log(o2);//&#123;  age: <span class="number">55</span> &#125;;</span><br><span class="line"></span><br><span class="line">o2.age = <span class="number">66</span>;          </span><br><span class="line">o1.age = <span class="number">77</span>;//由于o1与o2指向的都是同一个对象,这两次改变的都是同一个对象的age属性的值</span><br><span class="line">console.log( o1.age );//<span class="number">77</span></span><br><span class="line">console.log( o2.age );//<span class="number">77</span></span><br></pre></td></tr></table></figure>
+		<h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>前三个网站若打不开, 可略过, 或自行找梯子</p>
+<h3 id="Hexo_u642D_u5EFA"><a href="#Hexo_u642D_u5EFA" class="headerlink" title="Hexo搭建"></a>Hexo搭建</h3><p><a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a><br><a href="http://wuchong.me/blog/2014/11/20/how-to-use-jacman/" target="_blank" rel="external">如何使用 Jacman 主题</a><br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">jacman主题github地址</a><br><a href="http://tengj.top/categories/hexo/" target="_blank" rel="external">强烈推荐嘟嘟博客hexo系列</a><br><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785/" target="_blank" rel="external">简明Github Pages与Hexo教程 </a><br><a href="http://www.jianshu.com/p/a2023a601ceb" target="_blank" rel="external">hexo–搭建</a><br><a href="http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html" target="_blank" rel="external">swiftype站内搜索</a><br><a href="http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" rel="external">Hexo常见问题解决方案</a></p>
+<h3 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h3><p><a href="http://wowubuntu.com/markdown/#list" target="_blank" rel="external">Markdown 语法说明 (简体中文版)</a><br><a href="http://sspai.com/25137" target="_blank" rel="external">认识与入门 Markdown</a><br><a href="http://mahua.jser.me/" target="_blank" rel="external">MaHua 在线markdown编辑器</a></p>
+<p><br><br><br><br><br><br><br></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,14 +116,9 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
+  <a class="article-category-link" href="/categories/东成西就/">东成西就</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/变量类型/">变量类型</a>
-  </div>
 
 </div>
 
@@ -141,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/03/28/JS中值类型和引用类型与赋值/" data-title="JS中值类型和引用类型与赋值 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/" data-title="github静态博客搭建参考网址:基于hexo的janman主题 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -154,19 +139,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/30/一幅图深入理解原型链/" title="一幅图深入理解原型链">
-  <strong>上一篇：</strong><br/>
-  <span>
-  一幅图深入理解原型链</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/24/js的Dom对象与jQuery的Dom对象/"  title="js的Dom对象与jQuery的Dom对象">
+<a href="/2016/04/14/js作用域其六-函数的四种调用模式与this/"  title="js作用域其六:函数的四种调用模式与this">
  <strong>下一篇：</strong><br/> 
- <span>js的Dom对象与jQuery的Dom对象
+ <span>js作用域其六:函数的四种调用模式与this
 </span>
 </a>
 </div>
@@ -175,7 +152,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/28/JS中值类型和引用类型与赋值/" data-title="JS中值类型和引用类型与赋值" data-url="http://HeartWalker.cc/2016/03/28/JS中值类型和引用类型与赋值/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/" data-title="github静态博客搭建参考网址:基于hexo的janman主题" data-url="http://HeartWalker.cc/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -198,7 +175,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u5FF5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u533A_u522B"><span class="toc-number">2.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5173_u4E8E_u8D4B_u503C"><span class="toc-number">3.</span> <span class="toc-text">关于赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B"><span class="toc-number">4.</span> <span class="toc-text">引用类型赋值的更复杂案例</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo_u642D_u5EFA"><span class="toc-number">2.</span> <span class="toc-text">Hexo搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown"><span class="toc-number">3.</span> <span class="toc-text">Markdown</span></a></li></ol>
  
   </div>
 

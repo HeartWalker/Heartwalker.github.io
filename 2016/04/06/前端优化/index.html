@@ -21,7 +21,7 @@
 <meta property="og:description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
 减少HTTP请求
 合并背景图片就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.">
-<meta property="og:updated_time" content="2016-04-12T13:49:47.521Z">
+<meta property="og:updated_time" content="2016-04-14T05:03:03.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端优化(持续更新中)">
 <meta name="twitter:description" content="性能黄金法则只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上
@@ -101,7 +101,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><span class="toc-number">7.</span> <span class="toc-text">将样式表放到顶部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><span class="toc-number">8.</span> <span class="toc-text">将脚本放在底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><span class="toc-number">9.</span> <span class="toc-text">避免使用CSS表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">11.</span> <span class="toc-text">参考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><span class="toc-number">7.</span> <span class="toc-text">将样式表放到顶部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><span class="toc-number">8.</span> <span class="toc-text">将脚本放在底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><span class="toc-number">9.</span> <span class="toc-text">避免使用CSS表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS"><span class="toc-number">10.</span> <span class="toc-text">使用外部JavaScript与CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11DNS_u67E5_u627E"><span class="toc-number">11.</span> <span class="toc-text">减少DNS查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">13.</span> <span class="toc-text">参考</span></a></li></ol>
 		
 		</div>
 		
@@ -143,7 +143,10 @@ ExpiresDefault &quot;access plus 10 years&quot;
 <h3 id="u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><a href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F" class="headerlink" title="避免使用CSS表达式"></a>避免使用CSS表达式</h3><p>基本已经无人使用</p>
 <p>从IE5开始支持，但 从IE8起就不推荐使用了 。</p>
 <p>表达式最大的问题是它们经常被重复计算，比我们想象的次数还要多。</p>
-<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
+<h3 id="u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS"><a href="#u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS" class="headerlink" title="使用外部JavaScript与CSS"></a>使用外部JavaScript与CSS</h3><p>纯粹而言使用内联脚本与样式更快一些</p>
+<p>但是使用外部的脚本与样式表可以设置缓存, 并且如果你的网站中的每一个页面都使用了相同的JavaScript和Css，使用外部文件可以提高这些组件的重用率, 因为当用户在页面间浏览时，JavaScript和Css组件已经位于浏览器的缓存中了</p>
+<p>而且使用外部脚本与样式表符合行为 样式 结构分离, 有利于网站的维护</p>
+<h3 id="u51CF_u5C11DNS_u67E5_u627E"><a href="#u51CF_u5C11DNS_u67E5_u627E" class="headerlink" title="减少DNS查找"></a>减少DNS查找</h3><h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
 <ol>
 <li>减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小</li>
 <li>优化显示的效果</li>
@@ -229,7 +232,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><span class="toc-number">7.</span> <span class="toc-text">将样式表放到顶部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><span class="toc-number">8.</span> <span class="toc-text">将脚本放在底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><span class="toc-number">9.</span> <span class="toc-text">避免使用CSS表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">11.</span> <span class="toc-text">参考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><span class="toc-number">1.</span> <span class="toc-text">性能黄金法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11HTTP_u8BF7_u6C42"><span class="toc-number">2.</span> <span class="toc-text">减少HTTP请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><span class="toc-number">3.</span> <span class="toc-text">内容发布网络(CDN)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0Expires_u5934_u548CCache-control"><span class="toc-number">4.</span> <span class="toc-text">添加Expires头和Cache-control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5E94_u7528_u7F13_u5B58cache_manifest"><span class="toc-number">5.</span> <span class="toc-text">应用缓存cache manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gzip_u538B_u7F29"><span class="toc-number">6.</span> <span class="toc-text">Gzip压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><span class="toc-number">7.</span> <span class="toc-text">将样式表放到顶部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><span class="toc-number">8.</span> <span class="toc-text">将脚本放在底部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><span class="toc-number">9.</span> <span class="toc-text">避免使用CSS表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS"><span class="toc-number">10.</span> <span class="toc-text">使用外部JavaScript与CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u51CF_u5C11DNS_u67E5_u627E"><span class="toc-number">11.</span> <span class="toc-text">减少DNS查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">13.</span> <span class="toc-text">参考</span></a></li></ol>
  
   </div>
 
@@ -261,11 +264,15 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>15</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>16</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/web/" title="web">web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>1</sup></a></li>
 		  
 		
 		  
@@ -291,7 +298,7 @@ var duoshuoQuery = {short_name:"animewalker"};
         
           <li>
             
-            	<a href="http://dn-coderq.qbox.me/" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="http://dn-coderq.qbox.me/" target="_blank" title="一个面向程序员交流分享的新一代社区">MDN</a>
             
           </li>
         

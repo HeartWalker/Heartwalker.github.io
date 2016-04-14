@@ -11,15 +11,15 @@
     
 
     
-    <meta name="description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker,心行者">
+    <meta name="description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HeartWalker's Blog">
 <meta property="og:url" content="http://HeartWalker.cc/page/3/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker,心行者">
+<meta property="og:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HeartWalker's Blog">
-<meta name="twitter:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker,心行者">
+<meta name="twitter:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -73,6 +73,128 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/06/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-06T02:36:09.000Z" itemprop="datePublished"> 發表於 2016-03-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="border-image-width"><a href="#border-image-width" class="headerlink" title="border-image-width"></a>border-image-width</h2><p>border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小</p>
+<h3 id="border-width_u4E0Eborder-image-width"><a href="#border-width_u4E0Eborder-image-width" class="headerlink" title="border-width与border-image-width"></a>border-width与border-image-width</h3><p>那么它们有什么关联呢?<br>首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它</p>
+<h3 id="border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><a href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898" class="headerlink" title="border-image-width的兼容性问题"></a>border-image-width的兼容性问题</h3><p>经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 </p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>若果要使用border-image最好在border上使用:即要有border-width属性</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css3/">css3</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/06/border-image-width/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/06/border-image-width/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/03/css透明度/" title="css透明度" itemprop="url">css透明度</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-02T16:13:41.000Z" itemprop="datePublished"> 發表於 2016-03-03</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><a href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5" class="headerlink" title="想要实现透明有下面四个方法"></a>想要实现透明有下面四个方法</h2><h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><p>通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果</p>
+<h3 id="transparent"><a href="#transparent" class="headerlink" title="transparent"></a>transparent</h3><p>如background:transparent;表示全透明 无法设置具体的值,对border同样适用 </p>
+<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><p>如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用</p>
+<h3 id="hsla"><a href="#hsla" class="headerlink" title="hsla"></a>hsla</h3><p>如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)<br>S 饱和度 取值范围0%~100%<br>L 亮度 取值范围0%~100%<br>A 透明度 取值范围0~1;用法及效果与rgba一致<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注:它们在ie <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>上都有兼容性问题</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/03/css透明度/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/03/css透明度/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -659,128 +781,9 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/15/my-new-post/" title="my new post" itemprop="url">my new post</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-14T16:53:11.000Z" itemprop="datePublished"> 發表於 2016-02-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u521D_u59CB"><a href="#u521D_u59CB" class="headerlink" title="初始"></a>初始</h2><p>俗话说师傅领进门,修行靠个人<br>关键是要有人领进门那,有人教实在是太好了,太省心,太省时间了<br>但是不可能总是有人教的,仅仅是自己研究这一个hexo模板也是费了几天,狠狠的伤了伤神,<br>去网上查资料总是在小细节地方有很多坑,再加上某朝的网络环境,真是狠狠的吐了一口老血<br><strong>就以此作为开始吧</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/15/my-new-post/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/15/my-new-post/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/10/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-10T14:16:43.797Z" itemprop="datePublished"> 發表於 2016-02-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/10/hello-world/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/10/hello-world/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
   </nav>
 
 </div>
@@ -814,11 +817,15 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>15</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>16</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/web/" title="web">web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>1</sup></a></li>
 		  
 		
 		  
@@ -844,7 +851,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
         
           <li>
             
-            	<a href="http://dn-coderq.qbox.me/" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            	<a href="http://dn-coderq.qbox.me/" target="_blank" title="一个面向程序员交流分享的新一代社区">MDN</a>
             
           </li>
         
