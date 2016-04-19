@@ -80,6 +80,138 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/18/减少重绘与回流/" title="减少重绘与回流" itemprop="url">减少重绘与回流</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-18T05:46:22.000Z" itemprop="datePublished"> 發表於 2016-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u9875_u9762_u5448_u73B0_u6D41_u7A0B"><a href="#u9875_u9762_u5448_u73B0_u6D41_u7A0B" class="headerlink" title="页面呈现流程"></a>页面呈现流程</h3><p>在讨论页面重绘、回流之前。需要对页面的呈现流程有些了解，页面是怎么把html结合css等显示到浏览器上的，下面的流程图显示了浏览器对页面的呈现的处理流程。可能不同的浏览器略微会有些不同。但基本上都是类似的。<br><img src="/images/redraw.jpg" alt=""></p>
+<ol>
+<li><p>浏览器把获取到的html代码解析成1个Dom树，html中的每个tag都是Dom树中的1个节点，根节点就是我们常用的document对象(<html> tag)。dom树就是我们用firebug或者IE Developer Toolbar等工具看到的html结构，里面包含了所有的html tag，包括display:none隐藏，还有用JS动态添加的元素等。     </html></p>
+</li>
+<li><p>浏览器把所有样式(主要包括css和浏览器的样式设置)解析成样式结构体，在解析的过程中会去掉浏览器不能识别的样式，比如IE会去掉-moz开头的样式，而firefox会去掉_开头的样式。     </p>
+</li>
+<li><p>dom tree和样式结构体结合后构建呈现树(render tree),render tree有点类似于dom tree，但其实区别有很大，render tree能识别样式，render tree中每个node都有自己的style，而且render tree不包含隐藏的节点(比如display:none的节点，还有head节点)，因为这些节点不会用于呈现，而且不会影响呈现的，所以就不会包含到render tree中。注意 visibility:hidden隐藏的元素还是会包含到render tree中的，因为visibility:hidden 会影响布局(layout)，会占有空间。根据css2的标准，render tree中的每个节点都称为box(Box dimensions)，box所有属性：width,height,margin,padding,left,top,border等。     </p>
+</li>
+<li><p>一旦render tree构建完毕后，浏览器就可以根据render tree来绘制页面了。</p>
+</li>
+</ol>
+<h3 id="u56DE_u6D41_u4E0E_u91CD_u7ED8"><a href="#u56DE_u6D41_u4E0E_u91CD_u7ED8" class="headerlink" title="回流与重绘"></a>回流与重绘</h3><ol>
+<li><p>当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(其实我觉得叫重新布局更简单明了些)。每个页面至少需要一次回流，就是在页面第一次加载的时候。    </p>
+</li>
+<li><p>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘。</p>
+<p>注：从上面可以看出，回流必将引起重绘，而重绘不一定会引起回流。</p>
+</li>
+</ol>
+<h3 id="u4EC0_u4E48_u64CD_u4F5C_u4F1A_u5F15_u8D77_u91CD_u7ED8_u3001_u56DE_u6D41"><a href="#u4EC0_u4E48_u64CD_u4F5C_u4F1A_u5F15_u8D77_u91CD_u7ED8_u3001_u56DE_u6D41" class="headerlink" title="什么操作会引起重绘、回流"></a>什么操作会引起重绘、回流</h3><p>其实任何对render tree中元素的操作都会引起回流或者重绘，比如：    </p>
+<ol>
+<li><p>添加、删除元素(回流+重绘)</p>
+</li>
+<li><p>隐藏元素，display:none(回流+重绘)，visibility:hidden(只重绘，不回流)</p>
+</li>
+<li><p>移动元素，比如改变top,left(jquery的animate方法就是,改变top,left不一定会影响回流)，或者移动元素到另外1个父元素中。(重绘+回流)    </p>
+</li>
+<li><p>对style的操作(对不同的属性操作，影响不一样)    </p>
+</li>
+<li><p>还有一种是用户的操作，比如改变浏览器大小，改变浏览器的字体大小等(回流+重绘)</p>
+</li>
+</ol>
+<p>让我们看看下面的代码是如何影响回流和重绘的:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var s = document.body.style; </span><br><span class="line"></span><br><span class="line">s.padding = <span class="string">"2px"</span>; // 回流+重绘</span><br><span class="line">s.border = <span class="string">"1px solid red"</span>; // 再一次 回流+重绘</span><br><span class="line"></span><br><span class="line">s.color = <span class="string">"blue"</span>; // 再一次重绘</span><br><span class="line">s.backgroundColor = <span class="string">"#ccc"</span>; // 再一次 重绘</span><br><span class="line"></span><br><span class="line">s.fontSize = <span class="string">"14px"</span>; // 再一次 回流+重绘</span><br><span class="line"></span><br><span class="line">// 添加node，再一次 回流+重绘</span><br><span class="line">document.body.appendChild(document.createTextNode(<span class="string">'abc!'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>   请注意我上面用了多少个再一次。</p>
+<p>   说到这里大家都知道回流比重绘的代价要更高，回流的花销跟render tree有多少节点需要重新构建有关系，假设你直接操作body，比如在body最前面插入1个元素，会导致整个render tree回流，这样代价当然会比较高，但如果是指body后面插入1个元素，则不会影响前面元素的回流。</p>
+<h3 id="u806A_u660E_u7684_u6D4F_u89C8_u5668"><a href="#u806A_u660E_u7684_u6D4F_u89C8_u5668" class="headerlink" title="聪明的浏览器"></a>聪明的浏览器</h3><p>从上个实例代码中可以看到几行简单的JS代码就引起了6次左右的回流、重绘。而且我们也知道回流的花销也不小，如果每句JS操作都去回流重绘的话，浏览器可能就会受不了。所以很多浏览器都会优化这些操作，浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会把flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</p>
+<p>虽然有了浏览器的优化，但有时候我们写的一些代码可能会强制浏览器提前flush队列，这样浏览器的优化可能就起不到作用了。当你请求向浏览器请求一些style信息的时候，就会让浏览器flush队列，比如：</p>
+<pre><code>1. offsetTop, offsetLeft, offsetWidth, offsetHeight
+2. scrollTop/Left/Width/Height
+3. clientTop/Left/Width/Height
+4. width,height
+5. 请求了getComputedStyle(), 或者 ie的 currentStyle
+</code></pre><p>当你请求上面的一些属性的时候，浏览器为了给你最精确的值，需要flush队列，因为队列中可能会有影响到这些值的操作。  </p>
+<h3 id="u5982_u4F55_u51CF_u5C11_u56DE_u6D41_u3001_u91CD_u7ED8"><a href="#u5982_u4F55_u51CF_u5C11_u56DE_u6D41_u3001_u91CD_u7ED8" class="headerlink" title="如何减少回流、重绘"></a>如何减少回流、重绘</h3><p>减少回流、重绘其实就是需要减少对render tree的操作，并减少对一些style信息的请求，尽量利用好浏览器的优化策略。具体方法有：</p>
+<ol>
+<li><p>不要1个1个改变元素的样式属性，最好直接改变className，但className是预先定义好的样式，不是动态的，如果你要动态改变一些样式，则使用cssText来改变，见下面代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 不好的写法</span><br><span class="line">var left = <span class="number">1</span>;</span><br><span class="line">var top = <span class="number">1</span>;</span><br><span class="line">el.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">el.style.top  = top  + <span class="string">"px"</span>;</span><br><span class="line"></span><br><span class="line">// 比较好的写法 </span><br><span class="line">el.className += <span class="string">" className1"</span>;</span><br><span class="line"></span><br><span class="line">// 比较好的写法 </span><br><span class="line">el.style.cssText += <span class="string">"; left: "</span> + left + <span class="string">"px; top: "</span> + top + <span class="string">"px;"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>让要操作的元素进行”离线处理”，处理完后一起更新，这里所谓的”离线处理”即让元素不存在于render tree中，比如：</p>
+<p> a) 使用documentFragment或div等元素进行缓存操作，这个主要用于添加元素的时候，大家应该都用过，就是先把所有要添加到元素添加到1个div(这个div也是新加的)，最后才把这个div append到body中。</p>
+<p> b) 先display:none 隐藏元素，然后对该元素进行所有的操作，最后再显示该元素。因对display:none的元素进行操作不会引起回流、重绘。所以只要操作只会有2次回流。</p>
+</li>
+<li><p>不要经常访问会引起浏览器flush队列的属性，如果你确实要访问，就先读取到变量中进行缓存，以后用的时候直接读取变量就可以了，见下面代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 别这样写</span><br><span class="line"><span class="keyword">for</span>(循环) &#123;</span><br><span class="line">    el.style.left = el.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">    el.style.top  = el.offsetTop  + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 这样写好点</span><br><span class="line">var left = el.offsetLeft,top  = el.offsetTop,s = el.style;</span><br><span class="line"><span class="keyword">for</span>(循环) &#123;</span><br><span class="line">    left += <span class="number">5</span>;</span><br><span class="line">    top  += <span class="number">5</span>;</span><br><span class="line">    s.left = left + <span class="string">"px"</span>;</span><br><span class="line">    s.top  = top  + <span class="string">"px"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>考虑你的操作会影响到render tree中的多少节点以及影响的方式，影响越多，花费肯定就越多。比如现在很多人使用jquery的animate方法移动元素来展示一些动画效果，想想下面2种移动的方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#block1"</span>).animate(&#123;left:<span class="number">50</span>&#125;);</span><br><span class="line"> block1是position:absolute 定位的元素，它移动会影响到它父元素下的所有子元素。</span><br><span class="line"> 因为在它移动过程中，所有子元素需要判断block1的z-index是否在自己的上面，</span><br><span class="line"> 如果是在自己的上面,则需要重绘,这里不会引起回流</span><br><span class="line"></span><br><span class="line">$(<span class="string">"#block2"</span>).animate(&#123;marginLeft:<span class="number">50</span>&#125;);</span><br><span class="line"> block2是相对定位的元素,这个影响的元素与block1一样，但是因为block2非绝对定位</span><br><span class="line"> 而且改变的是marginLeft属性，所以这里每次改变不但会影响重绘，</span><br><span class="line"> 还会引起父元素及其下元素的回流</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="u5B9E_u4F8B_u6D4B_u8BD5"><a href="#u5B9E_u4F8B_u6D4B_u8BD5" class="headerlink" title="实例测试"></a>实例测试</h3><p> 在页面中添加 1000 个div</p>
+<ol>
+<li><p>将div缓存到documentFragment</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var <span class="built_in">test</span>1 = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        var start = +new Date(),</span><br><span class="line">            i, end, node, docfrag;</span><br><span class="line">        </span><br><span class="line">        docfrag = document.createDocumentFragment();</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; count; i++ ) &#123;</span><br><span class="line">            node = document.createElement( <span class="string">'div'</span> );</span><br><span class="line">            docfrag.appendChild( node );</span><br><span class="line">        &#125;</span><br><span class="line">        document.body.appendChild( docfrag );</span><br><span class="line">        </span><br><span class="line">        end = +new Date();</span><br><span class="line">        </span><br><span class="line">        console.log( <span class="string">'test1 = '</span> + ( end - start ) );</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">test</span>1();        //输出 <span class="number">5</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逐次在页面创建div</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var <span class="built_in">test</span>2 = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        var start = +new Date(),</span><br><span class="line">            i, end, s;</span><br><span class="line">        </span><br><span class="line">        s = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; count; i++ ) &#123;</span><br><span class="line">            // s += <span class="string">'&lt;div&gt;&lt;/div&gt;'</span>;</span><br><span class="line">            document.body.innerHTML += <span class="string">'&lt;div&gt;&lt;/div&gt;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        document.body.innerHTML = s;</span><br><span class="line">        </span><br><span class="line">        end = +new Date();</span><br><span class="line">        </span><br><span class="line">        console.log( <span class="string">'test2 = '</span> + ( end - start ) );</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">test</span>2();        //输出<span class="number">670</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可见test1渲染完成只需要5秒左右, test2渲染完成需要670左右, 创建的元素数量越多, 二者差距越大, 完全不在一个数量级上</p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>尽量少次数的操作节点结构与样式<br>合理的使用缓存和display:none<br>尽量不要操作较高层级的节点的结构与样式</p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.blogjava.net/BearRui/archive/2010/05/10/320502.html" target="_blank" rel="external">高性能WEB开发(8) - 页面呈现、重绘、回流</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/web/">web</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/优化/">优化</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/04/18/减少重绘与回流/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/18/减少重绘与回流/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/" title="github静态博客搭建参考网址:基于hexo的janman主题" itemprop="url">github静态博客搭建参考网址:基于hexo的janman主题</a>
   </h1>
   <p class="article-author">By
@@ -418,7 +550,35 @@ ExpiresDefault &quot;access plus 10 years&quot;
 <h3 id="u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS"><a href="#u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS" class="headerlink" title="使用外部JavaScript与CSS"></a>使用外部JavaScript与CSS</h3><p>纯粹而言使用内联脚本与样式更快一些</p>
 <p>但是使用外部的脚本与样式表可以设置缓存, 并且如果你的网站中的每一个页面都使用了相同的JavaScript和Css，使用外部文件可以提高这些组件的重用率, 因为当用户在页面间浏览时，JavaScript和Css组件已经位于浏览器的缓存中了</p>
 <p>而且使用外部脚本与样式表符合行为 样式 结构分离, 有利于网站的维护</p>
-<h3 id="u51CF_u5C11DNS_u67E5_u627E"><a href="#u51CF_u5C11DNS_u67E5_u627E" class="headerlink" title="减少DNS查找"></a>减少DNS查找</h3><h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
+<h3 id="u51CF_u5C11DNS_u67E5_u627E"><a href="#u51CF_u5C11DNS_u67E5_u627E" class="headerlink" title="减少DNS查找"></a>减少DNS查找</h3><p>Internet是通过IP地址来查找服务器的。由于IP地址很难记忆，通常使用包含主机名的URL来取代它，但当浏览器发送其请求时，IP地址仍然是必需的。这就是Domain Name System(DNS) 所处的角色。DNS也有开销，通常浏览器查找一个给定的主机名的IP地址要花费20-120毫秒。响应时间依赖于DNS解析器（通常由你的ISP提供）、它所承担的请求压力、你与它之间的距离和你的带宽速度。</p>
+<p><strong>使用DNS缓存</strong></p>
+<p>DNS查找可以被缓存起来提高性能。这种缓存可以发生在由你的ISP或局域网中的一台特殊的缓存服务器上，但这里探讨的是发生在独立用户的计算机上的DNS缓存。在用户请求了一个主机名之后，DNS信息会留在操作系统的DNS缓存中，之后对于该主机名的请求将无需进行过多的DNS查找，至少短时间内不需要。</p>
+<p><strong>影响DNS缓存的因素</strong></p>
+<p>首先，服务器可以表明记录可以被缓存多久。查找返回的DNS记录包含了一个存活时间（Time-to-live,TTL）值。该值告诉客户端可以对该记录缓存多久，尽管操作系统缓存会考虑TTL值，但浏览器通常忽略该值，并设置它自己的时间限制。另外浏览器对缓存的DNS记录的数量也有限制，TTL设置值通常是1天。</p>
+<p><strong>适当的主机名数量</strong></p>
+<p> 当客户端的DNS缓存为空（浏览器和操作系统都是）时，DNS查找的数量与Web页面中唯一主机名的数量相等。这包括页面URL、图片、脚本文件、样式表、Flash对象等的主机名。减少唯一主机名的数量就可以就可以减少DNS查找的数量。</p>
+<p>通过使用Keep-Alive和较少的域名来减少DNS查找</p>
+<h3 id="u7CBE_u7B80JavaScript_u4E0ECSS"><a href="#u7CBE_u7B80JavaScript_u4E0ECSS" class="headerlink" title="精简JavaScript与CSS"></a>精简JavaScript与CSS</h3><p>精简JavaScript通常也叫作压缩JavaScript, 不过请与Gzip压缩区分开</p>
+<p>精简JavaScript是从代码中移除不必要的字符以减少其大小，进而改善加载时间的实践。在代码被精简后，所有的注释以及不必要的空白字符（空格、换行和制表符）都将被移除。对于JavaScript而言，这可以改善响应时间效率，因为需要下载的文件大小减少了。精简JavaScript流行的工具有JSMin, YUI Compressor 等。</p>
+<p>还有一种处理JavaScript的方式叫作混淆</p>
+<p>混淆是可以应用在源代码上的另外一种优化方式。和精简一样，它也会移除注释和空白，同时它还会改写代码。作为改写的一部分，函数和变量的名字将被转换为更短的字符串，这时的代码更加精炼。但是会带来三个弊端：可能引入错误、增加调试难度、需要对JavaScript关键字标记. 混淆的效果并不比精简高很多, 所以还是慎重使用吧, 当然现在有一种技术叫 Source Map</p>
+<p>当然了, CSS文件同样可以精简</p>
+<h3 id="u907F_u514D_u91CD_u5B9A_u5411"><a href="#u907F_u514D_u91CD_u5B9A_u5411" class="headerlink" title="避免重定向"></a>避免重定向</h3><p>重定向用于将用户从一个URL重新路由到另一个URL，种类有很多，常用的是301和302。除此之外还有别的跳转方式：refresh元标签和JavaScript，但如果你必须得做重定向，最好用标准的3xxHTTP状态码，主要是为了让返回按钮能正常使用。 </p>
+<p>重定向会拖慢用户体验，在用户和HTML文档之间插入重定向会延迟页面上的所有东西，页面无法渲染，组件也无法开始下载，直到HTML文档被送达浏览器。</p>
+<p>重定向最常见的用途是把旧站点连接到新的站点，还可以连接同一站点的不同部分，针对用户的不同情况（浏览器类型，用户帐号类型等等）做一些处理。用重定向来连接两个网站是最简单的，只需要少量的额外代码。虽然在这些时候使用重定向减少了开发人员的开发复杂度，但降低了用户体验。一种替代方案是用 Alias 和 mod_rewrite ，前提是两个代码路径都在相同的服务器上。如果是因为域名变化而使用了重定向，就可以创建一条CNAME（创建一个指向另一个域名的DNS记录作为别名）结合 Alias 或者 mod_rewrite 指令。</p>
+<h3 id="u5220_u9664_u91CD_u590D_u811A_u672C"><a href="#u5220_u9664_u91CD_u590D_u811A_u672C" class="headerlink" title="删除重复脚本"></a>删除重复脚本</h3><p>开发一个网站需要极大数量的资源，除了核心团队要构建网站外，其他团队也会向页面贡献HTML代码。由于来自不同团队的很多人都要向页面中添加HTML，很容易想到相同的脚本可能会被添加多次</p>
+<p>重复脚本会伤害性能—引起不必要的HTTP请求和执行JavaScript所消耗的时间</p>
+<h3 id="u914D_u7F6EETag"><a href="#u914D_u7F6EETag" class="headerlink" title="配置ETag"></a>配置ETag</h3><p>实体标签（Entity Tag，ETag）是Web服务器和浏览器用于确认缓存组件的有效性的一种机制。减少呈现页面时所必需的HTTP请求的数量是加速用户体验的最佳方式。可以通过最大化浏览器缓存组件的能力来实现这一目标，但当网站被宿主在多于一台服务器上时，ETag头可能会阻碍缓存。</p>
+<p>ETag带来的问题 ETag的问题在于，通常使用组件的某些属性来构造它，这些属性对于特定的、寄宿了网站的服务器来说是唯一的。当浏览器从一台服务器上获取了原始组件，之后又向另外一台不同的服务器发起条件GET请求时，ETag是不会匹配的—-而对于使用服务器集群来处理请求的网站来说，这是很常见的一种情况。默认情况下，对于拥有多台服务器的网站，Apache和IIS向ETag中嵌入的数据都会大大地降低有效性验证的成功率。    </p>
+<p>解决该问题的两种方式：选择ETag的配置方式或者直接移除ETag</p>
+<h3 id="u4F7FAjax_u53EF_u7F13_u5B58"><a href="#u4F7FAjax_u53EF_u7F13_u5B58" class="headerlink" title="使Ajax可缓存"></a>使Ajax可缓存</h3><p>改善Ajax请求的最重要的方式就是使响应可缓存, 下面的规则同样适用于Ajax：</p>
+<pre><code>Gzip组件
+减少DNS查找
+压缩JavaScript
+避免重定向
+配置ETags
+</code></pre><h3 id="u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE"><a href="#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE" class="headerlink" title="协商缓存流程图"></a>协商缓存流程图</h3><p><img src="/images/cache.png" alt=""></p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
 <ol>
 <li>减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小</li>
 <li>优化显示的效果</li>
@@ -781,69 +941,6 @@ ExpiresDefault &quot;access plus 10 years&quot;
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/02/hexo博客完工感言/" title="hexo博客完工感言" itemprop="url">hexo博客完工感言</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-02T04:19:33.000Z" itemprop="datePublished"> 發表於 2016-04-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>　　github pages搞了好久, 然后又设置站内搜索, 设置多说, 同步到coding上, 再买域名, 设置站点地图, 今天算是基本完工了, 大部分想要实现的功能都实现了, 感谢网上的各位乐于分享的博主, 得到了很大的帮助　<br>　　但是不得不吐槽好多坑啊, 有的漏单词, 有的概念没说清, 有的地址没说明白, 有的忽略互相之间的关联,等等… 感觉调bug的时间占到了八成 心塞塞… </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/吐槽/">吐槽</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/02/hexo博客完工感言/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/02/hexo博客完工感言/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -884,7 +981,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
 		  
 		
 		  
-			<li><a href="/categories/web/" title="web">web<sup>1</sup></a></li>
+			<li><a href="/categories/web/" title="web">web<sup>2</sup></a></li>
 		  
 		
 		  
@@ -903,7 +1000,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
     </div>
   </div>
 

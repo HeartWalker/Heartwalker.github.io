@@ -80,6 +80,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/08/link与@import引入css/" title="link与@import引入css" itemprop="url">link与@import引入css</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-08T14:54:18.000Z" itemprop="datePublished"> 發表於 2016-03-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.</p>
+<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import url(style.css)</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除了可以加载CSS外，还可以做很多其它的事情，比如定义RSS，定义rel连接属性等，@import就只能加载CSS了。</li>
+<li>加载顺序的差别。当一个页面被加载的时候（就是被浏览者浏览的时候），link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。所以有时候浏览@import加载CSS的页面时开始会没有样式（就是闪烁），网速慢的时候还挺明显。</li>
+<li>兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。</li>
+<li>使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。</li>
+<li>@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表<h3 id="u6CE8_3A"><a href="#u6CE8_3A" class="headerlink" title="注:"></a>注:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面中同时使用@import与其他样式书写的css时,用@import引入的样式必须在css样式的最前方.</span><br><span class="line">由于前端css压缩与合成工具的流行,@import用的越来越少了,这种方式也并不被推荐使用</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/08/link与@import引入css/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/08/link与@import引入css/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/03/06/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
   </h1>
   <p class="article-author">By
@@ -691,96 +758,6 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/16/clear-float/" title="clear float" itemprop="url">clear float</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-15T16:19:23.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u6E05_u9664_u6D6E_u52A8"><a href="#u6E05_u9664_u6D6E_u52A8" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法</p>
-<h5 id="1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><a href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6" class="headerlink" title="1.：给父盒子一个高度"></a>1.：给父盒子一个高度</h5><h5 id="2-_uFF1Aclear_3Aleft_7C_right_7C_both"><a href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both" class="headerlink" title="2.：clear:left| right| both"></a>2.：clear:left| right| both</h5><p>　　不推荐 基本没人用吧</p>
-<h5 id="3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><a href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden" class="headerlink" title="3.：给父盒子设置overflow:hidden"></a>3.：给父盒子设置overflow:hidden</h5><p>　　有定位的话不推荐 应为可能超出盒子 看需求使用  </p>
-<h5 id="4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><a href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B" class="headerlink" title="4.：使用伪类"></a>4.：使用伪类</h5><pre><code>.clearfix:after{
-    content:&quot;&quot;;
-    height:0;
-    line-height:0;
-    visibility:hidden;
-    display:block;
-    clear:both;
-}
-.clearfix{
-    *zoom:1;
-}
-</code></pre><p>　　目前通用方法</p>
-<h5 id="5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5"><a href="#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5" class="headerlink" title="5. : 双伪元素法"></a>5. : 双伪元素法</h5><pre><code>.clearfix:before, .clearfix:after {
-    content: &quot;&quot;;
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1; /*IE/7/6*/
-}
-</code></pre><p>　　应该是目前最好的方法了吧</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/css布局/">css布局</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/16/clear-float/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/16/clear-float/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -821,7 +798,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		  
 		
 		  
-			<li><a href="/categories/web/" title="web">web<sup>1</sup></a></li>
+			<li><a href="/categories/web/" title="web">web<sup>2</sup></a></li>
 		  
 		
 		  
@@ -840,7 +817,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/优化/" style="font-size: 10px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
     </div>
   </div>
 
