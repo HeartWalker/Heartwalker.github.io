@@ -4,12 +4,32 @@
 
     
   <url>
-    <loc>http://HeartWalker.cc/2016/04/18/%E5%87%8F%E5%B0%91%E9%87%8D%E7%BB%98%E4%B8%8E%E5%9B%9E%E6%B5%81/</loc>
-    <lastmod>2016-04-19T05:05:32.632Z</lastmod>
+    <loc>http://HeartWalker.cc/2016/04/21/js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2016-04-21T15:57:46.843Z</lastmod>
     <data>
         <display>
-        <title>减少重绘与回流</title>
-        <pubTime>2016-04-18T05:46:22.000Z</pubTime>
+        <title>js事件委托/代理</title>
+        <pubTime>2016-04-21T15:13:07.000Z</pubTime>
+        
+        <tag>事件</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2016-04-21T12:57:55.514Z</lastmod>
+    <data>
+        <display>
+        <title>前端优化(持续更新中)</title>
+        <pubTime>2016-04-05T17:39:44.000Z</pubTime>
         
         <tag>优化</tag>
          
@@ -24,12 +44,12 @@
 
     
   <url>
-    <loc>http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2016-04-18T15:15:07.959Z</lastmod>
+    <loc>http://HeartWalker.cc/2016/04/18/%E5%87%8F%E5%B0%91%E9%87%8D%E7%BB%98%E4%B8%8E%E5%9B%9E%E6%B5%81/</loc>
+    <lastmod>2016-04-19T05:05:32.632Z</lastmod>
     <data>
         <display>
-        <title>前端优化(持续更新中)</title>
-        <pubTime>2016-04-05T17:39:44.000Z</pubTime>
+        <title>减少重绘与回流</title>
+        <pubTime>2016-04-18T05:46:22.000Z</pubTime>
         
         <tag>优化</tag>
          

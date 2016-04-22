@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-04-19T05:05:32.632Z</updated>
+  <updated>2016-04-21T15:57:46.843Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js事件委托/代理</title>
+    <link href="http://HeartWalker.cc/2016/04/21/js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E4%BB%A3%E7%90%86/"/>
+    <id>http://HeartWalker.cc/2016/04/21/js事件委托-代理/</id>
+    <published>2016-04-21T15:13:07.000Z</published>
+    <updated>2016-04-21T15:57:46.843Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot; class=&quot;headerlink&quot; title=&quot;什么是事件委托&quot;&gt;&lt;/a&gt;什么是事件委托&lt;/h3&gt;&lt;p&gt;事件委托是把原本需要监听的事件委托给父元素, 让父元素承担监听的任务&lt;/p&gt;
+&lt;h3 id=&quot;u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406&quot;&gt;&lt;a href=&quot;#u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406&quot; class=&quot;headerlink&quot; title=&quot;事件委托的原理&quot;&gt;&lt;/a&gt;事件委托的原理&lt;/h3&gt;&lt;p&gt;事件代理用到了两个在JavaSciprt事件中的特性：事件冒泡以及目标元素。&lt;/p&gt;
+&lt;p&gt;当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，并且它在我们的元素对象中以属性的形式出现。&lt;/p&gt;
+&lt;p&gt;使用事件代理，我们可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素里冒泡上来，并且可以得知这个事件是从哪个元素开始的&lt;/p&gt;
+&lt;h3 id=&quot;u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9&quot;&gt;&lt;a href=&quot;#u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9&quot; class=&quot;headerlink&quot; title=&quot;事件委托的优点&quot;&gt;&lt;/a&gt;事件委托的优点&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;管理的函数变少了。不需要为每个元素都添加监听函数。对于同一个父节点下面类似的子元素，可以通过委托给父元素的监听函数来处理事件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;可以方便地动态添加和修改元素，不需要因为元素的改动而修改事件绑定。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;JavaScript和DOM节点之间的关联变少了，这样也就减少了因循环引用而带来的内存泄漏发生的概率。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u6CE8_u610F&quot;&gt;&lt;a href=&quot;#u6CE8_u610F&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;不是所有的事件都能冒泡的。blur、focus、load和unload不能像其它事件一样冒泡。事实上blur和focus可以用事件捕获而非事件冒泡的方法获得（在IE之外的其它浏览器中）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在管理鼠标事件的时候有些需要注意的地方。如果你的代码处理mousemove事件的话你遇上性能瓶颈的风险可就大了，因为mousemove事件触发非常频繁。而mouseout则因为其怪异的表现而变得很难用事件代理来管理。 &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u4EE3_u7801_u5B9E_u73B0&quot;&gt;&lt;a href=&quot;#u4EE3_u7801_u5B9E_u73B0&quot; class=&quot;headerlink&quot; title=&quot;代码实现&quot;&gt;&lt;/a&gt;代码实现&lt;/h3&gt;&lt;p&gt;简单的事件委托&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; delegateEvent(interfaceEle, selector, &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;, fn) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(interfaceEle.addEventListener)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    interfaceEle.addEventListener(&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;, eventfn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    interfaceEle.attachEvent(&lt;span class=&quot;string&quot;&gt;&quot;on&quot;&lt;/span&gt;+&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;, eventfn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; eventfn(e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var e = e || window.event;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var target = e.target || e.srcElement;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (matchSelector(target, selector)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(fn) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                fn.call(target, e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * only support &lt;span class=&quot;comment&quot;&gt;#id, tagName, .className&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * and it&lt;span class=&quot;string&quot;&gt;&#39;s simple single, no combination&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function matchSelector(ele, selector) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // if use id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (selector.charAt(0) === &quot;#&quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return ele.id === selector.slice(1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // if use class&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (selector.charAt(0) === &quot;.&quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return (&quot; &quot; + ele.className + &quot; &quot;).indexOf(&quot; &quot; + selector.slice(1) + &quot; &quot;) != -1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // if use tagName&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return ele.tagName.toLowerCase() === selector.toLowerCase();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var odiv = document.getElementById(&quot;oDiv&quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;delegateEvent(odiv,&quot;a&quot;,&quot;click&quot;,function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    alert(&quot;1&quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/weinideai/article/details/3835839&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript的事件代理 &lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cmark.com/2016/439.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;事件模型及事件代理/委托&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot; class=&quot;headerlink&quot; title=&quot;什么是事件委托&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="事件" scheme="http://HeartWalker.cc/tags/%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>减少重绘与回流</title>
@@ -240,7 +282,7 @@
     <link href="http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
     <id>http://HeartWalker.cc/2016/04/06/前端优化/</id>
     <published>2016-04-05T17:39:44.000Z</published>
-    <updated>2016-04-18T15:15:07.959Z</updated>
+    <updated>2016-04-21T12:57:55.514Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3&gt;&lt;p&gt;只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上&lt;/p&gt;
 &lt;h3 id=&quot;u51CF_u5C11HTTP_u8BF7_u6C42&quot;&gt;&lt;a href=&quot;#u51CF_u5C11HTTP_u8BF7_u6C42&quot; class=&quot;headerlink&quot; title=&quot;减少HTTP请求&quot;&gt;&lt;/a&gt;减少HTTP请求&lt;/h3&gt;&lt;ol&gt;
@@ -310,7 +352,31 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
 压缩JavaScript
 避免重定向
 配置ETags
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE&quot;&gt;&lt;a href=&quot;#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE&quot; class=&quot;headerlink&quot; title=&quot;协商缓存流程图&quot;&gt;&lt;/a&gt;协商缓存流程图&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/cache.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u6743_u8861&quot;&gt;&lt;a href=&quot;#u6743_u8861&quot; class=&quot;headerlink&quot; title=&quot;权衡&quot;&gt;&lt;/a&gt;权衡&lt;/h3&gt;&lt;p&gt;当我们做性能优化时, 不要浪费时间尝试为那些不消耗大量时间的代码提速. 评估优先, 拒绝任何不能提供良好效益的优化.&lt;/p&gt;
+&lt;p&gt;通常来说, 减少JavaScript循环的次数与循环增量的开销, 和优化对DOM的操作是值得的&lt;/p&gt;
+&lt;h3 id=&quot;u7B80_u5316CSS_u64CD_u4F5C_u7B26&quot;&gt;&lt;a href=&quot;#u7B80_u5316CSS_u64CD_u4F5C_u7B26&quot; class=&quot;headerlink&quot; title=&quot;简化CSS操作符&quot;&gt;&lt;/a&gt;简化CSS操作符&lt;/h3&gt;&lt;p&gt;什么是高效的选择符&lt;/p&gt;
+&lt;p&gt;看看如下规则&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#toc &amp;gt; li {font-weight: bold};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大多数人会认为浏览器是从左到右匹配规则的, 因此会推测这条规则的开销不高. &lt;strong&gt;事实上,CSS选择符是从右到左匹配的&lt;/strong&gt;, 因此上边的规则开销实际上相当高, 浏览器必须遍历每个li元素并确定它们的父元素 id 是不是 toc; 如果是后代选择器的话性能消耗会更大.&lt;/p&gt;
+&lt;p&gt;编写高效的CSS选择符&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;避免使用通配符&lt;/li&gt;
+&lt;li&gt;不要限定ID选择符&lt;/li&gt;
+&lt;li&gt;不要限定类选择符&lt;/li&gt;
+&lt;li&gt;让规则越具体越好&lt;/li&gt;
+&lt;li&gt;避免使用后代选择符&lt;/li&gt;
+&lt;li&gt;避免使用标签-子选择符&lt;/li&gt;
+&lt;li&gt;依靠继承&lt;/li&gt;
+&lt;li&gt;关注关键选择符(即最右边的选择符参数, 它对开销起了主要影响)&lt;/li&gt;
+&lt;li&gt;关注回流的影响&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;糟糕的选择符对性能影响有多大&lt;/p&gt;
+&lt;p&gt;毫无疑问复杂的选择符会影响性能, 但实际上优化后的CSS选择符减少的开销是微不足道的, 并且CSS选择符的影响对规则和DOM元素的数量增长是非线性的; 在IE7中那些高开销的子代与后代选择符只有超过 18000 条开销才会突然升高(实际开发中基本不可能匹配到如此多的规则), 并且现代高级浏览器对选择符进行了优化&lt;/p&gt;
+&lt;p&gt;最佳实践&lt;/p&gt;
+&lt;p&gt;如果你要兼容低版本IE浏览器, 编写高效的选择符是有必要的,&lt;br&gt;但是编写高效的选择符本身也需要成本: 增加页面成本, 降低样式灵活性等,&lt;br&gt;而在主流浏览器中选择符性能已经被极大提速, 绝大部分你都可以按自己的习惯来书写&lt;/p&gt;
+&lt;p&gt;这需要你的权衡&lt;/p&gt;
+&lt;h3 id=&quot;u7BA1_u7406_u5185_u5B58&quot;&gt;&lt;a href=&quot;#u7BA1_u7406_u5185_u5B58&quot; class=&quot;headerlink&quot; title=&quot;管理内存&quot;&gt;&lt;/a&gt;管理内存&lt;/h3&gt;&lt;p&gt;尽量少的使用内存, 手动解除对内存的引用, 清除不用的对象; 虽然浏览器会回收不用的内存, 但在老旧的浏览器中并不是那么完美, 还会有一些意外的问题; 幸运的是最新的浏览器已经做到非常好了&lt;/p&gt;
+&lt;h3 id=&quot;u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE&quot;&gt;&lt;a href=&quot;#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE&quot; class=&quot;headerlink&quot; title=&quot;协商缓存流程图&quot;&gt;&lt;/a&gt;协商缓存流程图&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/cache.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;所有的优化都和可以总结为一下几方面:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小&lt;/li&gt;
@@ -769,45 +835,6 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
     
     
       <category term="css布局" scheme="http://HeartWalker.cc/tags/css%E5%B8%83%E5%B1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js小数精度</title>
-    <link href="http://HeartWalker.cc/2016/03/11/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6/"/>
-    <id>http://HeartWalker.cc/2016/03/11/js小数精度/</id>
-    <published>2016-03-10T17:36:33.000Z</published>
-    <updated>2016-03-11T01:07:47.536Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u793A_u4F8B&quot;&gt;&lt;a href=&quot;#u793A_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;示例&quot;&gt;&lt;/a&gt;示例&lt;/h3&gt;&lt;p&gt;在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;console.log(0.1+0.2)
-0.30000000000000004
-console.log(0.3 - 0.2)
-0.09999999999999998
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;为什么不是0.3与0.1呢?&lt;/p&gt;
-&lt;h3 id=&quot;u539F_u56E0&quot;&gt;&lt;a href=&quot;#u539F_u56E0&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;那么让我们看一下二进制中0.1与0.2到底是多少&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;0.1 =&amp;gt; 0.0001 1001 1001 1001…（无限循环）
-0.2 =&amp;gt; 0.0011 0011 0011 0011…（无限循环）
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是在js中小数位数是有限的:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;console.log(Number(0.1).toString(2))
-0.0001100110011001100110011001100110011001100110011001101
-
-console.log(Number(0.2).toString(2))
-0.001100110011001100110011001100110011001100110011001101
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。&lt;/p&gt;
-&lt;h3 id=&quot;u4E3A_u4EC0_u4E48java_u53EF_u4EE5&quot;&gt;&lt;a href=&quot;#u4E3A_u4EC0_u4E48java_u53EF_u4EE5&quot; class=&quot;headerlink&quot; title=&quot;为什么java可以&quot;&gt;&lt;/a&gt;为什么java可以&lt;/h3&gt;&lt;p&gt;像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装&lt;/p&gt;
-&lt;h3 id=&quot;u89E3_u51B3_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u89E3_u51B3_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;解决方法&quot;&gt;&lt;/a&gt;解决方法&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;在运算前我们把参加运算的数先升级(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;的X的次方)到整数，等运算完后再降级(&lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;的X的次方)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;根据需要保留指定位数的小数:如toFixed()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u793A_u4F8B&quot;&gt;&lt;a href=&quot;#u793A_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;示例&quot;&gt;&lt;/a&gt;示例&lt;/h3&gt;&lt;p&gt;在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:&lt;/p&gt;
-&lt;p
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
     
   </entry>
   

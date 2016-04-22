@@ -4,26 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>JS中值类型与引用类型进阶之函数传参 | HeartWalker&#39;s Blog</title>
+    <title>js事件委托/代理 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="前言前一段时间写过一篇博客介绍JS中值类型与引用类型和它们的赋值, 下面通过一个案例说明它们在函数传参方面的应用
-案例123456789function setName( obj )&amp;#123;      obj.name = &apos;jim&apos;;        obj = new Object();     obj.name = &apos;tom&apos;;      &amp;#125;;        var person">
+    <meta name="description" content="什么是事件委托事件委托是把原本需要监听的事件委托给父元素, 让父元素承担监听的任务
+事件委托的原理事件代理用到了两个在JavaSciprt事件中的特性：事件冒泡以及目标元素。
+当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中值类型与引用类型进阶之函数传参">
-<meta property="og:url" content="http://HeartWalker.cc/2016/04/06/JS中值类型与引用类型进阶之函数传参/index.html">
+<meta property="og:title" content="js事件委托/代理">
+<meta property="og:url" content="http://HeartWalker.cc/2016/04/21/js事件委托-代理/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="前言前一段时间写过一篇博客介绍JS中值类型与引用类型和它们的赋值, 下面通过一个案例说明它们在函数传参方面的应用
-案例123456789function setName( obj )&amp;#123;      obj.name = &apos;jim&apos;;        obj = new Object();     obj.name = &apos;tom&apos;;      &amp;#125;;        var person">
-<meta property="og:updated_time" content="2016-04-06T12:06:54.767Z">
+<meta property="og:description" content="什么是事件委托事件委托是把原本需要监听的事件委托给父元素, 让父元素承担监听的任务
+事件委托的原理事件代理用到了两个在JavaSciprt事件中的特性：事件冒泡以及目标元素。
+当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，">
+<meta property="og:updated_time" content="2016-04-21T15:57:46.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS中值类型与引用类型进阶之函数传参">
-<meta name="twitter:description" content="前言前一段时间写过一篇博客介绍JS中值类型与引用类型和它们的赋值, 下面通过一个案例说明它们在函数传参方面的应用
-案例123456789function setName( obj )&amp;#123;      obj.name = &apos;jim&apos;;        obj = new Object();     obj.name = &apos;tom&apos;;      &amp;#125;;        var person">
+<meta name="twitter:title" content="js事件委托/代理">
+<meta name="twitter:description" content="什么是事件委托事件委托是把原本需要监听的事件委托给父元素, 让父元素承担监听的任务
+事件委托的原理事件代理用到了两个在JavaSciprt事件中的特性：事件冒泡以及目标元素。
+当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -82,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/06/JS中值类型与引用类型进阶之函数传参/" title="JS中值类型与引用类型进阶之函数传参" itemprop="url">JS中值类型与引用类型进阶之函数传参</a>
+      <a href="/2016/04/21/js事件委托-代理/" title="js事件委托/代理" itemprop="url">js事件委托/代理</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-06T04:51:07.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
+    <time datetime="2016-04-21T15:13:07.000Z" itemprop="datePublished"> 發表於 2016-04-21</time>
     
   </p>
 </header>
@@ -98,15 +101,30 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6848_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">3.</span> <span class="toc-text">分析</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258"><span class="toc-number">1.</span> <span class="toc-text">什么是事件委托</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406"><span class="toc-number">2.</span> <span class="toc-text">事件委托的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9"><span class="toc-number">3.</span> <span class="toc-text">事件委托的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8_u610F"><span class="toc-number">4.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EE3_u7801_u5B9E_u73B0"><span class="toc-number">5.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>前一段时间写过一篇博客介绍<a href="/2016/03/28/JS中值类型和引用类型与赋值/">JS中值类型与引用类型和它们的赋值</a>, 下面通过一个案例说明它们在函数传参方面的应用</p>
-<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;  </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;    </span><br><span class="line">    obj = new Object(); </span><br><span class="line">    obj.name = <span class="string">'tom'</span>;  </span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();  </span><br><span class="line"><span class="built_in">set</span>Name( person );</span><br><span class="line">alert( person.name );</span><br></pre></td></tr></table></figure>
-<p>运行结果: 窗口弹出jim</p>
-<h3 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h3><p>首先进行预解析, 然后执行, 步骤如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;    //<span class="number">3</span>.  将person的值赋值给obj, 相当于执行obj = person, </span><br><span class="line">                            //    此时person与obj的值都是引用并指向同一个对象 </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;       //<span class="number">4</span>. 给空对象添加属性name, 并赋值jim</span><br><span class="line">    obj = new Object();     //<span class="number">5</span>. 创建第二个新的空对象, 并将它的引用赋值给obj, 注意: 此时person的引用并未改变</span><br><span class="line">    obj.name = <span class="string">'tom'</span>;       //<span class="number">6</span>. 给第二个空对象添加属性name, 并赋值tom , person指向的空对象的name属性并没有发生变化</span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();   //<span class="number">1</span>. 定义变量person并给其赋值为一个空对象, 注意: 此处是将空对象的引用赋值给p</span><br><span class="line"><span class="built_in">set</span>Name( person );          //<span class="number">2</span>. 执行<span class="built_in">set</span>Name( person ) ,调用<span class="built_in">set</span>Name函数并给其传参 </span><br><span class="line">alert( person.name );       //<span class="number">7</span>. 弹出person引用指向的对象的name属性的值</span><br></pre></td></tr></table></figure></p>
-<p>这个案例的关键是要理解函数传参: 函数传参是将实参的值赋值给形参, 实参与形参的在内存中的存储的地址并不相同</p>
+		<h3 id="u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258"><a href="#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h3><p>事件委托是把原本需要监听的事件委托给父元素, 让父元素承担监听的任务</p>
+<h3 id="u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406"><a href="#u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406" class="headerlink" title="事件委托的原理"></a>事件委托的原理</h3><p>事件代理用到了两个在JavaSciprt事件中的特性：事件冒泡以及目标元素。</p>
+<p>当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，并且它在我们的元素对象中以属性的形式出现。</p>
+<p>使用事件代理，我们可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素里冒泡上来，并且可以得知这个事件是从哪个元素开始的</p>
+<h3 id="u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9"><a href="#u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9" class="headerlink" title="事件委托的优点"></a>事件委托的优点</h3><ol>
+<li><p>管理的函数变少了。不需要为每个元素都添加监听函数。对于同一个父节点下面类似的子元素，可以通过委托给父元素的监听函数来处理事件。</p>
+</li>
+<li><p>可以方便地动态添加和修改元素，不需要因为元素的改动而修改事件绑定。</p>
+</li>
+<li><p>JavaScript和DOM节点之间的关联变少了，这样也就减少了因循环引用而带来的内存泄漏发生的概率。</p>
+</li>
+</ol>
+<h3 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h3><ol>
+<li><p>不是所有的事件都能冒泡的。blur、focus、load和unload不能像其它事件一样冒泡。事实上blur和focus可以用事件捕获而非事件冒泡的方法获得（在IE之外的其它浏览器中）。</p>
+</li>
+<li><p>在管理鼠标事件的时候有些需要注意的地方。如果你的代码处理mousemove事件的话你遇上性能瓶颈的风险可就大了，因为mousemove事件触发非常频繁。而mouseout则因为其怪异的表现而变得很难用事件代理来管理。 </p>
+</li>
+</ol>
+<h3 id="u4EE3_u7801_u5B9E_u73B0"><a href="#u4EE3_u7801_u5B9E_u73B0" class="headerlink" title="代码实现"></a>代码实现</h3><p>简单的事件委托<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> delegateEvent(interfaceEle, selector, <span class="built_in">type</span>, fn) &#123;</span><br><span class="line">    <span class="keyword">if</span>(interfaceEle.addEventListener)&#123;</span><br><span class="line">    interfaceEle.addEventListener(<span class="built_in">type</span>, eventfn);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    interfaceEle.attachEvent(<span class="string">"on"</span>+<span class="built_in">type</span>, eventfn);</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">function</span> eventfn(e)&#123;</span><br><span class="line">    var e = e || window.event;    </span><br><span class="line">    var target = e.target || e.srcElement;</span><br><span class="line">    <span class="keyword">if</span> (matchSelector(target, selector)) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fn) &#123;</span><br><span class="line">                fn.call(target, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * only support <span class="comment">#id, tagName, .className</span></span><br><span class="line"> * and it<span class="string">'s simple single, no combination</span><br><span class="line"> */</span><br><span class="line">function matchSelector(ele, selector) &#123;</span><br><span class="line">    // if use id</span><br><span class="line">    if (selector.charAt(0) === "#") &#123;</span><br><span class="line">        return ele.id === selector.slice(1);</span><br><span class="line">    &#125;</span><br><span class="line">    // if use class</span><br><span class="line">    if (selector.charAt(0) === ".") &#123;</span><br><span class="line">        return (" " + ele.className + " ").indexOf(" " + selector.slice(1) + " ") != -1;</span><br><span class="line">    &#125;</span><br><span class="line">    // if use tagName</span><br><span class="line">    return ele.tagName.toLowerCase() === selector.toLowerCase();</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">var odiv = document.getElementById("oDiv");</span><br><span class="line">delegateEvent(odiv,"a","click",function()&#123;</span><br><span class="line">    alert("1");</span><br><span class="line">&#125;)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://blog.csdn.net/weinideai/article/details/3835839" target="_blank" rel="external">JavaScript的事件代理 </a><br><a href="http://www.w3cmark.com/2016/439.html" target="_blank" rel="external">事件模型及事件代理/委托</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,7 +138,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/变量类型/">变量类型</a>
+  <span></span> <a href="/tags/事件/">事件</a>
   </div>
 
 </div>
@@ -129,7 +147,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/04/06/JS中值类型与引用类型进阶之函数传参/" data-title="JS中值类型与引用类型进阶之函数传参 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/04/21/js事件委托-代理/" data-title="js事件委托/代理 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,19 +160,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/12/js作用域其五-仿块级作用域/" title="js作用域其五:仿块级作用域(沙箱模式)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  js作用域其五:仿块级作用域(沙箱模式)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/06/前端优化/"  title="前端优化(持续更新中)">
+<a href="/2016/04/18/减少重绘与回流/"  title="减少重绘与回流">
  <strong>下一篇：</strong><br/> 
- <span>前端优化(持续更新中)
+ <span>减少重绘与回流
 </span>
 </a>
 </div>
@@ -163,7 +173,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/06/JS中值类型与引用类型进阶之函数传参/" data-title="JS中值类型与引用类型进阶之函数传参" data-url="http://HeartWalker.cc/2016/04/06/JS中值类型与引用类型进阶之函数传参/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/21/js事件委托-代理/" data-title="js事件委托/代理" data-url="http://HeartWalker.cc/2016/04/21/js事件委托-代理/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -186,7 +196,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6848_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5206_u6790"><span class="toc-number">3.</span> <span class="toc-text">分析</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258"><span class="toc-number">1.</span> <span class="toc-text">什么是事件委托</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406"><span class="toc-number">2.</span> <span class="toc-text">事件委托的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9"><span class="toc-number">3.</span> <span class="toc-text">事件委托的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8_u610F"><span class="toc-number">4.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EE3_u7801_u5B9E_u73B0"><span class="toc-number">5.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
  
   </div>
 
