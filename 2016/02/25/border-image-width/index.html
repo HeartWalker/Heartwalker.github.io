@@ -4,29 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>css透明度 | HeartWalker&#39;s Blog</title>
+    <title>border-image-width | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="想要实现透明有下面四个方法opacity通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果
-transparent如background:transparent;表示全透明 无法设置具体的值,对border同样适用 
-rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以">
+    <meta name="description" content="border-image-widthborder-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小
+border-width与border-image-width那么它们有什么关联呢?首先border-image-width本身并不占位置,如果盒子有边框那么border-image会">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css透明度">
-<meta property="og:url" content="http://HeartWalker.cc/2016/03/03/css透明度/index.html">
+<meta property="og:title" content="border-image-width">
+<meta property="og:url" content="http://HeartWalker.cc/2016/02/25/border-image-width/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="想要实现透明有下面四个方法opacity通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果
-transparent如background:transparent;表示全透明 无法设置具体的值,对border同样适用 
-rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以">
-<meta property="og:updated_time" content="2016-03-02T16:33:19.624Z">
+<meta property="og:description" content="border-image-widthborder-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小
+border-width与border-image-width那么它们有什么关联呢?首先border-image-width本身并不占位置,如果盒子有边框那么border-image会">
+<meta property="og:updated_time" content="2016-04-23T13:39:31.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css透明度">
-<meta name="twitter:description" content="想要实现透明有下面四个方法opacity通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果
-transparent如background:transparent;表示全透明 无法设置具体的值,对border同样适用 
-rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以">
+<meta name="twitter:title" content="border-image-width">
+<meta name="twitter:description" content="border-image-widthborder-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小
+border-width与border-image-width那么它们有什么关联呢?首先border-image-width本身并不占位置,如果盒子有边框那么border-image会">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -85,14 +82,14 @@ rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/03/css透明度/" title="css透明度" itemprop="url">css透明度</a>
+      <a href="/2016/02/25/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-02T16:13:41.000Z" itemprop="datePublished"> 發表於 2016-03-03</time>
+    <time datetime="2016-02-25T02:36:09.000Z" itemprop="datePublished"> 發表於 2016-02-25</time>
     
   </p>
 </header>
@@ -101,14 +98,14 @@ rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">想要实现透明有下面四个方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#opacity"><span class="toc-number">1.1.</span> <span class="toc-text">opacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transparent"><span class="toc-number">1.2.</span> <span class="toc-text">transparent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rgba"><span class="toc-number">1.3.</span> <span class="toc-text">rgba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hsla"><span class="toc-number">1.4.</span> <span class="toc-text">hsla</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#border-image-width"><span class="toc-number">1.</span> <span class="toc-text">border-image-width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#border-width_u4E0Eborder-image-width"><span class="toc-number">1.1.</span> <span class="toc-text">border-width与border-image-width</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><span class="toc-number">1.2.</span> <span class="toc-text">border-image-width的兼容性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><a href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5" class="headerlink" title="想要实现透明有下面四个方法"></a>想要实现透明有下面四个方法</h2><h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><p>通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果</p>
-<h3 id="transparent"><a href="#transparent" class="headerlink" title="transparent"></a>transparent</h3><p>如background:transparent;表示全透明 无法设置具体的值,对border同样适用 </p>
-<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><p>如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用</p>
-<h3 id="hsla"><a href="#hsla" class="headerlink" title="hsla"></a>hsla</h3><p>如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)<br>S 饱和度 取值范围0%~100%<br>L 亮度 取值范围0%~100%<br>A 透明度 取值范围0~1;用法及效果与rgba一致<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注:它们在ie <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>上都有兼容性问题</span><br></pre></td></tr></table></figure></p>
+		<h2 id="border-image-width"><a href="#border-image-width" class="headerlink" title="border-image-width"></a>border-image-width</h2><p>border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小</p>
+<h3 id="border-width_u4E0Eborder-image-width"><a href="#border-width_u4E0Eborder-image-width" class="headerlink" title="border-width与border-image-width"></a>border-width与border-image-width</h3><p>那么它们有什么关联呢?<br>首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它</p>
+<h3 id="border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><a href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898" class="headerlink" title="border-image-width的兼容性问题"></a>border-image-width的兼容性问题</h3><p>经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 </p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>若果要使用border-image最好在border上使用:即要有border-width属性</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +113,7 @@ rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
+  <a class="article-category-link" href="/categories/css3/">css3</a>
 </div>
 
 
@@ -126,7 +123,7 @@ rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/03/03/css透明度/" data-title="css透明度 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/02/25/border-image-width/" data-title="border-image-width | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,18 +137,18 @@ rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/06/border-image-width/" title="border-image-width">
+ <a href="/2016/02/28/z-index层级/" title="z-index层级">
   <strong>上一篇：</strong><br/>
   <span>
-  border-image-width</span>
+  z-index层级</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/02/28/z-index层级/"  title="z-index层级">
+<a href="/2016/02/23/美工css与js/"  title="美工css与js">
  <strong>下一篇：</strong><br/> 
- <span>z-index层级
+ <span>美工css与js
 </span>
 </a>
 </div>
@@ -160,7 +157,7 @@ rgba如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/03/css透明度/" data-title="css透明度" data-url="http://HeartWalker.cc/2016/03/03/css透明度/"></div>
+	<div class="ds-thread" data-thread-key="2016/02/25/border-image-width/" data-title="border-image-width" data-url="http://HeartWalker.cc/2016/02/25/border-image-width/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -183,7 +180,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">想要实现透明有下面四个方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#opacity"><span class="toc-number">1.1.</span> <span class="toc-text">opacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transparent"><span class="toc-number">1.2.</span> <span class="toc-text">transparent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rgba"><span class="toc-number">1.3.</span> <span class="toc-text">rgba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hsla"><span class="toc-number">1.4.</span> <span class="toc-text">hsla</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#border-image-width"><span class="toc-number">1.</span> <span class="toc-text">border-image-width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#border-width_u4E0Eborder-image-width"><span class="toc-number">1.1.</span> <span class="toc-text">border-width与border-image-width</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><span class="toc-number">1.2.</span> <span class="toc-text">border-image-width的兼容性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
  
   </div>
 
@@ -215,7 +212,7 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>17</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>18</sup></a></li>
 		  
 		
 		  
@@ -238,7 +235,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 10px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
     </div>
   </div>
 

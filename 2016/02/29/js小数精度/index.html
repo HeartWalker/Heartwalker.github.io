@@ -4,26 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>border-image-width | HeartWalker&#39;s Blog</title>
+    <title>js小数精度 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="border-image-widthborder-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小
-border-width与border-image-width那么它们有什么关联呢?首先border-image-width本身并不占位置,如果盒子有边框那么border-image会">
+    <meta name="description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
+console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+为什么不是0.3与0.1呢?
+原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="border-image-width">
-<meta property="og:url" content="http://HeartWalker.cc/2016/03/06/border-image-width/index.html">
+<meta property="og:title" content="js小数精度">
+<meta property="og:url" content="http://HeartWalker.cc/2016/02/29/js小数精度/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="border-image-widthborder-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小
-border-width与border-image-width那么它们有什么关联呢?首先border-image-width本身并不占位置,如果盒子有边框那么border-image会">
-<meta property="og:updated_time" content="2016-03-06T02:53:53.521Z">
+<meta property="og:description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
+console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+为什么不是0.3与0.1呢?
+原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示">
+<meta property="og:updated_time" content="2016-04-23T13:39:39.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="border-image-width">
-<meta name="twitter:description" content="border-image-widthborder-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小
-border-width与border-image-width那么它们有什么关联呢?首先border-image-width本身并不占位置,如果盒子有边框那么border-image会">
+<meta name="twitter:title" content="js小数精度">
+<meta name="twitter:description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
+console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+为什么不是0.3与0.1呢?
+原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -82,14 +97,14 @@ border-width与border-image-width那么它们有什么关联呢?首先border-ima
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/06/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
+      <a href="/2016/02/29/js小数精度/" title="js小数精度" itemprop="url">js小数精度</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-06T02:36:09.000Z" itemprop="datePublished"> 發表於 2016-03-06</time>
+    <time datetime="2016-02-28T17:36:33.000Z" itemprop="datePublished"> 發表於 2016-02-29</time>
     
   </p>
 </header>
@@ -98,22 +113,36 @@ border-width与border-image-width那么它们有什么关联呢?首先border-ima
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#border-image-width"><span class="toc-number">1.</span> <span class="toc-text">border-image-width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#border-width_u4E0Eborder-image-width"><span class="toc-number">1.1.</span> <span class="toc-text">border-width与border-image-width</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><span class="toc-number">1.2.</span> <span class="toc-text">border-image-width的兼容性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u793A_u4F8B"><span class="toc-number">1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u56E0"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><span class="toc-number">3.</span> <span class="toc-text">为什么java可以</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="border-image-width"><a href="#border-image-width" class="headerlink" title="border-image-width"></a>border-image-width</h2><p>border-image是css3新增的一个属性,它允许我们以九宫格的方式将图片切割并且运用到边框中,其中border-image-width决定了切割后再边框上显示的图片的大小</p>
-<h3 id="border-width_u4E0Eborder-image-width"><a href="#border-width_u4E0Eborder-image-width" class="headerlink" title="border-width与border-image-width"></a>border-width与border-image-width</h3><p>那么它们有什么关联呢?<br>首先border-image-width本身并不占位置,如果盒子有边框那么border-image会以border最外侧为边界开始,如果没有border-width那么border-image会以padding甚至内容的边界开始渲染;也就是说border-width影响border-image但并不决定它</p>
-<h3 id="border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><a href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898" class="headerlink" title="border-image-width的兼容性问题"></a>border-image-width的兼容性问题</h3><p>经过我的测试:在FF下如果没有border-width对盒子没有任何影响;但是如果在chrome下会自动渲染出3px的border-width,可以手动设置border-width的宽度但要保证至少一边的border-width不为零,否则border-image就会消失 </p>
-<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>若果要使用border-image最好在border上使用:即要有border-width属性</p>
-  
+		<h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:</p>
+<pre><code>console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+</code></pre><p>为什么不是0.3与0.1呢?</p>
+<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><pre><code>Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。遗憾的是，我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
+</code></pre><p>那么让我们看一下二进制中0.1与0.2到底是多少</p>
+<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
+0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
+</code></pre><p>但是在js中小数位数是有限的:</p>
+<pre><code>console.log(Number(0.1).toString(2))
+0.0001100110011001100110011001100110011001100110011001101
+
+console.log(Number(0.2).toString(2))
+0.001100110011001100110011001100110011001100110011001101
+</code></pre><p>将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
+<h3 id="u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><a href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5" class="headerlink" title="为什么java可以"></a>为什么java可以</h3><p>像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装</p>
+<h3 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在运算前我们把参加运算的数先升级(<span class="number">10</span>的X的次方)到整数，等运算完后再降级(<span class="number">0.1</span>的X的次方)</span><br><span class="line">根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()</span><br><span class="line">根据需要保留指定位数的小数:如toFixed()</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/css3/">css3</a>
+  <a class="article-category-link" href="/categories/js/">js</a>
 </div>
 
 
@@ -123,7 +152,7 @@ border-width与border-image-width那么它们有什么关联呢?首先border-ima
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/03/06/border-image-width/" data-title="border-image-width | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/02/29/js小数精度/" data-title="js小数精度 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,9 +175,9 @@ border-width与border-image-width那么它们有什么关联呢?首先border-ima
 
 
 <div class="next">
-<a href="/2016/03/03/css透明度/"  title="css透明度">
+<a href="/2016/02/28/z-index层级/"  title="z-index层级">
  <strong>下一篇：</strong><br/> 
- <span>css透明度
+ <span>z-index层级
 </span>
 </a>
 </div>
@@ -157,7 +186,7 @@ border-width与border-image-width那么它们有什么关联呢?首先border-ima
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/06/border-image-width/" data-title="border-image-width" data-url="http://HeartWalker.cc/2016/03/06/border-image-width/"></div>
+	<div class="ds-thread" data-thread-key="2016/02/29/js小数精度/" data-title="js小数精度" data-url="http://HeartWalker.cc/2016/02/29/js小数精度/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -180,7 +209,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#border-image-width"><span class="toc-number">1.</span> <span class="toc-text">border-image-width</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#border-width_u4E0Eborder-image-width"><span class="toc-number">1.1.</span> <span class="toc-text">border-width与border-image-width</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#border-image-width_u7684_u517C_u5BB9_u6027_u95EE_u9898"><span class="toc-number">1.2.</span> <span class="toc-text">border-image-width的兼容性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u793A_u4F8B"><span class="toc-number">1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u56E0"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><span class="toc-number">3.</span> <span class="toc-text">为什么java可以</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li></ol>
  
   </div>
 
@@ -212,7 +241,7 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>17</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>18</sup></a></li>
 		  
 		
 		  
@@ -235,7 +264,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 10px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
     </div>
   </div>
 

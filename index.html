@@ -11,15 +11,15 @@
     
 
     
-    <meta name="description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker">
+    <meta name="description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HeartWalker's Blog">
 <meta property="og:url" content="http://HeartWalker.cc/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker">
+<meta property="og:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HeartWalker's Blog">
-<meta name="twitter:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客,HeartWalker">
+<meta name="twitter:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行者的博客">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -73,6 +73,93 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/25/你所不知道的newFunction/" title="你所不知道的new Function()" itemprop="url">你所不知道的new Function()</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-25T08:28:42.000Z" itemprop="datePublished"> 發表於 2016-04-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>所有懂js的都知道创建函数有三种方式:</p>
+<pre><code>函数声明式
+函数表达式
+new Function()构造函数式
+</code></pre><p>与前两种的广泛被使用相比, 后一种几乎无人使用</p>
+<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><pre><code>var fnName = new Function( param1, param2, ..., paramN, funcBody );
+</code></pre><p>Function 构造函数所有的参数都是字符串类型的<br>除了最后一个参数, 所有的参数都作为生成函数的参数, 这里可以没有参数; 最后一个参数也是字符串, 表示的是生成函数的函数体</p>
+<h3 id="u5B9E_u4F8B"><a href="#u5B9E_u4F8B" class="headerlink" title="实例"></a>实例</h3><p>带参数简单求和函数</p>
+<pre><code>var fnSum = new Function( &apos;a&apos;, &apos;b&apos;, &apos;return a + b;&apos; );
+</code></pre><p>不带参数复杂求和</p>
+<p>var fnSum = new Function( ‘var total = 0, args = arguments, len = args.length;for ( var i = 0; i &lt; len; i++ ) {total += args[ i ];}return total;’ );</p>
+<p>注意:   上边这段代码不是我不换行, 而是作为字符串参数它不能换行, 为了解决这段代码晦涩难懂的问题可以用连接字符串的方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var fnSum = new Function(</span><br><span class="line">    <span class="string">'var total = 0, '</span> +</span><br><span class="line">    <span class="string">'   args = arguments, '</span> + </span><br><span class="line">    <span class="string">'   len = args.length; '</span> +</span><br><span class="line">    <span class="string">'for ( var i = 0; i &lt; len; i++ ) &#123; '</span> +</span><br><span class="line">    <span class="string">'   total += args[ i ]; '</span> +</span><br><span class="line">    <span class="string">'&#125; '</span> +</span><br><span class="line">    <span class="string">'return total; '</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h3 id="new_Function_u7684_u7F3A_u70B9"><a href="#new_Function_u7684_u7F3A_u70B9" class="headerlink" title="new Function的缺点"></a>new Function的缺点</h3><p>从上边的例子可以明显的看出来它难以理解, 难以维护, 这是它几乎不被使用的主因; 不仅如此, 它还会带来性能方面的问题: 因为这种语法要解析两次代码(第一次解析常规的ECMAScript代码, 第二次解析字符串)</p>
+<h3 id="u4F7F_u7528new_Function"><a href="#u4F7F_u7528new_Function" class="headerlink" title="使用new Function"></a>使用new Function</h3><p>俗话说缺点也是优点, 这种方式只能解析字符串这既是它的缺点也是它的优点<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;script <span class="built_in">type</span> = <span class="string">'text/engin'</span> id=<span class="string">"engin"</span>&gt;</span><br><span class="line">             </span><br><span class="line">                var total = <span class="number">0</span>, </span><br><span class="line">                    args = arguments, </span><br><span class="line">                    len = args.length;</span><br><span class="line">                <span class="keyword">for</span> ( var i = <span class="number">0</span>; i &lt; len; i++ ) &#123;</span><br><span class="line">                    total += args[ i ];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">return</span> total;</span><br><span class="line">            </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">        </span><br><span class="line">            var getBody = <span class="keyword">function</span> ( id ) &#123;</span><br><span class="line">                var script = document.getElementById( id );</span><br><span class="line">                var body = script.innerHTML.trim();</span><br><span class="line">                script.parentNode.removeChild( script );</span><br><span class="line">                <span class="built_in">return</span> body;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                var fnSum = new Function( getBody( <span class="string">'engin'</span> ) );</span><br><span class="line">                var res = fnSum( <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> );</span><br><span class="line">                alert( res );</span><br><span class="line">            &#125;;</span><br><span class="line">            </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上例也是求和函数, 只不过把函数体字符串放到了模板中<br>如果你使用过 eval 就会发现它们很像是不是<br>我们可以在 ajax 与 跨域 方面使用到 new Function, 虽然它的性能不比eval, 但是安全性要高一些, 至少它们的作用域不一样</p>
+<pre><code>eval( &apos;var a = 10;&apos; );  
+等价与
+直接定义 var a = 10;
+
+(new Function( &apos;var a = 10; alert( 123 );&apos; ))();
+new Fucntion 等价于
+定义一个函数, 在函数内部, 执行
+var a = 10;
+</code></pre><p>还有一个需要注意的地方是: new Function() 创建的函数作用域是全局的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var x = <span class="string">'global'</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>()&#123;</span><br><span class="line">    var x = <span class="string">'local'</span>;</span><br><span class="line">    var f = new Function(<span class="string">'return x'</span>);</span><br><span class="line">    console.log( f() ); </span><br><span class="line">&#125;</span><br><span class="line">fn();//global</span><br></pre></td></tr></table></figure></p>
+<p>变量x会先在当前函数f作用域内查找, 然后直接去全局环境查找先 x 若找不到就报错而不会在fn内查找</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/函数/">函数</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/04/25/你所不知道的newFunction/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/25/你所不知道的newFunction/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -626,6 +713,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
 </code></pre><h3 id="u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><a href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8" class="headerlink" title="将样式表放到顶部"></a>将样式表放到顶部</h3><p>将样式表放到顶部对于加载页面所需的实际时间没有太多影响，它影响更多的是浏览器对这些组件顺序的反应。<br>为避免当样式变化时重绘页面中的元素，浏览器会等待位于底部的样式表加载完成后才会呈现，这时浏览器会延迟任何可视化组件。<br>实际上，用户感觉缓慢的页面反而是可视化组建加载得更快的页面。使用LINK标签将样式表放在文档的HEAD中可以解决该问题。<br>可参考本人博客 <a href="/2016/03/08/link与@import引入css/">link与@import引入css</a></p>
 <h3 id="u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><a href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8" class="headerlink" title="将脚本放在底部"></a>将脚本放在底部</h3><p><strong>并行下载</strong><br>对响应时间影响最大的是页面中组件的数量，如果一个Web页面平均地将其组件分别放在两个，整体响应时间将可以减少大约一半。但并行下载数量并不是越多越快，因为增加并行下载数销的，其优劣取决于带宽和cpu速度。<br><strong>脚本阻塞下载</strong><br>并行下载组件的优点是很明显的，然而，在下载脚本时并行下载实际上被禁用的。即使使用了不同的主机名，浏览器也不会启动其他的下载。其中一个原因是，脚本可能使用document.write来修改，因此浏览器会等待，已确保页面能够恰当地布局。另一个原因是为了保证脚本能够按照正确行。</p>
 <p>在使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面的底部，这不会阻止页面内容的呈现, 而且页面中的可视内容可以尽早下载。但是有时很难将脚本移到底部，例如document.write向页面中插入内容，就不能移动到其页面后面的位置了。</p>
+<p>注: 现在的最新浏览器已经支持并行下载, 并能保证它们的执行顺序</p>
 <h3 id="u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><a href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F" class="headerlink" title="避免使用CSS表达式"></a>避免使用CSS表达式</h3><p>基本已经无人使用</p>
 <p>从IE5开始支持，但 从IE8起就不推荐使用了 。</p>
 <p>表达式最大的问题是它们经常被重复计算，比我们想象的次数还要多。</p>
@@ -683,13 +771,30 @@ ExpiresDefault &quot;access plus 10 years&quot;
 <p>如果你要兼容低版本IE浏览器, 编写高效的选择符是有必要的,<br>但是编写高效的选择符本身也需要成本: 增加页面成本, 降低样式灵活性等,<br>而在主流浏览器中选择符性能已经被极大提速, 绝大部分你都可以按自己的习惯来书写</p>
 <p>这需要你的权衡</p>
 <h3 id="u7BA1_u7406_u5185_u5B58"><a href="#u7BA1_u7406_u5185_u5B58" class="headerlink" title="管理内存"></a>管理内存</h3><p>尽量少的使用内存, 手动解除对内存的引用, 清除不用的对象; 虽然浏览器会回收不用的内存, 但在老旧的浏览器中并不是那么完美, 还会有一些意外的问题; 幸运的是最新的浏览器已经做到非常好了</p>
-<h3 id="u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE"><a href="#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE" class="headerlink" title="协商缓存流程图"></a>协商缓存流程图</h3><p><img src="/images/cache.png" alt=""></p>
+<h3 id="u7F16_u5199_u9AD8_u6548_u7684JavaScript"><a href="#u7F16_u5199_u9AD8_u6548_u7684JavaScript" class="headerlink" title="编写高效的JavaScript"></a>编写高效的JavaScript</h3><ol>
+<li>管理作用域非常重要, 因为存取非局部变量要比局部变量耗时更多. 尽量避免使用会正常作用域链的结构, 比如使用 with 语句和try-catch语句中的 catch 从句. 如果非局部变量的使用超过一次, 那么为了降低性能损耗, 就应该将它存储到一个局部变量中.</li>
+<li>存储和读取数据的方式对脚本性能影响极大. 字面量和局部变量最是最快的; 存取数组元素和对象属性会引起性能损耗. 如果数组元素或对象属性的使用超过一次, 那么为了提高存取速度, 就应该将它存储到一个局部变量中</li>
+<li>条件判断有三种处理方式: if语句 switch 语句和数组查找. if 语句适用于少量离散值或一段区间值得判断; switch语句最好用于3-10个离散值的判断; 数组查找在处理大量离散值时效率最高.(如非必要, 不要使用for in 循环)</li>
+<li>在JavaScript中, 循环经常会成为性能瓶颈. 为了是循环最高效, 可以使用倒序的方式来处理元素. 如果必须要进行大量的迭代, 还可以考虑Duff策略来提高执行速度(只在IE6 7 8 中有明显的效果).</li>
+<li>谨慎使用HTMLCollection对象. 每次存取这类对象的属性, 都会重新查询DOM 中匹配的节点. 为了避免这种高昂的开销, 只有在必要时才存取  HTMLCollection对象, 并将经常存取的值(例如length属性) 存储在局部变量中.</li>
+</ol>
+<h3 id="u5C3D_u91CF_u5C11_u7528iframe"><a href="#u5C3D_u91CF_u5C11_u7528iframe" class="headerlink" title="尽量少用iframe"></a>尽量少用iframe</h3><p> 优点</p>
+<pre><code>引入缓慢的第三方内容，比如标志和广告
+安全沙箱
+并行下载脚本
+</code></pre><p> 缺点</p>
+<pre><code>代价高昂，即使是空白的iframe
+阻塞页面加载
+非语义
+</code></pre><h3 id="u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE"><a href="#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE" class="headerlink" title="协商缓存流程图"></a>协商缓存流程图</h3><p><img src="/images/cache.png" alt=""></p>
 <h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
 <ol>
 <li>减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小</li>
 <li>优化显示的效果</li>
 <li>优化解析性能 </li>
 </ol>
+<h3 id="u6CE8"><a href="#u6CE8" class="headerlink" title="注"></a>注</h3><p>有许多优化都是基于浏览器, 得益于浏览器的高速发展, 以前许多需要复杂方法(其实我也没仔细看, 貌似很厉害的样子)<br>实现的优化都已经不再适用, 因为浏览器已经实现那些功能, 所以也没有列出来.</p>
+<p>什么时候IE9甚至IE11之前版本的浏览器能在国内消失, 那真是要好好庆贺一番 </p>
 <h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
 
         
@@ -894,89 +999,6 @@ ExpiresDefault &quot;access plus 10 years&quot;
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/04/js作用域其二-预解析/" title="js作用域其二:预解析" itemprop="url">js作用域其二:预解析</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-04T05:48:07.000Z" itemprop="datePublished"> 發表於 2016-04-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u89E3_u6790_u673A_u5236"><a href="#u89E3_u6790_u673A_u5236" class="headerlink" title="解析机制"></a>解析机制</h3><p>JavaScript是一门解释型的语言 , 想要运行js代码需要两个阶段</p>
-<ol>
-<li>编译阶段: 编译阶段就是我们常说的JavaScript预解析（预处理）阶段，在这个阶段JavaScript解释器将完成把JavaScript脚本代码转换到字节码</li>
-<li>执行阶段: 在编译阶段JavaScript解释器借助执行环境把字节码生成机械码，并从上到下按顺序执行</li>
-</ol>
-<h3 id="u9884_u89E3_u6790_u65F6_u505A_u4EC0_u4E48"><a href="#u9884_u89E3_u6790_u65F6_u505A_u4EC0_u4E48" class="headerlink" title="预解析时做什么"></a>预解析时做什么</h3><h4 id="var__2C_function_u58F0_u660E_u7684_u53D8_u91CF_u63D0_u5347"><a href="#var__2C_function_u58F0_u660E_u7684_u53D8_u91CF_u63D0_u5347" class="headerlink" title="var , function声明的变量提升"></a>var , function声明的变量提升</h4><p>　　首先，创建一个当前执行环境下的活动对象，然后将用 var 声明的变量设置为活动对象的属性（也就是将其添加到活动对象当中）并将其赋值为undefined，然后将 function 定义的函数 也添加到活动对象当中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( <span class="literal">false</span> )&#123;</span><br><span class="line">    var aa = <span class="number">20</span>;</span><br><span class="line">    var bb = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">BB</span></span>()&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>var定义的aa,bb以及function定义的AA(),BB()都会被变量提升到window对象下面 提升后等同于如下代码:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var aa;</span><br><span class="line">var bb;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">BB</span></span>()&#123;&#125;;</span><br><span class="line"><span class="keyword">if</span>( <span class="literal">false</span> )&#123;</span><br><span class="line">    aa = <span class="number">20</span>;</span><br><span class="line">    bb = <span class="number">30</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注: 不是用var 定义的变量具有全局性, 但是并不会被提升, 只有在第一次执行到时才会出现在全局作用域中</p>
-<h4 id="u51FD_u6570_u58F0_u660E_u4E0E_u51FD_u6570_u8868_u8FBE_u5F0F_u5728_u9884_u89E3_u6790_u7684_u533A_u522B"><a href="#u51FD_u6570_u58F0_u660E_u4E0E_u51FD_u6570_u8868_u8FBE_u5F0F_u5728_u9884_u89E3_u6790_u7684_u533A_u522B" class="headerlink" title="函数声明与函数表达式在预解析的区别"></a>函数声明与函数表达式在预解析的区别</h4><p>　　首先，我们知道解析器会对function定义的函数（也就是函数声明）在代码开始执行之前对其实行函数声明提升（function declaration hoisting），所以在函数声明之前调用该函数是不会在执行期间报错，但是函数表达式不同，函数表达式用 var 声明，也就是说解析器会对其变量提升，并对其赋值为undefined，然后在执行期间，等到执行到该var 变量的时候再将其变量指向一个function函数，所以在函数表达式之前执行该函数是会报错的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AA();</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">BB();</span><br><span class="line">var BB = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br></pre></td></tr></table></figure>
-<p>AA();不会报错，因为是以function的变量提升，BB()会报错，因为是以var的变量提升，提升后代码等同于如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;&#125;;</span><br><span class="line">var BB;</span><br><span class="line"></span><br><span class="line">AA();</span><br><span class="line">BB();</span><br><span class="line">BB = <span class="function"><span class="title">function</span></span>()&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>注意: <font color="red">函数声明提升以后并不会执行内部的代码, 在其内的变量声明也不会起作用, 而是等到函数第一次被调用时才会执行</font> 如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var AA = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">' AA '</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">BB</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">' BB '</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>单独这一段代码并不会起作用, 只有执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AA(); // 输出 AA</span><br><span class="line">BB(); //输出 BB</span><br></pre></td></tr></table></figure></p>
-<h4 id="function__u8986_u76D6"><a href="#function__u8986_u76D6" class="headerlink" title="function 覆盖"></a>function 覆盖</h4><p>　若定义了两个同名的函数，则在预解析期间后面一个会覆盖签名一个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">AA();   // 输出 I am AA_2;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">'I am AA_1'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">AA();  // 输出 I am AA_2;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'I am AA_2'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>提升后其代码等同于如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">'I am AA_1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'I am AA_2'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">AA();</span><br><span class="line">AA();</span><br></pre></td></tr></table></figure></p>
-<p>可以看到这是正常的函数声明覆盖 </p>
-<h4 id="u9884_u89E3_u6790_u628A_u53D8_u91CF_u6216_u51FD_u6570_u89E3_u6790_u5230_u5176_u8FD0_u884C_u65F6_u7684_u73AF_u5883_u4E2D"><a href="#u9884_u89E3_u6790_u628A_u53D8_u91CF_u6216_u51FD_u6570_u89E3_u6790_u5230_u5176_u8FD0_u884C_u65F6_u7684_u73AF_u5883_u4E2D" class="headerlink" title="预解析把变量或函数解析到其运行时的环境中"></a>预解析把变量或函数解析到其运行时的环境中</h4><p>解析器将变量提升并不是将所有的变量都提升到window对象下面，其提升的原则是提升到变量运行的环境(<strong>变量生效的词法作用域</strong>)顶端<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">aa = <span class="string">"I am aa"</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">    console.log(aa);             // 输出 aa 是 undefined</span><br><span class="line">    var aa = <span class="string">"I am aa in a function"</span>;</span><br><span class="line">    console.log(aa);             //输出 aa 是 I am aa <span class="keyword">in</span> a <span class="keyword">function</span></span><br><span class="line">&#125;</span><br><span class="line">AA();</span><br></pre></td></tr></table></figure></p>
-<p>这里 aa 被变量提升，但是aa 没有被变量提升到 window下面，而是被提升到其运行的环境 (function(){ })() 中去，也就是等同于<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">aa = <span class="string">"I am aa"</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">    var aa;  </span><br><span class="line">    console.log(aa);          // 输出 aa 是 undefined</span><br><span class="line">    aa = <span class="string">"I am aa in a function"</span>;</span><br><span class="line">    console.log(aa);          //输出 aa 是 I am aa <span class="keyword">in</span> a <span class="keyword">function</span></span><br><span class="line">&#125;</span><br><span class="line">AA();</span><br></pre></td></tr></table></figure></p>
-<h4 id="JavaScript_u201C_u9884_u89E3_u6790_u201D_u5206_u6BB5_u8FDB_u884C"><a href="#JavaScript_u201C_u9884_u89E3_u6790_u201D_u5206_u6BB5_u8FDB_u884C" class="headerlink" title="JavaScript“预解析”分段进行"></a>JavaScript“预解析”分段进行</h4><p>所谓分段进行是按照&lt; script &gt;标签来分块进行预解析<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">AA();  // 输出 AA2;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">'AA1'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">'AA2'</span>);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">AA</span></span>()&#123;</span><br><span class="line">   console.log(<span class="string">'AA3'</span>);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>上面例子说明function函数声明是分块的，然而至于var变量的提升经过反复验证是不分块的( 此处如有不同意见请指教 )</p>
-<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.cnblogs.com/HPNiuYear/archive/2012/08/27/2657879.html" target="_blank" rel="external">javascript解析机制——预解析</a><br>本文是在此篇博客的基础上进行了修改与扩充</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/作用域/">作用域</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/04/js作用域其二-预解析/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/04/js作用域其二-预解析/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1013,7 +1035,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>17</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>18</sup></a></li>
 		  
 		
 		  
@@ -1036,7 +1058,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 10px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
     </div>
   </div>
 

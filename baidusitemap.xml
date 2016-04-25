@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>http://HeartWalker.cc/2016/04/21/js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2016-04-21T15:57:46.843Z</lastmod>
+    <loc>http://HeartWalker.cc/2016/04/25/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84newFunction/</loc>
+    <lastmod>2016-04-25T09:42:47.533Z</lastmod>
     <data>
         <display>
-        <title>js事件委托/代理</title>
-        <pubTime>2016-04-21T15:13:07.000Z</pubTime>
+        <title>你所不知道的new Function()</title>
+        <pubTime>2016-04-25T08:28:42.000Z</pubTime>
         
-        <tag>事件</tag>
+        <tag>函数</tag>
          
          
            
@@ -25,7 +25,7 @@
     
   <url>
     <loc>http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2016-04-21T12:57:55.514Z</lastmod>
+    <lastmod>2016-04-25T03:12:05.231Z</lastmod>
     <data>
         <display>
         <title>前端优化(持续更新中)</title>
@@ -37,6 +37,185 @@
            
              
               <breadCrumb title="web" url="http://HeartWalker.cc/categories/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/02/06/margin-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6/</loc>
+    <lastmod>2016-04-23T13:42:58.267Z</lastmod>
+    <data>
+        <display>
+        <title>margin 外边距合并</title>
+        <pubTime>2016-02-06T14:07:20.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="css" url="http://HeartWalker.cc/categories/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/02/29/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6/</loc>
+    <lastmod>2016-04-23T13:39:39.507Z</lastmod>
+    <data>
+        <display>
+        <title>js小数精度</title>
+        <pubTime>2016-02-28T17:36:33.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/02/25/border-image-width/</loc>
+    <lastmod>2016-04-23T13:39:31.178Z</lastmod>
+    <data>
+        <display>
+        <title>border-image-width</title>
+        <pubTime>2016-02-25T02:36:09.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="css3" url="http://HeartWalker.cc/categories/css3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/02/19/css%E9%80%8F%E6%98%8E%E5%BA%A6/</loc>
+    <lastmod>2016-04-23T13:39:14.882Z</lastmod>
+    <data>
+        <display>
+        <title>css透明度</title>
+        <pubTime>2016-02-18T16:13:41.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="css" url="http://HeartWalker.cc/categories/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/02/13/JS%E4%B8%AD%E7%94%A8-%E7%82%B9%E4%B8%8E-%E4%B8%AD%E6%8B%AC%E5%8F%B7%E8%8E%B7%E5%8F%96css%E5%B1%9E%E6%80%A7%E7%9A%84%E5%BC%82%E5%90%8C/</loc>
+    <lastmod>2016-04-23T13:38:53.705Z</lastmod>
+    <data>
+        <display>
+        <title>JS中用.点与[]中括号获取css属性的异同</title>
+        <pubTime>2016-02-13T13:52:24.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/01/30/js%E4%BB%A3%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/</loc>
+    <lastmod>2016-04-23T13:38:28.002Z</lastmod>
+    <data>
+        <display>
+        <title>js代码不起作用</title>
+        <pubTime>2016-01-30T10:26:56.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/01/20/my-new-post/</loc>
+    <lastmod>2016-04-23T13:37:47.992Z</lastmod>
+    <data>
+        <display>
+        <title>my new post</title>
+        <pubTime>2016-01-19T16:53:11.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="生活" url="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/01/15/hello-world/</loc>
+    <lastmod>2016-04-23T13:37:07.413Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-01-14T16:13:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/01/25/=%E5%92%8C==%E4%B8%8E===/</loc>
+    <lastmod>2016-04-23T13:35:14.287Z</lastmod>
+    <data>
+        <display>
+        <title>=和==与===</title>
+        <pubTime>2016-01-25T15:38:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://HeartWalker.cc/2016/04/21/js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2016-04-21T15:57:46.843Z</lastmod>
+    <data>
+        <display>
+        <title>js事件委托/代理</title>
+        <pubTime>2016-04-21T15:13:07.000Z</pubTime>
+        
+        <tag>事件</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
           
         </display>
     </data>
@@ -115,24 +294,6 @@
            
              
               <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/02/15/my-new-post/</loc>
-    <lastmod>2016-04-10T07:47:00.510Z</lastmod>
-    <data>
-        <display>
-        <title>my new post</title>
-        <pubTime>2016-02-14T16:53:11.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="生活" url="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
           
         </display>
     </data>
@@ -514,146 +675,5 @@
 
     
     
-  <url>
-    <loc>http://HeartWalker.cc/2016/03/11/js%E5%B0%8F%E6%95%B0%E7%B2%BE%E5%BA%A6/</loc>
-    <lastmod>2016-03-11T01:07:47.536Z</lastmod>
-    <data>
-        <display>
-        <title>js小数精度</title>
-        <pubTime>2016-03-10T17:36:33.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
-  <url>
-    <loc>http://HeartWalker.cc/2016/03/06/border-image-width/</loc>
-    <lastmod>2016-03-06T02:53:53.521Z</lastmod>
-    <data>
-        <display>
-        <title>border-image-width</title>
-        <pubTime>2016-03-06T02:36:09.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="css3" url="http://HeartWalker.cc/categories/css3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/03/03/css%E9%80%8F%E6%98%8E%E5%BA%A6/</loc>
-    <lastmod>2016-03-02T16:33:19.624Z</lastmod>
-    <data>
-        <display>
-        <title>css透明度</title>
-        <pubTime>2016-03-02T16:13:41.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="css" url="http://HeartWalker.cc/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/02/25/=%E5%92%8C==%E4%B8%8E===/</loc>
-    <lastmod>2016-02-25T16:12:24.624Z</lastmod>
-    <data>
-        <display>
-        <title>=和==与===</title>
-        <pubTime>2016-02-25T15:38:57.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/02/19/JS%E4%B8%AD%E7%94%A8-%E7%82%B9%E4%B8%8E-%E4%B8%AD%E6%8B%AC%E5%8F%B7%E8%8E%B7%E5%8F%96css%E5%B1%9E%E6%80%A7%E7%9A%84%E5%BC%82%E5%90%8C/</loc>
-    <lastmod>2016-02-19T14:27:46.315Z</lastmod>
-    <data>
-        <display>
-        <title>JS中用.点与[]中括号获取css属性的异同</title>
-        <pubTime>2016-02-19T13:52:24.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/02/16/js%E4%BB%A3%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8/</loc>
-    <lastmod>2016-02-19T10:05:35.189Z</lastmod>
-    <data>
-        <display>
-        <title>js代码不起作用</title>
-        <pubTime>2016-02-16T10:26:56.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="js" url="http://HeartWalker.cc/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/02/18/margin-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6/</loc>
-    <lastmod>2016-02-18T15:02:30.471Z</lastmod>
-    <data>
-        <display>
-        <title>margin 外边距合并</title>
-        <pubTime>2016-02-18T14:07:20.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="css" url="http://HeartWalker.cc/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-  <url>
-    <loc>http://HeartWalker.cc/2016/02/10/hello-world/</loc>
-    <lastmod>2016-01-13T00:05:26.027Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-02-10T14:16:43.797Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
