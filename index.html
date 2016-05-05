@@ -80,6 +80,232 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/05/祸不单行/" title="祸不单行" itemprop="url">祸不单行</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-05T00:57:39.000Z" itemprop="datePublished"> 發表於 2016-05-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>连续三天半夜被牙疼疼醒, 吃药也不管用, 终于忍不住去了医院, 最后做了根管治疗杀了神经, 不知道这颗牙齿还能撑多久. 医生说你今天晚上可以睡个安稳觉了, 谁知道当天下午就开始发起了高烧. </p>
+<p>说实话医院补牙特别是做牙套真是暴利, 正值魏则西事件持续发酵, 真是深刻的感受到在你国不能有病, 不能没钱.</p>
+<p>程序员一定要注意自己的身体啊, 最好还是不要熬夜了.</p>
+<p>感谢和我住在一起的小伙伴, 要是我自己说不定哪天就烧晕过去了也无人知道, 可怜的单身.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/生活/">生活</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/吐槽/">吐槽</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/05/05/祸不单行/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/05/05/祸不单行/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/04/JS严格模式/" title="JS严格模式" itemprop="url">JS严格模式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-04T04:14:28.000Z" itemprop="datePublished"> 發表於 2016-05-04</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u5F15_u7528"><a href="#u5F15_u7528" class="headerlink" title="引用"></a>引用</h3><p>本业内容引用自</p>
+<pre><code>JavaScript高级程序设计（第3版）------------p717-p722
+</code></pre><p>结合 Node.js 与当前 ECMAScript 有少部分修改与注释    </p>
+<h3 id="u8D77_u6E90"><a href="#u8D77_u6E90" class="headerlink" title="起源"></a>起源</h3><p>ECMAScript 5最早引入了“严格模式”（strict mode）的概念。通过严格模式，可以在函数内部 选择进行较为严格的全局或局部的错误条件检测。使用严格模式的好处是可以提早知道代码中 存在的错误，及时捕获一些可能导致编程错误的 ECMAScript行为。 </p>
+<h3 id="u5728Node-js_u4E2D_u5F00_u542F_u4E25_u683C_u6A21_u5F0F"><a href="#u5728Node-js_u4E2D_u5F00_u542F_u4E25_u683C_u6A21_u5F0F" class="headerlink" title="在Node.js中开启严格模式"></a>在Node.js中开启严格模式</h3><p>由于浏览器兼容的问题, 严格模式在 WEB 开发中并没有被特别多的使用, 如今ECMAScript 6已经制定, ECMAScript 7 也在制定中, Node.js 对 ECMAScript 的规范支持的比较好, 并且在 Node.js 中 ECMAScript 6 的某些语法只有在严格模式下才支持 , 所以在 Node.js 中一定要开启严格模式. </p>
+<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><p>在Node.js中使用严格模式非常简单, 只需要在每个模块开头添加如下代码:</p>
+<pre><code>&quot;use strict&quot;; 
+</code></pre><h3 id="u4E25_u683C_u6A21_u5F0F_u4E0E_u975E_u4E25_u683C_u6A21_u5F0F_u7684_u5F02_u540C"><a href="#u4E25_u683C_u6A21_u5F0F_u4E0E_u975E_u4E25_u683C_u6A21_u5F0F_u7684_u5F02_u540C" class="headerlink" title="严格模式与非严格模式的异同"></a>严格模式与非严格模式的异同</h3><hr>
+<h4 id="u53D8_u91CF"><a href="#u53D8_u91CF" class="headerlink" title="变量"></a>变量</h4><p>在严格模式下，什么时候创建变量以及怎么创建变量都是有限制的。首先，不允许意外创建全局变量。在非严格模式下，可以像下面这样创建全局变量：</p>
+<p>//未声明变量<br>//非严格模式：创建全局变量<br>//严格模式：抛出 ReferenceError  </p>
+<pre><code>message = &quot;Hello world! &quot;; 
+</code></pre><p>即使 message 前面没有 var 关键字，即使没有将它定义为某个全局对象的属性，也能将 message 创建为全局变量。但在严格模式下，如果给一个没有声明的变量赋值，那代码在执行时就会抛出 ReferenceError。<br>其次，不能对变量调用 delete 操作符。非严格模式允许这样操作，但会静默失败（返回 false）。 而在严格模式下，删除变量也会导致错误 (注: delete只能删除属性, 不能删除变量, 未经声明的变量实际上是全局环境的属性而并不是全局变量)。</p>
+<p>//删除变量<br> //非严格模式：静默失败<br> //严格模式：抛出 ReferenceError </p>
+<pre><code>var color = &quot;red&quot;; delete color;  
+</code></pre><p>严格模式下对变量名也有限制。特别地，不能使用 implements、interface、let、package、 private、protected、public、static 和 yield 作为变量名。这些都是保留字，将来的 ECMAScript 版本中可能会用到它们 (注: 新版本中已经部分用到了它们)。在严格模式下，用以上标识符作为变量名会导致语法错误。</p>
+<h4 id="u5BF9_u8C61"><a href="#u5BF9_u8C61" class="headerlink" title="对象"></a>对象</h4><p>在严格模式下操作对象比在非严格模式下更容易导致错误。一般来说，非严格模式下会静默失败的情形，在严格模式下就会抛出错误。因此，在开发中使用严格模式会加大早发现错误的可能性。<br>在下列情形下操作对象的属性会导致错误:</p>
+<ul>
+<li>为只读属性赋值会抛出 TypeError; </li>
+<li>对不可配置的（nonconfigurable）的属性使用 delete 操作符会抛出 TypeError;</li>
+<li>为不可扩展的（nonextensible）的对象添加属性会抛出 TypeError。 </li>
+</ul>
+<p>使用对象的另一个限制与通过对象字面量声明对象有关。在使用对象字面量时，属性名必须唯一。 例如：</p>
+<p>//重名属性<br>//非严格模式：没有错误，以第二个属性为准<br>//严格模式：抛出语法错误</p>
+<pre><code>var person = {          
+        name: &quot;Nicholas&quot;,        
+        name: &quot;Greg&quot;           
+   };  
+</code></pre><p>   这里的对象 person 有两个属性，都叫 name。在非严格模式下，person 对象的 name 属性值是第 二个，而在严格模式下，这样的代码会导致语法错误。 </p>
+<h4 id="u51FD_u6570"><a href="#u51FD_u6570" class="headerlink" title="函数"></a>函数</h4><p>首先，严格模式要求命名函数的参数必须唯一。以下面这个函数为例：</p>
+<p>//重名参数<br>//非严格模式：没有错误，只能访问第二个参数<br>//严格模式：抛出语法错误    </p>
+<pre><code>function sum (num, num){
+     //do something
+}
+</code></pre><p>在非严格模式下，这个函数声明不会抛出错误。通过参数名只能访问第二个参数，要访问第一个参 数必须通过 arguments 对象。<br>在严格模式下，arguments 对象的行为也有所不同。在非严格模式下，修改命名参数的值也会反 映到 arguments 对象中，而严格模式下这两个值是完全独立的。例如：</p>
+<p>//修改命名参数的值<br>//非严格模式：修改会反映到 arguments 中<br>//严格模式：修改不会反映到 arguments 中</p>
+<pre><code>function showValue(value){     
+    value = &quot;Foo&quot;;      
+    alert(value);        //&quot;Foo&quot;     
+    alert(arguments[0]); //非严格模式：&quot;Foo&quot;                          
+    //严格模式：&quot;Hi&quot; 
+}  
+showValue(&quot;Hi&quot;);  
+</code></pre><p>以上代码中，函数 showValue()只有一个命名参数 value。调用这个函数时传入了一个参数”Hi”， 这个值赋给了 value。而在函数内部，value 被改为”Foo”。在非严格模式下，这个修改也会改变 arguments[0]的值，但在严格模式下，arguments[0]的值仍然是传入的值。<br>另一个变化是淘汰了 arguments.callee 和 arguments.caller(注: 已被废弃)。在非严格模式下，这两个属 性一个引用函数本身，一个引用调用函数。而在严格模式下，访问哪个属性都会抛出 TypeError。 例如：</p>
+<p>//访问 arguments.callee<br>//非严格模式：没有问题<br>//严格模式：抛出 TypeError  </p>
+<pre><code>function factorial(num){     
+    if (num &lt;= 1) {         
+        return 1;     
+        } else {         
+            return num * arguments.callee(num-1)     
+        }
+    }  
+var result=factorial(5);  
+</code></pre><p>类似地，尝试读写函数的 caller 属性，也会导致抛出 TypeError。所以，对于上面的例子而言， 访问 factorial.caller 也会抛出错误。<br> 与变量类似，严格模式对函数名也做出了限制，不允许用 implements、interface、let、package、 private、protected、public、static 和 yield 作为函数名。<br> 对函数的最后一点限制，就是只能在脚本的顶级和在函数内部声明函数。也就是说，在 if 语句中 声明函数会导致语法错误：</p>
+<p>//在 if 语句中声明函数<br>//非严格模式：将函数提升到 if 语句外部<br>//严格模式：抛出语法错误  </p>
+<pre><code>if (true){     
+    function doSomething(){
+            //...     
+        } 
+}  
+</code></pre><p>在非严格模式下，以上代码能在所有浏览器中运行，但在严格模式下会导致语法错误    </p>
+<h4 id="eval_28_29"><a href="#eval_28_29" class="headerlink" title="eval()"></a>eval()</h4><p>饱受诟病的 eval()函数在严格模式下也得到了提升。最大的变化就是它在包含上下文中不再创建 变量或函数。例如：</p>
+<p>//使用 eval()创建变量<br>//非严格模式：弹出对话框显示 10<br>//严格模式：调用 alert(x)时会抛出 ReferenceError </p>
+<pre><code>function doSomething(){     
+    eval(&quot;var x=10&quot;);     
+    alert(x); 
+}  
+</code></pre><p>如果是在非严格模式下，以上代码会在函数 doSomething()中创建一个局部变量 x，然后 alert() 还会显示该变量的值。但在严格模式下，在 doSomething()函数中调用 eval()不会创建变量 x，因此 调用 alert()会导致抛出 ReferenceError，因为 x 没有定义。<br> 可以在 eval()中声明变量和函数，但这些变量或函数只能在被求值的特殊作用域中有效，随后就 将被销毁。因此，以下代码可以运行，没有问题：</p>
+<pre><code>&quot;use strict&quot;; 
+var result = eval(&quot;var x=10, y=11; x+y&quot;); 
+alert(result); //21  
+</code></pre><p>这里在 eval()中声明了变量 x 和 y，然后将它们加在一起，返回了它们的和。于是，result 变 量的值是 21，即 x 和 y 相加的结果。而在调用 alert()时，尽管 x 和 y 已经不存在了，result 变量 的值仍然是有效的。 </p>
+<h4 id="eval_u4E0Earguments"><a href="#eval_u4E0Earguments" class="headerlink" title="eval与arguments"></a>eval与arguments</h4><p>严格模式已经明确禁止使用 eval 和 arguments 作为标识符，也不允许读写它们的值。例如：</p>
+<p>//把 eval 和 arguments 作为变量引用<br>//非严格模式：没问题，不出错<br>//严格模式：抛出语法错误 </p>
+<pre><code>var eval = 10; 
+var arguments = &quot;Hello world!&quot;; 
+</code></pre><p>在非严格模式下，可以重写 eval，也可以给 arguments 赋值。但在严格模式下，这样做会导致语 法错误。不能将它们用作标识符，意味着以下几种使用方式都会抛出语法错误:</p>
+<ul>
+<li>使用 var 声明;</li>
+<li>赋予另一个值;</li>
+<li>尝试修改包含的值，如使用++;</li>
+<li>用作函数名;</li>
+<li>用作命名的函数参数;</li>
+<li>在 try-catch 语句中用作例外名</li>
+</ul>
+<h4 id="u6291_u5236this"><a href="#u6291_u5236this" class="headerlink" title="抑制this"></a>抑制this</h4><p>JavaScript 中一个最大的安全问题，也是最容易让人迷茫的地方，就是在某些情况下如何抑制 this 的值。在非严格模式下使用函数的 apply()或 call()方法时，null 或 undefined 值会被转换为全局 对象。而在严格模式下，函数的 this 值始终是指定的值，无论指定的是什么值。例如：</p>
+<p>//访问属性<br>//非严格模式：访问全局属性<br>//严格模式：抛出错误，因为 this 的值为 null</p>
+<pre><code>var color = &quot;red&quot;;  
+function displayColor(){     
+    alert(this.color); 
+}   
+displayColor.call(null);  
+</code></pre><p>以上代码向displayColor.call()中传入了null，如果在是非严格模式下，这意味着函数的this 值是全局对象。结果就是弹出对话框显示”red”。而在严格模式下，这个函数的 this 的值是 null，因 此在访问 null 的属性时就会抛出错误。</p>
+<h4 id="u5176_u4ED6_u53D8_u5316"><a href="#u5176_u4ED6_u53D8_u5316" class="headerlink" title="其他变化"></a>其他变化</h4><p>严格模式还有其他一些变化。<br>首先是抛弃了 with 语句。非严格模式下的 with 语句能够改变解析标识符的路径，但在严格模式下，with 被简化掉了。因此，在严格模式下使用 with 会导致语法错误。</p>
+<p>//with 的语句用法<br>//非严格模式：允许<br>//严格模式：抛出语法错误  </p>
+<pre><code>with(location){     
+    alert(href); 
+}  
+</code></pre><p>严格模式也去掉了 JavaScript中的八进制字面量。以 0开头的八进制字面量过去经常会导致很多错 误。在严格模式下，八进制字面量已经成为无效的语法了。</p>
+<p>//使用八进制字面量<br>//非严格模式：值为 8<br>//严格模式：抛出语法错误 </p>
+<pre><code>var value = 010;  
+</code></pre><p>ECMAScript 5也修改了严格模式下 parseInt()的行为。如今，八进制字面量在 严格模式下会被当作以 0开头的十进制字面量。例如：</p>
+<p>//使用 parseInt()解析八进制字面量<br>//非严格模式：值为 8<br>//严格模式：值为 10 (注: 在 ECMAScript 5中，即使是在非严格模式下也会如此。) </p>
+<pre><code>var value = parseInt(&quot;010&quot;);  
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/NODEJS/">NODEJS</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/05/04/JS严格模式/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/05/04/JS严格模式/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/25/你所不知道的newFunction/" title="你所不知道的new Function()" itemprop="url">你所不知道的new Function()</a>
   </h1>
   <p class="article-author">By
@@ -614,7 +840,7 @@ var a = 10;
         <h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>前一段时间写过一篇博客介绍<a href="/2016/03/28/JS中值类型和引用类型与赋值/">JS中值类型与引用类型和它们的赋值</a>, 下面通过一个案例说明它们在函数传参方面的应用</p>
 <h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;  </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;    </span><br><span class="line">    obj = new Object(); </span><br><span class="line">    obj.name = <span class="string">'tom'</span>;  </span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();  </span><br><span class="line"><span class="built_in">set</span>Name( person );</span><br><span class="line">alert( person.name );</span><br></pre></td></tr></table></figure>
 <p>运行结果: 窗口弹出jim</p>
-<h3 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h3><p>首先进行预解析, 然后执行, 步骤如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;    //<span class="number">3</span>.  将person的值赋值给obj, 相当于执行obj = person, </span><br><span class="line">                            //    此时person与obj的值都是引用并指向同一个对象 </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;       //<span class="number">4</span>. 给空对象添加属性name, 并赋值jim</span><br><span class="line">    obj = new Object();     //<span class="number">5</span>. 创建第二个新的空对象, 并将它的引用赋值给obj, 注意: 此时person的引用并未改变</span><br><span class="line">    obj.name = <span class="string">'tom'</span>;       //<span class="number">6</span>. 给第二个空对象添加属性name, 并赋值tom , person指向的空对象的name属性并没有发生变化</span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();   //<span class="number">1</span>. 定义变量person并给其赋值为一个空对象, 注意: 此处是将空对象的引用赋值给p</span><br><span class="line"><span class="built_in">set</span>Name( person );          //<span class="number">2</span>. 执行<span class="built_in">set</span>Name( person ) ,调用<span class="built_in">set</span>Name函数并给其传参 </span><br><span class="line">alert( person.name );       //<span class="number">7</span>. 弹出person引用指向的对象的name属性的值</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h3><p>首先进行预解析, 然后执行, 步骤如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;    //<span class="number">3</span>.  将person的值赋值给obj, 相当于执行obj = person, </span><br><span class="line">                            //    此时person与obj的值都是引用并指向同一个对象 </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;       //<span class="number">4</span>. 给空对象添加属性name, 并赋值jim</span><br><span class="line">    obj = new Object();     //<span class="number">5</span>. 创建第二个新的空对象, 并将它的引用赋值给obj, 注意: 此时person的引用并未改变</span><br><span class="line">    obj.name = <span class="string">'tom'</span>;       //<span class="number">6</span>. 给第二个空对象添加属性name, 并赋值tom , person指向的空对象的name属性并没有发生变化</span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();   //<span class="number">1</span>. 定义变量person并给其赋值为一个空对象, 注意: 此处是将空对象的引用赋值给person</span><br><span class="line"><span class="built_in">set</span>Name( person );          //<span class="number">2</span>. 执行<span class="built_in">set</span>Name( person ) ,调用<span class="built_in">set</span>Name函数并给其传参 </span><br><span class="line">alert( person.name );       //<span class="number">7</span>. 弹出person引用指向的对象的name属性的值</span><br></pre></td></tr></table></figure></p>
 <p>这个案例的关键是要理解函数传参: 函数传参是将实参的值赋值给形参, 实参与形参的在内存中的存储的地址并不相同</p>
 
         
@@ -786,7 +1012,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
 <pre><code>代价高昂，即使是空白的iframe
 阻塞页面加载
 非语义
-</code></pre><h3 id="u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE"><a href="#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE" class="headerlink" title="协商缓存流程图"></a>协商缓存流程图</h3><p><img src="/images/cache.png" alt=""></p>
+</code></pre><h3 id="u56FE_u50CF_u4F18_u5316"><a href="#u56FE_u50CF_u4F18_u5316" class="headerlink" title="图像优化"></a>图像优化</h3><h3 id="u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE"><a href="#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE" class="headerlink" title="协商缓存流程图"></a>协商缓存流程图</h3><p><img src="/images/cache.png" alt=""></p>
 <h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
 <ol>
 <li>减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小</li>
@@ -839,166 +1065,6 @@ ExpiresDefault &quot;access plus 10 years&quot;
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/06/js作用域其四-闭包/" title="js作用域其四:闭包" itemprop="url">js作用域其四:闭包</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-05T17:37:41.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u4EC0_u4E48_u662F_u95ED_u5305"><a href="#u4EC0_u4E48_u662F_u95ED_u5305" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问</p>
-<h3 id="u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305"><a href="#u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305" class="headerlink" title="为什么要用闭包"></a>为什么要用闭包</h3><p>闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.</p>
-<h3 id="u95ED_u5305_u600E_u4E48_u7528"><a href="#u95ED_u5305_u600E_u4E48_u7528" class="headerlink" title="闭包怎么用"></a>闭包怎么用</h3><p>创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fo</span></span> ()&#123;</span><br><span class="line">    var num = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">        <span class="built_in">set</span>: <span class="keyword">function</span> (n)&#123;</span><br><span class="line">            num = n;</span><br><span class="line">        &#125;,</span><br><span class="line">        get: <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">            <span class="built_in">return</span> num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f = fo();</span><br><span class="line">f.set(<span class="number">1</span>);</span><br><span class="line">var m = f.get();</span><br><span class="line">console.log(m);  //<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<p>在全局环境中只能使用特权方法 set 与 get 设置与得到函数中的 num 值</p>
-<h3 id="u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A"><a href="#u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A" class="headerlink" title="闭包的优缺点 ："></a>闭包的优缺点 ：</h3><p>优点：不产生全局变量，实现属性私有化.<br>缺点：闭包中的数据会常驻内存，在不用的时候要手动删除，否则可能会导致内存溢出.<br>例如在上边代码中, f始终包含fo 中匿名函数的引用 , 导致匿名函数的作用域始终存在.  更好的做法是在函数调用完成之后解除对匿名函数的引用,  例如在上边的代码中最后加上</p>
-<pre><code>f = null;
-</code></pre><h3 id="u95ED_u5305_u4E0E_u53D8_u91CF"><a href="#u95ED_u5305_u4E0E_u53D8_u91CF" class="headerlink" title="闭包与变量"></a>闭包与变量</h3><p>由于作用域链的配置机制引出了一个值得注意的副作用，即闭包只能取得包含函数中任何变量的 后一个值. 别忘了闭包所保存的是整个变量对象，而不是某个特殊的变量下面这个例子可以清晰地说明这个问题:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var arr =   [   &#123;   name:   <span class="string">'jim'</span>   &#125;,</span><br><span class="line">            &#123;   name:   <span class="string">'tom'</span>   &#125;,                                              </span><br><span class="line">            &#123;   name:   <span class="string">'jack'</span>  &#125;,                                              </span><br><span class="line">            &#123;   name:   <span class="string">'clark'</span> &#125;  </span><br><span class="line">         ]; </span><br><span class="line">    //赋值循环</span><br><span class="line">    <span class="keyword">for</span>  (var i = <span class="number">0</span>;  i &lt; arr.length; i++ ) &#123;               </span><br><span class="line">    arr[i].sayHellow  =   <span class="function"><span class="title">function</span></span> ()  &#123;                               </span><br><span class="line">    console.log( arr[ i ].name  );              </span><br><span class="line">    &#125;; &#125;</span><br><span class="line">    //输出循环</span><br><span class="line">    <span class="keyword">for</span> ( var k  <span class="keyword">in</span>  arr )   &#123;               </span><br><span class="line">        arr[ k ].sayHellow(); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p> 表面上看，赋值循环给数组arr的每一项添加了一个sayHellow方法, 该方法能输出数组中每一项的name属性 ,然而实际上这段代码会报错</p>
-<pre><code>Uncaught TypeError: Cannot read property &apos;name&apos; of undefined(…)
-</code></pre><p>在赋值循环给数组 arr 中的每一项添加属性时实际上是赋值的函数体, 匿名函数并没有执行; 当输出循环时才执行匿名函数, 因为匿名函数内并没有 i, 所以会向作用域链的下一级查找, 在这段代码中就是全局环境, 全局环境中的 i 执行完赋值循环后的值是 4, 所以数组arr中每一项的 sayHellow方法都是</p>
-<pre><code>function (){
-    console.log(arr[4].name);
-}
-</code></pre><p>很明显数组并没有arr[4]存在, 所以报错</p>
-<p>解决这个问题最简单的方法是用 this<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var arr =   [   &#123;   name:   <span class="string">'jim'</span>   &#125;,</span><br><span class="line">               &#123;   name:   <span class="string">'tom'</span>   &#125;,                                              </span><br><span class="line">               &#123;   name:   <span class="string">'jack'</span>  &#125;,                                              </span><br><span class="line">               &#123;   name:   <span class="string">'clark'</span> &#125;  </span><br><span class="line">            ]; </span><br><span class="line">       //赋值循环</span><br><span class="line">       <span class="keyword">for</span>  (var i = <span class="number">0</span>;  i &lt; arr.length; i++ ) &#123;               </span><br><span class="line">       arr[i].sayHellow  =   <span class="function"><span class="title">function</span></span> ()  &#123;                               </span><br><span class="line">       console.log( this.name  );              </span><br><span class="line">       &#125;; &#125;</span><br><span class="line">       //输出循环</span><br><span class="line">       <span class="keyword">for</span> ( var k  <span class="keyword">in</span>  arr )   &#123;               </span><br><span class="line">           arr[ k ].sayHellow(); </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
-<p>关于this将在后面详解</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/作用域/">作用域</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/06/js作用域其四-闭包/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/06/js作用域其四-闭包/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/05/js作用域其三-作用域链/" title="js作用域其三:作用域链" itemprop="url">js作用域其三:作用域链</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-04T16:25:32.000Z" itemprop="datePublished"> 發表於 2016-04-05</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE"><a href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="什么是作用域链"></a>什么是作用域链</h3><p>每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var o = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">A</span></span>()&#123;</span><br><span class="line">    var a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">        var B =<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">C</span></span>()&#123;</span><br><span class="line">            var c = <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>　　可以在全局环境访问o, 在函数A与B之间访问o与a, 在函数B与C之间访问o与a和b, 在函数C中访问o与a和b与c.<br>　　当代码在一个环境中执行时，会创建变量对象的的一个作用域链（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。———–引自Javascript高级程序设计（第三版）（P73）<br>　　对于一个变量时, 作用域链的最顶端就是当前的函数环境, 下一级就是包含这个变量的下一个函数环境… 直到最后全局环境为止<br>简而言之作用域链就是变量其执行环境按生效的顺序形成的一种链式结构</p>
-<h3 id="u7ED8_u5236_u4F5C_u7528_u57DF_u94FE"><a href="#u7ED8_u5236_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="绘制作用域链"></a>绘制作用域链</h3><p>绘制作用域链可以清晰的理清代码的结构, 并且在代码执行的时候, 能去准确的定位应该改变的变量的位置<br>绘制原型链的规则:</p>
-<ol>
-<li>将全部的&lt; script &gt;标签看做一个整体. 是一个 0 级别的链, 链中所有的全局范围内的变量, 函数, 对象… 都是链中的成员, 由于声明会提升, 因此在绘制链之前将代码可以进行调整, 在开始的时候, 将声明都写在前面, 绘图的时候按照顺序绘制, 较为简单.</li>
-<li>由于只有函数才可以限定作用域. 因此在函数上引出一条新链, 级别为 n + 1, 在函数内部, 又是一个完整, 独立的作用域结构, 因此在函数内部定义的任何成员也按照 1 中的规则在该链上展开</li>
-<li>如果有函数, 继续绘制下去<br>注: 由于函数声明提升在不同的&lt; script &gt;标签中并不起作用, 需要注意</li>
-</ol>
-<h3 id="u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF"><a href="#u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF" class="headerlink" title="利用作用域链搜索变量"></a>利用作用域链搜索变量</h3><ol>
-<li>在代码的执行过程中, 如果访问到某一个变量, 那么首先在当前链上找 ( 无序 )</li>
-<li>如果没有, 在 n-1 级上找( 在函数内部允许访问定义在函数外部的变量 ). </li>
-<li>如此往复, 直到 0 级链, 如果还没有, 抛出异常; 如果找到, 则结束寻找, 直接获得该链上变量的数据</li>
-<li>不允许跨链查找<h3 id="u56FE_u4F8B"><a href="#u56FE_u4F8B" class="headerlink" title="图例"></a>图例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var a = <span class="number">123</span>;</span><br><span class="line">    var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        </span><br><span class="line">        var n = <span class="number">456</span>;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        var arr = [];</span><br><span class="line">        var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var d= <span class="number">000</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    var arr = [];</span><br><span class="line">    var fo = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            a= <span class="number">456</span>;</span><br><span class="line">    &#125;;   </span><br><span class="line"></span><br><span class="line">    fo(); </span><br><span class="line">    console.log(a);  //<span class="number">456</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>绘制其作用链图如下:</p>
-<p><img src="/images/zyyl1.gif" alt=""></p>
-<p>执行fo(), 执行a = 456; 在fo的1级链没有定义a ,于是向0级链查找; 0级链定义了a, 于是给其赋值456.<br>如果改变代码, 在函数fo内声明a ,如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var a = <span class="number">123</span>;</span><br><span class="line">    var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        </span><br><span class="line">        var n = <span class="number">456</span>;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        var arr = [];</span><br><span class="line">        var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var d= <span class="number">000</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    var arr = [];</span><br><span class="line">    var fo = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        var a;</span><br><span class="line">        a= <span class="number">456</span>;</span><br><span class="line">    &#125;;   </span><br><span class="line"></span><br><span class="line">    fo(); </span><br><span class="line">    console.log(a);  //<span class="number">123</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>绘制其作用链图如下:</p>
-<p><img src="/images/zyyl2.gif" alt=""><br>执行fo(), 执行a = 456; 在fo的1级链定义了a, 于是给其赋值456, 然后结束查找, 全局作用域的a 的值并没有改变</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/作用域/">作用域</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/05/js作用域其三-作用域链/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/05/js作用域其三-作用域链/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1027,11 +1093,11 @@ ExpiresDefault &quot;access plus 10 years&quot;
 		<ul>
 		
 		  
-			<li><a href="/categories/css/" title="css">css<sup>6</sup></a></li>
+			<li><a href="/categories/NODEJS/" title="NODEJS">NODEJS<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/css3/" title="css3">css3<sup>2</sup></a></li>
+			<li><a href="/categories/css/" title="css">css<sup>8</sup></a></li>
 		  
 		
 		  
@@ -1047,7 +1113,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
 		  
 		
 		  
-			<li><a href="/categories/生活/" title="生活">生活<sup>5</sup></a></li>
+			<li><a href="/categories/生活/" title="生活">生活<sup>6</sup></a></li>
 		  
 		
 		</ul>
@@ -1058,7 +1124,7 @@ ExpiresDefault &quot;access plus 10 years&quot;
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 16.67px;">css布局</a> <a href="/tags/事件/" style="font-size: 13.33px;">事件</a> <a href="/tags/优化/" style="font-size: 13.33px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 10px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 13.33px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 15px;">css布局</a> <a href="/tags/事件/" style="font-size: 12.5px;">事件</a> <a href="/tags/优化/" style="font-size: 12.5px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 10px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12.5px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 17.5px;">吐槽</a>
     </div>
   </div>
 
