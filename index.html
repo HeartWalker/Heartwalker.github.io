@@ -80,6 +80,79 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/13/jquery中的this/" title="jquery中的this" itemprop="url">jquery中的this</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-13T01:29:34.000Z" itemprop="datePublished"> 發表於 2016-05-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>前天有人有问这样一个问题: 我一个网页里面有好多个前面一张图的结构，然后点击第n个加号会显示第n个子内容，点击第n个减号会隐藏第n个子内容，但是我现在总是不对，我把n弹出来，只要点加号就是0，点减号就是1，这是什么原因呀？</p>
+<p><img src="/images/jq中的this1.png" alt=""><img src="/images/jq中的this2.png" alt=""><br>很明显问题出在这一句代码</p>
+<pre><code>var n = $(this).index();
+</code></pre><p>只需要将代码改为:</p>
+<pre><code>var n = $(.add).index(this);
+</code></pre><p>之所以会犯错主要有两方面原因</p>
+<ul>
+<li>不了解jquery中的this<br>  jquery中有一个很重要的概念叫隐式迭代, 在jquery内部会对调用事件的jquery DOM数组使用 each 方法, 事件函数中的this并不是调用事件的数组而是当前的原生DOM对象</li>
+<li>不了解jquery中的index方法<br>  调用index()会搜索匹配的元素，并返回相应元素的索引值，从0开始计数。<br>  如果不给 index() 方法传递参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。<br>如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。<br>如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。</li>
+</ul>
+<pre><code>$(this).index();相当于查找当前对象在同辈元素中的位置, 当然不能满足需求
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/东成西就/">东成西就</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/jquery/">jquery</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/05/13/jquery中的this/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/05/13/jquery中的this/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/05/09/new与return和函数/" title="new与return和函数" itemprop="url">new与return和函数</a>
   </h1>
   <p class="article-author">By
@@ -889,73 +962,6 @@ var a = 10;
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/06/JS中值类型与引用类型进阶之函数传参/" title="JS中值类型与引用类型进阶之函数传参" itemprop="url">JS中值类型与引用类型进阶之函数传参</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-06T04:51:07.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>前一段时间写过一篇博客介绍<a href="/2016/03/28/JS中值类型和引用类型与赋值/">JS中值类型与引用类型和它们的赋值</a>, 下面通过一个案例说明它们在函数传参方面的应用</p>
-<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;  </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;    </span><br><span class="line">    obj = new Object(); </span><br><span class="line">    obj.name = <span class="string">'tom'</span>;  </span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();  </span><br><span class="line"><span class="built_in">set</span>Name( person );</span><br><span class="line">alert( person.name );</span><br></pre></td></tr></table></figure>
-<p>运行结果: 窗口弹出jim</p>
-<h3 id="u5206_u6790"><a href="#u5206_u6790" class="headerlink" title="分析"></a>分析</h3><p>首先进行预解析, 然后执行, 步骤如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="built_in">set</span>Name( obj )&#123;    //<span class="number">3</span>.  将person的值赋值给obj, 相当于执行obj = person, </span><br><span class="line">                            //    此时person与obj的值都是引用并指向同一个对象 </span><br><span class="line">    obj.name = <span class="string">'jim'</span>;       //<span class="number">4</span>. 给空对象添加属性name, 并赋值jim</span><br><span class="line">    obj = new Object();     //<span class="number">5</span>. 创建第二个新的空对象, 并将它的引用赋值给obj, 注意: 此时person的引用并未改变</span><br><span class="line">    obj.name = <span class="string">'tom'</span>;       //<span class="number">6</span>. 给第二个空对象添加属性name, 并赋值tom , person指向的空对象的name属性并没有发生变化</span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">var person = new Object();   //<span class="number">1</span>. 定义变量person并给其赋值为一个空对象, 注意: 此处是将空对象的引用赋值给person</span><br><span class="line"><span class="built_in">set</span>Name( person );          //<span class="number">2</span>. 执行<span class="built_in">set</span>Name( person ) ,调用<span class="built_in">set</span>Name函数并给其传参 </span><br><span class="line">alert( person.name );       //<span class="number">7</span>. 弹出person引用指向的对象的name属性的值</span><br></pre></td></tr></table></figure></p>
-<p>这个案例的关键是要理解函数传参: 函数传参是将实参的值赋值给形参, 实参与形参的在内存中的存储的地址并不相同</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/变量类型/">变量类型</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/06/JS中值类型与引用类型进阶之函数传参/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/06/JS中值类型与引用类型进阶之函数传参/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1000,7 +1006,7 @@ var a = 10;
 		  
 		
 		  
-			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>1</sup></a></li>
+			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>2</sup></a></li>
 		  
 		
 		  
@@ -1015,7 +1021,7 @@ var a = 10;
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 15px;">css布局</a> <a href="/tags/事件/" style="font-size: 12.5px;">事件</a> <a href="/tags/优化/" style="font-size: 12.5px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 12.5px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12.5px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 17.5px;">吐槽</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/css布局/" style="font-size: 15px;">css布局</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12.5px;">事件</a> <a href="/tags/优化/" style="font-size: 12.5px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 12.5px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12.5px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 17.5px;">吐槽</a>
     </div>
   </div>
 
@@ -1080,8 +1086,6 @@ var a = 10;
 		
 		
 		
-		
-		<a href="mailto:2235609909@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
 		
 	</div>
 			

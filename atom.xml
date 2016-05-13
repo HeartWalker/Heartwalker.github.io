@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-05-10T04:52:42.825Z</updated>
+  <updated>2016-05-13T13:21:11.586Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jquery中的this</title>
+    <link href="http://HeartWalker.cc/2016/05/13/jquery%E4%B8%AD%E7%9A%84this/"/>
+    <id>http://HeartWalker.cc/2016/05/13/jquery中的this/</id>
+    <published>2016-05-13T01:29:34.000Z</published>
+    <updated>2016-05-13T13:21:11.586Z</updated>
+    
+    <content type="html">&lt;p&gt;前天有人有问这样一个问题: 我一个网页里面有好多个前面一张图的结构，然后点击第n个加号会显示第n个子内容，点击第n个减号会隐藏第n个子内容，但是我现在总是不对，我把n弹出来，只要点加号就是0，点减号就是1，这是什么原因呀？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/jq中的this1.png&quot; alt=&quot;&quot;&gt;&lt;img src=&quot;/images/jq中的this2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;很明显问题出在这一句代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var n = $(this).index();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;只需要将代码改为:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var n = $(.add).index(this);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之所以会犯错主要有两方面原因&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不了解jquery中的this&lt;br&gt;  jquery中有一个很重要的概念叫隐式迭代, 在jquery内部会对调用事件的jquery DOM数组使用 each 方法, 事件函数中的this并不是调用事件的数组而是当前的原生DOM对象&lt;/li&gt;
+&lt;li&gt;不了解jquery中的index方法&lt;br&gt;  调用index()会搜索匹配的元素，并返回相应元素的索引值，从0开始计数。&lt;br&gt;  如果不给 index() 方法传递参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。&lt;br&gt;如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。&lt;br&gt;如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;$(this).index();相当于查找当前对象在同辈元素中的位置, 当然不能满足需求
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前天有人有问这样一个问题: 我一个网页里面有好多个前面一张图的结构，然后点击第n个加号会显示第n个子内容，点击第n个减号会隐藏第n个子内容，但是我现在总是不对，我把n弹出来，只要点加号就是0，点减号就是1，这是什么原因呀？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+      <category term="jquery" scheme="http://HeartWalker.cc/tags/jquery/"/>
+    
+  </entry>
   
   <entry>
     <title>new与return和函数</title>
@@ -923,38 +957,6 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
     
     
       <category term="变量类型" scheme="http://HeartWalker.cc/tags/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js的Dom对象与jQuery的Dom对象</title>
-    <link href="http://HeartWalker.cc/2016/03/24/js%E7%9A%84Dom%E5%AF%B9%E8%B1%A1%E4%B8%8EjQuery%E7%9A%84Dom%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://HeartWalker.cc/2016/03/24/js的Dom对象与jQuery的Dom对象/</id>
-    <published>2016-03-24T02:35:34.000Z</published>
-    <updated>2016-04-01T15:28:36.304Z</updated>
-    
-    <content type="html">&lt;p&gt;前一段时间有人问了我一个问题, 大概是下面这样&lt;/p&gt;
-&lt;h3 id=&quot;u6848_u4F8B&quot;&gt;&lt;a href=&quot;#u6848_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;案例&quot;&gt;&lt;/a&gt;案例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        div &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;400&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            border: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;px solid &lt;span class=&quot;comment&quot;&gt;#000;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div id=&lt;span class=&quot;string&quot;&gt;&quot;id1&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- 请自行引用jquery --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;jquery-1.11.1.js&quot;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&#39;#id1&#39;&lt;/span&gt;).addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;click&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(this).css(&lt;span class=&quot;string&quot;&gt;&#39;backgroundColor&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;gold&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;结果是什么呢:报错了,先来正确的代码&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&#39;#id1&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;].addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;click&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(this).css(&lt;span class=&quot;string&quot;&gt;&#39;backgroundColor&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;gold&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log($(&lt;span class=&quot;string&quot;&gt;&#39;#id1&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;只需要在$(‘#id1’)后边加上[0]就可以了,为什么呢:再来看看console.log($(‘#id1’))的结果(详细信息请自行测试)&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;jQuery.fn.init[1]&amp;#10;0: div#id1&amp;#10;context: document&amp;#10;length: 1&amp;#10;selector: &amp;#34;#id1&amp;#34;&amp;#10;__proto__: jQuery[0]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u539F_u56E0&quot;&gt;&lt;a href=&quot;#u539F_u56E0&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h3&gt;&lt;p&gt;js的DOM对象指的是：使用js操作DOM返回的结果。&lt;br&gt;jQuery对象指的是：使用jQuery提供的操作DOM的方法返回的结果。&lt;br&gt;jQuery拿到DOM对象后又对其做了封装，让其具有了jQuery方法的jQuery对象,如上例。&lt;br&gt;js的DOM对象以伪数组的方式存在于jQuery之下,而jQuery对象是不能使用addEventlistener的,想要使用它必须将jQuery对象转化为js的DOM对象&lt;/p&gt;
-&lt;h3 id=&quot;jQuery_u5BF9_u8C61_u8F6C_u5316_u4E3Ajs_u7684DOM_u5BF9_u8C61&quot;&gt;&lt;a href=&quot;#jQuery_u5BF9_u8C61_u8F6C_u5316_u4E3Ajs_u7684DOM_u5BF9_u8C61&quot; class=&quot;headerlink&quot; title=&quot;jQuery对象转化为js的DOM对象&quot;&gt;&lt;/a&gt;jQuery对象转化为js的DOM对象&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;采用对象的方法直接取到对应键的值如: $(‘#id1’)[0]&lt;/li&gt;
-&lt;li&gt;采用jQuery中的get()取到对应键的值如$(‘#id1’).get(0)&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前一段时间有人问了我一个问题, 大概是下面这样&lt;/p&gt;
-&lt;h3 id=&quot;u6848_u4F8B&quot;&gt;&lt;a href=&quot;#u6848_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;案例&quot;&gt;&lt;/a&gt;案例&lt;/h3&gt;&lt;figure class=&quot;highlight
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
-    
-      <category term="DOM" scheme="http://HeartWalker.cc/tags/DOM/"/>
     
   </entry>
   
