@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-05-13T13:21:11.586Z</updated>
+  <updated>2016-05-15T05:51:02.087Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css与js如何调错</title>
+    <link href="http://HeartWalker.cc/2016/05/15/css%E4%B8%8Ejs%E5%A6%82%E4%BD%95%E8%B0%83%E9%94%99/"/>
+    <id>http://HeartWalker.cc/2016/05/15/css与js如何调错/</id>
+    <published>2016-05-15T05:09:21.000Z</published>
+    <updated>2016-05-15T05:51:02.087Z</updated>
+    
+    <content type="html">&lt;p&gt;css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决&lt;/p&gt;
+&lt;h3 id=&quot;F12_u5927_u6CD5_u597D&quot;&gt;&lt;a href=&quot;#F12_u5927_u6CD5_u597D&quot; class=&quot;headerlink&quot; title=&quot;F12大法好&quot;&gt;&lt;/a&gt;F12大法好&lt;/h3&gt;&lt;p&gt;打开 Firefox 或 Chrome 浏览器，按下F12，这是解决问题的基础&lt;/p&gt;
+&lt;h3 id=&quot;u901A_u7528_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u901A_u7528_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;通用方法&quot;&gt;&lt;/a&gt;通用方法&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;看是否有红字报错， 一般如果看到报错信息的话问题就解决了一大半，可以根据提示快速定位问题所在，如果 不知道报错信息是什么意思可以去网上搜索&lt;/li&gt;
+&lt;li&gt;确保页面上只有一个错误，如果有多个最好对代码进行逐步注释，直到最后一个错误&lt;/li&gt;
+&lt;li&gt;根据现象分析问题，是哪错了，那些效果没有实现，分析出可能是什么地方出现了问题 &lt;/li&gt;
+&lt;li&gt;是不是浏览器兼容性问题&lt;/li&gt;
+&lt;li&gt;是不是有缓存的影响，强制刷新浏览器或清除缓存&lt;/li&gt;
+&lt;li&gt;将错误的关键点提取出来，到网上搜索，最好使用 google&lt;/li&gt;
+&lt;li&gt;请教朋友或大神，请注意提问的艺术，在大部分情况下请在最后才这么做&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;css_u7279_u6709&quot;&gt;&lt;a href=&quot;#css_u7279_u6709&quot; class=&quot;headerlink&quot; title=&quot;css特有&quot;&gt;&lt;/a&gt;css特有&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;使用调试工具的审查元素，查看页面结构与布局&lt;/li&gt;
+&lt;li&gt;看样式是不是没用命中&lt;/li&gt;
+&lt;li&gt;看样式是不是被覆盖了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;js_u7279_u6709&quot;&gt;&lt;a href=&quot;#js_u7279_u6709&quot; class=&quot;headerlink&quot; title=&quot;js特有&quot;&gt;&lt;/a&gt;js特有&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;灵活的使用 console.log()，特别是在对程序比较了解的情况下，基本上几次就能定位问题所在&lt;/li&gt;
+&lt;li&gt;使用调试工具打断点和监视变量，如果对程序不太了解或不能定位出问题的所在可以采用这种方法，但可能会耗费较久的时间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;注：深入理解 css 与 js 的原理是能快速解决问题的法宝&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决&lt;/p&gt;
+&lt;h3 id=&quot;F12_u5927_u6CD5_u597D&quot;&gt;&lt;a href=&quot;#F12_u5927_u6CD5_u597D&quot; class=&quot;headerlink&quot; title=&quot;F12大法好
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+      <category term="调错" scheme="http://HeartWalker.cc/tags/%E8%B0%83%E9%94%99/"/>
+    
+  </entry>
   
   <entry>
     <title>jquery中的this</title>
@@ -551,7 +595,7 @@ new Function()构造函数式
     <link href="http://HeartWalker.cc/2016/04/06/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
     <id>http://HeartWalker.cc/2016/04/06/前端优化/</id>
     <published>2016-04-05T17:39:44.000Z</published>
-    <updated>2016-04-26T05:19:39.243Z</updated>
+    <updated>2016-05-15T10:23:38.129Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot;&gt;&lt;a href=&quot;#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219&quot; class=&quot;headerlink&quot; title=&quot;性能黄金法则&quot;&gt;&lt;/a&gt;性能黄金法则&lt;/h3&gt;&lt;p&gt;只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上&lt;/p&gt;
 &lt;h3 id=&quot;u51CF_u5C11HTTP_u8BF7_u6C42&quot;&gt;&lt;a href=&quot;#u51CF_u5C11HTTP_u8BF7_u6C42&quot; class=&quot;headerlink&quot; title=&quot;减少HTTP请求&quot;&gt;&lt;/a&gt;减少HTTP请求&lt;/h3&gt;&lt;ol&gt;
@@ -665,8 +709,8 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
 &lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;所有的优化都和可以总结为一下几方面:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小&lt;/li&gt;
-&lt;li&gt;优化显示的效果&lt;/li&gt;
-&lt;li&gt;优化解析性能 &lt;/li&gt;
+&lt;li&gt;优化加载时用户体验&lt;/li&gt;
+&lt;li&gt;优化用户操作时的体验&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&quot;u6CE8&quot;&gt;&lt;a href=&quot;#u6CE8&quot; class=&quot;headerlink&quot; title=&quot;注&quot;&gt;&lt;/a&gt;注&lt;/h3&gt;&lt;p&gt;有许多优化都是基于浏览器, 得益于浏览器的高速发展, 以前许多需要复杂方法(其实我也没仔细看, 貌似很厉害的样子)&lt;br&gt;实现的优化都已经不再适用, 因为浏览器已经实现那些功能, 所以也没有列出来.&lt;/p&gt;
 &lt;p&gt;什么时候IE9甚至IE11之前版本的浏览器能在国内消失, 那真是要好好庆贺一番 &lt;/p&gt;
@@ -927,36 +971,6 @@ ExpiresDefault &amp;quot;access plus 10 years&amp;quot;
     
     
       <category term="原型" scheme="http://HeartWalker.cc/tags/%E5%8E%9F%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS中值类型和引用类型与赋值</title>
-    <link href="http://HeartWalker.cc/2016/03/28/JS%E4%B8%AD%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%B5%8B%E5%80%BC/"/>
-    <id>http://HeartWalker.cc/2016/03/28/JS中值类型和引用类型与赋值/</id>
-    <published>2016-03-28T15:03:24.000Z</published>
-    <updated>2016-04-06T04:47:38.254Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、boolean、null和undefined型;引用类型指那些可能有多个值构成的对象,包括object、function和array等&lt;/p&gt;
-&lt;h3 id=&quot;u533A_u522B&quot;&gt;&lt;a href=&quot;#u533A_u522B&quot; class=&quot;headerlink&quot; title=&quot;区别&quot;&gt;&lt;/a&gt;区别&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;值类型保存在栈中,变量保存的就是变量的值;&lt;/li&gt;
-&lt;li&gt;引用类型保存在值中,变量保存的值是数据的引用(地址);&lt;/li&gt;
-&lt;li&gt;不能给基本数据类型绑定属性,尽管不会报错,但绑定的属性值是undefined&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u5173_u4E8E_u8D4B_u503C&quot;&gt;&lt;a href=&quot;#u5173_u4E8E_u8D4B_u503C&quot; class=&quot;headerlink&quot; title=&quot;关于赋值&quot;&gt;&lt;/a&gt;关于赋值&lt;/h3&gt;&lt;p&gt;值类型是按值传递,通俗的来说就是将变量中的数据完整的拷贝一份, 赋值给新的变量例:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//值类型赋值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var num = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var num2 = num;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 此时内存中有两个 &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt; 的副本&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;num = &quot;&lt;/span&gt; + num + &lt;span class=&quot;string&quot;&gt;&quot;, num2 = &quot;&lt;/span&gt; + num2);//num = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;num2 = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;num = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;num = &quot;&lt;/span&gt; + num + &lt;span class=&quot;string&quot;&gt;&quot;, num2 = &quot;&lt;/span&gt; + num2);//num  = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; ;num2 = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//引用类型赋值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o = &amp;#123; n: &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o2 = o;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//内存中只有一个数据对象, 是将 o 中地址复制一份, 赋值给 o2,即 o2 和 o 同时指向数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;o.n = &quot;&lt;/span&gt; + o.n + &lt;span class=&quot;string&quot;&gt;&quot;, o2.n = &quot;&lt;/span&gt; + o2.n);//o.n= &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;; o2.n = &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o.n = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&lt;span class=&quot;string&quot;&gt;&quot;o.n = &quot;&lt;/span&gt; + o.n + &lt;span class=&quot;string&quot;&gt;&quot;, o2.n = &quot;&lt;/span&gt; + o2.n);//o.n1= &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; o2.n =&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B&quot;&gt;&lt;a href=&quot;#u5F15_u7528_u7C7B_u578B_u8D4B_u503C_u7684_u66F4_u590D_u6742_u6848_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;引用类型赋值的更复杂案例&quot;&gt;&lt;/a&gt;引用类型赋值的更复杂案例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var o1 = &amp;#123;  age: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var o2 = o1; //将o1的引用赋值给o2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o1 = &amp;#123; age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;//给将一个新对象赋值给o1,改变了o1的引用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o1);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;o1指向新对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o2);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &amp;#125;;o2的引用仍然指向原来的引用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o2 = o1;//再次将o1的引用赋值给o2,此时它们指向同一个对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o1);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(o2);//&amp;#123;  age: &lt;span class=&quot;number&quot;&gt;55&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o2.age = &lt;span class=&quot;number&quot;&gt;66&lt;/span&gt;;          &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;o1.age = &lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;;//由于o1与o2指向的都是同一个对象,这两次改变的都是同一个对象的age属性的值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( o1.age );//&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( o2.age );//&lt;span class=&quot;number&quot;&gt;77&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;js中变量有两种类型:值类型与引用类型. 值类型指的是简单的数据段,包括number、string、bo
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
-    
-      <category term="变量类型" scheme="http://HeartWalker.cc/tags/%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"/>
     
   </entry>
   

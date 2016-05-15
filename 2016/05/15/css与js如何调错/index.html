@@ -4,23 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>编程是门艺术 | HeartWalker&#39;s Blog</title>
+    <title>css与js如何调错 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!">
+    <meta name="description" content="css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决
+F12大法好打开 Firefox 或 Chrome 浏览器，按下F12，这是解决问题的基础
+通用方法
+看是否有红字报错， 一般如果看到报错信息的话问题就解决了一大半，可以根据提示快速定位问题所在，如果 不知道报错信息是什么意思可以去网上搜索
+确保页面上只有一个错误，如果有多个最好对代码进行逐步注释，直到最后一个错误
+根据现象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编程是门艺术">
-<meta property="og:url" content="http://HeartWalker.cc/2016/02/21/编程是门艺术/index.html">
+<meta property="og:title" content="css与js如何调错">
+<meta property="og:url" content="http://HeartWalker.cc/2016/05/15/css与js如何调错/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!">
-<meta property="og:updated_time" content="2016-03-30T04:35:07.810Z">
+<meta property="og:description" content="css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决
+F12大法好打开 Firefox 或 Chrome 浏览器，按下F12，这是解决问题的基础
+通用方法
+看是否有红字报错， 一般如果看到报错信息的话问题就解决了一大半，可以根据提示快速定位问题所在，如果 不知道报错信息是什么意思可以去网上搜索
+确保页面上只有一个错误，如果有多个最好对代码进行逐步注释，直到最后一个错误
+根据现象">
+<meta property="og:updated_time" content="2016-05-15T05:51:02.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编程是门艺术">
-<meta name="twitter:description" content="我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!">
+<meta name="twitter:title" content="css与js如何调错">
+<meta name="twitter:description" content="css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决
+F12大法好打开 Firefox 或 Chrome 浏览器，按下F12，这是解决问题的基础
+通用方法
+看是否有红字报错， 一般如果看到报错信息的话问题就解决了一大半，可以根据提示快速定位问题所在，如果 不知道报错信息是什么意思可以去网上搜索
+确保页面上只有一个错误，如果有多个最好对代码进行逐步注释，直到最后一个错误
+根据现象">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -79,14 +94,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/21/编程是门艺术/" title="编程是门艺术" itemprop="url">编程是门艺术</a>
+      <a href="/2016/05/15/css与js如何调错/" title="css与js如何调错" itemprop="url">css与js如何调错</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-21T01:10:17.000Z" itemprop="datePublished"> 發表於 2016-02-21</time>
+    <time datetime="2016-05-15T05:09:21.000Z" itemprop="datePublished"> 發表於 2016-05-15</time>
     
   </p>
 </header>
@@ -95,11 +110,31 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#F12_u5927_u6CD5_u597D"><span class="toc-number">1.</span> <span class="toc-text">F12大法好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u7528_u65B9_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">通用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css_u7279_u6709"><span class="toc-number">3.</span> <span class="toc-text">css特有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js_u7279_u6709"><span class="toc-number">4.</span> <span class="toc-text">js特有</span></a></li></ol>
 		
 		</div>
 		
-		<p>　　我一直都坚信编程是一门艺术,相信有很多人都和我一样,我们一直都追求更简单,更简洁,更高效,更健壮,无bug,更完美的代码,并为此花费大量的时间,但就像永恒一样,追求不到的才叫永恒;只有更完美的代码,没有最完美的代码,有时候并不值得花费太多的时间去完美一个程序,我们只需要下一次做的更好;更重要的是:对一个项目来说实现功能才是最重要的啊!</p>
+		<p>css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决</p>
+<h3 id="F12_u5927_u6CD5_u597D"><a href="#F12_u5927_u6CD5_u597D" class="headerlink" title="F12大法好"></a>F12大法好</h3><p>打开 Firefox 或 Chrome 浏览器，按下F12，这是解决问题的基础</p>
+<h3 id="u901A_u7528_u65B9_u6CD5"><a href="#u901A_u7528_u65B9_u6CD5" class="headerlink" title="通用方法"></a>通用方法</h3><ol>
+<li>看是否有红字报错， 一般如果看到报错信息的话问题就解决了一大半，可以根据提示快速定位问题所在，如果 不知道报错信息是什么意思可以去网上搜索</li>
+<li>确保页面上只有一个错误，如果有多个最好对代码进行逐步注释，直到最后一个错误</li>
+<li>根据现象分析问题，是哪错了，那些效果没有实现，分析出可能是什么地方出现了问题 </li>
+<li>是不是浏览器兼容性问题</li>
+<li>是不是有缓存的影响，强制刷新浏览器或清除缓存</li>
+<li>将错误的关键点提取出来，到网上搜索，最好使用 google</li>
+<li>请教朋友或大神，请注意提问的艺术，在大部分情况下请在最后才这么做</li>
+</ol>
+<h3 id="css_u7279_u6709"><a href="#css_u7279_u6709" class="headerlink" title="css特有"></a>css特有</h3><ol>
+<li>使用调试工具的审查元素，查看页面结构与布局</li>
+<li>看样式是不是没用命中</li>
+<li>看样式是不是被覆盖了</li>
+</ol>
+<h3 id="js_u7279_u6709"><a href="#js_u7279_u6709" class="headerlink" title="js特有"></a>js特有</h3><ol>
+<li>灵活的使用 console.log()，特别是在对程序比较了解的情况下，基本上几次就能定位问题所在</li>
+<li>使用调试工具打断点和监视变量，如果对程序不太了解或不能定位出问题的所在可以采用这种方法，但可能会耗费较久的时间</li>
+</ol>
+<p>注：深入理解 css 与 js 的原理是能快速解决问题的法宝</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -107,9 +142,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
+  <a class="article-category-link" href="/categories/东成西就/">东成西就</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/调错/">调错</a>
+  </div>
 
 </div>
 
@@ -117,7 +157,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/02/21/编程是门艺术/" data-title="编程是门艺术 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/05/15/css与js如何调错/" data-title="css与js如何调错 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -130,19 +170,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/23/美工css与js/" title="美工css与js">
-  <strong>上一篇：</strong><br/>
-  <span>
-  美工css与js</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/19/css透明度/"  title="css透明度">
+<a href="/2016/05/13/jquery中的this/"  title="jquery中的this">
  <strong>下一篇：</strong><br/> 
- <span>css透明度
+ <span>jquery中的this
 </span>
 </a>
 </div>
@@ -151,7 +183,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/21/编程是门艺术/" data-title="编程是门艺术" data-url="http://HeartWalker.cc/2016/02/21/编程是门艺术/"></div>
+	<div class="ds-thread" data-thread-key="2016/05/15/css与js如何调错/" data-title="css与js如何调错" data-url="http://HeartWalker.cc/2016/05/15/css与js如何调错/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -174,7 +206,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#F12_u5927_u6CD5_u597D"><span class="toc-number">1.</span> <span class="toc-text">F12大法好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u901A_u7528_u65B9_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">通用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css_u7279_u6709"><span class="toc-number">3.</span> <span class="toc-text">css特有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js_u7279_u6709"><span class="toc-number">4.</span> <span class="toc-text">js特有</span></a></li></ol>
  
   </div>
 
