@@ -4,29 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>国内程序员大不易 | HeartWalker&#39;s Blog</title>
+    <title>HTML5API之全屏 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="在上国过生活工作本来就不易, 体现在程序员身上就更加明显,不仅有错综复杂的人际关系,社会关系, 还要提防祸从口出,天降横祸…
-　　程序员想要学习一些先进的技术,大多是要翻过去的, 奈何墙太高太深, 最近封的越来越厉害,github不翻都经常上不去, 平时像使用npm必须要翻过去,虽有梯子,但总是浪费了许多时间与精力, 本来宝贵的时间就流失了
-　　许多国外的API都不能用, 不久前发现翻过去了某些国">
+    <meta name="description" content="基本属性HTML5规范允许用户自定义网页上任一元素全屏显示
+requestFullScreen(); //开启全屏显示
+cancleFullScreen();  //关闭全屏显示
+但是由于浏览器的实现与兼容性的问题, 目前需要这样来使用它们
+element.webkitRequestFullScreen()
+element.mozRequestFullScreen()
+上述代码会将 element">
 <meta property="og:type" content="article">
-<meta property="og:title" content="国内程序员大不易">
-<meta property="og:url" content="http://HeartWalker.cc/2016/03/31/国内程序员大不易/index.html">
+<meta property="og:title" content="HTML5API之全屏">
+<meta property="og:url" content="http://HeartWalker.cc/2016/05/19/HTML5API之全屏/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="在上国过生活工作本来就不易, 体现在程序员身上就更加明显,不仅有错综复杂的人际关系,社会关系, 还要提防祸从口出,天降横祸…
-　　程序员想要学习一些先进的技术,大多是要翻过去的, 奈何墙太高太深, 最近封的越来越厉害,github不翻都经常上不去, 平时像使用npm必须要翻过去,虽有梯子,但总是浪费了许多时间与精力, 本来宝贵的时间就流失了
-　　许多国外的API都不能用, 不久前发现翻过去了某些国">
-<meta property="og:updated_time" content="2016-04-01T14:17:12.130Z">
+<meta property="og:description" content="基本属性HTML5规范允许用户自定义网页上任一元素全屏显示
+requestFullScreen(); //开启全屏显示
+cancleFullScreen();  //关闭全屏显示
+但是由于浏览器的实现与兼容性的问题, 目前需要这样来使用它们
+element.webkitRequestFullScreen()
+element.mozRequestFullScreen()
+上述代码会将 element">
+<meta property="og:updated_time" content="2016-05-19T15:14:04.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="国内程序员大不易">
-<meta name="twitter:description" content="在上国过生活工作本来就不易, 体现在程序员身上就更加明显,不仅有错综复杂的人际关系,社会关系, 还要提防祸从口出,天降横祸…
-　　程序员想要学习一些先进的技术,大多是要翻过去的, 奈何墙太高太深, 最近封的越来越厉害,github不翻都经常上不去, 平时像使用npm必须要翻过去,虽有梯子,但总是浪费了许多时间与精力, 本来宝贵的时间就流失了
-　　许多国外的API都不能用, 不久前发现翻过去了某些国">
+<meta name="twitter:title" content="HTML5API之全屏">
+<meta name="twitter:description" content="基本属性HTML5规范允许用户自定义网页上任一元素全屏显示
+requestFullScreen(); //开启全屏显示
+cancleFullScreen();  //关闭全屏显示
+但是由于浏览器的实现与兼容性的问题, 目前需要这样来使用它们
+element.webkitRequestFullScreen()
+element.mozRequestFullScreen()
+上述代码会将 element">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -85,14 +97,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/31/国内程序员大不易/" title="国内程序员大不易" itemprop="url">国内程序员大不易</a>
+      <a href="/2016/05/19/HTML5API之全屏/" title="HTML5API之全屏" itemprop="url">HTML5API之全屏</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-31T13:33:30.000Z" itemprop="datePublished"> 發表於 2016-03-31</time>
+    <time datetime="2016-05-19T14:12:55.000Z" itemprop="datePublished"> 發表於 2016-05-19</time>
     
   </p>
 </header>
@@ -101,28 +113,43 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u57FA_u672C_u5C5E_u6027"><span class="toc-number">1.</span> <span class="toc-text">基本属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5168_u5C4F_u68C0_u67E5"><span class="toc-number">2.</span> <span class="toc-text">全屏检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5168_u5C4F_u4F2A_u7C7B"><span class="toc-number">3.</span> <span class="toc-text">全屏伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8"><span class="toc-number">4.</span> <span class="toc-text">注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A"><span class="toc-number">5.</span> <span class="toc-text">chrome下测试代码:</span></a></li></ol>
 		
 		</div>
 		
-		<p>　　在上国过生活工作本来就不易, 体现在程序员身上就更加明显,不仅有错综复杂的人际关系,社会关系, 还要提防祸从口出,天降横祸…</p>
-<p>　　程序员想要学习一些先进的技术,大多是要翻过去的, 奈何墙太高太深, 最近封的越来越厉害,github不翻都经常上不去, 平时像使用npm必须要翻过去,虽有梯子,但总是浪费了许多时间与精力, 本来宝贵的时间就流失了</p>
-<p>　　许多国外的API都不能用, 不久前发现翻过去了某些国内的API连不上了, 当时真是一口老血差点喷出来, 这真是如围城一般</p>
-<p>　　有时我常想国人在办公室政治与xx政治浪费了大量时间,盲目追求利益,并且信息闭塞造成的学习成本太高,这些大抵都是国内技术水平落后的主要原因中的一部分吧</p>
-  
+		<h3 id="u57FA_u672C_u5C5E_u6027"><a href="#u57FA_u672C_u5C5E_u6027" class="headerlink" title="基本属性"></a>基本属性</h3><p>HTML5规范允许用户自定义网页上任一元素全屏显示</p>
+<pre><code>requestFullScreen(); //开启全屏显示
+cancleFullScreen();  //关闭全屏显示
+</code></pre><p>但是由于浏览器的实现与兼容性的问题, 目前需要这样来使用它们</p>
+<pre><code>element.webkitRequestFullScreen()
+element.mozRequestFullScreen()
+</code></pre><p>上述代码会将 element 元素全屏, 即非element元素会被隐藏<br>规范允许所有元素可以取消全屏，但实际测试结果 关闭全屏 只能添加到 document 元素上, 使用其他元素会报错</p>
+<pre><code>document.webkitCancelFullScreen()
+document.mozCancelFullScreen()
+</code></pre><h3 id="u5168_u5C4F_u68C0_u67E5"><a href="#u5168_u5C4F_u68C0_u67E5" class="headerlink" title="全屏检查"></a>全屏检查</h3><p>可以通过下面代码检测当前是否处于全屏状态</p>
+<pre><code>document.fullScreen;
+</code></pre><p>不同浏览器仍然需要添加前缀</p>
+<pre><code>document.webkitIsFullScreen;
+document.mozFullScreen;
+</code></pre><h3 id="u5168_u5C4F_u4F2A_u7C7B"><a href="#u5168_u5C4F_u4F2A_u7C7B" class="headerlink" title="全屏伪类"></a>全屏伪类</h3><p>还有一个全屏伪类, 可以设置全屏状态下的样式</p>
+<pre><code>:full-screen 
+:-webkit-full-screen
+:moz-full-screen 
+</code></pre><h3 id="u6CE8"><a href="#u6CE8" class="headerlink" title="注"></a>注</h3><p>目前标准写法仍未被实现,使用标准方法会报错(至少在pc端是这样)</p>
+<h3 id="chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A"><a href="#chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A" class="headerlink" title="chrome下测试代码:"></a>chrome下测试代码:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;全屏&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .box &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background: blue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        :-webkit-full-screen .box &#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            width: <span class="number">300</span>px;</span><br><span class="line">            height: <span class="number">300</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        .cl&#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: gold;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=<span class="string">"box"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"cl"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> class=<span class="string">'open'</span> value=<span class="string">"全屏"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> class=<span class="string">'cancle'</span> value=<span class="string">"关闭全屏"</span>&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var open = document.querySelector(<span class="string">'.open'</span>);</span><br><span class="line">        var cancle = document.querySelector(<span class="string">'.cancle'</span>);</span><br><span class="line">        var box = document.querySelector(<span class="string">'.box'</span>);</span><br><span class="line"></span><br><span class="line">        open.onclick = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.documentElement.webkitRequestFullScreen();</span><br><span class="line">            // box.webkitRequestFullScreen();</span><br><span class="line">            alert(document.webkitIsFullScreen);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cancle.onclick = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            alert(document.webkitIsFullScreen);</span><br><span class="line">            document.webkitCancelFullScreen();</span><br><span class="line">            // document.documentElement.webkitCancelFullScreen();</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
+  <a class="article-category-link" href="/categories/web/">web</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/吐槽/">吐槽</a>
+  <span></span> <a href="/tags/H5/">H5</a>
   </div>
 
 </div>
@@ -131,7 +158,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/03/31/国内程序员大不易/" data-title="国内程序员大不易 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/05/19/HTML5API之全屏/" data-title="HTML5API之全屏 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,19 +171,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/02/hexo博客完工感言/" title="hexo博客完工感言">
-  <strong>上一篇：</strong><br/>
-  <span>
-  hexo博客完工感言</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/30/一幅图深入理解原型链/"  title="一幅图深入理解原型链">
+<a href="/2016/05/15/css与js如何调错/"  title="css与js如何调错">
  <strong>下一篇：</strong><br/> 
- <span>一幅图深入理解原型链
+ <span>css与js如何调错
 </span>
 </a>
 </div>
@@ -165,7 +184,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/31/国内程序员大不易/" data-title="国内程序员大不易" data-url="http://HeartWalker.cc/2016/03/31/国内程序员大不易/"></div>
+	<div class="ds-thread" data-thread-key="2016/05/19/HTML5API之全屏/" data-title="HTML5API之全屏" data-url="http://HeartWalker.cc/2016/05/19/HTML5API之全屏/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -188,7 +207,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u57FA_u672C_u5C5E_u6027"><span class="toc-number">1.</span> <span class="toc-text">基本属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5168_u5C4F_u68C0_u67E5"><span class="toc-number">2.</span> <span class="toc-text">全屏检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5168_u5C4F_u4F2A_u7C7B"><span class="toc-number">3.</span> <span class="toc-text">全屏伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6CE8"><span class="toc-number">4.</span> <span class="toc-text">注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A"><span class="toc-number">5.</span> <span class="toc-text">chrome下测试代码:</span></a></li></ol>
  
   </div>
 
