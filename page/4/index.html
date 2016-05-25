@@ -80,6 +80,512 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/03/21/JS事件中target与currentTarget/" title="JS事件中target与currentTarget " itemprop="url">JS事件中target与currentTarget </a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-21T12:43:59.000Z" itemprop="datePublished"> 發表於 2016-03-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA"><a href="#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA" class="headerlink" title="先来一段网上流行的解释"></a>先来一段网上流行的解释</h3><p>target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)</p>
+<p>target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。</p>
+<p><strong><em>是不是有点晦涩,看了以后还是似懂非懂,一般网上的案例也是难以明白,于是我又专门测试了一下,然后用通俗的语言总结起来</em></strong></p>
+<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;    </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"按钮"</span> id=<span class="string">"btn"</span>/&gt;</span><br><span class="line">&lt;div id=<span class="string">"div"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"div里面的按钮"</span> id=<span class="string">"btnStop"</span>/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.getElementById(<span class="string">'btn'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btn.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'div'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'div.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'btnStop'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btnStop.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>下边是测试在控制台的结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line"></span><br><span class="line">btnStop.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"></span><br><span class="line">div.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br></pre></td></tr></table></figure></p>
+<pre><code>注:测试环境为当前最新版的firefox与chrome浏览器
+</code></pre><h3 id="u603B_u7ED3_3A"><a href="#u603B_u7ED3_3A" class="headerlink" title="总结:"></a>总结:</h3><ol>
+<li>currentTarget就是绑定事件的节点,哪个节点绑定事件就是哪个节点</li>
+<li>currentTarget与this总是相同的</li>
+<li>target是最终触发事件的节点</li>
+<li>currentTarget与target有时相同有时不同</li>
+<li>只有当绑定事件的节点对象是最终触发事件的节点对象时currentTarget才等于target</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/事件/">事件</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/21/JS事件中target与currentTarget/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/21/JS事件中target与currentTarget/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/17/消除inline-block之间的空隙/" title="消除inline-block之间的空隙" itemprop="url">消除inline-block之间的空隙</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-16T16:32:50.000Z" itemprop="datePublished"> 發表於 2016-03-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>inline-block与inline-block之间会有间隙,空隙是因为换行后标签之间默认的空格合并成一个空格,如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        .space span &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>下面列出几种方法</p>
+<h3 id="u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C"><a href="#u53BB_u9664_u7A7A_u683C_2C_u5C06_u4EE3_u7801_u653E_u5230_u4E00_u884C" class="headerlink" title="去除空格,将代码放到一行"></a>去除空格,将代码放到一行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt;&lt;span&gt;测试&lt;/span&gt; </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>视情况可以使用</p>
+<h3 id="u4F7F_u7528margin_u8D1F_u503C"><a href="#u4F7F_u7528margin_u8D1F_u503C" class="headerlink" title="使用margin负值"></a>使用margin负值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">    margin-right:-<span class="number">5</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不仅会改变布局,还会有各种问题,不推荐</p>
+<h3 id="u4F7F_u7528_u6CE8_u91CA"><a href="#u4F7F_u7528_u6CE8_u91CA" class="headerlink" title="使用注释"></a>使用注释</h3><p>同样利用的是去除空格的方法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;&lt;!--</span><br><span class="line">    --&gt;&lt;span&gt;测试&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同样会有一些问题,不推荐</p>
+<h3 id="u4F7F_u7528letter-spacing"><a href="#u4F7F_u7528letter-spacing" class="headerlink" title="使用letter-spacing"></a>使用letter-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        letter-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>难以控制且会影响到后代,不推荐</p>
+<h3 id="u4F7F_u7528word-spacing"><a href="#u4F7F_u7528word-spacing" class="headerlink" title="使用word-spacing"></a>使用word-spacing</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        word-spacing:-<span class="number">4</span>px;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>同样不推荐</p>
+<h3 id="u4F7F_u7528font-size_3A0_3B"><a href="#u4F7F_u7528font-size_3A0_3B" class="headerlink" title="使用font-size:0;"></a>使用font-size:0;</h3><p>将空格的大小设置为0,但会影响到后代,需要给后代单独设置font-size大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space&#123;</span><br><span class="line">        font-size:<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="u5229_u7528_u6D6E_u52A8"><a href="#u5229_u7528_u6D6E_u52A8" class="headerlink" title="利用浮动"></a>利用浮动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.space span &#123;</span><br><span class="line">        <span class="built_in">float</span>: left;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u7279_u6B8A_u7684img_u6807_u7B7E"><a href="#u7279_u6B8A_u7684img_u6807_u7B7E" class="headerlink" title="特殊的img标签"></a>特殊的img标签</h3><p>img也是一个行内块元素,但它比较特殊<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        * &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .space img &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;  </span><br><span class="line">            display: inline-block;</span><br><span class="line">            background-color: <span class="comment">#cad5eb;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;div class=<span class="string">"space"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"#"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>img标签不仅左右之间有空隙 而且上下之间也有空隙<br>原因:<br>img是行内块元素,如文字一样会有默认的基线对齐,图片的最底部就是基线的位置,所以图片和文字一样距离底部会有一定的距离<br>解决方法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用font-size:<span class="number">0</span>;</span><br><span class="line">使用<span class="built_in">float</span>与display:block;结合</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/17/消除inline-block之间的空隙/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/17/消除inline-block之间的空隙/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/13/用js在html中写入内容/" title="用js在html中写入内容" itemprop="url">用js在html中写入内容</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-12T17:08:17.000Z" itemprop="datePublished"> 發表於 2016-03-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>document.write(), innerHTML, innerText,  value, nodevalue</p>
+<h3 id="document-write"><a href="#document-write" class="headerlink" title="document.write"></a>document.write</h3><p>document.write是直接写入到页面的内容流，如果在写之前没有调用document.open, 浏览器会自动调用open。每次写完关闭之后重新调用该函数，会导致页面被重写。即第一次调用document.write会将当前页面的内容清空, 其后再次调用会在原来的内容上继续添加, 如果之后调用了document.close()或将页面关闭, 再次使用document.write会再次将页面内容清空并输出, 识别标签</p>
+<h3 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h3><p>innerHTML是dom元素的一个属性，代表该元素的html内容。你可以精确到某一个具体的元素来进行更改。如果想修改document的内容，则需要修改document.documentElement.innerElement, 识别标签</p>
+<h3 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a>innerText</h3><p>innerText设置的内容不识别标签, 获取内容是从起始位置到终止位置的内容, 但它去除Html标签, innerText并非W3C标准属性, 原为ie特有属性,经测试到目前为止已经得到主流浏览器最新版本的支持</p>
+<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>用来设置和获取具有value属性标签的value值, 主要用于表单中</p>
+<h3 id="nodevalue"><a href="#nodevalue" class="headerlink" title="nodevalue"></a>nodevalue</h3><p>对于文本节点，nodeValue 属性包含文本。<br>对于属性节点，nodeValue 属性包含属性值。<br>nodeValue 属性对于文档节点和元素节点是不可用的。<br>nodeValue是W3C标准属性</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/13/用js在html中写入内容/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/13/用js在html中写入内容/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/11/css垂直居中/" title="css垂直居中" itemprop="url">css垂直居中</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-11T12:28:23.000Z" itemprop="datePublished"> 發表於 2016-03-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>css中经常会遇到盒子需要垂直居中,现总结出以下几种方法<br>例如:实现content盒子居中</p>
+<h3 id="margin_u4E0Epadding"><a href="#margin_u4E0Epadding" class="headerlink" title="margin与padding"></a>margin与padding</h3><p>最简单的方法就是设置margin或padding值,以margin为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line"></span><br><span class="line">                /*  垂直居中相关css */</span><br><span class="line">                margin:<span class="number">125</span>px auto;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:需要计算且没有灵活性</p>
+<h3 id="u901A_u8FC7_u5B9A_u4F4D"><a href="#u901A_u8FC7_u5B9A_u4F4D" class="headerlink" title="通过定位"></a>通过定位</h3><p>利用定于和css3的transform属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line"></span><br><span class="line">                /* 垂直居中相关css */</span><br><span class="line">                position: relative;</span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line"></span><br><span class="line">                /* 垂直居中相关css */</span><br><span class="line">                position: absolute;</span><br><span class="line">                top: <span class="number">50</span>%;</span><br><span class="line">                left: <span class="number">50</span>%;</span><br><span class="line">                transform:translate(-<span class="number">50</span>%,-<span class="number">50</span>%);</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:有兼容性问题</p>
+<h3 id="u901A_u8FC7vertical-align_u5176_u4E00"><a href="#u901A_u8FC7vertical-align_u5176_u4E00" class="headerlink" title="通过vertical-align其一"></a>通过vertical-align其一</h3><p>利用table-cell可以通过vertical-align:middle垂直居中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">            background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: <span class="number">600</span>px;</span><br><span class="line">            height: <span class="number">400</span>px;</span><br><span class="line">            margin: <span class="number">80</span>px auto;</span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">            background-color: <span class="comment">#FFF;</span></span><br><span class="line">             /* 垂直居中相关css */</span><br><span class="line">            display: table;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .cell &#123;</span><br><span class="line">            /* 垂直居中相关css */</span><br><span class="line">            display: table-cell;</span><br><span class="line">            vertical-align: middle;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .content &#123;</span><br><span class="line">            width: <span class="number">400</span>px;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            margin-left: auto;</span><br><span class="line">            margin-right: auto;</span><br><span class="line">            background-color: orange;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">        &lt;div class=<span class="string">"cell"</span>&gt;</span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:会改变布局</p>
+<h3 id="u901A_u8FC7vertical-align_u5176_u4E8C"><a href="#u901A_u8FC7vertical-align_u5176_u4E8C" class="headerlink" title="通过vertical-align其二"></a>通过vertical-align其二</h3><p>vertical-align:middle  说明:将支持valign特性的对象的内容与对象中部对齐 . 为要居中的盒子设置参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">            background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: <span class="number">600</span>px;</span><br><span class="line">            height: <span class="number">400</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            margin: <span class="number">80</span>px auto;</span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">            background-color: <span class="comment">#FFF;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .content &#123;</span><br><span class="line">            width: <span class="number">400</span>px;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            background-color: orange;</span><br><span class="line"></span><br><span class="line">            /* 垂直居中相关css */</span><br><span class="line">            display: inline-block;</span><br><span class="line">            vertical-align: middle;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        span &#123;</span><br><span class="line">            /* 垂直居中相关css */</span><br><span class="line">            height: <span class="number">100</span>%;</span><br><span class="line">            display: inline-block;</span><br><span class="line">            vertical-align: middle;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">        &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;span&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>缺点:同样是会改变布局</p>
+<h3 id="u901A_u8FC7_u4F38_u7F29_u76D2"><a href="#u901A_u8FC7_u4F38_u7F29_u76D2" class="headerlink" title="通过伸缩盒"></a>通过伸缩盒</h3><p>css3新增了伸缩盒,通过给父盒子设置display:flex;使用它自动的居中属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line"></span><br><span class="line">                /*  垂直居中相关css */</span><br><span class="line">                display: flex;</span><br><span class="line">                align-items:center;</span><br><span class="line">                    /* 水平居中 */</span><br><span class="line">                justify-content:center;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:伸缩盒的兼容性就更差了</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css布局/">css布局</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/11/css垂直居中/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/11/css垂直居中/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/08/link与@import引入css/" title="link与@import引入css" itemprop="url">link与@import引入css</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-08T14:54:18.000Z" itemprop="datePublished"> 發表於 2016-03-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.</p>
+<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import url(style.css)</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除了可以加载CSS外，还可以做很多其它的事情，比如定义RSS，定义rel连接属性等，@import就只能加载CSS了。</li>
+<li>加载顺序的差别。当一个页面被加载的时候（就是被浏览者浏览的时候），link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。所以有时候浏览@import加载CSS的页面时开始会没有样式（就是闪烁），网速慢的时候还挺明显。</li>
+<li>兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。</li>
+<li>使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。</li>
+<li>@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表<h3 id="u6CE8_3A"><a href="#u6CE8_3A" class="headerlink" title="注:"></a>注:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面中同时使用@import与其他样式书写的css时,用@import引入的样式必须在css样式的最前方.</span><br><span class="line">由于前端css压缩与合成工具的流行,@import用的越来越少了,这种方式也并不被推荐使用</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/08/link与@import引入css/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/08/link与@import引入css/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/29/js小数精度/" title="js小数精度" itemprop="url">js小数精度</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-28T17:36:33.000Z" itemprop="datePublished"> 發表於 2016-02-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:</p>
+<pre><code>console.log(0.1+0.2)
+0.30000000000000004
+console.log(0.3 - 0.2)
+0.09999999999999998
+</code></pre><p>为什么不是0.3与0.1呢?</p>
+<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><pre><code>Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），
+这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。
+遗憾的是我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。
+二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
+</code></pre><p>那么让我们看一下二进制中0.1与0.2到底是多少</p>
+<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
+0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
+</code></pre><p>但是在js中小数位数是有限的:</p>
+<pre><code>console.log(Number(0.1).toString(2))
+0.0001100110011001100110011001100110011001100110011001101
+
+console.log(Number(0.2).toString(2))
+0.001100110011001100110011001100110011001100110011001101
+</code></pre><p>将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
+<h3 id="u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><a href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5" class="headerlink" title="为什么java可以"></a>为什么java可以</h3><p>像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装</p>
+<h3 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在运算前我们把参加运算的数先升级(<span class="number">10</span>的X的次方)到整数，等运算完后再降级(<span class="number">0.1</span>的X的次方)</span><br><span class="line">根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()</span><br><span class="line">根据需要保留指定位数的小数:如toFixed()</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/02/29/js小数精度/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/29/js小数精度/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/02/28/z-index层级/" title="z-index层级" itemprop="url">z-index层级</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-02-28T13:53:23.000Z" itemprop="datePublished"> 發表於 2016-02-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5"><a href="#u5148_u8BF4_u4E00_u4E0B_u6982_u5FF5" class="headerlink" title="先说一下概念"></a>先说一下概念</h2><p>因为显示器显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别，表示一个元素在叠加顺序上的上下立体关系。</p>
+<p>注释：  所有主流浏览器都支持 z-index 属性。任何的版本的 Internet Explorer （包括 IE8）都不支持属性值 “inherit”。</p>
+<pre><code>IE6/7下position不为static，且z-index不存在时z-index为0，除此之外的浏览器z-index为auto。
+
+z-index为auto的元素不参与层级关系的比较，由向上遍历至此且z-index不为auto的元素来参与比较。
+</code></pre><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<strong>z-index 仅能在定位元素上奏效。</strong><br>注释：元素可拥有负的 z-index 属性值。</p>
+<h2 id="u4E00_u4E9B_u603B_u7ED3"><a href="#u4E00_u4E9B_u603B_u7ED3" class="headerlink" title="一些总结"></a>一些总结</h2><p>关于z-index的介绍网络上有许多,为了能简单快速的学会使用层级,我在这里总结了一些效果如下:</p>
+<pre><code>1. z-index仅在定位中起作用
+2. 正常情况浮动层级大于标准流 ,定位流大于浮动流 ,值为auto, 但它们都在0到1之间
+3. 如果父子元素都有z-index值,不论正负,那么以父盒子为准,不管父子的z-index是多少
+所以如果两个此时盒子是兄弟盒子并且都有定位的z-index值, 那么它们子盒子的层级由父盒子决定
+4. 如果父盒子没有定位或只定位没有写z-index值,父盒子的的z-index是auto,  此时会有两种情况
+a:如果给子盒子一个正的z-index值,此时子盒子的z-index起作用
+b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css布局/">css布局</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/02/28/z-index层级/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/28/z-index层级/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/02/25/border-image-width/" title="border-image-width" itemprop="url">border-image-width</a>
   </h1>
   <p class="article-author">By
@@ -256,522 +762,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/19/css透明度/" title="css透明度" itemprop="url">css透明度</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-18T16:13:41.000Z" itemprop="datePublished"> 發表於 2016-02-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5"><a href="#u60F3_u8981_u5B9E_u73B0_u900F_u660E_u6709_u4E0B_u9762_u56DB_u4E2A_u65B9_u6CD5" class="headerlink" title="想要实现透明有下面四个方法"></a>想要实现透明有下面四个方法</h2><h3 id="opacity"><a href="#opacity" class="headerlink" title="opacity"></a>opacity</h3><p>通过opacity只能设置盒子的透明度,但是透明度会被子盒子继承,并且文字也会继承透明效果</p>
-<h3 id="transparent"><a href="#transparent" class="headerlink" title="transparent"></a>transparent</h3><p>如background:transparent;表示全透明 无法设置具体的值,对border同样适用 </p>
-<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><p>如background:rgba(0,0,0,0.5);Red、Green、Blue、Alpha即RGBA;最后一个值表示透明度,可以取0-1,rgba不具有继承性，即不会影响子元素的透明度,所有使用颜色的都可以使用</p>
-<h3 id="hsla"><a href="#hsla" class="headerlink" title="hsla"></a>hsla</h3><p>如background: hsla(120, 50%, 50%, 0.7);H 色调 (取值范围0~360，0/360表示红色、120表示绿色、240表示蓝色)<br>S 饱和度 取值范围0%~100%<br>L 亮度 取值范围0%~100%<br>A 透明度 取值范围0~1;用法及效果与rgba一致<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注:它们在ie <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>上都有兼容性问题</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/19/css透明度/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/19/css透明度/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/16/clear-float/" title="clear float" itemprop="url">clear float</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-15T16:19:23.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u6E05_u9664_u6D6E_u52A8"><a href="#u6E05_u9664_u6D6E_u52A8" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>在css布局时经常会用到浮动,但浮动脱标后会带来许多问题,下边列出几种清除浮动的方法</p>
-<h5 id="1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6"><a href="#1-_uFF1A_u7ED9_u7236_u76D2_u5B50_u4E00_u4E2A_u9AD8_u5EA6" class="headerlink" title="1.：给父盒子一个高度"></a>1.：给父盒子一个高度</h5><h5 id="2-_uFF1Aclear_3Aleft_7C_right_7C_both"><a href="#2-_uFF1Aclear_3Aleft_7C_right_7C_both" class="headerlink" title="2.：clear:left| right| both"></a>2.：clear:left| right| both</h5><p>　　不推荐 基本没人用吧</p>
-<h5 id="3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden"><a href="#3-_uFF1A_u7ED9_u7236_u76D2_u5B50_u8BBE_u7F6Eoverflow_3Ahidden" class="headerlink" title="3.：给父盒子设置overflow:hidden"></a>3.：给父盒子设置overflow:hidden</h5><p>　　有定位的话不推荐 应为可能超出盒子 看需求使用  </p>
-<h5 id="4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B"><a href="#4-_uFF1A_u4F7F_u7528_u4F2A_u7C7B" class="headerlink" title="4.：使用伪类"></a>4.：使用伪类</h5><pre><code>.clearfix:after{
-    content:&quot;&quot;;
-    height:0;
-    line-height:0;
-    visibility:hidden;
-    display:block;
-    clear:both;
-}
-.clearfix{
-    *zoom:1;
-}
-</code></pre><p>　　目前通用方法</p>
-<h5 id="5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5"><a href="#5-__3A__u53CC_u4F2A_u5143_u7D20_u6CD5" class="headerlink" title="5. : 双伪元素法"></a>5. : 双伪元素法</h5><pre><code>.clearfix:before, .clearfix:after {
-    content: &quot;&quot;;
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1; /*IE/7/6*/
-}
-</code></pre><p>　　应该是目前最好的方法了吧</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/css布局/">css布局</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/16/clear-float/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/16/clear-float/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/13/JS中用-点与-中括号获取css属性的异同/" title="JS中用.点与[]中括号获取css属性的异同" itemprop="url">JS中用.点与[]中括号获取css属性的异同</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-13T13:52:24.000Z" itemprop="datePublished"> 發表於 2016-02-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><strong>在js中获取css属性可以用.与[]两种方式</strong><br>这两种方式的效果基本相同<br>比如，有一个div我们想得到他的宽度，可以通过<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.style.width</span><br></pre></td></tr></table></figure></p>
-<p>这样的写法虽然简单，但是不灵活，<font color="red">没有办法通过传参的形式获取属性</font><br>即无法使用变量<br>因此我们还有另外一种写法<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.style[<span class="string">"width"</span>]</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/13/JS中用-点与-中括号获取css属性的异同/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/13/JS中用-点与-中括号获取css属性的异同/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/06/margin-外边距合并/" title="margin 外边距合并" itemprop="url">margin 外边距合并</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-06T14:07:20.000Z" itemprop="datePublished"> 發表於 2016-02-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><em>看到一个非常好的关于margin外边距合并的文章 拿过来与大家分享</em><br><a href="http://blog.sina.com.cn/s/blog_601b97ee0101b8xe.html" title="原文地址" target="_blank" rel="external">原文地址</a></p>
-<p><strong>外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距.</strong></p>
-<p>合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。<br>外边距合并</p>
-<p>外边距合并（叠加）是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。</p>
-<p>简单地说，外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</p>
-<p>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。请看下图：<br><img src="/images/margin1.gif" alt=""></p>
-<p>当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并。请看下图：</p>
-<p><img src="/images/margin2.gif" alt=""></p>
-<p>尽管看上去有些奇怪，但是外边距甚至可以与自身发生合并。</p>
-<p>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并：</p>
-<p><img src="/images/margin3.gif" alt=""><br>如果这个外边距遇到另一个元素的外边距，它还会发生合并：</p>
-<p><img src="/images/margin4.gif" alt=""><br>这就是一系列的段落元素占用空间非常小的原因，因为它们的所有外边距都合并到一起，形成了一个小的外边距。</p>
-<p>外边距合并初看上去可能有点奇怪，但是实际上，它是有意义的。以由几个段落组成的典型文本页面为例。第一个段落上面的空间等于段落的上外边距。如果没有外边距合并，后续所有段落之间的外边距都将是相邻上外边距和下外边距的和。这意味着段落之间的空间是页面顶部的两倍。如果发生外边距合并，段落之间的上外边距和下外边距就合并在一起，这样各处的距离就一致了。<br><img src="/images/margin5.gif" alt=""></p>
-<p><strong>只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。</strong></p>
-<p>　　在css2.1中，水平的margin不会被折叠。 </p>
-<p>　　垂直margin可能在一些盒模型中被折叠： </p>
-<pre><code>1、在常规文档流中，2个或以上的块级盒模型相邻的垂直margin会被折叠。 
-</code></pre><p>　　    最终的margin值计算方法如下： </p>
-<pre><code>a、全部都为正值，取最大者；
-
-b、不全是正值，则都取绝对值，然后用正值减去最大值；
-
-c、没有正值，则都取绝对值，然后用0减去最大值。
-</code></pre><p>   　　 注意：相邻的盒模型可能由DOM元素动态产生并没有相邻或继承关系。 </p>
-<pre><code>2、相邻的盒模型中，如果其中的一个是浮动的（floated），
-垂直margin不会被折叠，甚至一个浮动的盒模型和它的子元素之间也是这样。 
-
-3、设置了overflow属性的元素和它的子元素之间的margin不会被折叠
-（overflow取值为visible除外）。 
-
-4、设置了绝对定位（position:absolute）的盒模型，
-垂直margin不会被折叠，甚至和他们的子元素之间也是一样。 
-
-5、设置了display:inline-block的元素，垂直margin不会被折叠，甚至和他们的子元素之间也是一样。 
-
-6、如果一个盒模型的上下margin相邻，这时它的margin可能折叠覆盖
-（collapse through）它。在这种情况下，
-元素的位置（position）取决于它的相邻元素的margin是否被折叠。 
-
-    a、如果元素的margin和它的父元素的margin-top折叠在一起
-    ，盒模型border-top的边界定义和它的父元素相同。
-
-    b、另外，任意元素的父元素不参与margin的折叠，
-    或者说只有父元素的margin-bottom是参与计算的。
-    如果元素的border-top非零，那么元素的border-top边界位置和原来一样。
-</code></pre><p>   　　 一个应用了清除操作的元素的margin-top绝不会和它的块级父元素的margin-bottom折叠。 </p>
-<pre><code>　　注意，那些已经被折叠覆盖的元素的位置对其他已经被折叠的元素的位置没有任何影响；
-只有在对这些元素的子元素定位时，border-top边界位置才是必需的。 
-
-7、根元素的垂直margin不会被折叠。
-</code></pre><p>　　　　浮动的块级元素的margin-bottom总是与它后面的浮动块级兄弟元素（floated next in-flow block-level sibling）的margin-top相邻，除非那个同级元素使用了清除操作。 </p>
-<p>　　浮 动的块级元素的margin-top和它的第一个浮动块级子元素（floated first in-flow block-level child）的margin-top相邻（如果该元素没有border-top，没有padding-top，并且子元素没有使用清除操作）。 </p>
-<p>　　浮动的块级元素的margin-bottom如果符合下列条件，那么它和它的最后一个浮动块级子元素的margin-bottom相邻（如果该元素没有指定padding-bottom或border）： </p>
-<pre><code>　　a、指定了height:auto
-
-　　b、min-height小于元素的实际使用高度（height）
-
-　　c、max-height大于元素的实际使用高度（height）
-</code></pre><p>　　如 果一个元素的min-height属性设置为0，那么它所拥有的margin是相邻的，并且它既没有border-top和border- bottom，也没有padding-top和padding-bottom，它的height属性可以是0或auto，它不能包含一个内联的盒模型 （line box），它所有的浮动子元素（如果有的话）的margin也都是相邻的。 </p>
-<p>　　当一个元素拥有的margin折叠了，并且它使用了清除操作，那么它的margin-top会和紧随其后的兄弟元素的相邻margin折叠，但结果是它的margin将无法和其块级父元素的margin-bottom折叠。 </p>
-<p>　　折叠操作是以padding、margin、border的值为基础的（即在浏览器解析所有这些值之后），折叠后的margin计算将覆盖已使用的不同margin的值。</p>
-<p>如何解决</p>
-<p>　　W3C的CSS2.1 定义了几种情况，简单为元素添加边框或者间距（border or padding)就可以不使边距重叠。</p>
-<p>　　我们 添加一个小的间距:</p>
-<p> 　　#box {background: #F80; margin: 10px; padding: 1px 0;} </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/06/margin-外边距合并/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/06/margin-外边距合并/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/01/30/js代码不起作用/" title="js代码不起作用" itemprop="url">js代码不起作用</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-01-30T10:26:56.000Z" itemprop="datePublished"> 發表於 2016-01-30</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>新人学习js时经常会遇到这样的问题:<br>代码明明正确,就是不起作用,这时你可能需要这样做:</p>
-<p>将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;//你的js代码&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>标签放到html标签最后,由于不同浏览器的优化问题(例如chrome中会最后加载图片)js代码可能仍然不起作用<br>此时你最好添加onload事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">    //你的js代码</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<pre><code>注意:一个js或者html中只能有一个window.onload函数
-</code></pre><p>如果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"tools.js"</span>&gt;//不要放代码 不会起作用&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p> 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/01/30/js代码不起作用/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/01/30/js代码不起作用/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/01/25/=和==与===/" title="=和==与===" itemprop="url">=和==与===</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-01-25T15:38:57.000Z" itemprop="datePublished"> 發表於 2016-01-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u5173_u4E8E_3D"><a href="#u5173_u4E8E_3D" class="headerlink" title="关于="></a>关于=</h2><p>首先一定要区别=与==;=与===有本质的区别<br>    =号是赋值;而==与===都是逻辑判断,在进行逻辑判断时,如if()语句中一定不能使用一个=号.</p>
-<h2 id="u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C"><a href="#u5173_u4E8E_3D_3D_u4E0E_3D_3D_3D_u7684_u5F02_u540C" class="headerlink" title="关于==与===的异同"></a>关于==与===的异同</h2><p>== 不会检查类型, === 会检测比较的两方是否类型相同. 因此, == 比较也是可以的. 但是在JS引擎下它们将转换为相同的类型进行比较.</p>
-<p>=== 比较类型和值.因此,加入两边类型不同,答案永远是false. 例如比较两个字符串,他们必须是同一字符的集合.另外的原始(number,boolean)必须分配同样的值.</p>
-<p>强制规则: 在JS引擎下隐式类型转换使用 == 作比较.强制类型转换使用下面的规则:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a. 如果两个操作对象是同样类型使用 ===</span><br><span class="line">b. undefined == null</span><br><span class="line">c. 如果一个操作对象是字符串,另外一个是数字,将字符串转换为数字.</span><br><span class="line">d. 如果一个是布尔类型,另外一个不是布尔类型,将布尔类型转换为数字,再作比较.</span><br><span class="line">e. 当对象与一个字符串或者数字作比较,试着将对象转换为一个原始类型,在试着比较.</span><br></pre></td></tr></table></figure></p>
-<p>当比较对象时,要小心注意,标识符必须引用同样的对象或者同样的数组.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Javascript</span><br><span class="line">var a = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">var b = &#123;a: <span class="number">1</span>&#125;;</span><br><span class="line">a == b //<span class="literal">false</span></span><br><span class="line">a === b //<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">var c = a;</span><br><span class="line">a == c//<span class="literal">true</span></span><br><span class="line">a === c //<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>注意: NaN,null和undefined永远不=== 其他类型. NaN 甚至不等于(===)它自己.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/01/25/=和==与===/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/01/25/=和==与===/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/01/20/my-new-post/" title="my new post" itemprop="url">my new post</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-01-19T16:53:11.000Z" itemprop="datePublished"> 發表於 2016-01-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="u521D_u59CB"><a href="#u521D_u59CB" class="headerlink" title="初始"></a>初始</h2><p>俗话说师傅领进门,修行靠个人<br>关键是要有人领进门那,有人教实在是太好了,太省心,太省时间了<br>但是不可能总是有人教的,仅仅是自己研究这一个hexo模板也是费了几天,狠狠的伤了伤神,<br>去网上查资料总是在小细节地方有很多坑,再加上某朝的网络环境,真是狠狠的吐了一口老血<br><strong>就以此作为开始吧</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/01/20/my-new-post/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/01/20/my-new-post/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
@@ -812,7 +802,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		  
 		
 		  
-			<li><a href="/categories/web/" title="web">web<sup>3</sup></a></li>
+			<li><a href="/categories/web/" title="web">web<sup>10</sup></a></li>
 		  
 		
 		  
@@ -831,7 +821,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/H5/" style="font-size: 10px;">H5</a> <a href="/tags/css布局/" style="font-size: 15px;">css布局</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12.5px;">事件</a> <a href="/tags/优化/" style="font-size: 12.5px;">优化</a> <a href="/tags/作用域/" style="font-size: 20px;">作用域</a> <a href="/tags/函数/" style="font-size: 12.5px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12.5px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 17.5px;">吐槽</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a>
     </div>
   </div>
 
