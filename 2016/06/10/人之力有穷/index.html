@@ -4,41 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>你所不知道的new Function() | HeartWalker&#39;s Blog</title>
+    <title>人之力有穷 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="所有懂js的都知道创建函数有三种方式:
-函数声明式
-函数表达式
-new Function()构造函数式
-与前两种的广泛被使用相比, 后一种几乎无人使用
-语法var fnName = new Function( param1, param2, ..., paramN, funcBody );
-Function 构造函数所有的参数都是字符串类型的除了最后一个参数, 所有的参数都作为生成函数的参数, 这">
+    <meta name="description" content="想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. 
+我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你所不知道的new Function()">
-<meta property="og:url" content="http://HeartWalker.cc/2016/04/25/你所不知道的newFunction/index.html">
+<meta property="og:title" content="人之力有穷">
+<meta property="og:url" content="http://HeartWalker.cc/2016/06/10/人之力有穷/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="所有懂js的都知道创建函数有三种方式:
-函数声明式
-函数表达式
-new Function()构造函数式
-与前两种的广泛被使用相比, 后一种几乎无人使用
-语法var fnName = new Function( param1, param2, ..., paramN, funcBody );
-Function 构造函数所有的参数都是字符串类型的除了最后一个参数, 所有的参数都作为生成函数的参数, 这">
-<meta property="og:updated_time" content="2016-04-25T09:42:47.533Z">
+<meta property="og:description" content="想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. 
+我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁,">
+<meta property="og:updated_time" content="2016-06-10T03:35:40.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你所不知道的new Function()">
-<meta name="twitter:description" content="所有懂js的都知道创建函数有三种方式:
-函数声明式
-函数表达式
-new Function()构造函数式
-与前两种的广泛被使用相比, 后一种几乎无人使用
-语法var fnName = new Function( param1, param2, ..., paramN, funcBody );
-Function 构造函数所有的参数都是字符串类型的除了最后一个参数, 所有的参数都作为生成函数的参数, 这">
+<meta name="twitter:title" content="人之力有穷">
+<meta name="twitter:description" content="想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. 
+我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁,">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -97,14 +82,14 @@ Function 构造函数所有的参数都是字符串类型的除了最后一个�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/25/你所不知道的newFunction/" title="你所不知道的new Function()" itemprop="url">你所不知道的new Function()</a>
+      <a href="/2016/06/10/人之力有穷/" title="人之力有穷" itemprop="url">人之力有穷</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-25T08:28:42.000Z" itemprop="datePublished"> 發表於 2016-04-25</time>
+    <time datetime="2016-06-10T03:15:02.000Z" itemprop="datePublished"> 發表於 2016-06-10</time>
     
   </p>
 </header>
@@ -113,35 +98,12 @@ Function 构造函数所有的参数都是字符串类型的除了最后一个�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BED_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new_Function_u7684_u7F3A_u70B9"><span class="toc-number">3.</span> <span class="toc-text">new Function的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528new_Function"><span class="toc-number">4.</span> <span class="toc-text">使用new Function</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>所有懂js的都知道创建函数有三种方式:</p>
-<pre><code>函数声明式
-函数表达式
-new Function()构造函数式
-</code></pre><p>与前两种的广泛被使用相比, 后一种几乎无人使用</p>
-<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><pre><code>var fnName = new Function( param1, param2, ..., paramN, funcBody );
-</code></pre><p>Function 构造函数所有的参数都是字符串类型的<br>除了最后一个参数, 所有的参数都作为生成函数的参数, 这里可以没有参数; 最后一个参数也是字符串, 表示的是生成函数的函数体</p>
-<h3 id="u5B9E_u4F8B"><a href="#u5B9E_u4F8B" class="headerlink" title="实例"></a>实例</h3><p>带参数简单求和函数</p>
-<pre><code>var fnSum = new Function( &apos;a&apos;, &apos;b&apos;, &apos;return a + b;&apos; );
-</code></pre><p>不带参数复杂求和</p>
-<p>var fnSum = new Function( ‘var total = 0, args = arguments, len = args.length;for ( var i = 0; i &lt; len; i++ ) {total += args[ i ];}return total;’ );</p>
-<p>注意:   上边这段代码不是我不换行, 而是作为字符串参数它不能换行, 为了解决这段代码晦涩难懂的问题可以用连接字符串的方式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var fnSum = new Function(</span><br><span class="line">    <span class="string">'var total = 0, '</span> +</span><br><span class="line">    <span class="string">'   args = arguments, '</span> + </span><br><span class="line">    <span class="string">'   len = args.length; '</span> +</span><br><span class="line">    <span class="string">'for ( var i = 0; i &lt; len; i++ ) &#123; '</span> +</span><br><span class="line">    <span class="string">'   total += args[ i ]; '</span> +</span><br><span class="line">    <span class="string">'&#125; '</span> +</span><br><span class="line">    <span class="string">'return total; '</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<h3 id="new_Function_u7684_u7F3A_u70B9"><a href="#new_Function_u7684_u7F3A_u70B9" class="headerlink" title="new Function的缺点"></a>new Function的缺点</h3><p>从上边的例子可以明显的看出来它难以理解, 难以维护, 这是它几乎不被使用的主因; 不仅如此, 它还会带来性能方面的问题: 因为这种语法要解析两次代码(第一次解析常规的ECMAScript代码, 第二次解析字符串)</p>
-<h3 id="u4F7F_u7528new_Function"><a href="#u4F7F_u7528new_Function" class="headerlink" title="使用new Function"></a>使用new Function</h3><p>俗话说缺点也是优点, 这种方式只能解析字符串这既是它的缺点也是它的优点<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;script <span class="built_in">type</span> = <span class="string">'text/engin'</span> id=<span class="string">"engin"</span>&gt;</span><br><span class="line">             </span><br><span class="line">                var total = <span class="number">0</span>, </span><br><span class="line">                    args = arguments, </span><br><span class="line">                    len = args.length;</span><br><span class="line">                <span class="keyword">for</span> ( var i = <span class="number">0</span>; i &lt; len; i++ ) &#123;</span><br><span class="line">                    total += args[ i ];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">return</span> total;</span><br><span class="line">            </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">        </span><br><span class="line">            var getBody = <span class="keyword">function</span> ( id ) &#123;</span><br><span class="line">                var script = document.getElementById( id );</span><br><span class="line">                var body = script.innerHTML.trim();</span><br><span class="line">                script.parentNode.removeChild( script );</span><br><span class="line">                <span class="built_in">return</span> body;</span><br><span class="line">            &#125;</span><br><span class="line">        </span><br><span class="line">            onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                var fnSum = new Function( getBody( <span class="string">'engin'</span> ) );</span><br><span class="line">                var res = fnSum( <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> );</span><br><span class="line">                alert( res );</span><br><span class="line">            &#125;;</span><br><span class="line">            </span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>上例也是求和函数, 只不过把函数体字符串放到了模板中<br>如果你使用过 eval 就会发现它们很像是不是<br>我们可以在 ajax 与 跨域 方面使用到 new Function, 虽然它的性能不比eval, 但是安全性要高一些, 至少它们的作用域不一样</p>
-<pre><code>eval( &apos;var a = 10;&apos; );  
-等价与
-直接定义 var a = 10;
-
-(new Function( &apos;var a = 10; alert( 123 );&apos; ))();
-new Fucntion 等价于
-定义一个函数, 在函数内部, 执行
-var a = 10;
-</code></pre><p>还有一个需要注意的地方是: new Function() 创建的函数作用域是全局的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var x = <span class="string">'global'</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span>()&#123;</span><br><span class="line">    var x = <span class="string">'local'</span>;</span><br><span class="line">    var f = new Function(<span class="string">'return x'</span>);</span><br><span class="line">    console.log( f() ); </span><br><span class="line">&#125;</span><br><span class="line">fn();//global</span><br></pre></td></tr></table></figure></p>
-<p>变量x会先在当前函数f作用域内查找, 然后直接去全局环境查找先 x 若找不到就报错而不会在fn内查找</p>
+		<p>想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. </p>
+<p>我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁, 奈何 奈何 奈何</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -149,13 +111,13 @@ var a = 10;
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
+  <a class="article-category-link" href="/categories/生活/">生活</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/函数/">函数</a>
+  <span></span> <a href="/tags/吐槽/">吐槽</a>
   </div>
 
 </div>
@@ -164,7 +126,7 @@ var a = 10;
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/04/25/你所不知道的newFunction/" data-title="你所不知道的new Function() | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/06/10/人之力有穷/" data-title="人之力有穷 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -177,19 +139,11 @@ var a = 10;
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/04/JS严格模式/" title="JS严格模式">
-  <strong>上一篇：</strong><br/>
-  <span>
-  JS严格模式</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/21/js事件委托-代理/"  title="js事件委托/代理">
+<a href="/2016/06/05/HTML5API之indexedDB/"  title="HTML5API之indexedDB">
  <strong>下一篇：</strong><br/> 
- <span>js事件委托/代理
+ <span>HTML5API之indexedDB
 </span>
 </a>
 </div>
@@ -198,7 +152,7 @@ var a = 10;
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/25/你所不知道的newFunction/" data-title="你所不知道的new Function()" data-url="http://HeartWalker.cc/2016/04/25/你所不知道的newFunction/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/10/人之力有穷/" data-title="人之力有穷" data-url="http://HeartWalker.cc/2016/06/10/人之力有穷/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -221,7 +175,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BED_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B9E_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new_Function_u7684_u7F3A_u70B9"><span class="toc-number">3.</span> <span class="toc-text">new Function的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4F7F_u7528new_Function"><span class="toc-number">4.</span> <span class="toc-text">使用new Function</span></a></li></ol>
+ 
  
   </div>
 

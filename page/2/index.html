@@ -80,6 +80,87 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/05/19/HTML5API之全屏/" title="HTML5API之全屏" itemprop="url">HTML5API之全屏</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-19T14:12:55.000Z" itemprop="datePublished"> 發表於 2016-05-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u57FA_u672C_u65B9_u6CD5"><a href="#u57FA_u672C_u65B9_u6CD5" class="headerlink" title="基本方法"></a>基本方法</h3><p>HTML5规范允许用户自定义网页上任一元素全屏显示</p>
+<pre><code>requestFullScreen(); //开启全屏显示
+cancleFullScreen();  //关闭全屏显示
+</code></pre><p>但是由于浏览器的实现与兼容性的问题, 目前需要这样来使用它们</p>
+<pre><code>element.webkitRequestFullScreen()
+element.mozRequestFullScreen()
+</code></pre><p>上述代码会将 element 元素全屏, 即非element元素会被隐藏<br>规范允许所有元素可以取消全屏，但实际测试结果 关闭全屏 只能添加到 document 元素上, 使用其他元素会报错</p>
+<pre><code>document.webkitCancelFullScreen()
+document.mozCancelFullScreen()
+</code></pre><h3 id="u5168_u5C4F_u68C0_u67E5"><a href="#u5168_u5C4F_u68C0_u67E5" class="headerlink" title="全屏检查"></a>全屏检查</h3><p>可以通过下面代码检测当前是否处于全屏状态</p>
+<pre><code>document.fullScreen;
+</code></pre><p>不同浏览器仍然需要添加前缀</p>
+<pre><code>document.webkitIsFullScreen;
+document.mozFullScreen;
+</code></pre><h3 id="u5168_u5C4F_u4F2A_u7C7B"><a href="#u5168_u5C4F_u4F2A_u7C7B" class="headerlink" title="全屏伪类"></a>全屏伪类</h3><p>还有一个全屏伪类, 可以设置全屏状态下的样式</p>
+<pre><code>:full-screen 
+:-webkit-full-screen
+:-moz-full-screen 
+</code></pre><h3 id="u6CE8"><a href="#u6CE8" class="headerlink" title="注"></a>注</h3><p>目前标准写法仍未被实现,使用标准方法会报错(至少在pc端是这样)</p>
+<h3 id="chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A"><a href="#chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A" class="headerlink" title="chrome下测试代码:"></a>chrome下测试代码:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;全屏&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .box &#123;</span><br><span class="line">            width: <span class="number">200</span>px;</span><br><span class="line">            height: <span class="number">200</span>px;</span><br><span class="line">            background: blue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        :-webkit-full-screen .box &#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            width: <span class="number">300</span>px;</span><br><span class="line">            height: <span class="number">300</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        .cl&#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: gold;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=<span class="string">"box"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=<span class="string">"cl"</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> class=<span class="string">'open'</span> value=<span class="string">"全屏"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> class=<span class="string">'cancle'</span> value=<span class="string">"关闭全屏"</span>&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var open = document.querySelector(<span class="string">'.open'</span>);</span><br><span class="line">        var cancle = document.querySelector(<span class="string">'.cancle'</span>);</span><br><span class="line">        var box = document.querySelector(<span class="string">'.box'</span>);</span><br><span class="line"></span><br><span class="line">        open.onclick = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.documentElement.webkitRequestFullScreen();</span><br><span class="line">            // box.webkitRequestFullScreen();</span><br><span class="line">            alert(document.webkitIsFullScreen);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cancle.onclick = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            alert(document.webkitIsFullScreen);</span><br><span class="line">            document.webkitCancelFullScreen();</span><br><span class="line">            // document.documentElement.webkitCancelFullScreen();</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/web/">web</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/H5/">H5</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/05/19/HTML5API之全屏/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/05/19/HTML5API之全屏/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/05/15/css与js如何调错/" title="css与js如何调错" itemprop="url">css与js如何调错</a>
   </h1>
   <p class="article-author">By
@@ -889,93 +970,9 @@ var a = 10;
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/14/js作用域其六-函数的四种调用模式与this/" title="js作用域其六:函数的四种调用模式与this" itemprop="url">js作用域其六:函数的四种调用模式与this</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-14T11:59:42.000Z" itemprop="datePublished"> 發表於 2016-04-14</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="this_u6307_u5411_u8C01"><a href="#this_u6307_u5411_u8C01" class="headerlink" title="this指向谁"></a>this指向谁</h2><p>this是js中一个非常有用的关键字并且方便的关键字, 但同时也会带来一些困惑: this到底指向谁 ? 事实上<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong>  , 除去不常用的with与eval, this的指向取决于函数的四种调用模式</p>
-<h2 id="u51FD_u6570_u7684_u56DB_u79CD_u8C03_u7528_u6A21_u5F0F"><a href="#u51FD_u6570_u7684_u56DB_u79CD_u8C03_u7528_u6A21_u5F0F" class="headerlink" title="函数的四种调用模式"></a>函数的四种调用模式</h2><h3 id="u51FD_u6570_u6A21_u5F0F"><a href="#u51FD_u6570_u6A21_u5F0F" class="headerlink" title="函数模式"></a>函数模式</h3><p>定义一个函数, 如果单独的将其调用, 不将其与任何东西关联, 那么就是函数调用模式. 此时 this 的调用者默认就是全局对象( window )<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">f</span></span>() &#123;</span><br><span class="line">    var num = <span class="number">2</span>;</span><br><span class="line">    console.log(this.num); //输出<span class="number">1</span></span><br><span class="line">    console.log(num)       //输出<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></p>
-<h3 id="u65B9_u6CD5_u6A21_u5F0F"><a href="#u65B9_u6CD5_u6A21_u5F0F" class="headerlink" title="方法模式"></a>方法模式</h3><p>定义一个函数, 如果将函数赋值给一个对象的成员, 那么利用对象调用它就是方法模式. 方法模式 this 就是当前调用方法的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="number">1</span>;</span><br><span class="line">var o = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    f: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.f(); //输出<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>在看一个例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var name=<span class="string">"张三"</span>;</span><br><span class="line">var obj=&#123;</span><br><span class="line">  name:<span class="string">"李四"</span>,</span><br><span class="line">  getName:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getName();               //输出：李四</span><br><span class="line">var getName=obj.getName;</span><br><span class="line">getName();                  //输出：张三</span><br></pre></td></tr></table></figure></p>
-<p>直接调用obj.getName（），这里的this是作为对象的方法调用，所以它指向obj，this.name就是李四；obj.getName赋值给getName后，getName就变成了普通函数，所以指向的是全局的window.name，结果是张三 </p>
-<h3 id="u6784_u9020_u5668_u6A21_u5F0F"><a href="#u6784_u9020_u5668_u6A21_u5F0F" class="headerlink" title="构造器模式"></a>构造器模式</h3><p>定义一个函数, 使用 new 来调用创建对象就是构造器( constructor )模式 . 构造器模式 this 就是 new 出来的新的对象<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">myClass</span></span>()&#123;</span><br><span class="line">  this.name=<span class="string">"张三"</span>;</span><br><span class="line">&#125;</span><br><span class="line">var child=new myClass();</span><br><span class="line">console.log(child.name);    //输出：张三</span><br></pre></td></tr></table></figure></p>
-<p>但是当构造函数中有 return 时, 情况又有些不同:</p>
-<ol>
-<li>如果 return 后面是<strong>基本数据类型</strong>, 忽略, 和没写一样</li>
-<li>如果 return 后面是一个有效的引用类型, 那么无论构造函数中写什么内容, 都返回 return 后面的对象</li>
-</ol>
-<p>例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">myClass</span></span>()&#123;</span><br><span class="line">      this.name=<span class="string">"张三"</span>;</span><br><span class="line">      <span class="built_in">return</span> &#123;</span><br><span class="line">        name: <span class="string">"李四"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    var child=new myClass();</span><br><span class="line">    console.log(child.name);    //输出：李四</span><br></pre></td></tr></table></figure></p>
-<h3 id="u4E0A_u4E0B_u6587_u6A21_u5F0F_28call_u4E0Eapply_29"><a href="#u4E0A_u4E0B_u6587_u6A21_u5F0F_28call_u4E0Eapply_29" class="headerlink" title="上下文模式(call与apply)"></a>上下文模式(call与apply)</h3><p>　　每个函数都包含两个非继承而来的方法：apply()和 call(). 这两个方法的用途都是在特定的作 用域中调用函数，实际上等于设置函数体内 this 对象的值.<br>　　首先，apply()方法接收两个参数：一个 是在其中运行函数的作用域，另一个是参数数组. 其中，第二个参数可以是 Array 的实例，也可以是 arguments 对象<br>　　call()方法与 apply()方法的作用相同，它们的区别仅在于接收参数的方式不同. 对于 call() 方法而言，第一个参数是 this 值没有变化，变化的是其余参数都直接传递给函数</p>
-<p>调用方法:</p>
-<ol>
-<li>函数名.apply(参数1,参数2);</li>
-<li>函数名.call(参数1, 参数2, …,参数n);<br>例:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var name = <span class="string">"张三"</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</span><br><span class="line">            console.log( this.name );</span><br><span class="line">        &#125;</span><br><span class="line">var o = &#123; name: <span class="string">'李四'</span> &#125;;</span><br><span class="line"></span><br><span class="line">foo.apply();               //张三</span><br><span class="line">foo.apply( null );          //张三</span><br><span class="line"></span><br><span class="line">foo.apply( o );            //李四</span><br><span class="line">foo.call( o );              //李四</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="u4E25_u683C_u6A21_u5F0F_u4E0B_u7684this"><a href="#u4E25_u683C_u6A21_u5F0F_u4E0B_u7684this" class="headerlink" title="严格模式下的this"></a>严格模式下的this</h2><p>在严格模式下, 当this值为null或undefined时，不会再将其强制转换为全局对象. 也就是说，this保留了它的原始值，也因此可能会导致一些依赖于强制转换的代码发生错误. 例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　var color = <span class="string">"red"</span>;</span><br><span class="line">　　<span class="keyword">function</span> <span class="function"><span class="title">sayColor</span></span>() &#123;</span><br><span class="line"><span class="string">"use strict"</span>;                 //开启严格模式</span><br><span class="line">　　alert(this.color);           // 严格模式下，this不会指向window</span><br><span class="line">　　&#125;</span><br><span class="line">　　// 以下两种情况，在严格模式下都抛出错误</span><br><span class="line">　　sayColor();</span><br><span class="line">　　sayColor.call(null);</span><br></pre></td></tr></table></figure></p>
-<p>　　根本而言，this值必须赋值，否则将保留undefined值. 这意味着调用构造函数时若漏掉了new关键字也会导致错误：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">function</span> Person(name) &#123;</span><br><span class="line"><span class="string">"use strict"</span>;                      //开启严格模式</span><br><span class="line">　　this.name = name;</span><br><span class="line">　　&#125;</span><br><span class="line">　　var me = Person(<span class="string">"Nicholas"</span>);       // 严格模式下导致错误</span><br></pre></td></tr></table></figure></p>
-<p>　　在这段代码里，调用Person构造函数时缺少了new关键字，此时this值为undefined. 由于你不能给undefined添加属性，这段代码抛出了一个错误. 在非严格模式下，this会强制转换为全局对象，因此name属性能够被正确赋值为全局变量. </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/作用域/">作用域</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/04/14/js作用域其六-函数的四种调用模式与this/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/14/js作用域其六-函数的四种调用模式与this/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -1021,7 +1018,7 @@ var a = 10;
 		  
 		
 		  
-			<li><a href="/categories/生活/" title="生活">生活<sup>6</sup></a></li>
+			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
 		  
 		
 		</ul>
