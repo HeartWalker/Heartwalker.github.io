@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-06-10T03:35:40.678Z</updated>
+  <updated>2016-06-15T22:54:27.482Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gulp参考</title>
+    <link href="http://HeartWalker.cc/2016/06/16/gulp%E5%8F%82%E8%80%83/"/>
+    <id>http://HeartWalker.cc/2016/06/16/gulp参考/</id>
+    <published>2016-06-15T22:22:10.000Z</published>
+    <updated>2016-06-15T22:54:27.482Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;gulp学习与使用参考网址收录&lt;/p&gt;
+&lt;h3 id=&quot;gulp&quot;&gt;&lt;a href=&quot;#gulp&quot; class=&quot;headerlink&quot; title=&quot;gulp&quot;&gt;&lt;/a&gt;gulp&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.gulpjs.com.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中文网&lt;/a&gt;&lt;br&gt;    &lt;a href=&quot;http://gulpjs.com/plugins/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;插件&lt;/a&gt;&lt;br&gt;    &lt;a href=&quot;https://wizardforcel.gitbooks.io/gulp-doc/content/2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gitbook&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;gulp_u6838_u5FC3API&quot;&gt;&lt;a href=&quot;#gulp_u6838_u5FC3API&quot; class=&quot;headerlink&quot; title=&quot;gulp核心API&quot;&gt;&lt;/a&gt;gulp核心API&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.ydcss.com/archives/424&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ydcss.com/archives/424&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.hubwiz.com/class/562089cb1bc20c980538e25b#&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.hubwiz.com/class/562089cb1bc20c980538e25b#&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u5E38_u7528_u63D2_u4EF6_u6536_u96C6&quot;&gt;&lt;a href=&quot;#u5E38_u7528_u63D2_u4EF6_u6536_u96C6&quot; class=&quot;headerlink&quot; title=&quot;常用插件收集&quot;&gt;&lt;/a&gt;常用插件收集&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://markgoodyear.com/2014/01/getting-started-with-gulp/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://markgoodyear.com/2014/01/getting-started-with-gulp/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;删除文件和文件夹&lt;br&gt;&lt;a href=&quot;https://github.com/sindresorhus/del&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;del&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;合并js文件&lt;br&gt;&lt;a href=&quot;https://github.com/contra/gulp-concat&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-concat&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;合并css文件&lt;br&gt;&lt;a href=&quot;https://github.com/mariocasciaro/gulp-concat-css&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-concat-css&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重命名文件&lt;br&gt;&lt;a href=&quot;https://github.com/hparra/gulp-rename&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-rename&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;压缩js&lt;br&gt;    &lt;a href=&quot;https://github.com/terinjokes/gulp-uglify&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-uglify&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;压缩css&lt;br&gt;&lt;a href=&quot;https://github.com/ben-eb/gulp-cssnano&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-cssnano&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;压缩页面&lt;br&gt;&lt;a href=&quot;https://github.com/sanfords/gulp-minify-html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-minify-html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;压缩照片&lt;br&gt;   &lt;a href=&quot;https://github.com/sindresorhus/gulp-imagemin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-imagemin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自动打开浏览器&lt;br&gt;&lt;a href=&quot;https://github.com/stevelacy/gulp-open&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-open&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;依赖自动加载&lt;br&gt;[gulp-load-plugins]&lt;/p&gt;
+&lt;p&gt;自动刷新页面&lt;br&gt;    &lt;a href=&quot;https://github.com/vohof/gulp-livereload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-livereload&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;gulp-useref&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;gulp学习与使用参考网址收录&lt;/p&gt;
+&lt;h3 id=&quot;gulp&quot;&gt;&lt;a href=&quot;#gulp&quot; cl
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+      <category term="gulp" scheme="http://HeartWalker.cc/tags/gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5API之伸缩盒</title>
+    <link href="http://HeartWalker.cc/2016/06/11/HTML5API%E4%B9%8B%E4%BC%B8%E7%BC%A9%E7%9B%92/"/>
+    <id>http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/</id>
+    <published>2016-06-11T06:54:27.000Z</published>
+    <updated>2016-06-11T06:57:05.231Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;br&gt;&lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;&lt;br&gt;    &lt;title&gt;CSS3伸缩布局&lt;/title&gt;&lt;br&gt;    &lt;style&gt;&lt;br&gt;        body {&lt;br&gt;            margin: 0;&lt;br&gt;            padding: 0;&lt;br&gt;            font-family: ‘微软雅黑’;&lt;br&gt;            background-color: #F7F7F7;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        ul {&lt;br&gt;            margin: 0;&lt;br&gt;            padding: 0;&lt;br&gt;            list-style: none;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper {&lt;br&gt;            width: 1024px;&lt;br&gt;            margin: 0 auto;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper &amp;gt; section {&lt;br&gt;            min-height: 300px;&lt;br&gt;            margin-bottom: 30px;&lt;br&gt;            box-shadow: 1px 1px 4px #DDD;&lt;br&gt;            background-color: #FFF;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper &amp;gt; header {&lt;br&gt;            text-align: center;&lt;br&gt;            line-height: 1;&lt;br&gt;            padding: 20px;&lt;br&gt;            margin-bottom: 10px;&lt;br&gt;            font-size: 30px;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper section &amp;gt; header {&lt;br&gt;            line-height: 1;&lt;br&gt;            padding: 10px;&lt;br&gt;            font-size: 22px;&lt;br&gt;            color: #333;&lt;br&gt;            background-color: #EEE;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper .wrap-box {&lt;br&gt;            padding: 20px;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper .brief {&lt;br&gt;            min-height: auto;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper .flex-img {&lt;br&gt;            width: 100%;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        /&lt;em&gt;全局设置&lt;/em&gt;/&lt;br&gt;        section ul {&lt;br&gt;            display: flex;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        section li {&lt;br&gt;            width: 200px;&lt;br&gt;            height: 200px;&lt;br&gt;            text-align: center;&lt;br&gt;            line-height: 200px;&lt;br&gt;            margin: 10px;&lt;br&gt;            background-color: pink;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        section:nth-child(3) ul {&lt;br&gt;            flex-direction: row;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .column ul {&lt;br&gt;            flex-direction: column;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .row-reverse ul {&lt;br&gt;            flex-direction: row-reverse;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .column-reverse ul {&lt;br&gt;            flex-direction: column-reverse;&lt;br&gt;        }&lt;br&gt;    &lt;/style&gt;&lt;br&gt;&lt;/head&gt;&lt;br&gt;&lt;body&gt;&lt;br&gt;    &lt;div class=&quot;wrapper&quot;&gt;&lt;br&gt;        &lt;header&gt;CSS3-伸缩布局详解&lt;/header&gt;&lt;br&gt;        &lt;!-- 简介 --&gt;&lt;br&gt;        &lt;section class=&quot;brief&quot;&gt;&lt;br&gt;            &lt;header&gt;flex-direction&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;调整主轴方向（默认为水平方向）包括row、column、row-reverse、column-reverse&lt;/p&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;!-- 分隔线 --&gt;&lt;br&gt;        &lt;section&gt;&lt;br&gt;            &lt;header&gt;flex-direction&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;调整主轴方向（默认为水平方向）&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;section class=&quot;column&quot;&gt;&lt;br&gt;            &lt;header&gt;column&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;取值为column时，垂直排列&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;section class=&quot;row-reverse&quot;&gt;&lt;br&gt;            &lt;header&gt;row-reverse&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;取值为row-reverse时，水平反向排列&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;section class=&quot;column-reverse&quot;&gt;&lt;br&gt;            &lt;header&gt;column-reverse&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;取值column-reverse时，垂直反向排列&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;    &lt;/div&gt;&lt;br&gt;&lt;/body&gt;&lt;br&gt;&lt;/html&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
+&lt;html lang=&quot;en&quot;&gt;&lt;br&gt;&lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;&lt;br&gt;    &lt;title&gt;CSS3伸缩布局&lt;/title&gt;&lt;br&gt;    &lt;style&gt;&lt;br&gt;     
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>人之力有穷</title>
@@ -796,123 +855,6 @@ new Function()构造函数式
     
     
       <category term="事件" scheme="http://HeartWalker.cc/tags/%E4%BA%8B%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>减少重绘与回流</title>
-    <link href="http://HeartWalker.cc/2016/04/18/%E5%87%8F%E5%B0%91%E9%87%8D%E7%BB%98%E4%B8%8E%E5%9B%9E%E6%B5%81/"/>
-    <id>http://HeartWalker.cc/2016/04/18/减少重绘与回流/</id>
-    <published>2016-04-18T05:46:22.000Z</published>
-    <updated>2016-04-19T05:05:32.632Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u9875_u9762_u5448_u73B0_u6D41_u7A0B&quot;&gt;&lt;a href=&quot;#u9875_u9762_u5448_u73B0_u6D41_u7A0B&quot; class=&quot;headerlink&quot; title=&quot;页面呈现流程&quot;&gt;&lt;/a&gt;页面呈现流程&lt;/h3&gt;&lt;p&gt;在讨论页面重绘、回流之前。需要对页面的呈现流程有些了解，页面是怎么把html结合css等显示到浏览器上的，下面的流程图显示了浏览器对页面的呈现的处理流程。可能不同的浏览器略微会有些不同。但基本上都是类似的。&lt;br&gt;&lt;img src=&quot;/images/redraw.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;浏览器把获取到的html代码解析成1个Dom树，html中的每个tag都是Dom树中的1个节点，根节点就是我们常用的document对象(&lt;html&gt; tag)。dom树就是我们用firebug或者IE Developer Toolbar等工具看到的html结构，里面包含了所有的html tag，包括display:none隐藏，还有用JS动态添加的元素等。     &lt;/html&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;浏览器把所有样式(主要包括css和浏览器的样式设置)解析成样式结构体，在解析的过程中会去掉浏览器不能识别的样式，比如IE会去掉-moz开头的样式，而firefox会去掉_开头的样式。     &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;dom tree和样式结构体结合后构建呈现树(render tree),render tree有点类似于dom tree，但其实区别有很大，render tree能识别样式，render tree中每个node都有自己的style，而且render tree不包含隐藏的节点(比如display:none的节点，还有head节点)，因为这些节点不会用于呈现，而且不会影响呈现的，所以就不会包含到render tree中。注意 visibility:hidden隐藏的元素还是会包含到render tree中的，因为visibility:hidden 会影响布局(layout)，会占有空间。根据css2的标准，render tree中的每个节点都称为box(Box dimensions)，box所有属性：width,height,margin,padding,left,top,border等。     &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一旦render tree构建完毕后，浏览器就可以根据render tree来绘制页面了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u56DE_u6D41_u4E0E_u91CD_u7ED8&quot;&gt;&lt;a href=&quot;#u56DE_u6D41_u4E0E_u91CD_u7ED8&quot; class=&quot;headerlink&quot; title=&quot;回流与重绘&quot;&gt;&lt;/a&gt;回流与重绘&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(其实我觉得叫重新布局更简单明了些)。每个页面至少需要一次回流，就是在页面第一次加载的时候。    &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘。&lt;/p&gt;
-&lt;p&gt;注：从上面可以看出，回流必将引起重绘，而重绘不一定会引起回流。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u4EC0_u4E48_u64CD_u4F5C_u4F1A_u5F15_u8D77_u91CD_u7ED8_u3001_u56DE_u6D41&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u64CD_u4F5C_u4F1A_u5F15_u8D77_u91CD_u7ED8_u3001_u56DE_u6D41&quot; class=&quot;headerlink&quot; title=&quot;什么操作会引起重绘、回流&quot;&gt;&lt;/a&gt;什么操作会引起重绘、回流&lt;/h3&gt;&lt;p&gt;其实任何对render tree中元素的操作都会引起回流或者重绘，比如：    &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;添加、删除元素(回流+重绘)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;隐藏元素，display:none(回流+重绘)，visibility:hidden(只重绘，不回流)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;移动元素，比如改变top,left(jquery的animate方法就是,改变top,left不一定会影响回流)，或者移动元素到另外1个父元素中。(重绘+回流)    &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;对style的操作(对不同的属性操作，影响不一样)    &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;还有一种是用户的操作，比如改变浏览器大小，改变浏览器的字体大小等(回流+重绘)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;让我们看看下面的代码是如何影响回流和重绘的:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var s = document.body.style; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.padding = &lt;span class=&quot;string&quot;&gt;&quot;2px&quot;&lt;/span&gt;; // 回流+重绘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.border = &lt;span class=&quot;string&quot;&gt;&quot;1px solid red&quot;&lt;/span&gt;; // 再一次 回流+重绘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.color = &lt;span class=&quot;string&quot;&gt;&quot;blue&quot;&lt;/span&gt;; // 再一次重绘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.backgroundColor = &lt;span class=&quot;string&quot;&gt;&quot;#ccc&quot;&lt;/span&gt;; // 再一次 重绘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s.fontSize = &lt;span class=&quot;string&quot;&gt;&quot;14px&quot;&lt;/span&gt;; // 再一次 回流+重绘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 添加node，再一次 回流+重绘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;document.body.appendChild(document.createTextNode(&lt;span class=&quot;string&quot;&gt;&#39;abc!&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;   请注意我上面用了多少个再一次。&lt;/p&gt;
-&lt;p&gt;   说到这里大家都知道回流比重绘的代价要更高，回流的花销跟render tree有多少节点需要重新构建有关系，假设你直接操作body，比如在body最前面插入1个元素，会导致整个render tree回流，这样代价当然会比较高，但如果是指body后面插入1个元素，则不会影响前面元素的回流。&lt;/p&gt;
-&lt;h3 id=&quot;u806A_u660E_u7684_u6D4F_u89C8_u5668&quot;&gt;&lt;a href=&quot;#u806A_u660E_u7684_u6D4F_u89C8_u5668&quot; class=&quot;headerlink&quot; title=&quot;聪明的浏览器&quot;&gt;&lt;/a&gt;聪明的浏览器&lt;/h3&gt;&lt;p&gt;从上个实例代码中可以看到几行简单的JS代码就引起了6次左右的回流、重绘。而且我们也知道回流的花销也不小，如果每句JS操作都去回流重绘的话，浏览器可能就会受不了。所以很多浏览器都会优化这些操作，浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会把flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。&lt;/p&gt;
-&lt;p&gt;虽然有了浏览器的优化，但有时候我们写的一些代码可能会强制浏览器提前flush队列，这样浏览器的优化可能就起不到作用了。当你请求向浏览器请求一些style信息的时候，就会让浏览器flush队列，比如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. offsetTop, offsetLeft, offsetWidth, offsetHeight
-2. scrollTop/Left/Width/Height
-3. clientTop/Left/Width/Height
-4. width,height
-5. 请求了getComputedStyle(), 或者 ie的 currentStyle
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;当你请求上面的一些属性的时候，浏览器为了给你最精确的值，需要flush队列，因为队列中可能会有影响到这些值的操作。  &lt;/p&gt;
-&lt;h3 id=&quot;u5982_u4F55_u51CF_u5C11_u56DE_u6D41_u3001_u91CD_u7ED8&quot;&gt;&lt;a href=&quot;#u5982_u4F55_u51CF_u5C11_u56DE_u6D41_u3001_u91CD_u7ED8&quot; class=&quot;headerlink&quot; title=&quot;如何减少回流、重绘&quot;&gt;&lt;/a&gt;如何减少回流、重绘&lt;/h3&gt;&lt;p&gt;减少回流、重绘其实就是需要减少对render tree的操作，并减少对一些style信息的请求，尽量利用好浏览器的优化策略。具体方法有：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;不要1个1个改变元素的样式属性，最好直接改变className，但className是预先定义好的样式，不是动态的，如果你要动态改变一些样式，则使用cssText来改变，见下面代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// 不好的写法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var left = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var top = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;el.style.left = left + &lt;span class=&quot;string&quot;&gt;&quot;px&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;el.style.top  = top  + &lt;span class=&quot;string&quot;&gt;&quot;px&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 比较好的写法 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;el.className += &lt;span class=&quot;string&quot;&gt;&quot; className1&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 比较好的写法 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;el.style.cssText += &lt;span class=&quot;string&quot;&gt;&quot;; left: &quot;&lt;/span&gt; + left + &lt;span class=&quot;string&quot;&gt;&quot;px; top: &quot;&lt;/span&gt; + top + &lt;span class=&quot;string&quot;&gt;&quot;px;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;让要操作的元素进行”离线处理”，处理完后一起更新，这里所谓的”离线处理”即让元素不存在于render tree中，比如：&lt;/p&gt;
-&lt;p&gt; a) 使用documentFragment或div等元素进行缓存操作，这个主要用于添加元素的时候，大家应该都用过，就是先把所有要添加到元素添加到1个div(这个div也是新加的)，最后才把这个div append到body中。&lt;/p&gt;
-&lt;p&gt; b) 先display:none 隐藏元素，然后对该元素进行所有的操作，最后再显示该元素。因对display:none的元素进行操作不会引起回流、重绘。所以只要操作只会有2次回流。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;不要经常访问会引起浏览器flush队列的属性，如果你确实要访问，就先读取到变量中进行缓存，以后用的时候直接读取变量就可以了，见下面代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;// 别这样写&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(循环) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    el.style.left = el.offsetLeft + &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&quot;px&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    el.style.top  = el.offsetTop  + &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&quot;px&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;// 这样写好点&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var left = el.offsetLeft,top  = el.offsetTop,s = el.style;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(循环) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    left += &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    top  += &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    s.left = left + &lt;span class=&quot;string&quot;&gt;&quot;px&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    s.top  = top  + &lt;span class=&quot;string&quot;&gt;&quot;px&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;考虑你的操作会影响到render tree中的多少节点以及影响的方式，影响越多，花费肯定就越多。比如现在很多人使用jquery的animate方法移动元素来展示一些动画效果，想想下面2种移动的方法：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;#block1&quot;&lt;/span&gt;).animate(&amp;#123;left:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; block1是position:absolute 定位的元素，它移动会影响到它父元素下的所有子元素。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 因为在它移动过程中，所有子元素需要判断block1的z-index是否在自己的上面，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 如果是在自己的上面,则需要重绘,这里不会引起回流&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;#block2&quot;&lt;/span&gt;).animate(&amp;#123;marginLeft:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; block2是相对定位的元素,这个影响的元素与block1一样，但是因为block2非绝对定位&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 而且改变的是marginLeft属性，所以这里每次改变不但会影响重绘，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 还会引起父元素及其下元素的回流&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u5B9E_u4F8B_u6D4B_u8BD5&quot;&gt;&lt;a href=&quot;#u5B9E_u4F8B_u6D4B_u8BD5&quot; class=&quot;headerlink&quot; title=&quot;实例测试&quot;&gt;&lt;/a&gt;实例测试&lt;/h3&gt;&lt;p&gt; 在页面中添加 1000 个div&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;将div缓存到documentFragment&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;1 = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var start = +new Date(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            i, end, node, docfrag;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        docfrag = document.createDocumentFragment();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; ( i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; count; i++ ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            node = document.createElement( &lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt; );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            docfrag.appendChild( node );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        document.body.appendChild( docfrag );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        end = +new Date();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log( &lt;span class=&quot;string&quot;&gt;&#39;test1 = &#39;&lt;/span&gt; + ( end - start ) );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;1();        //输出 &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;逐次在页面创建div&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;2 = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var start = +new Date(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            i, end, s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        s = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; ( i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; count; i++ ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            // s += &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            document.body.innerHTML += &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        document.body.innerHTML = s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        end = +new Date();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log( &lt;span class=&quot;string&quot;&gt;&#39;test2 = &#39;&lt;/span&gt; + ( end - start ) );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;2();        //输出&lt;span class=&quot;number&quot;&gt;670&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;可见test1渲染完成只需要5秒左右, test2渲染完成需要670左右, 创建的元素数量越多, 二者差距越大, 完全不在一个数量级上&lt;/p&gt;
-&lt;h3 id=&quot;u603B_u7ED3&quot;&gt;&lt;a href=&quot;#u603B_u7ED3&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;尽量少次数的操作节点结构与样式&lt;br&gt;合理的使用缓存和display:none&lt;br&gt;尽量不要操作较高层级的节点的结构与样式&lt;/p&gt;
-&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.blogjava.net/BearRui/archive/2010/05/10/320502.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;高性能WEB开发(8) - 页面呈现、重绘、回流&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u9875_u9762_u5448_u73B0_u6D41_u7A0B&quot;&gt;&lt;a href=&quot;#u9875_u9762_u5448_u73B0_u6D41_u7A0B&quot; class=&quot;headerlink&quot; title=&quot;页面呈现流程&quot;&gt;&lt;/a&gt;页面呈现流程&lt;/h3
-    
-    </summary>
-    
-      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
-    
-    
-      <category term="优化" scheme="http://HeartWalker.cc/tags/%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github静态博客搭建参考网址:基于hexo的janman主题</title>
-    <link href="http://HeartWalker.cc/2016/04/14/github%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%8F%82%E8%80%83%E7%BD%91%E5%9D%80-%E5%9F%BA%E4%BA%8Ehexo%E7%9A%84janman%E4%B8%BB%E9%A2%98/"/>
-    <id>http://HeartWalker.cc/2016/04/14/github静态博客搭建参考网址-基于hexo的janman主题/</id>
-    <published>2016-04-14T12:33:10.000Z</published>
-    <updated>2016-04-14T13:51:34.944Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;前三个网站若打不开, 可略过, 或自行找梯子&lt;/p&gt;
-&lt;h3 id=&quot;Hexo_u642D_u5EFA&quot;&gt;&lt;a href=&quot;#Hexo_u642D_u5EFA&quot; class=&quot;headerlink&quot; title=&quot;Hexo搭建&quot;&gt;&lt;/a&gt;Hexo搭建&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo官网&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://wuchong.me/blog/2014/11/20/how-to-use-jacman/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何使用 Jacman 主题&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/wuchong/jacman&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jacman主题github地址&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tengj.top/categories/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;强烈推荐嘟嘟博客hexo系列&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/poem_of_sunshine/article/details/29369785/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;简明Github Pages与Hexo教程 &lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/a2023a601ceb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo–搭建&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;swiftype站内搜索&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo常见问题解决方案&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Markdown&quot;&gt;&lt;a href=&quot;#Markdown&quot; class=&quot;headerlink&quot; title=&quot;Markdown&quot;&gt;&lt;/a&gt;Markdown&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/#list&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown 语法说明 (简体中文版)&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://sspai.com/25137&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;认识与入门 Markdown&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://mahua.jser.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MaHua 在线markdown编辑器&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;前三个网站若打不开, 可略过, 或自行找梯子&lt;/p&gt;
-&lt;h3 id=&quot;Hexo_u642D_u5EFA&quot;
-    
-    </summary>
-    
-      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
-    
     
   </entry>
   

@@ -4,29 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js作用域其四:闭包 | HeartWalker&#39;s Blog</title>
+    <title>HTML5API之伸缩盒 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="什么是闭包闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问
-为什么要用闭包闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.
-闭包怎么用创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:1234567891011121314">
+    <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
+        CSS3伸缩布局            body {            margin: 0;            padding: 0;            font-family: ‘微软雅黑’;            background-color: #F7F7F7;        }        ul {">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js作用域其四:闭包">
-<meta property="og:url" content="http://HeartWalker.cc/2016/04/06/js作用域其四-闭包/index.html">
+<meta property="og:title" content="HTML5API之伸缩盒">
+<meta property="og:url" content="http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="什么是闭包闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问
-为什么要用闭包闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.
-闭包怎么用创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:1234567891011121314">
-<meta property="og:updated_time" content="2016-04-09T13:44:52.466Z">
+<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+        CSS3伸缩布局            body {            margin: 0;            padding: 0;            font-family: ‘微软雅黑’;            background-color: #F7F7F7;        }        ul {">
+<meta property="og:updated_time" content="2016-06-11T06:57:05.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js作用域其四:闭包">
-<meta name="twitter:description" content="什么是闭包闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问
-为什么要用闭包闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.
-闭包怎么用创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:1234567891011121314">
+<meta name="twitter:title" content="HTML5API之伸缩盒">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+        CSS3伸缩布局            body {            margin: 0;            padding: 0;            font-family: ‘微软雅黑’;            background-color: #F7F7F7;        }        ul {">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -85,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/06/js作用域其四-闭包/" title="js作用域其四:闭包" itemprop="url">js作用域其四:闭包</a>
+      <a href="/2016/06/11/HTML5API之伸缩盒/" title="HTML5API之伸缩盒" itemprop="url">HTML5API之伸缩盒</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-05T17:37:41.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
+    <time datetime="2016-06-11T06:54:27.000Z" itemprop="datePublished"> 發表於 2016-06-11</time>
     
   </p>
 </header>
@@ -101,41 +98,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u95ED_u5305"><span class="toc-number">1.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305"><span class="toc-number">2.</span> <span class="toc-text">为什么要用闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u95ED_u5305_u600E_u4E48_u7528"><span class="toc-number">3.</span> <span class="toc-text">闭包怎么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A"><span class="toc-number">4.</span> <span class="toc-text">闭包的优缺点 ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u95ED_u5305_u4E0E_u53D8_u91CF"><span class="toc-number">5.</span> <span class="toc-text">闭包与变量</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="u4EC0_u4E48_u662F_u95ED_u5305"><a href="#u4EC0_u4E48_u662F_u95ED_u5305" class="headerlink" title="什么是闭包"></a>什么是闭包</h3><p>闭包就是受保护的变量空间, 在JavaScript中就是将变量包裹在函数中, 禁止外部访问</p>
-<h3 id="u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305"><a href="#u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305" class="headerlink" title="为什么要用闭包"></a>为什么要用闭包</h3><p>闭包的主要应用就是特权方法，特权方法能够让外界对函数内部的私有变量进行受限制的访问.这一特性在某些项目的开发中会非常常见.</p>
-<h3 id="u95ED_u5305_u600E_u4E48_u7528"><a href="#u95ED_u5305_u600E_u4E48_u7528" class="headerlink" title="闭包怎么用"></a>闭包怎么用</h3><p>创建闭包的常见方式，就是在一个函数内部创建另一个函数，然后通过 return 将需要访问的私有变量返回出来 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fo</span></span> ()&#123;</span><br><span class="line">    var num = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">        <span class="built_in">set</span>: <span class="keyword">function</span> (n)&#123;</span><br><span class="line">            num = n;</span><br><span class="line">        &#125;,</span><br><span class="line">        get: <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">            <span class="built_in">return</span> num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var f = fo();</span><br><span class="line">f.set(<span class="number">1</span>);</span><br><span class="line">var m = f.get();</span><br><span class="line">console.log(m);  //<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<p>在全局环境中只能使用特权方法 set 与 get 设置与得到函数中的 num 值</p>
-<h3 id="u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A"><a href="#u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A" class="headerlink" title="闭包的优缺点 ："></a>闭包的优缺点 ：</h3><p>优点：不产生全局变量，实现属性私有化.<br>缺点：闭包中的数据会常驻内存，在不用的时候要手动删除，否则可能会导致内存溢出.<br>例如在上边代码中, f始终包含fo 中匿名函数的引用 , 导致匿名函数的作用域始终存在.  更好的做法是在函数调用完成之后解除对匿名函数的引用,  例如在上边的代码中最后加上</p>
-<pre><code>f = null;
-</code></pre><h3 id="u95ED_u5305_u4E0E_u53D8_u91CF"><a href="#u95ED_u5305_u4E0E_u53D8_u91CF" class="headerlink" title="闭包与变量"></a>闭包与变量</h3><p>由于作用域链的配置机制引出了一个值得注意的副作用，即闭包只能取得包含函数中任何变量的 后一个值. 别忘了闭包所保存的是整个变量对象，而不是某个特殊的变量下面这个例子可以清晰地说明这个问题:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var arr =   [   &#123;   name:   <span class="string">'jim'</span>   &#125;,</span><br><span class="line">            &#123;   name:   <span class="string">'tom'</span>   &#125;,                                              </span><br><span class="line">            &#123;   name:   <span class="string">'jack'</span>  &#125;,                                              </span><br><span class="line">            &#123;   name:   <span class="string">'clark'</span> &#125;  </span><br><span class="line">         ]; </span><br><span class="line">    //赋值循环</span><br><span class="line">    <span class="keyword">for</span>  (var i = <span class="number">0</span>;  i &lt; arr.length; i++ ) &#123;               </span><br><span class="line">    arr[i].sayHellow  =   <span class="function"><span class="title">function</span></span> ()  &#123;                               </span><br><span class="line">    console.log( arr[ i ].name  );              </span><br><span class="line">    &#125;; &#125;</span><br><span class="line">    //输出循环</span><br><span class="line">    <span class="keyword">for</span> ( var k  <span class="keyword">in</span>  arr )   &#123;               </span><br><span class="line">        arr[ k ].sayHellow(); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p> 表面上看，赋值循环给数组arr的每一项添加了一个sayHellow方法, 该方法能输出数组中每一项的name属性 ,然而实际上这段代码会报错</p>
-<pre><code>Uncaught TypeError: Cannot read property &apos;name&apos; of undefined(…)
-</code></pre><p>在赋值循环给数组 arr 中的每一项添加属性时实际上是赋值的函数体, 匿名函数并没有执行; 当输出循环时才执行匿名函数, 因为匿名函数内并没有 i, 所以会向作用域链的下一级查找, 在这段代码中就是全局环境, 全局环境中的 i 执行完赋值循环后的值是 4, 所以数组arr中每一项的 sayHellow方法都是</p>
-<pre><code>function (){
-    console.log(arr[4].name);
-}
-</code></pre><p>很明显数组并没有arr[4]存在, 所以报错</p>
-<p>解决这个问题最简单的方法是用 this<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var arr =   [   &#123;   name:   <span class="string">'jim'</span>   &#125;,</span><br><span class="line">               &#123;   name:   <span class="string">'tom'</span>   &#125;,                                              </span><br><span class="line">               &#123;   name:   <span class="string">'jack'</span>  &#125;,                                              </span><br><span class="line">               &#123;   name:   <span class="string">'clark'</span> &#125;  </span><br><span class="line">            ]; </span><br><span class="line">       //赋值循环</span><br><span class="line">       <span class="keyword">for</span>  (var i = <span class="number">0</span>;  i &lt; arr.length; i++ ) &#123;               </span><br><span class="line">       arr[i].sayHellow  =   <span class="function"><span class="title">function</span></span> ()  &#123;                               </span><br><span class="line">       console.log( this.name  );              </span><br><span class="line">       &#125;; &#125;</span><br><span class="line">       //输出循环</span><br><span class="line">       <span class="keyword">for</span> ( var k  <span class="keyword">in</span>  arr )   &#123;               </span><br><span class="line">           arr[ k ].sayHellow(); </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
-<p>关于this将在后面详解</p>
-  
+		<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en"><br><head><br>    <meta charset="UTF-8"><br>    <title>CSS3伸缩布局</title><br>    <style><br>        body {<br>            margin: 0;<br>            padding: 0;<br>            font-family: ‘微软雅黑’;<br>            background-color: #F7F7F7;<br>        }<br><br>        ul {<br>            margin: 0;<br>            padding: 0;<br>            list-style: none;<br>        }<br><br>        .wrapper {<br>            width: 1024px;<br>            margin: 0 auto;<br>        }<br><br>        .wrapper &gt; section {<br>            min-height: 300px;<br>            margin-bottom: 30px;<br>            box-shadow: 1px 1px 4px #DDD;<br>            background-color: #FFF;<br>        }<br><br>        .wrapper &gt; header {<br>            text-align: center;<br>            line-height: 1;<br>            padding: 20px;<br>            margin-bottom: 10px;<br>            font-size: 30px;<br>        }<br><br>        .wrapper section &gt; header {<br>            line-height: 1;<br>            padding: 10px;<br>            font-size: 22px;<br>            color: #333;<br>            background-color: #EEE;<br>        }<br><br>        .wrapper .wrap-box {<br>            padding: 20px;<br>        }<br><br>        .wrapper .brief {<br>            min-height: auto;<br>        }<br><br>        .wrapper .flex-img {<br>            width: 100%;<br>        }<br><br>        /<em>全局设置</em>/<br>        section ul {<br>            display: flex;<br>        }<br><br>        section li {<br>            width: 200px;<br>            height: 200px;<br>            text-align: center;<br>            line-height: 200px;<br>            margin: 10px;<br>            background-color: pink;<br>        }<br><br>        section:nth-child(3) ul {<br>            flex-direction: row;<br>        }<br><br>        .column ul {<br>            flex-direction: column;<br>        }<br><br>        .row-reverse ul {<br>            flex-direction: row-reverse;<br>        }<br><br>        .column-reverse ul {<br>            flex-direction: column-reverse;<br>        }<br>    </style><br></head><br><body><br>    <div class="wrapper"><br>        <header>CSS3-伸缩布局详解</header><br>        <!-- 简介 --><br>        <section class="brief"><br>            <header>flex-direction</header><br>            <div class="wrap-box"><br>                <p>调整主轴方向（默认为水平方向）包括row、column、row-reverse、column-reverse</p><br>            </div><br>        </section><br><br>        <!-- 分隔线 --><br>        <section><br>            <header>flex-direction</header><br>            <div class="wrap-box"><br>                <p>调整主轴方向（默认为水平方向）</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br><br>        <section class="column"><br>            <header>column</header><br>            <div class="wrap-box"><br>                <p>取值为column时，垂直排列</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br><br>        <section class="row-reverse"><br>            <header>row-reverse</header><br>            <div class="wrap-box"><br>                <p>取值为row-reverse时，水平反向排列</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br><br>        <section class="column-reverse"><br>            <header>column-reverse</header><br>            <div class="wrap-box"><br>                <p>取值column-reverse时，垂直反向排列</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br>    </div><br></body><br></html>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/作用域/">作用域</a>
-  </div>
 
 </div>
 
@@ -143,7 +115,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/04/06/js作用域其四-闭包/" data-title="js作用域其四:闭包 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/" data-title="HTML5API之伸缩盒 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -157,18 +129,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/04/06/前端优化/" title="前端优化(持续更新中)">
+ <a href="/2016/06/16/gulp参考/" title="gulp参考">
   <strong>上一篇：</strong><br/>
   <span>
-  前端优化(持续更新中)</span>
+  gulp参考</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/04/05/js作用域其三-作用域链/"  title="js作用域其三:作用域链">
+<a href="/2016/06/10/人之力有穷/"  title="人之力有穷">
  <strong>下一篇：</strong><br/> 
- <span>js作用域其三:作用域链
+ <span>人之力有穷
 </span>
 </a>
 </div>
@@ -177,7 +149,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/06/js作用域其四-闭包/" data-title="js作用域其四:闭包" data-url="http://HeartWalker.cc/2016/04/06/js作用域其四-闭包/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/11/HTML5API之伸缩盒/" data-title="HTML5API之伸缩盒" data-url="http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -200,7 +172,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u95ED_u5305"><span class="toc-number">1.</span> <span class="toc-text">什么是闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48_u8981_u7528_u95ED_u5305"><span class="toc-number">2.</span> <span class="toc-text">为什么要用闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u95ED_u5305_u600E_u4E48_u7528"><span class="toc-number">3.</span> <span class="toc-text">闭包怎么用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u95ED_u5305_u7684_u4F18_u7F3A_u70B9__uFF1A"><span class="toc-number">4.</span> <span class="toc-text">闭包的优缺点 ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u95ED_u5305_u4E0E_u53D8_u91CF"><span class="toc-number">5.</span> <span class="toc-text">闭包与变量</span></a></li></ol>
+ 
  
   </div>
 
