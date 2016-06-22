@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>HTML5API之伸缩盒 | HeartWalker&#39;s Blog</title>
+    <title>JS设计模式之策略模式 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
-        CSS3伸缩布局            body {            margin: 0;            padding: 0;            font-family: ‘微软雅黑’;            background-color: #F7F7F7;        }        ul {">
+    <meta name="description" content="前端与移动开发,HeartWalker,JavaScript,HeartWalker&apos;s Blog,心行的博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5API之伸缩盒">
-<meta property="og:url" content="http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/index.html">
+<meta property="og:title" content="JS设计模式之策略模式">
+<meta property="og:url" content="http://HeartWalker.cc/2016/06/22/JS设计模式之策略模式/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
-        CSS3伸缩布局            body {            margin: 0;            padding: 0;            font-family: ‘微软雅黑’;            background-color: #F7F7F7;        }        ul {">
-<meta property="og:updated_time" content="2016-06-11T06:57:05.231Z">
+<meta property="og:description" content="前端与移动开发,HeartWalker,JavaScript,HeartWalker&apos;s Blog,心行的博客">
+<meta property="og:updated_time" content="2016-06-21T23:38:36.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5API之伸缩盒">
-<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
-        CSS3伸缩布局            body {            margin: 0;            padding: 0;            font-family: ‘微软雅黑’;            background-color: #F7F7F7;        }        ul {">
+<meta name="twitter:title" content="JS设计模式之策略模式">
+<meta name="twitter:description" content="前端与移动开发,HeartWalker,JavaScript,HeartWalker&apos;s Blog,心行的博客">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -82,14 +79,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/11/HTML5API之伸缩盒/" title="HTML5API之伸缩盒" itemprop="url">HTML5API之伸缩盒</a>
+      <a href="/2016/06/22/JS设计模式之策略模式/" title="JS设计模式之策略模式" itemprop="url">JS设计模式之策略模式</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-11T06:54:27.000Z" itemprop="datePublished"> 發表於 2016-06-11</time>
+    <time datetime="2016-06-21T23:38:36.000Z" itemprop="datePublished"> 發表於 2016-06-22</time>
     
   </p>
 </header>
@@ -102,8 +99,7 @@
 		
 		</div>
 		
-		<p>&lt;!DOCTYPE html&gt;</p>
-<html lang="en"><br><head><br>    <meta charset="UTF-8"><br>    <title>CSS3伸缩布局</title><br>    <style><br>        body {<br>            margin: 0;<br>            padding: 0;<br>            font-family: ‘微软雅黑’;<br>            background-color: #F7F7F7;<br>        }<br><br>        ul {<br>            margin: 0;<br>            padding: 0;<br>            list-style: none;<br>        }<br><br>        .wrapper {<br>            width: 1024px;<br>            margin: 0 auto;<br>        }<br><br>        .wrapper &gt; section {<br>            min-height: 300px;<br>            margin-bottom: 30px;<br>            box-shadow: 1px 1px 4px #DDD;<br>            background-color: #FFF;<br>        }<br><br>        .wrapper &gt; header {<br>            text-align: center;<br>            line-height: 1;<br>            padding: 20px;<br>            margin-bottom: 10px;<br>            font-size: 30px;<br>        }<br><br>        .wrapper section &gt; header {<br>            line-height: 1;<br>            padding: 10px;<br>            font-size: 22px;<br>            color: #333;<br>            background-color: #EEE;<br>        }<br><br>        .wrapper .wrap-box {<br>            padding: 20px;<br>        }<br><br>        .wrapper .brief {<br>            min-height: auto;<br>        }<br><br>        .wrapper .flex-img {<br>            width: 100%;<br>        }<br><br>        /<em>全局设置</em>/<br>        section ul {<br>            display: flex;<br>        }<br><br>        section li {<br>            width: 200px;<br>            height: 200px;<br>            text-align: center;<br>            line-height: 200px;<br>            margin: 10px;<br>            background-color: pink;<br>        }<br><br>        section:nth-child(3) ul {<br>            flex-direction: row;<br>        }<br><br>        .column ul {<br>            flex-direction: column;<br>        }<br><br>        .row-reverse ul {<br>            flex-direction: row-reverse;<br>        }<br><br>        .column-reverse ul {<br>            flex-direction: column-reverse;<br>        }<br>    </style><br></head><br><body><br>    <div class="wrapper"><br>        <header>CSS3-伸缩布局详解</header><br>        <!-- 简介 --><br>        <section class="brief"><br>            <header>flex-direction</header><br>            <div class="wrap-box"><br>                <p>调整主轴方向（默认为水平方向）包括row、column、row-reverse、column-reverse</p><br>            </div><br>        </section><br><br>        <!-- 分隔线 --><br>        <section><br>            <header>flex-direction</header><br>            <div class="wrap-box"><br>                <p>调整主轴方向（默认为水平方向）</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br><br>        <section class="column"><br>            <header>column</header><br>            <div class="wrap-box"><br>                <p>取值为column时，垂直排列</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br><br>        <section class="row-reverse"><br>            <header>row-reverse</header><br>            <div class="wrap-box"><br>                <p>取值为row-reverse时，水平反向排列</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br><br>        <section class="column-reverse"><br>            <header>column-reverse</header><br>            <div class="wrap-box"><br>                <p>取值column-reverse时，垂直反向排列</p><br>                <ul><br>                    <li>1</li><br>                    <li>2</li><br>                    <li>3</li><br>                </ul><br>            </div><br>        </section><br>    </div><br></body><br></html>  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -115,7 +111,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/" data-title="HTML5API之伸缩盒 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/06/22/JS设计模式之策略模式/" data-title="JS设计模式之策略模式 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -128,19 +124,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/06/16/gulp参考/" title="gulp参考">
-  <strong>上一篇：</strong><br/>
-  <span>
-  gulp参考</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/06/10/人之力有穷/"  title="人之力有穷">
+<a href="/2016/06/22/前端学习之好书推荐/"  title="前端学习之好书推荐">
  <strong>下一篇：</strong><br/> 
- <span>人之力有穷
+ <span>前端学习之好书推荐
 </span>
 </a>
 </div>
@@ -149,7 +137,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/06/11/HTML5API之伸缩盒/" data-title="HTML5API之伸缩盒" data-url="http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/22/JS设计模式之策略模式/" data-title="JS设计模式之策略模式" data-url="http://HeartWalker.cc/2016/06/22/JS设计模式之策略模式/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -212,11 +200,15 @@ var duoshuoQuery = {short_name:"animewalker"};
 		  
 		
 		  
-			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>4</sup></a></li>
+			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>5</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -227,7 +219,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 

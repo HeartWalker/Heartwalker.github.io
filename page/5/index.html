@@ -11,15 +11,15 @@
     
 
     
-    <meta name="description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行的博客">
+    <meta name="description" content="前端与移动开发,HeartWalker,JavaScript,HeartWalker&apos;s Blog,心行的博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HeartWalker's Blog">
 <meta property="og:url" content="http://HeartWalker.cc/page/5/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行的博客">
+<meta property="og:description" content="前端与移动开发,HeartWalker,JavaScript,HeartWalker&apos;s Blog,心行的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HeartWalker's Blog">
-<meta name="twitter:description" content="前端与移动开发,JavaScript,HeartWalker&apos;s Blog,心行的博客">
+<meta name="twitter:description" content="前端与移动开发,HeartWalker,JavaScript,HeartWalker&apos;s Blog,心行的博客">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -73,6 +73,147 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/11/css垂直居中/" title="css垂直居中" itemprop="url">css垂直居中</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-11T12:28:23.000Z" itemprop="datePublished"> 發表於 2016-03-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>css中经常会遇到盒子需要垂直居中,现总结出以下几种方法<br>例如:实现content盒子居中</p>
+<h3 id="margin_u4E0Epadding"><a href="#margin_u4E0Epadding" class="headerlink" title="margin与padding"></a>margin与padding</h3><p>最简单的方法就是设置margin或padding值,以margin为例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line"></span><br><span class="line">                /*  垂直居中相关css */</span><br><span class="line">                margin:<span class="number">125</span>px auto;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:需要计算且没有灵活性</p>
+<h3 id="u901A_u8FC7_u5B9A_u4F4D"><a href="#u901A_u8FC7_u5B9A_u4F4D" class="headerlink" title="通过定位"></a>通过定位</h3><p>利用定于和css3的transform属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line"></span><br><span class="line">                /* 垂直居中相关css */</span><br><span class="line">                position: relative;</span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line"></span><br><span class="line">                /* 垂直居中相关css */</span><br><span class="line">                position: absolute;</span><br><span class="line">                top: <span class="number">50</span>%;</span><br><span class="line">                left: <span class="number">50</span>%;</span><br><span class="line">                transform:translate(-<span class="number">50</span>%,-<span class="number">50</span>%);</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:有兼容性问题</p>
+<h3 id="u901A_u8FC7vertical-align_u5176_u4E00"><a href="#u901A_u8FC7vertical-align_u5176_u4E00" class="headerlink" title="通过vertical-align其一"></a>通过vertical-align其一</h3><p>利用table-cell可以通过vertical-align:middle垂直居中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">            background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: <span class="number">600</span>px;</span><br><span class="line">            height: <span class="number">400</span>px;</span><br><span class="line">            margin: <span class="number">80</span>px auto;</span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">            background-color: <span class="comment">#FFF;</span></span><br><span class="line">             /* 垂直居中相关css */</span><br><span class="line">            display: table;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .cell &#123;</span><br><span class="line">            /* 垂直居中相关css */</span><br><span class="line">            display: table-cell;</span><br><span class="line">            vertical-align: middle;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .content &#123;</span><br><span class="line">            width: <span class="number">400</span>px;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            margin-left: auto;</span><br><span class="line">            margin-right: auto;</span><br><span class="line">            background-color: orange;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">        &lt;div class=<span class="string">"cell"</span>&gt;</span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:会改变布局</p>
+<h3 id="u901A_u8FC7vertical-align_u5176_u4E8C"><a href="#u901A_u8FC7vertical-align_u5176_u4E8C" class="headerlink" title="通过vertical-align其二"></a>通过vertical-align其二</h3><p>vertical-align:middle  说明:将支持valign特性的对象的内容与对象中部对齐 . 为要居中的盒子设置参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            margin: <span class="number">0</span>;</span><br><span class="line">            padding: <span class="number">0</span>;</span><br><span class="line">            background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: <span class="number">600</span>px;</span><br><span class="line">            height: <span class="number">400</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            margin: <span class="number">80</span>px auto;</span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">            background-color: <span class="comment">#FFF;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .content &#123;</span><br><span class="line">            width: <span class="number">400</span>px;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            background-color: orange;</span><br><span class="line"></span><br><span class="line">            /* 垂直居中相关css */</span><br><span class="line">            display: inline-block;</span><br><span class="line">            vertical-align: middle;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        span &#123;</span><br><span class="line">            /* 垂直居中相关css */</span><br><span class="line">            height: <span class="number">100</span>%;</span><br><span class="line">            display: inline-block;</span><br><span class="line">            vertical-align: middle;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">        &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;span&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>缺点:同样是会改变布局</p>
+<h3 id="u901A_u8FC7_u4F38_u7F29_u76D2"><a href="#u901A_u8FC7_u4F38_u7F29_u76D2" class="headerlink" title="通过伸缩盒"></a>通过伸缩盒</h3><p>css3新增了伸缩盒,通过给父盒子设置display:flex;使用它自动的居中属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            body &#123;</span><br><span class="line">                margin: <span class="number">0</span>;</span><br><span class="line">                padding: <span class="number">0</span>;</span><br><span class="line">                background-color: <span class="comment">#F7F7F7;</span></span><br><span class="line">            &#125;</span><br><span class="line">            .wrap &#123;</span><br><span class="line">                width: <span class="number">600</span>px;</span><br><span class="line">                height: <span class="number">400</span>px;</span><br><span class="line">                margin: <span class="number">80</span>px auto;</span><br><span class="line">                border: <span class="number">1</span>px solid <span class="comment">#CCC;</span></span><br><span class="line">                background-color: <span class="comment">#FFF;</span></span><br><span class="line"></span><br><span class="line">                /*  垂直居中相关css */</span><br><span class="line">                display: flex;</span><br><span class="line">                align-items:center;</span><br><span class="line">                    /* 水平居中 */</span><br><span class="line">                justify-content:center;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            .content &#123;</span><br><span class="line">                width: <span class="number">400</span>px;</span><br><span class="line">                height: <span class="number">150</span>px;</span><br><span class="line">                background-color: orange;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div class=<span class="string">"wrap"</span>&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;div class=<span class="string">"content"</span>&gt;&lt;/div&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缺点:伸缩盒的兼容性就更差了</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css布局/">css布局</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/11/css垂直居中/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/11/css垂直居中/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/08/link与@import引入css/" title="link与@import引入css" itemprop="url">link与@import引入css</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-08T14:54:18.000Z" itemprop="datePublished"> 發表於 2016-03-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>  在写html页面时css的书写方式有行内式, 内嵌式和外联式三种; 实际开发中主要使用外联式与少量的内嵌式. 其中外联式有两种方式:link和@import.</p>
+<h3 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import url(style.css)</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h3><ol>
+<li>link属于XHTML标签，而@import完全是CSS提供的一种方式。 link标签除了可以加载CSS外，还可以做很多其它的事情，比如定义RSS，定义rel连接属性等，@import就只能加载CSS了。</li>
+<li>加载顺序的差别。当一个页面被加载的时候（就是被浏览者浏览的时候），link引用的CSS会同时被加载，而@import引用的CSS会等到页面全部被下载完再被加载。所以有时候浏览@import加载CSS的页面时开始会没有样式（就是闪烁），网速慢的时候还挺明显。</li>
+<li>兼容性的差别。由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。</li>
+<li>使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。</li>
+<li>@import可以在css中再次引入其他样式表，比如可以创建一个主样式表，在主样式表中再引入其他的样式表<h3 id="u6CE8_3A"><a href="#u6CE8_3A" class="headerlink" title="注:"></a>注:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当页面中同时使用@import与其他样式书写的css时,用@import引入的样式必须在css样式的最前方.</span><br><span class="line">由于前端css压缩与合成工具的流行,@import用的越来越少了,这种方式也并不被推荐使用</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/08/link与@import引入css/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/08/link与@import引入css/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -620,191 +761,6 @@ b:如果给子盒子一个负的z-index值,此时子盒子会在父盒子之下
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/02/06/margin-外边距合并/" title="margin 外边距合并" itemprop="url">margin 外边距合并</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-02-06T14:07:20.000Z" itemprop="datePublished"> 發表於 2016-02-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><em>看到一个非常好的关于margin外边距合并的文章 拿过来与大家分享</em><br><a href="http://blog.sina.com.cn/s/blog_601b97ee0101b8xe.html" title="原文地址" target="_blank" rel="external">原文地址</a></p>
-<p><strong>外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距.</strong></p>
-<p>合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。<br>外边距合并</p>
-<p>外边距合并（叠加）是一个相当简单的概念。但是，在实践中对网页进行布局时，它会造成许多混淆。</p>
-<p>简单地说，外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</p>
-<p>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。请看下图：<br><img src="/images/margin1.gif" alt=""></p>
-<p>当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并。请看下图：</p>
-<p><img src="/images/margin2.gif" alt=""></p>
-<p>尽管看上去有些奇怪，但是外边距甚至可以与自身发生合并。</p>
-<p>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并：</p>
-<p><img src="/images/margin3.gif" alt=""><br>如果这个外边距遇到另一个元素的外边距，它还会发生合并：</p>
-<p><img src="/images/margin4.gif" alt=""><br>这就是一系列的段落元素占用空间非常小的原因，因为它们的所有外边距都合并到一起，形成了一个小的外边距。</p>
-<p>外边距合并初看上去可能有点奇怪，但是实际上，它是有意义的。以由几个段落组成的典型文本页面为例。第一个段落上面的空间等于段落的上外边距。如果没有外边距合并，后续所有段落之间的外边距都将是相邻上外边距和下外边距的和。这意味着段落之间的空间是页面顶部的两倍。如果发生外边距合并，段落之间的上外边距和下外边距就合并在一起，这样各处的距离就一致了。<br><img src="/images/margin5.gif" alt=""></p>
-<p><strong>只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。</strong></p>
-<p>　　在css2.1中，水平的margin不会被折叠。 </p>
-<p>　　垂直margin可能在一些盒模型中被折叠： </p>
-<pre><code>1、在常规文档流中，2个或以上的块级盒模型相邻的垂直margin会被折叠。 
-</code></pre><p>　　    最终的margin值计算方法如下： </p>
-<pre><code>a、全部都为正值，取最大者；
-
-b、不全是正值，则都取绝对值，然后用正值减去最大值；
-
-c、没有正值，则都取绝对值，然后用0减去最大值。
-</code></pre><p>   　　 注意：相邻的盒模型可能由DOM元素动态产生并没有相邻或继承关系。 </p>
-<pre><code>2、相邻的盒模型中，如果其中的一个是浮动的（floated），
-垂直margin不会被折叠，甚至一个浮动的盒模型和它的子元素之间也是这样。 
-
-3、设置了overflow属性的元素和它的子元素之间的margin不会被折叠
-（overflow取值为visible除外）。 
-
-4、设置了绝对定位（position:absolute）的盒模型，
-垂直margin不会被折叠，甚至和他们的子元素之间也是一样。 
-
-5、设置了display:inline-block的元素，垂直margin不会被折叠，甚至和他们的子元素之间也是一样。 
-
-6、如果一个盒模型的上下margin相邻，这时它的margin可能折叠覆盖
-（collapse through）它。在这种情况下，
-元素的位置（position）取决于它的相邻元素的margin是否被折叠。 
-
-    a、如果元素的margin和它的父元素的margin-top折叠在一起
-    ，盒模型border-top的边界定义和它的父元素相同。
-
-    b、另外，任意元素的父元素不参与margin的折叠，
-    或者说只有父元素的margin-bottom是参与计算的。
-    如果元素的border-top非零，那么元素的border-top边界位置和原来一样。
-</code></pre><p>   　　 一个应用了清除操作的元素的margin-top绝不会和它的块级父元素的margin-bottom折叠。 </p>
-<pre><code>　　注意，那些已经被折叠覆盖的元素的位置对其他已经被折叠的元素的位置没有任何影响；
-只有在对这些元素的子元素定位时，border-top边界位置才是必需的。 
-
-7、根元素的垂直margin不会被折叠。
-</code></pre><p>　　　　浮动的块级元素的margin-bottom总是与它后面的浮动块级兄弟元素（floated next in-flow block-level sibling）的margin-top相邻，除非那个同级元素使用了清除操作。 </p>
-<p>　　浮 动的块级元素的margin-top和它的第一个浮动块级子元素（floated first in-flow block-level child）的margin-top相邻（如果该元素没有border-top，没有padding-top，并且子元素没有使用清除操作）。 </p>
-<p>　　浮动的块级元素的margin-bottom如果符合下列条件，那么它和它的最后一个浮动块级子元素的margin-bottom相邻（如果该元素没有指定padding-bottom或border）： </p>
-<pre><code>　　a、指定了height:auto
-
-　　b、min-height小于元素的实际使用高度（height）
-
-　　c、max-height大于元素的实际使用高度（height）
-</code></pre><p>　　如 果一个元素的min-height属性设置为0，那么它所拥有的margin是相邻的，并且它既没有border-top和border- bottom，也没有padding-top和padding-bottom，它的height属性可以是0或auto，它不能包含一个内联的盒模型 （line box），它所有的浮动子元素（如果有的话）的margin也都是相邻的。 </p>
-<p>　　当一个元素拥有的margin折叠了，并且它使用了清除操作，那么它的margin-top会和紧随其后的兄弟元素的相邻margin折叠，但结果是它的margin将无法和其块级父元素的margin-bottom折叠。 </p>
-<p>　　折叠操作是以padding、margin、border的值为基础的（即在浏览器解析所有这些值之后），折叠后的margin计算将覆盖已使用的不同margin的值。</p>
-<p>如何解决</p>
-<p>　　W3C的CSS2.1 定义了几种情况，简单为元素添加边框或者间距（border or padding)就可以不使边距重叠。</p>
-<p>　　我们 添加一个小的间距:</p>
-<p> 　　#box {background: #F80; margin: 10px; padding: 1px 0;} </p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/02/06/margin-外边距合并/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/02/06/margin-外边距合并/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/01/30/js代码不起作用/" title="js代码不起作用" itemprop="url">js代码不起作用</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-01-30T10:26:56.000Z" itemprop="datePublished"> 發表於 2016-01-30</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>新人学习js时经常会遇到这样的问题:<br>代码明明正确,就是不起作用,这时你可能需要这样做:</p>
-<p>将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;//你的js代码&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>标签放到html标签最后,由于不同浏览器的优化问题(例如chrome中会最后加载图片)js代码可能仍然不起作用<br>此时你最好添加onload事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">window.onload = <span class="function"><span class="title">function</span></span> ()&#123;</span><br><span class="line">    //你的js代码</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<pre><code>注意:一个js或者html中只能有一个window.onload函数
-</code></pre><p>如果是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"tools.js"</span>&gt;//不要放代码 不会起作用&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p> 外联式引入的js文件,那么注意上边的script标签内一定不能放你的js代码,它不会起作用的</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/01/30/js代码不起作用/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/01/30/js代码不起作用/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -849,11 +805,15 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
 		  
 		
 		  
-			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>4</sup></a></li>
+			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>5</sup></a></li>
 		  
 		
 		  
 			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -864,7 +824,7 @@ c、没有正值，则都取绝对值，然后用0减去最大值。
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 

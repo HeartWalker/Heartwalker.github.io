@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-06-15T22:54:27.482Z</updated>
+  <updated>2016-06-21T23:38:36.702Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS设计模式之策略模式</title>
+    <link href="http://HeartWalker.cc/2016/06/22/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://HeartWalker.cc/2016/06/22/JS设计模式之策略模式/</id>
+    <published>2016-06-21T23:38:36.000Z</published>
+    <updated>2016-06-21T23:38:36.702Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前端学习之好书推荐</title>
+    <link href="http://HeartWalker.cc/2016/06/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
+    <id>http://HeartWalker.cc/2016/06/22/前端学习之好书推荐/</id>
+    <published>2016-06-21T22:44:02.000Z</published>
+    <updated>2016-06-22T23:10:30.095Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript Dom 编程艺术 &amp;gt;&amp;gt; 目前(第二版)&lt;br&gt;轻松入门 开始学习javascript&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript 高级程序设计 &amp;gt;&amp;gt; 目前(第三版)&lt;br&gt;绝对是学习JavaScript的神书, 全部学完以后带来的是质的飞越&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 锋利的 jQuery &amp;gt;&amp;gt; 目前(第二版)&lt;br&gt;解决兼容性, 链式编程, 方便的 DOM 操作,完善的Ajax,一切从使用 jQuery开始&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript Dom 编程艺术 &amp;gt;&amp;gt; 目前(第二版)&lt;br&gt;轻松入门 开始学习javascript&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript 高级程序设计 &amp;gt;&amp;gt; 目前(第三版
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JS设计模式之单例模式</title>
+    <link href="http://HeartWalker.cc/2016/06/21/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://HeartWalker.cc/2016/06/21/JS设计模式之单例模式/</id>
+    <published>2016-06-20T23:28:28.000Z</published>
+    <updated>2016-06-22T23:15:26.022Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;保证一个类仅有一个实例, 并提供一个访问它的全局访问点 &lt;/p&gt;
+&lt;h3 id=&quot;u4E00_u4E2A_u7B80_u5355_u7684_u5355_u4F8B&quot;&gt;&lt;a href=&quot;#u4E00_u4E2A_u7B80_u5355_u7684_u5355_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;一个简单的单例&quot;&gt;&lt;/a&gt;一个简单的单例&lt;/h3&gt;&lt;p&gt;用一个变量标志当前是否已经为某个类创建过对象, 如果有,则在下一次获取该类的实例时直接返回之前创建的对象&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       var Singleton = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(name)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            this.name = name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            this.instance = null;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Singleton.prototype.getName = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            alert(this.name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Singleton.getInstance = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(name)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!this.instance)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                this.instance = new Singleton(name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; this.instance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var a = Singleton.getInstance(&lt;span class=&quot;string&quot;&gt;&#39;sven1&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var b = Singleton.getInstance(&lt;span class=&quot;string&quot;&gt;&#39;sven2&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log(a === b); //&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u60F0_u6027_u5355_u4F8B&quot;&gt;&lt;a href=&quot;#u60F0_u6027_u5355_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;惰性单例&quot;&gt;&lt;/a&gt;惰性单例&lt;/h3&gt;&lt;p&gt;惰性单例指的是在需要的时候才创建对象实例. 并且我没可以把单例的逻辑抽象出来, 形成通用的惰性单例&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //抽离出的单例逻辑&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var getSingle = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(fn)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       var result;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; result || (result = fn.apply(this, arguments));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   //执行的函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   var createLoginLayer = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       var div = document.createElement(&lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       div.innerHTML =&lt;span class=&quot;string&quot;&gt;&#39;我是登录框&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       document.body.appendChild(div);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; div;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   var createSingleLoginLayer = getSingle(createLoginLayer);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这是一个创建登录框的案例, 我们可以在任何需要的时候调用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;createSingleLoginLayer();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;并且如果我们需要创建一个iframe 或其他 DOM 节点只需再写一个 执行的函数 ,并重用getSingle&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;保证一个类仅有一个实例, 并提供一个访问它的全局访问点 &lt;/p&gt;
+&lt;h3 id=&quot;u4E00_u4E2A
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://HeartWalker.cc/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://HeartWalker.cc/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>gulp参考</title>
@@ -51,26 +128,6 @@
     
     
       <category term="gulp" scheme="http://HeartWalker.cc/tags/gulp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5API之伸缩盒</title>
-    <link href="http://HeartWalker.cc/2016/06/11/HTML5API%E4%B9%8B%E4%BC%B8%E7%BC%A9%E7%9B%92/"/>
-    <id>http://HeartWalker.cc/2016/06/11/HTML5API之伸缩盒/</id>
-    <published>2016-06-11T06:54:27.000Z</published>
-    <updated>2016-06-11T06:57:05.231Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
-&lt;html lang=&quot;en&quot;&gt;&lt;br&gt;&lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;&lt;br&gt;    &lt;title&gt;CSS3伸缩布局&lt;/title&gt;&lt;br&gt;    &lt;style&gt;&lt;br&gt;        body {&lt;br&gt;            margin: 0;&lt;br&gt;            padding: 0;&lt;br&gt;            font-family: ‘微软雅黑’;&lt;br&gt;            background-color: #F7F7F7;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        ul {&lt;br&gt;            margin: 0;&lt;br&gt;            padding: 0;&lt;br&gt;            list-style: none;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper {&lt;br&gt;            width: 1024px;&lt;br&gt;            margin: 0 auto;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper &amp;gt; section {&lt;br&gt;            min-height: 300px;&lt;br&gt;            margin-bottom: 30px;&lt;br&gt;            box-shadow: 1px 1px 4px #DDD;&lt;br&gt;            background-color: #FFF;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper &amp;gt; header {&lt;br&gt;            text-align: center;&lt;br&gt;            line-height: 1;&lt;br&gt;            padding: 20px;&lt;br&gt;            margin-bottom: 10px;&lt;br&gt;            font-size: 30px;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper section &amp;gt; header {&lt;br&gt;            line-height: 1;&lt;br&gt;            padding: 10px;&lt;br&gt;            font-size: 22px;&lt;br&gt;            color: #333;&lt;br&gt;            background-color: #EEE;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper .wrap-box {&lt;br&gt;            padding: 20px;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper .brief {&lt;br&gt;            min-height: auto;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .wrapper .flex-img {&lt;br&gt;            width: 100%;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        /&lt;em&gt;全局设置&lt;/em&gt;/&lt;br&gt;        section ul {&lt;br&gt;            display: flex;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        section li {&lt;br&gt;            width: 200px;&lt;br&gt;            height: 200px;&lt;br&gt;            text-align: center;&lt;br&gt;            line-height: 200px;&lt;br&gt;            margin: 10px;&lt;br&gt;            background-color: pink;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        section:nth-child(3) ul {&lt;br&gt;            flex-direction: row;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .column ul {&lt;br&gt;            flex-direction: column;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .row-reverse ul {&lt;br&gt;            flex-direction: row-reverse;&lt;br&gt;        }&lt;br&gt;&lt;br&gt;        .column-reverse ul {&lt;br&gt;            flex-direction: column-reverse;&lt;br&gt;        }&lt;br&gt;    &lt;/style&gt;&lt;br&gt;&lt;/head&gt;&lt;br&gt;&lt;body&gt;&lt;br&gt;    &lt;div class=&quot;wrapper&quot;&gt;&lt;br&gt;        &lt;header&gt;CSS3-伸缩布局详解&lt;/header&gt;&lt;br&gt;        &lt;!-- 简介 --&gt;&lt;br&gt;        &lt;section class=&quot;brief&quot;&gt;&lt;br&gt;            &lt;header&gt;flex-direction&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;调整主轴方向（默认为水平方向）包括row、column、row-reverse、column-reverse&lt;/p&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;!-- 分隔线 --&gt;&lt;br&gt;        &lt;section&gt;&lt;br&gt;            &lt;header&gt;flex-direction&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;调整主轴方向（默认为水平方向）&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;section class=&quot;column&quot;&gt;&lt;br&gt;            &lt;header&gt;column&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;取值为column时，垂直排列&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;section class=&quot;row-reverse&quot;&gt;&lt;br&gt;            &lt;header&gt;row-reverse&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;取值为row-reverse时，水平反向排列&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;&lt;br&gt;        &lt;section class=&quot;column-reverse&quot;&gt;&lt;br&gt;            &lt;header&gt;column-reverse&lt;/header&gt;&lt;br&gt;            &lt;div class=&quot;wrap-box&quot;&gt;&lt;br&gt;                &lt;p&gt;取值column-reverse时，垂直反向排列&lt;/p&gt;&lt;br&gt;                &lt;ul&gt;&lt;br&gt;                    &lt;li&gt;1&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;2&lt;/li&gt;&lt;br&gt;                    &lt;li&gt;3&lt;/li&gt;&lt;br&gt;                &lt;/ul&gt;&lt;br&gt;            &lt;/div&gt;&lt;br&gt;        &lt;/section&gt;&lt;br&gt;    &lt;/div&gt;&lt;br&gt;&lt;/body&gt;&lt;br&gt;&lt;/html&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
-&lt;html lang=&quot;en&quot;&gt;&lt;br&gt;&lt;head&gt;&lt;br&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;&lt;br&gt;    &lt;title&gt;CSS3伸缩布局&lt;/title&gt;&lt;br&gt;    &lt;style&gt;&lt;br&gt;     
-    
-    </summary>
-    
     
   </entry>
   
@@ -761,100 +818,6 @@ displayColor.call(null);
     
       <category term="NODEJS" scheme="http://HeartWalker.cc/categories/NODEJS/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>你所不知道的new Function()</title>
-    <link href="http://HeartWalker.cc/2016/04/25/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84newFunction/"/>
-    <id>http://HeartWalker.cc/2016/04/25/你所不知道的newFunction/</id>
-    <published>2016-04-25T08:28:42.000Z</published>
-    <updated>2016-04-25T09:42:47.533Z</updated>
-    
-    <content type="html">&lt;p&gt;所有懂js的都知道创建函数有三种方式:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;函数声明式
-函数表达式
-new Function()构造函数式
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;与前两种的广泛被使用相比, 后一种几乎无人使用&lt;/p&gt;
-&lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var fnName = new Function( param1, param2, ..., paramN, funcBody );
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Function 构造函数所有的参数都是字符串类型的&lt;br&gt;除了最后一个参数, 所有的参数都作为生成函数的参数, 这里可以没有参数; 最后一个参数也是字符串, 表示的是生成函数的函数体&lt;/p&gt;
-&lt;h3 id=&quot;u5B9E_u4F8B&quot;&gt;&lt;a href=&quot;#u5B9E_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;实例&quot;&gt;&lt;/a&gt;实例&lt;/h3&gt;&lt;p&gt;带参数简单求和函数&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var fnSum = new Function( &amp;apos;a&amp;apos;, &amp;apos;b&amp;apos;, &amp;apos;return a + b;&amp;apos; );
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;不带参数复杂求和&lt;/p&gt;
-&lt;p&gt;var fnSum = new Function( ‘var total = 0, args = arguments, len = args.length;for ( var i = 0; i &amp;lt; len; i++ ) {total += args[ i ];}return total;’ );&lt;/p&gt;
-&lt;p&gt;注意:   上边这段代码不是我不换行, 而是作为字符串参数它不能换行, 为了解决这段代码晦涩难懂的问题可以用连接字符串的方式&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var fnSum = new Function(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;var total = 0, &#39;&lt;/span&gt; +&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;   args = arguments, &#39;&lt;/span&gt; + &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;   len = args.length; &#39;&lt;/span&gt; +&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;for ( var i = 0; i &amp;lt; len; i++ ) &amp;#123; &#39;&lt;/span&gt; +&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;   total += args[ i ]; &#39;&lt;/span&gt; +&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;&amp;#125; &#39;&lt;/span&gt; +&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;return total; &#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;new_Function_u7684_u7F3A_u70B9&quot;&gt;&lt;a href=&quot;#new_Function_u7684_u7F3A_u70B9&quot; class=&quot;headerlink&quot; title=&quot;new Function的缺点&quot;&gt;&lt;/a&gt;new Function的缺点&lt;/h3&gt;&lt;p&gt;从上边的例子可以明显的看出来它难以理解, 难以维护, 这是它几乎不被使用的主因; 不仅如此, 它还会带来性能方面的问题: 因为这种语法要解析两次代码(第一次解析常规的ECMAScript代码, 第二次解析字符串)&lt;/p&gt;
-&lt;h3 id=&quot;u4F7F_u7528new_Function&quot;&gt;&lt;a href=&quot;#u4F7F_u7528new_Function&quot; class=&quot;headerlink&quot; title=&quot;使用new Function&quot;&gt;&lt;/a&gt;使用new Function&lt;/h3&gt;&lt;p&gt;俗话说缺点也是优点, 这种方式只能解析字符串这既是它的缺点也是它的优点&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;script &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&#39;text/engin&#39;&lt;/span&gt; id=&lt;span class=&quot;string&quot;&gt;&quot;engin&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var total = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    args = arguments, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    len = args.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; ( var i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; len; i++ ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    total += args[ i ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; total;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var getBody = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; ( id ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var script = document.getElementById( id );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var body = script.innerHTML.trim();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                script.parentNode.removeChild( script );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; body;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            onload = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var fnSum = new Function( getBody( &lt;span class=&quot;string&quot;&gt;&#39;engin&#39;&lt;/span&gt; ) );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var res = fnSum( &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert( res );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;上例也是求和函数, 只不过把函数体字符串放到了模板中&lt;br&gt;如果你使用过 eval 就会发现它们很像是不是&lt;br&gt;我们可以在 ajax 与 跨域 方面使用到 new Function, 虽然它的性能不比eval, 但是安全性要高一些, 至少它们的作用域不一样&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;eval( &amp;apos;var a = 10;&amp;apos; );  
-等价与
-直接定义 var a = 10;
-
-(new Function( &amp;apos;var a = 10; alert( 123 );&amp;apos; ))();
-new Fucntion 等价于
-定义一个函数, 在函数内部, 执行
-var a = 10;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;还有一个需要注意的地方是: new Function() 创建的函数作用域是全局的&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var x = &lt;span class=&quot;string&quot;&gt;&#39;global&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;fn&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var x = &lt;span class=&quot;string&quot;&gt;&#39;local&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var f = new Function(&lt;span class=&quot;string&quot;&gt;&#39;return x&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log( f() ); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fn();//global&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;变量x会先在当前函数f作用域内查找, 然后直接去全局环境查找先 x 若找不到就报错而不会在fn内查找&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;所有懂js的都知道创建函数有三种方式:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;函数声明式
-函数表达式
-new Function()构造函数式
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;与前两种的广泛被使用相比, 后一种几乎无人使用&lt;/p&gt;
-&lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a hr
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
-    
-      <category term="函数" scheme="http://HeartWalker.cc/tags/%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js事件委托/代理</title>
-    <link href="http://HeartWalker.cc/2016/04/21/js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E4%BB%A3%E7%90%86/"/>
-    <id>http://HeartWalker.cc/2016/04/21/js事件委托-代理/</id>
-    <published>2016-04-21T15:13:07.000Z</published>
-    <updated>2016-04-21T15:57:46.843Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot; class=&quot;headerlink&quot; title=&quot;什么是事件委托&quot;&gt;&lt;/a&gt;什么是事件委托&lt;/h3&gt;&lt;p&gt;事件委托是把原本需要监听的事件委托给父元素, 让父元素承担监听的任务&lt;/p&gt;
-&lt;h3 id=&quot;u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406&quot;&gt;&lt;a href=&quot;#u4E8B_u4EF6_u59D4_u6258_u7684_u539F_u7406&quot; class=&quot;headerlink&quot; title=&quot;事件委托的原理&quot;&gt;&lt;/a&gt;事件委托的原理&lt;/h3&gt;&lt;p&gt;事件代理用到了两个在JavaSciprt事件中的特性：事件冒泡以及目标元素。&lt;/p&gt;
-&lt;p&gt;当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，并且它在我们的元素对象中以属性的形式出现。&lt;/p&gt;
-&lt;p&gt;使用事件代理，我们可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素里冒泡上来，并且可以得知这个事件是从哪个元素开始的&lt;/p&gt;
-&lt;h3 id=&quot;u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9&quot;&gt;&lt;a href=&quot;#u4E8B_u4EF6_u59D4_u6258_u7684_u4F18_u70B9&quot; class=&quot;headerlink&quot; title=&quot;事件委托的优点&quot;&gt;&lt;/a&gt;事件委托的优点&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;管理的函数变少了。不需要为每个元素都添加监听函数。对于同一个父节点下面类似的子元素，可以通过委托给父元素的监听函数来处理事件。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可以方便地动态添加和修改元素，不需要因为元素的改动而修改事件绑定。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;JavaScript和DOM节点之间的关联变少了，这样也就减少了因循环引用而带来的内存泄漏发生的概率。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u6CE8_u610F&quot;&gt;&lt;a href=&quot;#u6CE8_u610F&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;不是所有的事件都能冒泡的。blur、focus、load和unload不能像其它事件一样冒泡。事实上blur和focus可以用事件捕获而非事件冒泡的方法获得（在IE之外的其它浏览器中）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在管理鼠标事件的时候有些需要注意的地方。如果你的代码处理mousemove事件的话你遇上性能瓶颈的风险可就大了，因为mousemove事件触发非常频繁。而mouseout则因为其怪异的表现而变得很难用事件代理来管理。 &lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u4EE3_u7801_u5B9E_u73B0&quot;&gt;&lt;a href=&quot;#u4EE3_u7801_u5B9E_u73B0&quot; class=&quot;headerlink&quot; title=&quot;代码实现&quot;&gt;&lt;/a&gt;代码实现&lt;/h3&gt;&lt;p&gt;简单的事件委托&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; delegateEvent(interfaceEle, selector, &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;, fn) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(interfaceEle.addEventListener)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    interfaceEle.addEventListener(&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;, eventfn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    interfaceEle.attachEvent(&lt;span class=&quot;string&quot;&gt;&quot;on&quot;&lt;/span&gt;+&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;, eventfn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; eventfn(e)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var e = e || window.event;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var target = e.target || e.srcElement;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (matchSelector(target, selector)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(fn) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                fn.call(target, e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * only support &lt;span class=&quot;comment&quot;&gt;#id, tagName, .className&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; * and it&lt;span class=&quot;string&quot;&gt;&#39;s simple single, no combination&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function matchSelector(ele, selector) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // if use id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (selector.charAt(0) === &quot;#&quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return ele.id === selector.slice(1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // if use class&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (selector.charAt(0) === &quot;.&quot;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return (&quot; &quot; + ele.className + &quot; &quot;).indexOf(&quot; &quot; + selector.slice(1) + &quot; &quot;) != -1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // if use tagName&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return ele.tagName.toLowerCase() === selector.toLowerCase();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var odiv = document.getElementById(&quot;oDiv&quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;delegateEvent(odiv,&quot;a&quot;,&quot;click&quot;,function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    alert(&quot;1&quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/weinideai/article/details/3835839&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript的事件代理 &lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cmark.com/2016/439.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;事件模型及事件代理/委托&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662F_u4E8B_u4EF6_u59D4_u6258&quot; class=&quot;headerlink&quot; title=&quot;什么是事件委托&quot;&gt;&lt;
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
-    
-      <category term="事件" scheme="http://HeartWalker.cc/tags/%E4%BA%8B%E4%BB%B6/"/>
     
   </entry>
   
