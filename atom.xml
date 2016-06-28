@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-06-26T13:12:27.250Z</updated>
+  <updated>2016-06-28T23:17:59.987Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在webstorm中使用sass</title>
+    <link href="http://HeartWalker.cc/2016/06/29/%E5%9C%A8webstorm%E4%B8%AD%E4%BD%BF%E7%94%A8sass/"/>
+    <id>http://HeartWalker.cc/2016/06/29/在webstorm中使用sass/</id>
+    <published>2016-06-28T22:55:07.000Z</published>
+    <updated>2016-06-28T23:17:59.987Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6539_u53D8&quot;&gt;&lt;a href=&quot;#u6539_u53D8&quot; class=&quot;headerlink&quot; title=&quot;改变&quot;&gt;&lt;/a&gt;改变&lt;/h3&gt;&lt;p&gt;最近新入了一家公司&lt;br&gt;以前都是这样写css&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;nav ul &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  margin: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  padding: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  list-style: none;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nav li &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  display: inline-block;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nav a &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  display: block;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  padding: &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;px &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  text-decoration: none;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;多好啊,简单易懂,清晰明了&lt;br&gt;现在要求这样&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;nav ul &amp;#123; margin: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; padding: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; list-style: none; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nav li &amp;#123; display: inline-block; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;nav a &amp;#123; display: block; padding: &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;px &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;px; text-decoration: none; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;虽然最后都要压缩,但没办法那就只能这样写了,可是以前使用emmet语法,会自动换行,这可怎么办,幸亏我大部分项目都是使用强大的webstorm写的,经过不断尝试终于在&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;File--&amp;gt;Settings--&amp;gt;Editor--&amp;gt;Code Style--&amp;gt;CSS
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;目录下的选项卡 Other 下找到了 Keep single-line blocks ,只要把此项勾选从此智能提示不换行, 顿时喜笑颜开&lt;/p&gt;
+&lt;p&gt;但是还不能满足,我要用 Less, 用Less啊,自动生成的 CSS 样式还是要换行,这可怎么办,网上各种查资料,最后发现没有办法啊没有办法,这他么是在逗我呢. &lt;/p&gt;
+&lt;p&gt;我明明记得能控制输出 CSS 的样式,难道我记错了么?这不可能!哦,真的是我记错了,支持控制输出CSS样式的是 Sass.&lt;br&gt;其实用Sass一开始我是拒绝的,虽然说比Less强大,但是我们用得着那些强大的功能么,我平时只要只用嵌套好吧,而且要装 ruby, 好烦,我只是个小前端,到底要做到哪一步啊,我记得学习 ionic 的时候还装了 Python 还有 Java Android 环境什么的,心好塞…&lt;br&gt;就在这时我发现了一个好物&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/node-sass&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;node-sass&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;webstorm 是支持 node-sass,额至少 webstorm11 是支持的&lt;/p&gt;
+&lt;p&gt;首先你需要全局安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install node-sass -g
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后在&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;File--&amp;gt;Settings--&amp;gt;Tools--&amp;gt;File Watchers
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;目录下点击右上角的 + ,选择 SCSS 就可以了,然后配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Program: C:\Users\Administrator\AppData\Roaming\npm\node-sass.cmd(输入你的node-sass.cmd的路径)
+Arguments: $FileName$ $FileNameWithoutExtension$.css
+Working directory: $FileDir$
+Output paths to refresh: $FileNameWithoutExtension$.css
+&amp;apos;Create output from stdout&amp;apos; should be off(不要勾选该选项)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后找到&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;C:\Users\Administrator\AppData\Roaming\npm\node_modules\node-sass\bin\node-sass (你自己的全局npm模块下)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;打开在 default下(第100行)有个 output-style ,将它的值改为 compact 就可以实现我需要的输出效果了.&lt;br&gt;如果你想了解更多可以访问&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/questions/23732228/sass-filewatcher-for-webstorm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;来自stackOverflow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;当然如果你不用 webstorm 并且有需要的话 gulp 是一个非常好的选择&lt;/p&gt;
+&lt;p&gt;果然身为程序员有问题还是要上 stack Overflow&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6539_u53D8&quot;&gt;&lt;a href=&quot;#u6539_u53D8&quot; class=&quot;headerlink&quot; title=&quot;改变&quot;&gt;&lt;/a&gt;改变&lt;/h3&gt;&lt;p&gt;最近新入了一家公司&lt;br&gt;以前都是这样写css&lt;br&gt;&lt;figure class=&quot;highlight 
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+      <category term="webstorm" scheme="http://HeartWalker.cc/tags/webstorm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS设计模式之代理模式</title>
+    <link href="http://HeartWalker.cc/2016/06/26/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://HeartWalker.cc/2016/06/26/JS设计模式之代理模式/</id>
+    <published>2016-06-26T14:04:26.000Z</published>
+    <updated>2016-06-26T14:23:04.276Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://HeartWalker.cc/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://HeartWalker.cc/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>JS设计模式之策略模式</title>
@@ -43,7 +111,7 @@
     <link href="http://HeartWalker.cc/2016/06/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
     <id>http://HeartWalker.cc/2016/06/22/前端学习之好书推荐/</id>
     <published>2016-06-21T22:44:02.000Z</published>
-    <updated>2016-06-26T01:19:52.209Z</updated>
+    <updated>2016-06-26T14:22:27.573Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript Dom 编程艺术 &amp;gt;&amp;gt; 目前(第二版)&lt;br&gt;轻松入门 开始学习javascript&lt;/p&gt;
@@ -55,6 +123,10 @@
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 高性能网站建设指南 &amp;gt;&amp;gt;&lt;br&gt;一些基本的的性能优化,已经体现在网站的方方面面&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 高性能网站建设进阶指南 &amp;gt;&amp;gt;&lt;br&gt;一些高级技巧,技术性比较高,有一些已经过时,有的没有实际经验也很难理解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 图解HTTP &amp;gt;&amp;gt;&lt;br&gt;HTTP 入门好书 ,轻松入门 ,快速了解 HTTP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; HTTP权威指南 &amp;gt;&amp;gt;&lt;br&gt;如果想要更深入的学习http 这是一本绝对好书,身边的人都在推荐它,但我还没有看过,作为一个特别平凡的人,精力总是有限的&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -678,157 +750,6 @@ document.mozFullScreen;
     
     
       <category term="函数" scheme="http://HeartWalker.cc/tags/%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>祸不单行</title>
-    <link href="http://HeartWalker.cc/2016/05/05/%E7%A5%B8%E4%B8%8D%E5%8D%95%E8%A1%8C/"/>
-    <id>http://HeartWalker.cc/2016/05/05/祸不单行/</id>
-    <published>2016-05-05T00:57:39.000Z</published>
-    <updated>2016-05-05T11:14:06.095Z</updated>
-    
-    <content type="html">&lt;p&gt;连续三天半夜被牙疼疼醒, 吃药也不管用, 终于忍不住去了医院, 最后做了根管治疗杀了神经, 不知道这颗牙齿还能撑多久. 医生说你今天晚上可以睡个安稳觉了, 谁知道当天下午就开始发起了高烧. &lt;/p&gt;
-&lt;p&gt;说实话医院补牙特别是做牙套真是暴利, 正值魏则西事件持续发酵, 真是深刻的感受到在你国不能有病, 不能没钱.&lt;/p&gt;
-&lt;p&gt;程序员一定要注意自己的身体啊, 最好还是不要熬夜了.&lt;/p&gt;
-&lt;p&gt;感谢和我住在一起的小伙伴, 要是我自己说不定哪天就烧晕过去了也无人知道, 可怜的单身.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;连续三天半夜被牙疼疼醒, 吃药也不管用, 终于忍不住去了医院, 最后做了根管治疗杀了神经, 不知道这颗牙齿还能撑多久. 医生说你今天晚上可以睡个安稳觉了, 谁知道当天下午就开始发起了高烧. &lt;/p&gt;
-&lt;p&gt;说实话医院补牙特别是做牙套真是暴利, 正值魏则西事件持续发酵, 真是
-    
-    </summary>
-    
-      <category term="生活" scheme="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="吐槽" scheme="http://HeartWalker.cc/tags/%E5%90%90%E6%A7%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS严格模式</title>
-    <link href="http://HeartWalker.cc/2016/05/04/JS%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://HeartWalker.cc/2016/05/04/JS严格模式/</id>
-    <published>2016-05-04T04:14:28.000Z</published>
-    <updated>2016-05-05T13:19:07.614Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u5F15_u7528&quot;&gt;&lt;a href=&quot;#u5F15_u7528&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h3&gt;&lt;p&gt;本页内容引用自&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;JavaScript高级程序设计（第3版）------------p717-p722
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;结合 Node.js 与当前 ECMAScript 有少部分修改与注释    &lt;/p&gt;
-&lt;h3 id=&quot;u8D77_u6E90&quot;&gt;&lt;a href=&quot;#u8D77_u6E90&quot; class=&quot;headerlink&quot; title=&quot;起源&quot;&gt;&lt;/a&gt;起源&lt;/h3&gt;&lt;p&gt;ECMAScript 5最早引入了“严格模式”（strict mode）的概念。通过严格模式，可以在函数内部 选择进行较为严格的全局或局部的错误条件检测。使用严格模式的好处是可以提早知道代码中 存在的错误，及时捕获一些可能导致编程错误的 ECMAScript行为。 &lt;/p&gt;
-&lt;h3 id=&quot;u5728Node-js_u4E2D_u5F00_u542F_u4E25_u683C_u6A21_u5F0F&quot;&gt;&lt;a href=&quot;#u5728Node-js_u4E2D_u5F00_u542F_u4E25_u683C_u6A21_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;在Node.js中开启严格模式&quot;&gt;&lt;/a&gt;在Node.js中开启严格模式&lt;/h3&gt;&lt;p&gt;由于浏览器兼容的问题, 严格模式在 WEB 开发中并没有被特别多的使用, 如今ECMAScript 6已经制定, ECMAScript 7 也在制定中, Node.js 对 ECMAScript 的规范支持的比较好, 并且在 Node.js 中 ECMAScript 6 的某些语法只有在严格模式下才支持 , 所以在 Node.js 中一定要开启严格模式. &lt;/p&gt;
-&lt;h3 id=&quot;u8BED_u6CD5&quot;&gt;&lt;a href=&quot;#u8BED_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;p&gt;在Node.js中使用严格模式非常简单, 只需要在每个模块开头添加如下代码:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot;use strict&amp;quot;; 
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u4E25_u683C_u6A21_u5F0F_u4E0E_u975E_u4E25_u683C_u6A21_u5F0F_u7684_u5F02_u540C&quot;&gt;&lt;a href=&quot;#u4E25_u683C_u6A21_u5F0F_u4E0E_u975E_u4E25_u683C_u6A21_u5F0F_u7684_u5F02_u540C&quot; class=&quot;headerlink&quot; title=&quot;严格模式与非严格模式的异同&quot;&gt;&lt;/a&gt;严格模式与非严格模式的异同&lt;/h3&gt;&lt;hr&gt;
-&lt;h4 id=&quot;u53D8_u91CF&quot;&gt;&lt;a href=&quot;#u53D8_u91CF&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h4&gt;&lt;p&gt;在严格模式下，什么时候创建变量以及怎么创建变量都是有限制的。首先，不允许意外创建全局变量。在非严格模式下，可以像下面这样创建全局变量：&lt;/p&gt;
-&lt;p&gt;//未声明变量&lt;br&gt;//非严格模式：创建全局变量&lt;br&gt;//严格模式：抛出 ReferenceError  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;message = &amp;quot;Hello world! &amp;quot;; 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;即使 message 前面没有 var 关键字，即使没有将它定义为某个全局对象的属性，也能将 message 创建为全局变量。但在严格模式下，如果给一个没有声明的变量赋值，那代码在执行时就会抛出 ReferenceError。&lt;br&gt;其次，不能对变量调用 delete 操作符。非严格模式允许这样操作，但会静默失败（返回 false）。 而在严格模式下，删除变量也会导致错误 (注: delete只能删除属性, 不能删除变量, 未经声明的变量实际上是全局环境的属性而并不是全局变量)。&lt;/p&gt;
-&lt;p&gt;//删除变量&lt;br&gt; //非严格模式：静默失败&lt;br&gt; //严格模式：抛出 ReferenceError &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var color = &amp;quot;red&amp;quot;; delete color;  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;严格模式下对变量名也有限制。特别地，不能使用 implements、interface、let、package、 private、protected、public、static 和 yield 作为变量名。这些都是保留字，将来的 ECMAScript 版本中可能会用到它们 (注: 新版本中已经部分用到了它们)。在严格模式下，用以上标识符作为变量名会导致语法错误。&lt;/p&gt;
-&lt;h4 id=&quot;u5BF9_u8C61&quot;&gt;&lt;a href=&quot;#u5BF9_u8C61&quot; class=&quot;headerlink&quot; title=&quot;对象&quot;&gt;&lt;/a&gt;对象&lt;/h4&gt;&lt;p&gt;在严格模式下操作对象比在非严格模式下更容易导致错误。一般来说，非严格模式下会静默失败的情形，在严格模式下就会抛出错误。因此，在开发中使用严格模式会加大早发现错误的可能性。&lt;br&gt;在下列情形下操作对象的属性会导致错误:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;为只读属性赋值会抛出 TypeError; &lt;/li&gt;
-&lt;li&gt;对不可配置的（nonconfigurable）的属性使用 delete 操作符会抛出 TypeError;&lt;/li&gt;
-&lt;li&gt;为不可扩展的（nonextensible）的对象添加属性会抛出 TypeError。 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;使用对象的另一个限制与通过对象字面量声明对象有关。在使用对象字面量时，属性名必须唯一。 例如：&lt;/p&gt;
-&lt;p&gt;//重名属性&lt;br&gt;//非严格模式：没有错误，以第二个属性为准&lt;br&gt;//严格模式：抛出语法错误&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var person = {          
-        name: &amp;quot;Nicholas&amp;quot;,        
-        name: &amp;quot;Greg&amp;quot;           
-   };  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   这里的对象 person 有两个属性，都叫 name。在非严格模式下，person 对象的 name 属性值是第 二个，而在严格模式下，这样的代码会导致语法错误。 &lt;/p&gt;
-&lt;h4 id=&quot;u51FD_u6570&quot;&gt;&lt;a href=&quot;#u51FD_u6570&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h4&gt;&lt;p&gt;首先，严格模式要求命名函数的参数必须唯一。以下面这个函数为例：&lt;/p&gt;
-&lt;p&gt;//重名参数&lt;br&gt;//非严格模式：没有错误，只能访问第二个参数&lt;br&gt;//严格模式：抛出语法错误    &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function sum (num, num){
-     //do something
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在非严格模式下，这个函数声明不会抛出错误。通过参数名只能访问第二个参数，要访问第一个参 数必须通过 arguments 对象。&lt;br&gt;在严格模式下，arguments 对象的行为也有所不同。在非严格模式下，修改命名参数的值也会反 映到 arguments 对象中，而严格模式下这两个值是完全独立的。例如：&lt;/p&gt;
-&lt;p&gt;//修改命名参数的值&lt;br&gt;//非严格模式：修改会反映到 arguments 中&lt;br&gt;//严格模式：修改不会反映到 arguments 中&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function showValue(value){     
-    value = &amp;quot;Foo&amp;quot;;      
-    alert(value);        //&amp;quot;Foo&amp;quot;     
-    alert(arguments[0]); //非严格模式：&amp;quot;Foo&amp;quot;                          
-    //严格模式：&amp;quot;Hi&amp;quot; 
-}  
-showValue(&amp;quot;Hi&amp;quot;);  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以上代码中，函数 showValue()只有一个命名参数 value。调用这个函数时传入了一个参数”Hi”， 这个值赋给了 value。而在函数内部，value 被改为”Foo”。在非严格模式下，这个修改也会改变 arguments[0]的值，但在严格模式下，arguments[0]的值仍然是传入的值。&lt;br&gt;另一个变化是淘汰了 arguments.callee 和 arguments.caller(注: 已被废弃)。在非严格模式下，这两个属 性一个引用函数本身，一个引用调用函数。而在严格模式下，访问哪个属性都会抛出 TypeError。 例如：&lt;/p&gt;
-&lt;p&gt;//访问 arguments.callee&lt;br&gt;//非严格模式：没有问题&lt;br&gt;//严格模式：抛出 TypeError  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function factorial(num){     
-    if (num &amp;lt;= 1) {         
-        return 1;     
-        } else {         
-            return num * arguments.callee(num-1)     
-        }
-    }  
-var result=factorial(5);  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;类似地，尝试读写函数的 caller 属性，也会导致抛出 TypeError。所以，对于上面的例子而言， 访问 factorial.caller 也会抛出错误。&lt;br&gt; 与变量类似，严格模式对函数名也做出了限制，不允许用 implements、interface、let、package、 private、protected、public、static 和 yield 作为函数名。&lt;br&gt; 对函数的最后一点限制，就是只能在脚本的顶级和在函数内部声明函数。也就是说，在 if 语句中 声明函数会导致语法错误：&lt;/p&gt;
-&lt;p&gt;//在 if 语句中声明函数&lt;br&gt;//非严格模式：将函数提升到 if 语句外部&lt;br&gt;//严格模式：抛出语法错误  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;if (true){     
-    function doSomething(){
-            //...     
-        } 
-}  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在非严格模式下，以上代码能在所有浏览器中运行，但在严格模式下会导致语法错误    &lt;/p&gt;
-&lt;h4 id=&quot;eval_28_29&quot;&gt;&lt;a href=&quot;#eval_28_29&quot; class=&quot;headerlink&quot; title=&quot;eval()&quot;&gt;&lt;/a&gt;eval()&lt;/h4&gt;&lt;p&gt;饱受诟病的 eval()函数在严格模式下也得到了提升。最大的变化就是它在包含上下文中不再创建 变量或函数。例如：&lt;/p&gt;
-&lt;p&gt;//使用 eval()创建变量&lt;br&gt;//非严格模式：弹出对话框显示 10&lt;br&gt;//严格模式：调用 alert(x)时会抛出 ReferenceError &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function doSomething(){     
-    eval(&amp;quot;var x=10&amp;quot;);     
-    alert(x); 
-}  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果是在非严格模式下，以上代码会在函数 doSomething()中创建一个局部变量 x，然后 alert() 还会显示该变量的值。但在严格模式下，在 doSomething()函数中调用 eval()不会创建变量 x，因此 调用 alert()会导致抛出 ReferenceError，因为 x 没有定义。&lt;br&gt; 可以在 eval()中声明变量和函数，但这些变量或函数只能在被求值的特殊作用域中有效，随后就 将被销毁。因此，以下代码可以运行，没有问题：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot;use strict&amp;quot;; 
-var result = eval(&amp;quot;var x=10, y=11; x+y&amp;quot;); 
-alert(result); //21  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里在 eval()中声明了变量 x 和 y，然后将它们加在一起，返回了它们的和。于是，result 变 量的值是 21，即 x 和 y 相加的结果。而在调用 alert()时，尽管 x 和 y 已经不存在了，result 变量 的值仍然是有效的。 &lt;/p&gt;
-&lt;h4 id=&quot;eval_u4E0Earguments&quot;&gt;&lt;a href=&quot;#eval_u4E0Earguments&quot; class=&quot;headerlink&quot; title=&quot;eval与arguments&quot;&gt;&lt;/a&gt;eval与arguments&lt;/h4&gt;&lt;p&gt;严格模式已经明确禁止使用 eval 和 arguments 作为标识符，也不允许读写它们的值。例如：&lt;/p&gt;
-&lt;p&gt;//把 eval 和 arguments 作为变量引用&lt;br&gt;//非严格模式：没问题，不出错&lt;br&gt;//严格模式：抛出语法错误 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var eval = 10; 
-var arguments = &amp;quot;Hello world!&amp;quot;; 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在非严格模式下，可以重写 eval，也可以给 arguments 赋值。但在严格模式下，这样做会导致语 法错误。不能将它们用作标识符，意味着以下几种使用方式都会抛出语法错误:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 var 声明;&lt;/li&gt;
-&lt;li&gt;赋予另一个值;&lt;/li&gt;
-&lt;li&gt;尝试修改包含的值，如使用++;&lt;/li&gt;
-&lt;li&gt;用作函数名;&lt;/li&gt;
-&lt;li&gt;用作命名的函数参数;&lt;/li&gt;
-&lt;li&gt;在 try-catch 语句中用作例外名&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;u6291_u5236this&quot;&gt;&lt;a href=&quot;#u6291_u5236this&quot; class=&quot;headerlink&quot; title=&quot;抑制this&quot;&gt;&lt;/a&gt;抑制this&lt;/h4&gt;&lt;p&gt;JavaScript 中一个最大的安全问题，也是最容易让人迷茫的地方，就是在某些情况下如何抑制 this 的值。在非严格模式下使用函数的 apply()或 call()方法时，null 或 undefined 值会被转换为全局 对象。而在严格模式下，函数的 this 值始终是指定的值，无论指定的是什么值。例如：&lt;/p&gt;
-&lt;p&gt;//访问属性&lt;br&gt;//非严格模式：访问全局属性&lt;br&gt;//严格模式：抛出错误，因为 this 的值为 null&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var color = &amp;quot;red&amp;quot;;  
-function displayColor(){     
-    alert(this.color); 
-}   
-displayColor.call(null);  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以上代码向displayColor.call()中传入了null，如果在是非严格模式下，这意味着函数的this 值是全局对象。结果就是弹出对话框显示”red”。而在严格模式下，这个函数的 this 的值是 null，因 此在访问 null 的属性时就会抛出错误。&lt;/p&gt;
-&lt;h4 id=&quot;u5176_u4ED6_u53D8_u5316&quot;&gt;&lt;a href=&quot;#u5176_u4ED6_u53D8_u5316&quot; class=&quot;headerlink&quot; title=&quot;其他变化&quot;&gt;&lt;/a&gt;其他变化&lt;/h4&gt;&lt;p&gt;严格模式还有其他一些变化。&lt;br&gt;首先是抛弃了 with 语句。非严格模式下的 with 语句能够改变解析标识符的路径，但在严格模式下，with 被简化掉了。因此，在严格模式下使用 with 会导致语法错误。&lt;/p&gt;
-&lt;p&gt;//with 的语句用法&lt;br&gt;//非严格模式：允许&lt;br&gt;//严格模式：抛出语法错误  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;with(location){     
-    alert(href); 
-}  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;严格模式也去掉了 JavaScript中的八进制字面量。以 0开头的八进制字面量过去经常会导致很多错 误。在严格模式下，八进制字面量已经成为无效的语法了。&lt;/p&gt;
-&lt;p&gt;//使用八进制字面量&lt;br&gt;//非严格模式：值为 8&lt;br&gt;//严格模式：抛出语法错误 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var value = 010;  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ECMAScript 5也修改了严格模式下 parseInt()的行为。如今，八进制字面量在 严格模式下会被当作以 0开头的十进制字面量。例如：&lt;/p&gt;
-&lt;p&gt;//使用 parseInt()解析八进制字面量&lt;br&gt;//非严格模式：值为 8&lt;br&gt;//严格模式：值为 10 (注: 在 ECMAScript 5中，即使是在非严格模式下也会如此。) &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var value = parseInt(&amp;quot;010&amp;quot;);  
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u5F15_u7528&quot;&gt;&lt;a href=&quot;#u5F15_u7528&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h3&gt;&lt;p&gt;本页内容引用自&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;JavaScript高级程序设计（第3版）--------
-    
-    </summary>
-    
-      <category term="NODEJS" scheme="http://HeartWalker.cc/categories/NODEJS/"/>
-    
     
   </entry>
   
