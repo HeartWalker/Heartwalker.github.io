@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-06-28T23:17:59.987Z</updated>
+  <updated>2016-07-02T06:50:04.479Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,172 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>line-height之height</title>
+    <link href="http://HeartWalker.cc/2016/07/02/line-height%E4%B9%8Bheight/"/>
+    <id>http://HeartWalker.cc/2016/07/02/line-height之height/</id>
+    <published>2016-07-02T06:45:36.000Z</published>
+    <updated>2016-07-02T06:50:04.479Z</updated>
+    
+    <content type="html">&lt;p&gt;本文并非介绍line-height的四条线,也不说它是如何继承的 &lt;/p&gt;
+&lt;h3 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h3&gt;&lt;p&gt;在 PC 端 我们这样写 CSS&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        * &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            margin:&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            padding: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .box &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            line-height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            border:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;px solid orange;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            text-align: center;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            color:black;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        测试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;好,很好,非常好,简简单单就实现了文字居中,可喜可贺 咦! 我为啥要写border属性呢?无所谓啦,这种事随它去吧&lt;br&gt;真的是无所谓么&lt;br&gt;有时在移动端我们会加上这个属性&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;box-sizing:border-box;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;看起来没有什么不一样啊!&lt;br&gt;让我修改一下border&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;border:50px solid black;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这他么什么鬼,画风完全不对好吧&lt;br&gt;这时候只需要将更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;line-height: 100px;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;文字就再次居中了&lt;/p&gt;
+&lt;p&gt;让我恢复到原来的属性然后加上&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;padding:50px 0;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;花还香香的&lt;br&gt;再来一条&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;box-sizing:border-box;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;…&lt;br&gt;这时候也需要更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;line-height:98px;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;哦!!!&lt;br&gt;不管你们懂不懂,反正我是懂了&lt;/p&gt;
+&lt;p&gt;我们都知道当 height 与 line-height 的高度相等的时候文字会垂直居中 ,这个 height 指的得是盒模型的 content 部分,不包括 padding 与 border&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文并非介绍line-height的四条线,也不说它是如何继承的 &lt;/p&gt;
+&lt;h3 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h3&gt;&lt;p&gt;在 PC 端 我们这样写 CSS&lt;br&gt;&lt;
+    
+    </summary>
+    
+      <category term="css" scheme="http://HeartWalker.cc/categories/css/"/>
+    
+    
+      <category term="css布局" scheme="http://HeartWalker.cc/tags/css%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法学习</title>
+    <link href="http://HeartWalker.cc/2016/07/02/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://HeartWalker.cc/2016/07/02/算法学习/</id>
+    <published>2016-07-02T06:31:52.000Z</published>
+    <updated>2016-07-02T06:43:07.118Z</updated>
+    
+    <content type="html">&lt;p&gt;JS常见算法学习收集整理&lt;/p&gt;
+&lt;h2 id=&quot;u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;排序&quot;&gt;&lt;/a&gt;排序&lt;/h2&gt;&lt;h3 id=&quot;u6392_u5E8F_u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6392_u5E8F_u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;排序概念&quot;&gt;&lt;/a&gt;排序概念&lt;/h3&gt;&lt;p&gt;排序就是要整理文件中的记录，使之按关键字递增(或递减)次序排列起来。其确切定义如下：输入：n 个记录 R1，R2，…，Rn，其相应的关键字分别为 K1，K2，…，Kn。输出：Ril，Ri2，…，Rin，使得 Ki1≤Ki2≤…≤Kin。(或 Ki1≥Ki2≥…≥Kin)。&lt;/p&gt;
+&lt;p&gt;排序算法的依据–关键字，关键字可以是数字类型，也可以是字符类型。&lt;br&gt;排序算法的稳定性&lt;/p&gt;
+&lt;p&gt;当待排序记录的关键字均不相同时，排序结果是惟一的，否则排序结果不唯一。在待排序的文件中，若存在多个关键字相同的记录，经过排序后这些具有相同关键字的记录之间的相对次序保持不变，该排序方法是稳定的；若具有相同关键字的记录之间的相对次序发生变化，则称这种排序方法是不稳定的。&lt;br&gt;排序算法的空间复杂度&lt;/p&gt;
+&lt;p&gt;若排序算法所需的辅助空间并不依赖于问题的规模n，即辅助空间是O(1)，则称之为就地排序(In-PlaceSou)。 非就地排序一般要求的辅助空间为O(n)。&lt;/p&gt;
+&lt;h3 id=&quot;u76F4_u63A5_u63D2_u5165_u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u76F4_u63A5_u63D2_u5165_u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;直接插入排序&quot;&gt;&lt;/a&gt;直接插入排序&lt;/h3&gt;&lt;p&gt;把待排序的纪录按其关键码值的大小逐个插入到一个已经排好序的有序序列中，直到所有的纪录插入完为止，得到一个新的有序序列。&lt;/p&gt;
+&lt;p&gt;设无序数组为a[0…n-1]。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1.初始时，a[0]自成1个有序区，无序区为a[1..n-1]。
+
+2.令i=1,将a[i]插入当前的有序区a[0…i-1]中形成a[0…i]的有序区间。
+
+3.i++并重复第二步直到i==n-1，排序完成。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一趟直接插入排序方法&lt;/p&gt;
+&lt;p&gt;具体做法：&lt;/p&gt;
+&lt;p&gt;将待插入记录 a[i]的关键字从右向左依次与有序区中记录 aj的关键字进行比较：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1.若 a[j]的关键字大于 a[i]的关键字，则将 a[j]后移一个位置；
+
+2.若 a[j]的关键字小于或等于 a[i]的关键字，则查找过程结束，j+1 即为 a[i]的插入位置。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关键字比a[i]的关键字大的记录均已后移，所以 j+1 的位置已经腾空，只要将 a[i] 直接插入此位置即可完成一趟直接插入排序。&lt;/p&gt;
+&lt;p&gt;例如待排序数组a[0]=8,a[1]=5,a[2]=10,a[3]=12,a[4]=7,a[5]=6&lt;/p&gt;
+&lt;p&gt;第一趟：a[0]=8，有序,a[1…5]无序。&lt;/p&gt;
+&lt;p&gt;第二趟：temp=5，a[1]=5 &amp;lt; a[0]=8, 8往后移一位，a[1]=8,a[0]=5,a[0…1]有序,a[2…5]无序。&lt;/p&gt;
+&lt;p&gt;第三、四趟：a[2]=10 &amp;gt; a[1]=8,a[3]=12 &amp;gt; a[2]=10，有序无须移动，a[4…5]无序。&lt;/p&gt;
+&lt;p&gt;第五趟：temp=7，a[4]=7 &amp;lt; a[3]=12,12往后移一位，a[4]=12，依次类推…直到a[0]=5 &amp;lt; temp，即a[1]=7。&lt;/p&gt;
+&lt;p&gt;第六趟类比第五趟，可以得到6插入位置为a[1]=6。排序完成。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var insertSort = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(array)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,temp,len = array.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(; i&amp;lt;len;++i)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        temp = array[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        j = i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(--j &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(array[j] &amp;gt; temp)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                array[j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = array[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        array[j+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]=temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; array;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;直接插入排序算法时间复杂度：O(n^2)；空间复杂度：O(1)。直接插入排序是稳定的排序方法。&lt;/p&gt;
+&lt;h3 id=&quot;u5192_u6CE1_u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u5192_u6CE1_u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h3&gt;&lt;p&gt;两两比较待排序记录的关键字，发现两个记录的次序相反时即进行交换，直到没有反序的记录为止。按照从小到大或者从大到小的顺序进行交换,这样一趟过去后,最大或最小的数字被交换到了最后一位。&lt;/p&gt;
+&lt;p&gt;冒泡排序算法的运作过程：（从小到大排序）&lt;/p&gt;
+&lt;p&gt;设数组a[0..n-1]长度为n,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1．比较相邻的前后二个数据，如果前面数据大于后面的数据，就将二个数据交换。
+
+2．这样对数组的第0个数据到n-1个数据进行一次遍历后，最大的一个数据就“沉”到数组第n-1个位置。
+
+3．n=n-1，如果n不为0就重复前面二步，否则排序完成。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;例子为从小到大排序,原始待排序数组| 7 | 2 | 4 | 1 | 5 |&lt;/p&gt;
+&lt;p&gt;第一趟排序(外循环)&lt;/p&gt;
+&lt;p&gt;第一次两两比较7 &amp;gt; 2交换(内循环)&lt;/p&gt;
+&lt;p&gt;交换前状态| 7 | 2 | 4 | 1 | 5 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 7 | 4 | 1 | 5 |&lt;/p&gt;
+&lt;p&gt;第二次两两比较,7 &amp;gt; 4交换&lt;/p&gt;
+&lt;p&gt;交换前状态| 2 | 7 | 4 | 1 | 5 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 4 | 7 | 1 | 5 |&lt;/p&gt;
+&lt;p&gt;第三次两两比较,7 &amp;gt; 1交换&lt;/p&gt;
+&lt;p&gt;交换前状态| 2 | 4 | 7 | 1 | 5 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 4 | 1 | 7 | 5 |&lt;/p&gt;
+&lt;p&gt;第四次两两比较,7 &amp;gt; 5交换&lt;/p&gt;
+&lt;p&gt;交换前状态| 2 | 4 | 1 | 7 | 5 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 4 | 1 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;第二趟排序(外循环)&lt;/p&gt;
+&lt;p&gt;第一次两两比较2 &amp;lt; 4不交换&lt;/p&gt;
+&lt;p&gt;交换前状态| 2 | 4 | 1 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 4 | 1 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;第二次两两比较,4 &amp;gt; 1交换&lt;/p&gt;
+&lt;p&gt;交换前状态| 2 | 4 | 1 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 1 | 4 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;第三趟排序(外循环)&lt;/p&gt;
+&lt;p&gt;第一次两两比较2 &amp;gt; 1交换&lt;/p&gt;
+&lt;p&gt;交换后状态| 2 | 1 | 4 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 1 | 2 | 4 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;第二次两两比较,2 &amp;lt; 4不交换&lt;/p&gt;
+&lt;p&gt;交换后状态| 1 | 2 | 4 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;交换后状态| 1 | 2 | 4 | 5 | 7 |&lt;/p&gt;
+&lt;p&gt;排序完毕,输出最终结果1 2 4 5 7&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var bubbleSort = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(array)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                len = array.length,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                j,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(;i &amp;lt; len;i++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(j = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; j &amp;lt; len; j++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(array[i] &amp;lt; array[j])&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            temp = array[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            array[j] = array[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            array[i] = temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; array;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//或者这样更好理解&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; bubbleSort(arr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var i = arr.length, j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (i &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (j = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; j &amp;lt; i - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (arr[j] &amp;gt; arr[j + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        temp = arr[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        arr[j] = arr[j + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        arr[j + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                i--;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; arr;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;冒泡排序时间复杂度，最好情况：数组已有序O(n)；最坏情况:数组反序O(n^2)，平均时间复杂度：O(n^2)。空间复杂度，冒泡排序是原地排序，空间复杂度为O(1)。冒泡排序算法是稳定的排序算法。&lt;/p&gt;
+&lt;h3 id=&quot;u76F4_u63A5_u9009_u62E9_u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u76F4_u63A5_u9009_u62E9_u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;直接选择排序&quot;&gt;&lt;/a&gt;直接选择排序&lt;/h3&gt;&lt;p&gt;无序数组a[0…n-1]，第一次从a[0]~a[n-1]中选取最小值，与a[0]交换，第二次从a[1]~a[n-1]中选取最小值，与a[1]交换，….，第i次从a[i-1]~a[n-1]中选取最小值，与a[i-1]交换，…..，第n-1次从a[n-2]~a[n-1]中选取最小值，与a[n-2]交换，总共通过n-1次，得到一个按关键字从小到大排列的有序序列·&lt;/p&gt;
+&lt;p&gt;直接选择排序算法过程如下:&lt;/p&gt;
+&lt;p&gt;给定n=7，数组a中的7个元素为[8,3,2,1,7,4,6]&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;初始状态 [ 8 3 2 1 7 4 6]
+
+第1次，数组a[0..6]中最小的数为a[3]=1，交换a[3]&amp;lt;-&amp;gt;a[0]，交换结果[ 1 3 2 8 7 4 6]
+
+第2次，数组a[1..6]中最小的数为a[2]=2，交换a[2]&amp;lt;-&amp;gt;a[1]，交换结果[ 1 2 3 8 7 4 6]
+
+第3次，数组a[2..6]中最小的数为a[2]=3，交换a[2]&amp;lt;-&amp;gt;a[2]，交换结果[ 1 2 3 8 7 4 6]
+
+第4次，数组a[3..6]中最小的数为a[5]=4，交换a[5]&amp;lt;-&amp;gt;a[3]，交换结果[ 1 2 3 4 6 8 7]
+
+第5次，数组a[4..6]中最小的数为a[4]=6，交换a[4]&amp;lt;-&amp;gt;a[4]，交换结果[ 1 2 3 4 6 8 7]
+
+第6次，数组a[5..6]中最小的数为a[6]=7，交换a[6]&amp;lt;-&amp;gt;a[5]，交换结果[ 1 2 3 4 6 7 8]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;排序完成。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var selectSort = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(array)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        j,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        min,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        temp,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        len = array.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(;i &amp;lt; len - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;i++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        min = i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(j=i+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; j&amp;lt; len;j++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(array[min] &amp;gt; array[j])&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                min = j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        temp = array[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        array[i] = array[min];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        array[min] = temp; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; array;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在直接选择排序中，共需要进行n-1次选择和交换，每次选择需要进行 n-i 次比较 (1&amp;lt;=i&amp;lt;=n-1),而每次交换最多需要3次移动，因此，总的比较次数C=(n*n - n)/2，时间复杂度O(n^2)。直接选择排序为原地排序，空间复杂度O(1)。直接选择排序不是稳定的排序算法。&lt;/p&gt;
+&lt;h3 id=&quot;u5E0C_u5C14_u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u5E0C_u5C14_u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;希尔排序&quot;&gt;&lt;/a&gt;希尔排序&lt;/h3&gt;&lt;p&gt;把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。&lt;/p&gt;
+&lt;p&gt;希尔排序算法过程：&lt;/p&gt;
+&lt;p&gt;先取一个正整数gap&lt;/p&gt;
+&lt;p&gt;例如数组a[49, 38, 65, 97, 26, 13, 27, 49, 55, 4]&lt;/p&gt;
+&lt;p&gt;第1次 步长 gap = 10 / 2 = 5&lt;/p&gt;
+&lt;p&gt;分成了五组(49, 13) (38, 27) (65, 49) (97, 55) (26, 4)，&lt;/p&gt;
+&lt;p&gt;每组排序后变成了(13, 49) (27, 38) (49, 65) (55, 97) (4, 26)。&lt;/p&gt;
+&lt;p&gt;第1次排序结果：13 27 49 55 4 49 38 65 97 26&lt;/p&gt;
+&lt;p&gt;第2次 步长 gap = 5 / 2 = 2&lt;/p&gt;
+&lt;p&gt;分成了2组(13,49,4,38,97) (27,55,49,65,26)&lt;/p&gt;
+&lt;p&gt;每组排序后变成了(4,13,38,49,97) (26,27,49,55,65)&lt;/p&gt;
+&lt;p&gt;第2次排序结果：4 26 13 27 38 49 49 55 97 65&lt;/p&gt;
+&lt;p&gt;第3次 步长 gap = 2 / 2 = 1&lt;/p&gt;
+&lt;p&gt;分为一组，直接插入排序后，数组有序。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var shellSort = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(array)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     var len = array.length, gap = parseInt(len/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;), &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         i, j, tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(gap &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         //循环使i=gap&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(i=gap; i&amp;lt;len; i++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             //给临时值tmp赋值为array[i]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             tmp = array[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             //j是i减去增量&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             j = i - gap;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(j&amp;gt;=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; tmp &amp;lt; array[j])&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     array[i] = array[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     j = j - gap;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;             array[j+gap] = tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         //改变增量gap 控制循环&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         gap = parseInt(gap/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; array;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//或者这样&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var shellSort = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(array)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var len=array.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(var gap=Math.floor(len/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;); gap&amp;gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; gap=Math.floor(gap/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;))&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(var i=gap; i&amp;lt;len; i++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(var j=i-gap; j&amp;gt;=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&amp;amp;&amp;amp;array[j]&amp;gt;array[gap+j]; j-=gap)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                var temp = array[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                array[j] = array[gap+j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                array[gap+j] = temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;希尔排序的时间复杂度与增量序列的选取有关，例如希尔增量时间复杂度为O(n²)，而Hibbard增量的希尔排序的时间复杂度为O(n^(3/2))，希尔排序时间复杂度的下界是n*log2n，希尔排序时间复杂度O(Nlog2N)，空间复杂度O(1)。希尔排序不是稳定排序算法。&lt;/p&gt;
+&lt;h3 id=&quot;u5FEB_u901F_u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u5FEB_u901F_u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;快速排序&quot;&gt;&lt;/a&gt;快速排序&lt;/h3&gt;&lt;p&gt;首先从数组a中选取一个基准点（通常我们取中间项作为基准点），然后遍历数组，把小于基准点的项放到基准点左边集合，把大于基准点的项放到基准点右边集合。再对左边和右边两个集合重复前面的操作，直到每个子集就剩下一个元素。其实就是一个递归的思想。&lt;/p&gt;
+&lt;p&gt;依旧拿数组a=[12,3,43,11,56,90,7,66,82]举例，我们先选取一个基准点pivot=a[Math.floor(a.length/2)]，即a[4]值为56，然后便利数组中的剩余项，把小于56的数组项放在左边的数组left中，把大于等于56的数组项放在右边的数组right中，第一轮操作结束后left=[12,3,43,11,7]，right=[90,66,82]，然后再对left和right重复以上的操作，直到left和right仅剩一项或为空时结束。最后返回left+pivot+right。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; quickSort(arr)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var len=arr.length;//获取arr的长度&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(len&amp;lt;=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&amp;#123;//如果arr的长度小于等于&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;则直接返回arr&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; arr;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var pIndex=Math.floor(len/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);//获取基准点的索引下标&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var pivot=arr[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var left=[];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var right=[];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(var i=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; i&amp;lt;arr.length; i++)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(arr[i]&amp;lt;pivot)&amp;#123;//如果小于基准点就放到数组l中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                left.push(arr[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;//如果大于等于基准点就放到右边数组中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                right.push(arr[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; quickSort(left).concat(pivot,quickSort(right));//递归不断重复整个过程&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;快速排序算法平均时间复杂度O(nlgn)，最坏O(n^2)。快速排序需要栈空间来实现递归，如果数组按局等方式被分割时，则最大的递归深度为 log n，需要的栈空间为 O(log n)。最坏的情况下在递归的每一级上，数组分割成长度为0的左子数组和长度为 n - 1 的右数组。这种情况下，递归的深度就成为 n，需要的栈空间为 O(n)。快速排序不是稳定排序算法。&lt;/p&gt;
+&lt;h2 id=&quot;u611F_u6168&quot;&gt;&lt;a href=&quot;#u611F_u6168&quot; class=&quot;headerlink&quot; title=&quot;感慨&quot;&gt;&lt;/a&gt;感慨&lt;/h2&gt;&lt;p&gt;算法这种东西不经常用,学起来也比较伤脑,而且学了忘学了又忘,果然对我这个特别平凡的人来说算法不太适合么&lt;br&gt;好烦 不搞了&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JS常见算法学习收集整理&lt;/p&gt;
+&lt;h2 id=&quot;u6392_u5E8F&quot;&gt;&lt;a href=&quot;#u6392_u5E8F&quot; class=&quot;headerlink&quot; title=&quot;排序&quot;&gt;&lt;/a&gt;排序&lt;/h2&gt;&lt;h3 id=&quot;u6392_u5E8F_u6982_u5FF5&quot;&gt;&lt;a
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+      <category term="算法" scheme="http://HeartWalker.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>在webstorm中使用sass</title>
@@ -111,7 +277,7 @@ Output paths to refresh: $FileNameWithoutExtension$.css
     <link href="http://HeartWalker.cc/2016/06/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
     <id>http://HeartWalker.cc/2016/06/22/前端学习之好书推荐/</id>
     <published>2016-06-21T22:44:02.000Z</published>
-    <updated>2016-06-26T14:22:27.573Z</updated>
+    <updated>2016-07-02T06:40:17.216Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript Dom 编程艺术 &amp;gt;&amp;gt; 目前(第二版)&lt;br&gt;轻松入门 开始学习javascript&lt;/p&gt;
@@ -124,9 +290,13 @@ Output paths to refresh: $FileNameWithoutExtension$.css
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 高性能网站建设进阶指南 &amp;gt;&amp;gt;&lt;br&gt;一些高级技巧,技术性比较高,有一些已经过时,有的没有实际经验也很难理解&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 图解HTTP &amp;gt;&amp;gt;&lt;br&gt;HTTP 入门好书 ,轻松入门 ,快速了解 HTTP&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 图解HTTP &amp;gt;&amp;gt;&lt;br&gt;HTTP 入门好书 ,轻松入门 ,快速了解 HTTP,书非常迷你,携带方便&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; HTTP权威指南 &amp;gt;&amp;gt;&lt;br&gt;如果想要更深入的学习http 这是一本绝对好书,身边的人都在推荐它,但我还没有看过,作为一个特别平凡的人,精力总是有限的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript模式 &amp;gt;&amp;gt;&lt;br&gt;一本讲解 JS 模式的好书,前半部分对 JS 的概念讲解与拓展,后边的将模式的部分还是有些抽象&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript 设计模式与开发实践 &amp;gt;&amp;gt;&lt;br&gt;国内难的的好书之一, 由浅入深, 案例丰富, 绝对值得一看&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -684,72 +854,6 @@ document.mozFullScreen;
     
     
       <category term="调错" scheme="http://HeartWalker.cc/tags/%E8%B0%83%E9%94%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jquery中的this</title>
-    <link href="http://HeartWalker.cc/2016/05/13/jquery%E4%B8%AD%E7%9A%84this/"/>
-    <id>http://HeartWalker.cc/2016/05/13/jquery中的this/</id>
-    <published>2016-05-13T01:29:34.000Z</published>
-    <updated>2016-05-13T13:21:11.586Z</updated>
-    
-    <content type="html">&lt;p&gt;前天有人有问这样一个问题: 我一个网页里面有好多个前面一张图的结构，然后点击第n个加号会显示第n个子内容，点击第n个减号会隐藏第n个子内容，但是我现在总是不对，我把n弹出来，只要点加号就是0，点减号就是1，这是什么原因呀？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/jq中的this1.png&quot; alt=&quot;&quot;&gt;&lt;img src=&quot;/images/jq中的this2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;很明显问题出在这一句代码&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var n = $(this).index();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;只需要将代码改为:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var n = $(.add).index(this);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之所以会犯错主要有两方面原因&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不了解jquery中的this&lt;br&gt;  jquery中有一个很重要的概念叫隐式迭代, 在jquery内部会对调用事件的jquery DOM数组使用 each 方法, 事件函数中的this并不是调用事件的数组而是当前的原生DOM对象&lt;/li&gt;
-&lt;li&gt;不了解jquery中的index方法&lt;br&gt;  调用index()会搜索匹配的元素，并返回相应元素的索引值，从0开始计数。&lt;br&gt;  如果不给 index() 方法传递参数，那么返回值就是这个jQuery对象集合中第一个元素相对于其同辈元素的位置。&lt;br&gt;如果参数是一组DOM元素或者jQuery对象，那么返回值就是传递的元素相对于原先集合的位置。&lt;br&gt;如果参数是一个选择器，那么返回值就是原先元素相对于选择器匹配元素中的位置。如果找不到匹配的元素，则返回-1。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;$(this).index();相当于查找当前对象在同辈元素中的位置, 当然不能满足需求
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前天有人有问这样一个问题: 我一个网页里面有好多个前面一张图的结构，然后点击第n个加号会显示第n个子内容，点击第n个减号会隐藏第n个子内容，但是我现在总是不对，我把n弹出来，只要点加号就是0，点减号就是1，这是什么原因呀？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/
-    
-    </summary>
-    
-      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
-    
-    
-      <category term="jquery" scheme="http://HeartWalker.cc/tags/jquery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>new与return和函数</title>
-    <link href="http://HeartWalker.cc/2016/05/09/new%E4%B8%8Ereturn%E5%92%8C%E5%87%BD%E6%95%B0/"/>
-    <id>http://HeartWalker.cc/2016/05/09/new与return和函数/</id>
-    <published>2016-05-09T06:29:09.000Z</published>
-    <updated>2016-05-10T04:52:42.825Z</updated>
-    
-    <content type="html">&lt;p&gt;主要介绍函数中有无 return 与是否用 new 调用时的异同&lt;/p&gt;
-&lt;h3 id=&quot;u6709new_u65E0return_28_u6784_u9020_u51FD_u6570_29&quot;&gt;&lt;a href=&quot;#u6709new_u65E0return_28_u6784_u9020_u51FD_u6570_29&quot; class=&quot;headerlink&quot; title=&quot;有new无return(构造函数)&quot;&gt;&lt;/a&gt;有new无return(构造函数)&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    this.name = &lt;span class=&quot;string&quot;&gt;&#39;heart&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = new Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(person.name);   //heart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u6709new_u6709return_28_u5BC4_u751F_u6A21_u5F0F_29&quot;&gt;&lt;a href=&quot;#u6709new_u6709return_28_u5BC4_u751F_u6A21_u5F0F_29&quot; class=&quot;headerlink&quot; title=&quot;有new有return(寄生模式)&quot;&gt;&lt;/a&gt;有new有return(寄生模式)&lt;/h3&gt;&lt;p&gt;return 简单数据类型 和构造函数一样&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    this.name = &lt;span class=&quot;string&quot;&gt;&#39;heart&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var name = &lt;span class=&quot;string&quot;&gt;&#39;walker&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = new Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(person.name);   //heart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;return 返回复杂数据类型(寄生模式)&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    this.name = &lt;span class=&quot;string&quot;&gt;&#39;heart&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        name: &lt;span class=&quot;string&quot;&gt;&#39;walker&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = new Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(person.name);   //waker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;此时的 person 是 return出来的对象&lt;/p&gt;
-&lt;h3 id=&quot;u65E0new_u65E0return&quot;&gt;&lt;a href=&quot;#u65E0new_u65E0return&quot; class=&quot;headerlink&quot; title=&quot;无new无return&quot;&gt;&lt;/a&gt;无new无return&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    this.name = &lt;span class=&quot;string&quot;&gt;&#39;heart&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(person.name);   //报错&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;好吧, 其实这里 Person 不应该大写, 这就是给 变量 person 赋函数 Person 的调用返回值&lt;/p&gt;
-&lt;h3 id=&quot;u65E0new_u6709return&quot;&gt;&lt;a href=&quot;#u65E0new_u6709return&quot; class=&quot;headerlink&quot; title=&quot;无new有return&quot;&gt;&lt;/a&gt;无new有return&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    this.name = &lt;span class=&quot;string&quot;&gt;&#39;heart&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        name: &lt;span class=&quot;string&quot;&gt;&#39;walker&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var person = Person();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(person.name);   //walker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt; 注: &lt;/strong&gt; 在这种情况看起来与寄生模式很相似, 但它会在全局对象中创建了一个新的名为 name 的属性, 可以通过 window.name 或 name直接访问, 当然在严格模式下由于 this 不会指向全局对象, 这段代码会报错&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;主要介绍函数中有无 return 与是否用 new 调用时的异同&lt;/p&gt;
-&lt;h3 id=&quot;u6709new_u65E0return_28_u6784_u9020_u51FD_u6570_29&quot;&gt;&lt;a href=&quot;#u6709new_u65E0return_28_u6784_
-    
-    </summary>
-    
-      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
-    
-    
-      <category term="函数" scheme="http://HeartWalker.cc/tags/%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
