@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-07-02T06:50:04.479Z</updated>
+  <updated>2016-07-07T14:59:08.434Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -16,14 +16,83 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>jsonp的原理与简单实现</title>
+    <link href="http://HeartWalker.cc/2016/07/06/jsonp%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://HeartWalker.cc/2016/07/06/jsonp的原理与简单实现/</id>
+    <published>2016-07-06T13:31:21.000Z</published>
+    <updated>2016-07-07T14:59:08.434Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u539F_u7406&quot;&gt;&lt;a href=&quot;#u539F_u7406&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h3&gt;&lt;p&gt;由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求。&lt;/p&gt;
+&lt;p&gt;其本质是利用了&amp;lt; script src=”” &amp;gt;&amp;lt;/ script &amp;gt;标签具有可跨域的特性，由服务端返回一个预先定义好的Javascript函数的调用，并且将服务器数据以该函数参数的形式传递过来，此方法需要前后端配合完成。&lt;br&gt;它只能以GET方式请求&lt;/p&gt;
+&lt;p&gt;实现jsonp跨域需要服务器的端的配合, 一般将传递的 key 命名为 callback&lt;/p&gt;
+&lt;h3 id=&quot;php_u670D_u52A1_u5668_u793A_u4F8B&quot;&gt;&lt;a href=&quot;#php_u670D_u52A1_u5668_u793A_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;php服务器示例&quot;&gt;&lt;/a&gt;php服务器示例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    header(&lt;span class=&quot;string&quot;&gt;&#39;Content-Type: text/javascript; charset=utf-8&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // 假设从数据库里取数据了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;$arr&lt;/span&gt; = array(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;string&quot;&gt;&quot;js&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;age&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // 编码处理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;$json&lt;/span&gt; = json_encode(&lt;span class=&quot;variable&quot;&gt;$arr&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //获取客户端的callback函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;$callback&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$_GET&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;callback&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$callback&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;&#39;(&#39;&lt;/span&gt; . &lt;span class=&quot;variable&quot;&gt;$json&lt;/span&gt; . &lt;span class=&quot;string&quot;&gt;&#39;)&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u5BA2_u6237_u7AEF_u793A_u4F8B&quot;&gt;&lt;a href=&quot;#u5BA2_u6237_u7AEF_u793A_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;客户端示例&quot;&gt;&lt;/a&gt;客户端示例&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var jsonp = (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         var count = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (url, callback) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            //&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;. 创建一个script标签&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var scriptElem = document.createElement(&lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            //&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;. 把地址传进去：原地址+ &lt;span class=&quot;string&quot;&gt;&quot;?.......&amp;amp;callback=fn&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var callbackName = &lt;span class=&quot;string&quot;&gt;&quot;__callback__&quot;&lt;/span&gt; + count++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            var jsonpUrl = url + &lt;span class=&quot;string&quot;&gt;&quot;?callback=&quot;&lt;/span&gt; + callbackName;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            scriptElem.src = jsonpUrl;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            //&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;. 创建一个fn函数，用于接收返回的数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            window[callbackName] = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(data)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                //把数据传给想要用的人&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                callback(data);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                //把我们创建的script标签删掉&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                window.document.body.removeChild(scriptElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            //&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;.把标签放到body，把请求发出去&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            window.document.body.appendChild(scriptElem);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    jsonp(&lt;span class=&quot;string&quot;&gt;&#39;./js.php&#39;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; cs(data)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        data = JSON.stringify(data);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log(data);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;控制台输出:{“name”:”js”,”age”:20}&lt;br&gt;注: 请在php服务器下运行&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u539F_u7406&quot;&gt;&lt;a href=&quot;#u539F_u7406&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h3&gt;&lt;p&gt;由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="跨域" scheme="http://HeartWalker.cc/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS设计模式之观察者模式</title>
+    <link href="http://HeartWalker.cc/2016/07/03/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://HeartWalker.cc/2016/07/03/JS设计模式之观察者模式/</id>
+    <published>2016-07-03T14:42:29.000Z</published>
+    <updated>2016-07-03T14:42:29.250Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>J设计模式之迭代器模式</title>
+    <link href="http://HeartWalker.cc/2016/07/03/J%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://HeartWalker.cc/2016/07/03/J设计模式之迭代器模式/</id>
+    <published>2016-07-03T09:50:30.000Z</published>
+    <updated>2016-07-03T13:25:22.223Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素,而又不需要暴露该对象的内部表示.迭代器模式可以吧迭代的过程从业务逻辑中分离出来,在使用迭代器模式之后,即使不关心对象的内部构造,也可以按顺序访问其中的每个元素.&lt;br&gt;大部分语言都有内部迭代器的实现,ECMAScript5也增加了数组的迭代方法 forEach &lt;/p&gt;
+&lt;h3 id=&quot;u5185_u90E8_u8FED_u4EE3_u5668&quot;&gt;&lt;a href=&quot;#u5185_u90E8_u8FED_u4EE3_u5668&quot; class=&quot;headerlink&quot; title=&quot;内部迭代器&quot;&gt;&lt;/a&gt;内部迭代器&lt;/h3&gt;&lt;p&gt;内部迭代器是函数的内部已经定义好了迭代器规则,它完全接手整个迭代过程,外部只需要一次初始调用&lt;br&gt;下边实现一个自己的内部迭代器&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var each = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(arr, fn)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //这里只考虑arr是数组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var i, l = arr.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; ( i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; l; i++ ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            //把下标和元素当做参数传递给fn函数,并提供跳出的方法,如果fn的返回值为&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;则提前终止循环&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( fn.call( arr[ i ], i, arr[ i ] ) === &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; arr;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u5916_u90E8_u8FED_u4EE3_u5668&quot;&gt;&lt;a href=&quot;#u5916_u90E8_u8FED_u4EE3_u5668&quot; class=&quot;headerlink&quot; title=&quot;外部迭代器&quot;&gt;&lt;/a&gt;外部迭代器&lt;/h3&gt;&lt;p&gt;外部迭代器必须显示地请求迭代下一个元素,我们可以手工控制迭代的过程或顺序,相比内部迭代器有更强的灵活性&lt;br&gt;下边实现一个自己的外部迭代器&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var Iterator  = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(obj)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var current = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var next = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        current += &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var isDone = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; current &amp;gt;= obj.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var getCurrItem = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; obj[ current ];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        next:next,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        isDone: isDone,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        getSingle: getCurrItem&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6982_u5FF5&quot;&gt;&lt;a href=&quot;#u6982_u5FF5&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素,而又不需要暴露该对象的内部表示.迭代器模式可
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://HeartWalker.cc/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式" scheme="http://HeartWalker.cc/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>line-height之height</title>
     <link href="http://HeartWalker.cc/2016/07/02/line-height%E4%B9%8Bheight/"/>
     <id>http://HeartWalker.cc/2016/07/02/line-height之height/</id>
     <published>2016-07-02T06:45:36.000Z</published>
-    <updated>2016-07-02T06:50:04.479Z</updated>
+    <updated>2016-07-02T07:09:31.989Z</updated>
     
     <content type="html">&lt;p&gt;本文并非介绍line-height的四条线,也不说它是如何继承的 &lt;/p&gt;
-&lt;h3 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h3&gt;&lt;p&gt;在 PC 端 我们这样写 CSS&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        * &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            margin:&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            padding: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .box &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            line-height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            border:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;px solid orange;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            text-align: center;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            color:black;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        测试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h3&gt;&lt;p&gt;在 PC 端,为了实现文字居中, 我们这样写 CSS&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        * &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            margin:&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            padding: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .box &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            line-height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            border:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;px solid orange;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            text-align: center;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            color:black;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        测试&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;好,很好,非常好,简简单单就实现了文字居中,可喜可贺 咦! 我为啥要写border属性呢?无所谓啦,这种事随它去吧&lt;br&gt;真的是无所谓么&lt;br&gt;有时在移动端我们会加上这个属性&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;box-sizing:border-box;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;看起来没有什么不一样啊!&lt;br&gt;让我修改一下border&lt;/p&gt;
@@ -44,7 +113,7 @@
     <summary type="html">
     
       &lt;p&gt;本文并非介绍line-height的四条线,也不说它是如何继承的 &lt;/p&gt;
-&lt;h3 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h3&gt;&lt;p&gt;在 PC 端 我们这样写 CSS&lt;br&gt;&lt;
+&lt;h3 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h3&gt;&lt;p&gt;在 PC 端,为了实现文字居中, 我们这样
     
     </summary>
     
@@ -277,7 +346,7 @@ Output paths to refresh: $FileNameWithoutExtension$.css
     <link href="http://HeartWalker.cc/2016/06/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%A5%BD%E4%B9%A6%E6%8E%A8%E8%8D%90/"/>
     <id>http://HeartWalker.cc/2016/06/22/前端学习之好书推荐/</id>
     <published>2016-06-21T22:44:02.000Z</published>
-    <updated>2016-07-02T06:40:17.216Z</updated>
+    <updated>2016-07-06T13:20:22.055Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript Dom 编程艺术 &amp;gt;&amp;gt; 目前(第二版)&lt;br&gt;轻松入门 开始学习javascript&lt;/p&gt;
@@ -297,6 +366,10 @@ Output paths to refresh: $FileNameWithoutExtension$.css
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript模式 &amp;gt;&amp;gt;&lt;br&gt;一本讲解 JS 模式的好书,前半部分对 JS 的概念讲解与拓展,后边的将模式的部分还是有些抽象&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; JavaScript 设计模式与开发实践 &amp;gt;&amp;gt;&lt;br&gt;国内难的的好书之一, 由浅入深, 案例丰富, 绝对值得一看&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; ECMAScript 6 入门 &amp;gt;&amp;gt;&lt;br&gt;想要学习node么, 想要学习最新的框架么, 那你最好先看一下ES6&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt; 深入浅出 nodejs &amp;gt;&amp;gt;&lt;br&gt;书如其名, 深入原理&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -734,126 +807,6 @@ c) maximumAge表示浏览器重新获取位置信息的时间间隔，单位为m
     
     
       <category term="H5" scheme="http://HeartWalker.cc/tags/H5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5API之网络状态</title>
-    <link href="http://HeartWalker.cc/2016/05/20/HTML5API%E4%B9%8B%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81/"/>
-    <id>http://HeartWalker.cc/2016/05/20/HTML5API之网络状态/</id>
-    <published>2016-05-20T13:41:01.000Z</published>
-    <updated>2016-05-20T14:20:19.980Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u57FA_u672C_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u57FA_u672C_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;基本方法&quot;&gt;&lt;/a&gt;基本方法&lt;/h3&gt;&lt;p&gt;我们可以通过&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;navigator.onLine;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;来检测，用户当前的网络状况，返回一个布尔值, 局域网算是联通状态&lt;/p&gt;
-&lt;h3 id=&quot;u7F51_u7EDC_u76D1_u542C_u4E8B_u4EF6&quot;&gt;&lt;a href=&quot;#u7F51_u7EDC_u76D1_u542C_u4E8B_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;网络监听事件&quot;&gt;&lt;/a&gt;网络监听事件&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;online //当网络连通时触发 
-offline //当网络断开时触发
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这两个事件都需要绑定给 window 并且需要使用 DOM2级事件&lt;br&gt;如:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;window.addEventListener(&amp;quot;offline&amp;quot;, function(e) {
-     console.log(&amp;quot;offline&amp;quot;);
- });
-window.addEventListener(&amp;quot;online&amp;quot;, function(e) {
-     console.log(&amp;quot;online&amp;quot;);
- });
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u57FA_u672C_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u57FA_u672C_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;基本方法&quot;&gt;&lt;/a&gt;基本方法&lt;/h3&gt;&lt;p&gt;我们可以通过&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;na
-    
-    </summary>
-    
-      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
-    
-    
-      <category term="H5" scheme="http://HeartWalker.cc/tags/H5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5API之全屏</title>
-    <link href="http://HeartWalker.cc/2016/05/19/HTML5API%E4%B9%8B%E5%85%A8%E5%B1%8F/"/>
-    <id>http://HeartWalker.cc/2016/05/19/HTML5API之全屏/</id>
-    <published>2016-05-19T14:12:55.000Z</published>
-    <updated>2016-05-20T13:45:01.191Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u57FA_u672C_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u57FA_u672C_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;基本方法&quot;&gt;&lt;/a&gt;基本方法&lt;/h3&gt;&lt;p&gt;HTML5规范允许用户自定义网页上任一元素全屏显示&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;requestFullScreen(); //开启全屏显示
-cancleFullScreen();  //关闭全屏显示
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是由于浏览器的实现与兼容性的问题, 目前需要这样来使用它们&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;element.webkitRequestFullScreen()
-element.mozRequestFullScreen()
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上述代码会将 element 元素全屏, 即非element元素会被隐藏&lt;br&gt;规范允许所有元素可以取消全屏，但实际测试结果 关闭全屏 只能添加到 document 元素上, 使用其他元素会报错&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;document.webkitCancelFullScreen()
-document.mozCancelFullScreen()
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u5168_u5C4F_u68C0_u67E5&quot;&gt;&lt;a href=&quot;#u5168_u5C4F_u68C0_u67E5&quot; class=&quot;headerlink&quot; title=&quot;全屏检查&quot;&gt;&lt;/a&gt;全屏检查&lt;/h3&gt;&lt;p&gt;可以通过下面代码检测当前是否处于全屏状态&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;document.fullScreen;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;不同浏览器仍然需要添加前缀&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;document.webkitIsFullScreen;
-document.mozFullScreen;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u5168_u5C4F_u4F2A_u7C7B&quot;&gt;&lt;a href=&quot;#u5168_u5C4F_u4F2A_u7C7B&quot; class=&quot;headerlink&quot; title=&quot;全屏伪类&quot;&gt;&lt;/a&gt;全屏伪类&lt;/h3&gt;&lt;p&gt;还有一个全屏伪类, 可以设置全屏状态下的样式&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;:full-screen 
-:-webkit-full-screen
-:-moz-full-screen 
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u6CE8&quot;&gt;&lt;a href=&quot;#u6CE8&quot; class=&quot;headerlink&quot; title=&quot;注&quot;&gt;&lt;/a&gt;注&lt;/h3&gt;&lt;p&gt;目前标准写法仍未被实现,使用标准方法会报错(至少在pc端是这样)&lt;/p&gt;
-&lt;h3 id=&quot;chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A&quot;&gt;&lt;a href=&quot;#chrome_u4E0B_u6D4B_u8BD5_u4EE3_u7801_3A&quot; class=&quot;headerlink&quot; title=&quot;chrome下测试代码:&quot;&gt;&lt;/a&gt;chrome下测试代码:&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&lt;span class=&quot;string&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;meta charset=&lt;span class=&quot;string&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;title&amp;gt;全屏&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .box &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            background: blue;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        :-webkit-full-screen .box &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            background-color: red;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .cl&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width: &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height: &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            background-color: gold;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/style&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;cl&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;input &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&#39;open&#39;&lt;/span&gt; value=&lt;span class=&quot;string&quot;&gt;&quot;全屏&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;input &lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&#39;cancle&#39;&lt;/span&gt; value=&lt;span class=&quot;string&quot;&gt;&quot;关闭全屏&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var open = document.querySelector(&lt;span class=&quot;string&quot;&gt;&#39;.open&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var cancle = document.querySelector(&lt;span class=&quot;string&quot;&gt;&#39;.cancle&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var box = document.querySelector(&lt;span class=&quot;string&quot;&gt;&#39;.box&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        open.onclick = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            document.documentElement.webkitRequestFullScreen();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            // box.webkitRequestFullScreen();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            alert(document.webkitIsFullScreen);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cancle.onclick = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt; () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            alert(document.webkitIsFullScreen);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            document.webkitCancelFullScreen();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            // document.documentElement.webkitCancelFullScreen();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u57FA_u672C_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u57FA_u672C_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;基本方法&quot;&gt;&lt;/a&gt;基本方法&lt;/h3&gt;&lt;p&gt;HTML5规范允许用户自定义网页上任一元素全屏显
-    
-    </summary>
-    
-      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
-    
-    
-      <category term="H5" scheme="http://HeartWalker.cc/tags/H5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css与js如何调错</title>
-    <link href="http://HeartWalker.cc/2016/05/15/css%E4%B8%8Ejs%E5%A6%82%E4%BD%95%E8%B0%83%E9%94%99/"/>
-    <id>http://HeartWalker.cc/2016/05/15/css与js如何调错/</id>
-    <published>2016-05-15T05:09:21.000Z</published>
-    <updated>2016-05-15T05:51:02.087Z</updated>
-    
-    <content type="html">&lt;p&gt;css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决&lt;/p&gt;
-&lt;h3 id=&quot;F12_u5927_u6CD5_u597D&quot;&gt;&lt;a href=&quot;#F12_u5927_u6CD5_u597D&quot; class=&quot;headerlink&quot; title=&quot;F12大法好&quot;&gt;&lt;/a&gt;F12大法好&lt;/h3&gt;&lt;p&gt;打开 Firefox 或 Chrome 浏览器，按下F12，这是解决问题的基础&lt;/p&gt;
-&lt;h3 id=&quot;u901A_u7528_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u901A_u7528_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;通用方法&quot;&gt;&lt;/a&gt;通用方法&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;看是否有红字报错， 一般如果看到报错信息的话问题就解决了一大半，可以根据提示快速定位问题所在，如果 不知道报错信息是什么意思可以去网上搜索&lt;/li&gt;
-&lt;li&gt;确保页面上只有一个错误，如果有多个最好对代码进行逐步注释，直到最后一个错误&lt;/li&gt;
-&lt;li&gt;根据现象分析问题，是哪错了，那些效果没有实现，分析出可能是什么地方出现了问题 &lt;/li&gt;
-&lt;li&gt;是不是浏览器兼容性问题&lt;/li&gt;
-&lt;li&gt;是不是有缓存的影响，强制刷新浏览器或清除缓存&lt;/li&gt;
-&lt;li&gt;将错误的关键点提取出来，到网上搜索，最好使用 google&lt;/li&gt;
-&lt;li&gt;请教朋友或大神，请注意提问的艺术，在大部分情况下请在最后才这么做&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;css_u7279_u6709&quot;&gt;&lt;a href=&quot;#css_u7279_u6709&quot; class=&quot;headerlink&quot; title=&quot;css特有&quot;&gt;&lt;/a&gt;css特有&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;使用调试工具的审查元素，查看页面结构与布局&lt;/li&gt;
-&lt;li&gt;看样式是不是没用命中&lt;/li&gt;
-&lt;li&gt;看样式是不是被覆盖了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;js_u7279_u6709&quot;&gt;&lt;a href=&quot;#js_u7279_u6709&quot; class=&quot;headerlink&quot; title=&quot;js特有&quot;&gt;&lt;/a&gt;js特有&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;灵活的使用 console.log()，特别是在对程序比较了解的情况下，基本上几次就能定位问题所在&lt;/li&gt;
-&lt;li&gt;使用调试工具打断点和监视变量，如果对程序不太了解或不能定位出问题的所在可以采用这种方法，但可能会耗费较久的时间&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;注：深入理解 css 与 js 的原理是能快速解决问题的法宝&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;css 与 js 效果没有实现怎么办，出错了怎么办，可以按如下思路来解决&lt;/p&gt;
-&lt;h3 id=&quot;F12_u5927_u6CD5_u597D&quot;&gt;&lt;a href=&quot;#F12_u5927_u6CD5_u597D&quot; class=&quot;headerlink&quot; title=&quot;F12大法好
-    
-    </summary>
-    
-      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
-    
-    
-      <category term="调错" scheme="http://HeartWalker.cc/tags/%E8%B0%83%E9%94%99/"/>
     
   </entry>
   
