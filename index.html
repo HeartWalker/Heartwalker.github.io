@@ -80,6 +80,97 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/08/01/EDM编码规范/" title="EDM编码规范" itemprop="url">EDM编码规范</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-01T14:12:01.000Z" itemprop="datePublished"> 發表於 2016-08-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范</p>
+<ol>
+<li><p>Html 编码请使用utf-8</p>
+</li>
+<li><p>Table需要单独新建以便控制邮件中的布局</p>
+</li>
+<li><p>Table的tr不设置任何样式和属性</p>
+</li>
+<li><p>所有样式都写到行内</p>
+</li>
+<li><p>在制作edm中不能设置margin值,float值，及热点map</p>
+</li>
+<li><p>Table属性中如若设置背景图只能给td加，背景图需要宽跟高,谨记background以属性方式写不能以style样式写</p>
+</li>
+<li><p>Img图片的插入要设置宽跟高及border=”0”并且样式中设置display：block;</p>
+</li>
+<li><p>每个Table中需设置 border=”0” align=”center” cellpadding=”0” cellspacing=”0”</p>
+</li>
+<li><p>td的图片不居顶对齐可以对td设置valign=”top”（middle，bottom）</p>
+</li>
+<li><p>超链接a标签需title属性， img标签需alt属性</p>
+</li>
+<li><p>td中的colspan和rowspan的合理使用</p>
+</li>
+<li><p>页面中不能出现空的<td></td><td>需写成”</td><td>&nbsp;</td><td>“否则邮箱解析html代码整个td都会过滤掉</td></p>
+</li>
+<li><p>edm制作中不要使用h2，ul，li，p，ol等有默认样式的标签，</p>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/东成西就/">东成西就</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/edm/">edm</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/08/01/EDM编码规范/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/08/01/EDM编码规范/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/07/17/ECMA6入门之解构赋值/" title="ECMA6入门学习之解构赋值" itemprop="url">ECMA6入门学习之解构赋值</a>
   </h1>
   <p class="article-author">By
@@ -1298,69 +1389,6 @@ Output paths to refresh: $FileNameWithoutExtension$.css
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/06/22/JS设计模式之策略模式/" title="JS设计模式之策略模式" itemprop="url">JS设计模式之策略模式</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-06-21T23:38:36.000Z" itemprop="datePublished"> 發表於 2016-06-22</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u5B9A_u4E49"><a href="#u5B9A_u4E49" class="headerlink" title="定义"></a>定义</h3><p>定义一系列的算法,把他们一个个封装起来,并且使它们可以互相替换<br>当然策略模式并不仅仅可以封装算法,也可以封装一系列的’业务规则’或者说是’应用逻辑’,只要这些业务规则指向的目标一致,并且可以被替换使用,我们就可以用策略模式来封装它们<br>策略模式主要是实现了松散耦合</p>
-<h3 id="u4E00_u4E2A_u4F7F_u7528_u7B56_u7565_u6A21_u5F0F_u6587_u672C_u8F93_u5165_u6846_u6821_u9A8C_u89C4_u5219_u6837_u4F8B_u4EE3_u7801"><a href="#u4E00_u4E2A_u4F7F_u7528_u7B56_u7565_u6A21_u5F0F_u6587_u672C_u8F93_u5165_u6846_u6821_u9A8C_u89C4_u5219_u6837_u4F8B_u4EE3_u7801" class="headerlink" title="一个使用策略模式文本输入框校验规则样例代码"></a>一个使用策略模式文本输入框校验规则样例代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">      &lt;!-- 一个使用策略模式文本输入框校验规则样例代码 --&gt;</span><br><span class="line">      &lt;form action=<span class="string">"javascript:;"</span> id=<span class="string">"registerForm"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">      请输入用户名: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"userName"</span>&gt;</span><br><span class="line">      请输入密码: &lt;input <span class="built_in">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;</span><br><span class="line">      请输入手机号码: &lt;input <span class="built_in">type</span>=<span class="string">"phoneName"</span> name=<span class="string">"phoneName"</span>&gt;</span><br><span class="line">      &lt;button&gt;提交&lt;/button&gt;</span><br><span class="line">        </span><br><span class="line">      &lt;/form&gt;</span><br><span class="line"></span><br><span class="line">      &lt;script&gt;</span><br><span class="line">        // 定义策略</span><br><span class="line">        var strategies = &#123;</span><br><span class="line">            //判断是否为空</span><br><span class="line">            isNonEmpty: <span class="keyword">function</span>(value, errorMsg)&#123;</span><br><span class="line">                <span class="keyword">if</span>(value === <span class="string">""</span>)&#123;</span><br><span class="line">                    <span class="built_in">return</span> errorMsg;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            //判断最小长度</span><br><span class="line">            minLength: <span class="keyword">function</span>(value, length, errorMsg)&#123;</span><br><span class="line">                <span class="keyword">if</span> (value.length &lt; length) &#123;</span><br><span class="line">                    <span class="built_in">return</span> errorMsg;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            //判断手机号是否合法</span><br><span class="line">            isMoblile: <span class="keyword">function</span>(value, errorMsg)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!/(^<span class="number">1</span>[<span class="number">3</span>|<span class="number">5</span>|<span class="number">8</span>][<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">9</span>&#125;$)/.test(value))&#123;</span><br><span class="line">                    <span class="built_in">return</span> errorMsg;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        //定义验证器</span><br><span class="line">        var Validator = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            this.cache = [];//校验规则缓存</span><br><span class="line">        &#125;;</span><br><span class="line">        Validator.prototype.add = <span class="keyword">function</span>(dom, rules)&#123;</span><br><span class="line">            var self = this;</span><br><span class="line">            <span class="keyword">for</span>(var i = <span class="number">0</span>,rule;rule = rules[ i++ ];)&#123;</span><br><span class="line">                (<span class="keyword">function</span>(rule)&#123;</span><br><span class="line">                    //规则参数数组</span><br><span class="line">                    var strategyAry = rule.strategy.split(<span class="string">':'</span>);</span><br><span class="line">                    //错误信息</span><br><span class="line">                    var errorMsg = rule.errorMsg;</span><br><span class="line">                    self.cache.push(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                        //删除参数数组的要校验的规则并用strategy接收</span><br><span class="line">                        var strategy = strategyAry.shift();</span><br><span class="line">                        //接收dom的value值作为第一个参数</span><br><span class="line">                        strategyAry.unshift(dom.value);</span><br><span class="line">                        strategyAry.push(errorMsg);</span><br><span class="line">                        <span class="built_in">return</span> strategies[ strategy ].apply(dom,strategyAry);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;)(rule);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">        //循环验证每条规则</span><br><span class="line">        Validator.prototype.start = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            <span class="keyword">for</span>(var i = <span class="number">0</span>,validatorFunc;validatorFunc = this.cache[i++];)&#123;</span><br><span class="line">                var errorMsg = validatorFunc();</span><br><span class="line">                <span class="keyword">if</span>(errorMsg)&#123;</span><br><span class="line">                    <span class="built_in">return</span> errorMsg;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        // 页面调用代码</span><br><span class="line">        var registerForm = document.getElementById(<span class="string">"registerForm"</span>);</span><br><span class="line">        var validataFunc = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            var validator = new Validator();</span><br><span class="line">            //为每一个输入框分别添加规则</span><br><span class="line">            validator.add(registerForm.userName,[</span><br><span class="line">            &#123;</span><br><span class="line">                strategy:<span class="string">'isNonEmpty'</span>,</span><br><span class="line">                errorMsg:<span class="string">'用户名不能为空'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                strategy: <span class="string">'minLength:6'</span>,</span><br><span class="line">                errorMsg: <span class="string">'用户名长度不能小于6位'</span></span><br><span class="line">            &#125;]);</span><br><span class="line">            validator.add(registerForm.password,[</span><br><span class="line">            &#123;</span><br><span class="line">                strategy:<span class="string">'minLength:6'</span>,</span><br><span class="line">                errorMsg:<span class="string">'密码长度不能小于6位'</span></span><br><span class="line">            &#125;]);</span><br><span class="line">            validator.add(registerForm.phoneName,[</span><br><span class="line">            &#123;</span><br><span class="line">                strategy:<span class="string">'isMoblile'</span>,</span><br><span class="line">                errorMsg:<span class="string">'手机号码格式不正确'</span></span><br><span class="line">            &#125;]);</span><br><span class="line">            //启动校验程序</span><br><span class="line">            var errorMsg = validator.start();</span><br><span class="line">            <span class="built_in">return</span> errorMsg;</span><br><span class="line">        &#125;;</span><br><span class="line">        //绑定事件</span><br><span class="line">        registerForm.onsubmit = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            var errorMsg = validataFunc();</span><br><span class="line">            console.log(<span class="string">'test'</span>);</span><br><span class="line">            <span class="keyword">if</span>(errorMsg)&#123;</span><br><span class="line">                alert(errorMsg);</span><br><span class="line">                <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">      &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/设计模式/">设计模式</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/06/22/JS设计模式之策略模式/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/06/22/JS设计模式之策略模式/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1405,7 +1433,7 @@ Output paths to refresh: $FileNameWithoutExtension$.css
 		  
 		
 		  
-			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>7</sup></a></li>
+			<li><a href="/categories/东成西就/" title="东成西就">东成西就<sup>8</sup></a></li>
 		  
 		
 		  
@@ -1424,7 +1452,7 @@ Output paths to refresh: $FileNameWithoutExtension$.css
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 12px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 12px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 

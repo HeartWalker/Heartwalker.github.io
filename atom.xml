@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-07-17T12:22:33.649Z</updated>
+  <updated>2016-08-01T14:18:24.841Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EDM编码规范</title>
+    <link href="http://HeartWalker.cc/2016/08/01/EDM%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/"/>
+    <id>http://HeartWalker.cc/2016/08/01/EDM编码规范/</id>
+    <published>2016-08-01T14:12:01.000Z</published>
+    <updated>2016-08-01T14:18:24.841Z</updated>
+    
+    <content type="html">&lt;p&gt;最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Html 编码请使用utf-8&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Table需要单独新建以便控制邮件中的布局&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Table的tr不设置任何样式和属性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;所有样式都写到行内&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在制作edm中不能设置margin值,float值，及热点map&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Table属性中如若设置背景图只能给td加，背景图需要宽跟高,谨记background以属性方式写不能以style样式写&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Img图片的插入要设置宽跟高及border=”0”并且样式中设置display：block;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;每个Table中需设置 border=”0” align=”center” cellpadding=”0” cellspacing=”0”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;td的图片不居顶对齐可以对td设置valign=”top”（middle，bottom）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;超链接a标签需title属性， img标签需alt属性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;td中的colspan和rowspan的合理使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;页面中不能出现空的&lt;td&gt;&lt;/td&gt;&lt;td&gt;需写成”&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;“否则邮箱解析html代码整个td都会过滤掉&lt;/td&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;edm制作中不要使用h2，ul，li，p，ol等有默认样式的标签，&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Html 编码请使用utf-8&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Table需要单独新建以便控制邮件中的布局&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Table的tr不设置任何样式和
+    
+    </summary>
+    
+      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
+    
+    
+      <category term="edm" scheme="http://HeartWalker.cc/tags/edm/"/>
+    
+  </entry>
   
   <entry>
     <title>ECMA6入门学习之解构赋值</title>
@@ -1235,49 +1292,6 @@ url 以当前域为基础增加一条历史记录，不可跨域设置
     
       &lt;h3 id=&quot;u65E7_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u65E7_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;旧方法&quot;&gt;&lt;/a&gt;旧方法&lt;/h3&gt;&lt;p&gt;旧版本中我们用 BOM 的 history 对象来管理历史记录&lt;/p&gt;
 &lt;p
-    
-    </summary>
-    
-      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
-    
-    
-      <category term="H5" scheme="http://HeartWalker.cc/tags/H5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5API之Web存储</title>
-    <link href="http://HeartWalker.cc/2016/05/21/HTML5API%E4%B9%8BWeb%E5%AD%98%E5%82%A8/"/>
-    <id>http://HeartWalker.cc/2016/05/21/HTML5API之Web存储/</id>
-    <published>2016-05-20T17:08:06.000Z</published>
-    <updated>2016-05-21T05:26:05.007Z</updated>
-    
-    <content type="html">&lt;p&gt;传统方式我们以document.cookie来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当的复杂，给开发带来诸多不便，HTML5 提供了两种在客户端存储数据的新方法:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;localStorage;
-sessionStorage;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u7279_u6027&quot;&gt;&lt;a href=&quot;#u7279_u6027&quot; class=&quot;headerlink&quot; title=&quot;特性&quot;&gt;&lt;/a&gt;特性&lt;/h3&gt;&lt;p&gt;1、设置、读取方便&lt;br&gt;2、容量较大，sessionStorage约5M、localStorage约20M&lt;br&gt;3、只能存储字符串，可以将对象JSON.stringify() 编码后存储&lt;/p&gt;
-&lt;h3 id=&quot;sessionStorage&quot;&gt;&lt;a href=&quot;#sessionStorage&quot; class=&quot;headerlink&quot; title=&quot;sessionStorage&quot;&gt;&lt;/a&gt;sessionStorage&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;生命周期为关闭浏览器窗口&lt;/li&gt;
-&lt;li&gt;在同一个窗口下数据可以共享&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;localStorage&quot;&gt;&lt;a href=&quot;#localStorage&quot; class=&quot;headerlink&quot; title=&quot;localStorage&quot;&gt;&lt;/a&gt;localStorage&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;永久生效，除非手动删除&lt;/li&gt;
-&lt;li&gt;可以多窗口共享 但不能跨域&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;方法&quot;&gt;&lt;/a&gt;方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;setItem(key, value) 设置存储内容
-getItem(key) 读取存储内容
-removeItem(key) 删除键值为key的存储内容
-clear() 清空所有存储内容
-key(n) 以索引值来获取存储内容
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Storage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更多信息来自MDN&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3school.com.cn/html5/html_5_webstorage.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更多信息来自w3school&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;传统方式我们以document.cookie来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当的复杂，给开发带来诸多不便，HTML5 提供了两种在客户端存储数据的新方法:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;localStorage;
-sessionStorage;
-&lt;
     
     </summary>
     

@@ -4,25 +4,59 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js作用域其三:作用域链 | HeartWalker&#39;s Blog</title>
+    <title>EDM编码规范 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="什么是作用域链每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:12345678910var o = 0;function A()&amp;#123;    var a = 1;    function b()&amp;#123;        var B =2;        function C()&amp;#123;            var c = 3;">
+    <meta name="description" content="最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范
+
+Html 编码请使用utf-8
+
+Table需要单独新建以便控制邮件中的布局
+
+Table的tr不设置任何样式和属性
+
+所有样式都写到行内
+
+在制作edm中不能设置margin值,float值，及热点map
+
+Table属性中如若设置背景图只能给td加，背景图需要宽跟高,谨记background以属性方式写不能以style样式写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js作用域其三:作用域链">
-<meta property="og:url" content="http://HeartWalker.cc/2016/04/05/js作用域其三-作用域链/index.html">
+<meta property="og:title" content="EDM编码规范">
+<meta property="og:url" content="http://HeartWalker.cc/2016/08/01/EDM编码规范/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="什么是作用域链每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:12345678910var o = 0;function A()&amp;#123;    var a = 1;    function b()&amp;#123;        var B =2;        function C()&amp;#123;            var c = 3;">
-<meta property="og:image" content="http://HeartWalker.cc/images/zyyl1.gif">
-<meta property="og:image" content="http://HeartWalker.cc/images/zyyl2.gif">
-<meta property="og:updated_time" content="2016-04-09T11:00:48.953Z">
+<meta property="og:description" content="最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范
+
+Html 编码请使用utf-8
+
+Table需要单独新建以便控制邮件中的布局
+
+Table的tr不设置任何样式和属性
+
+所有样式都写到行内
+
+在制作edm中不能设置margin值,float值，及热点map
+
+Table属性中如若设置背景图只能给td加，背景图需要宽跟高,谨记background以属性方式写不能以style样式写">
+<meta property="og:updated_time" content="2016-08-01T14:18:24.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js作用域其三:作用域链">
-<meta name="twitter:description" content="什么是作用域链每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:12345678910var o = 0;function A()&amp;#123;    var a = 1;    function b()&amp;#123;        var B =2;        function C()&amp;#123;            var c = 3;">
+<meta name="twitter:title" content="EDM编码规范">
+<meta name="twitter:description" content="最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范
+
+Html 编码请使用utf-8
+
+Table需要单独新建以便控制邮件中的布局
+
+Table的tr不设置任何样式和属性
+
+所有样式都写到行内
+
+在制作edm中不能设置margin值,float值，及热点map
+
+Table属性中如若设置背景图只能给td加，背景图需要宽跟高,谨记background以属性方式写不能以style样式写">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -81,14 +115,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/05/js作用域其三-作用域链/" title="js作用域其三:作用域链" itemprop="url">js作用域其三:作用域链</a>
+      <a href="/2016/08/01/EDM编码规范/" title="EDM编码规范" itemprop="url">EDM编码规范</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-04T16:25:32.000Z" itemprop="datePublished"> 發表於 2016-04-05</time>
+    <time datetime="2016-08-01T14:12:01.000Z" itemprop="datePublished"> 發表於 2016-08-01</time>
     
   </p>
 </header>
@@ -97,30 +131,39 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE"><span class="toc-number">1.</span> <span class="toc-text">什么是作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7ED8_u5236_u4F5C_u7528_u57DF_u94FE"><span class="toc-number">2.</span> <span class="toc-text">绘制作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF"><span class="toc-number">3.</span> <span class="toc-text">利用作用域链搜索变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u56FE_u4F8B"><span class="toc-number">4.</span> <span class="toc-text">图例</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE"><a href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="什么是作用域链"></a>什么是作用域链</h3><p>每一个变量都有自己的作用域, 全局变量可以再任何地方被访问到, 而局部变量只能在其作用域内被访问到, 例:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var o = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">A</span></span>()&#123;</span><br><span class="line">    var a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">b</span></span>()&#123;</span><br><span class="line">        var B =<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">C</span></span>()&#123;</span><br><span class="line">            var c = <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>　　可以在全局环境访问o, 在函数A与B之间访问o与a, 在函数B与C之间访问o与a和b, 在函数C中访问o与a和b与c.<br>　　当代码在一个环境中执行时，会创建变量对象的的一个作用域链（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。———–引自Javascript高级程序设计（第三版）（P73）<br>　　对于一个变量时, 作用域链的最顶端就是当前的函数环境, 下一级就是包含这个变量的下一个函数环境… 直到最后全局环境为止<br>简而言之作用域链就是变量其执行环境按生效的顺序形成的一种链式结构</p>
-<h3 id="u7ED8_u5236_u4F5C_u7528_u57DF_u94FE"><a href="#u7ED8_u5236_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="绘制作用域链"></a>绘制作用域链</h3><p>绘制作用域链可以清晰的理清代码的结构, 并且在代码执行的时候, 能去准确的定位应该改变的变量的位置<br>绘制原型链的规则:</p>
+		<p>最近做项目需要做邮件营销, 写了一些EDM, 收集整理了一些规范</p>
 <ol>
-<li>将全部的&lt; script &gt;标签看做一个整体. 是一个 0 级别的链, 链中所有的全局范围内的变量, 函数, 对象… 都是链中的成员, 由于声明会提升, 因此在绘制链之前将代码可以进行调整, 在开始的时候, 将声明都写在前面, 绘图的时候按照顺序绘制, 较为简单.</li>
-<li>由于只有函数才可以限定作用域. 因此在函数上引出一条新链, 级别为 n + 1, 在函数内部, 又是一个完整, 独立的作用域结构, 因此在函数内部定义的任何成员也按照 1 中的规则在该链上展开</li>
-<li>如果有函数, 继续绘制下去<br>注: 由于函数声明提升在不同的&lt; script &gt;标签中并不起作用, 需要注意</li>
-</ol>
-<h3 id="u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF"><a href="#u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF" class="headerlink" title="利用作用域链搜索变量"></a>利用作用域链搜索变量</h3><ol>
-<li>在代码的执行过程中, 如果访问到某一个变量, 那么首先在当前链上找 ( 无序 )</li>
-<li>如果没有, 在 n-1 级上找( 在函数内部允许访问定义在函数外部的变量 ). </li>
-<li>如此往复, 直到 0 级链, 如果还没有, 抛出异常; 如果找到, 则结束寻找, 直接获得该链上变量的数据</li>
-<li>不允许跨链查找<h3 id="u56FE_u4F8B"><a href="#u56FE_u4F8B" class="headerlink" title="图例"></a>图例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var a = <span class="number">123</span>;</span><br><span class="line">    var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        </span><br><span class="line">        var n = <span class="number">456</span>;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        var arr = [];</span><br><span class="line">        var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var d= <span class="number">000</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    var arr = [];</span><br><span class="line">    var fo = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            a= <span class="number">456</span>;</span><br><span class="line">    &#125;;   </span><br><span class="line"></span><br><span class="line">    fo(); </span><br><span class="line">    console.log(a);  //<span class="number">456</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<li><p>Html 编码请使用utf-8</p>
+</li>
+<li><p>Table需要单独新建以便控制邮件中的布局</p>
+</li>
+<li><p>Table的tr不设置任何样式和属性</p>
+</li>
+<li><p>所有样式都写到行内</p>
+</li>
+<li><p>在制作edm中不能设置margin值,float值，及热点map</p>
+</li>
+<li><p>Table属性中如若设置背景图只能给td加，背景图需要宽跟高,谨记background以属性方式写不能以style样式写</p>
+</li>
+<li><p>Img图片的插入要设置宽跟高及border=”0”并且样式中设置display：block;</p>
+</li>
+<li><p>每个Table中需设置 border=”0” align=”center” cellpadding=”0” cellspacing=”0”</p>
+</li>
+<li><p>td的图片不居顶对齐可以对td设置valign=”top”（middle，bottom）</p>
+</li>
+<li><p>超链接a标签需title属性， img标签需alt属性</p>
+</li>
+<li><p>td中的colspan和rowspan的合理使用</p>
+</li>
+<li><p>页面中不能出现空的<td></td><td>需写成”</td><td>&nbsp;</td><td>“否则邮箱解析html代码整个td都会过滤掉</td></p>
+</li>
+<li><p>edm制作中不要使用h2，ul，li，p，ol等有默认样式的标签，</p>
 </li>
 </ol>
-<p>绘制其作用链图如下:</p>
-<p><img src="/images/zyyl1.gif" alt=""></p>
-<p>执行fo(), 执行a = 456; 在fo的1级链没有定义a ,于是向0级链查找; 0级链定义了a, 于是给其赋值456.<br>如果改变代码, 在函数fo内声明a ,如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var a = <span class="number">123</span>;</span><br><span class="line">    var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        </span><br><span class="line">        var n = <span class="number">456</span>;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        var arr = [];</span><br><span class="line">        var f = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            var d= <span class="number">000</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    var arr = [];</span><br><span class="line">    var fo = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        var a;</span><br><span class="line">        a= <span class="number">456</span>;</span><br><span class="line">    &#125;;   </span><br><span class="line"></span><br><span class="line">    fo(); </span><br><span class="line">    console.log(a);  //<span class="number">123</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>绘制其作用链图如下:</p>
-<p><img src="/images/zyyl2.gif" alt=""><br>执行fo(), 执行a = 456; 在fo的1级链定义了a, 于是给其赋值456, 然后结束查找, 全局作用域的a 的值并没有改变</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -128,13 +171,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
+  <a class="article-category-link" href="/categories/东成西就/">东成西就</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/作用域/">作用域</a>
+  <span></span> <a href="/tags/edm/">edm</a>
   </div>
 
 </div>
@@ -143,7 +186,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/04/05/js作用域其三-作用域链/" data-title="js作用域其三:作用域链 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/08/01/EDM编码规范/" data-title="EDM编码规范 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,19 +199,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/06/js作用域其四-闭包/" title="js作用域其四:闭包">
-  <strong>上一篇：</strong><br/>
-  <span>
-  js作用域其四:闭包</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/04/js作用域其二-预解析/"  title="js作用域其二:预解析">
+<a href="/2016/07/17/ECMA6入门之解构赋值/"  title="ECMA6入门学习之解构赋值">
  <strong>下一篇：</strong><br/> 
- <span>js作用域其二:预解析
+ <span>ECMA6入门学习之解构赋值
 </span>
 </a>
 </div>
@@ -177,7 +212,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/05/js作用域其三-作用域链/" data-title="js作用域其三:作用域链" data-url="http://HeartWalker.cc/2016/04/05/js作用域其三-作用域链/"></div>
+	<div class="ds-thread" data-thread-key="2016/08/01/EDM编码规范/" data-title="EDM编码规范" data-url="http://HeartWalker.cc/2016/08/01/EDM编码规范/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -200,7 +235,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4EC0_u4E48_u662F_u4F5C_u7528_u57DF_u94FE"><span class="toc-number">1.</span> <span class="toc-text">什么是作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u7ED8_u5236_u4F5C_u7528_u57DF_u94FE"><span class="toc-number">2.</span> <span class="toc-text">绘制作用域链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5229_u7528_u4F5C_u7528_u57DF_u94FE_u641C_u7D22_u53D8_u91CF"><span class="toc-number">3.</span> <span class="toc-text">利用作用域链搜索变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u56FE_u4F8B"><span class="toc-number">4.</span> <span class="toc-text">图例</span></a></li></ol>
+ 
  
   </div>
 
