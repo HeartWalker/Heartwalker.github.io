@@ -4,44 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js小数精度 | HeartWalker&#39;s Blog</title>
+    <title>ECMA6入门之字符串的扩展 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
-console.log(0.1+0.2)
-0.30000000000000004
-console.log(0.3 - 0.2)
-0.09999999999999998
-为什么不是0.3与0.1呢?
-原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），
-这是一种二进制表">
+    <meta name="description" content="手打,学习,来自阮一峰的博客想要学 node.js 与最新的框架 ,最好先学ES6
+字符串的扩展includes(),stratsWith(),endsWith()ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.
+includes(): 返回布尔值, 表示是否找到了参数字符串.
+sta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js小数精度">
-<meta property="og:url" content="http://HeartWalker.cc/2016/02/29/js小数精度/index.html">
+<meta property="og:title" content="ECMA6入门之字符串的扩展">
+<meta property="og:url" content="http://HeartWalker.cc/2016/07/25/ECMA6入门之字符串的扩展/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
-console.log(0.1+0.2)
-0.30000000000000004
-console.log(0.3 - 0.2)
-0.09999999999999998
-为什么不是0.3与0.1呢?
-原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），
-这是一种二进制表">
-<meta property="og:updated_time" content="2016-05-19T10:01:22.321Z">
+<meta property="og:description" content="手打,学习,来自阮一峰的博客想要学 node.js 与最新的框架 ,最好先学ES6
+字符串的扩展includes(),stratsWith(),endsWith()ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.
+includes(): 返回布尔值, 表示是否找到了参数字符串.
+sta">
+<meta property="og:updated_time" content="2016-08-01T14:28:04.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js小数精度">
-<meta name="twitter:description" content="示例在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:
-console.log(0.1+0.2)
-0.30000000000000004
-console.log(0.3 - 0.2)
-0.09999999999999998
-为什么不是0.3与0.1呢?
-原因Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），
-这是一种二进制表">
+<meta name="twitter:title" content="ECMA6入门之字符串的扩展">
+<meta name="twitter:description" content="手打,学习,来自阮一峰的博客想要学 node.js 与最新的框架 ,最好先学ES6
+字符串的扩展includes(),stratsWith(),endsWith()ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.
+includes(): 返回布尔值, 表示是否找到了参数字符串.
+sta">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -100,14 +88,14 @@ console.log(0.3 - 0.2)
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/29/js小数精度/" title="js小数精度" itemprop="url">js小数精度</a>
+      <a href="/2016/07/25/ECMA6入门之字符串的扩展/" title="ECMA6入门之字符串的扩展" itemprop="url">ECMA6入门之字符串的扩展</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-28T17:36:33.000Z" itemprop="datePublished"> 發表於 2016-02-29</time>
+    <time datetime="2016-07-25T14:26:10.000Z" itemprop="datePublished"> 發表於 2016-07-25</time>
     
   </p>
 </header>
@@ -116,32 +104,183 @@ console.log(0.3 - 0.2)
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u793A_u4F8B"><span class="toc-number">1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u56E0"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><span class="toc-number">3.</span> <span class="toc-text">为什么java可以</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B57_u7B26_u4E32_u7684_u6269_u5C55"><span class="toc-number">1.</span> <span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#includes_28_29_2CstratsWith_28_29_2CendsWith_28_29"><span class="toc-number">1.1.</span> <span class="toc-text">includes(),stratsWith(),endsWith()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeat_28_29"><span class="toc-number">1.2.</span> <span class="toc-text">repeat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padStart_28_29_2CpadEnd_28_29"><span class="toc-number">1.3.</span> <span class="toc-text">padStart(),padEnd()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6A21_u677F_u5B57_u7B26_u4E32"><span class="toc-number">1.4.</span> <span class="toc-text">模板字符串</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><p>在js中0.1+0.2结果是多少?0.3-0.2呢?下边是在chrome控制台的输出结果:</p>
-<pre><code>console.log(0.1+0.2)
-0.30000000000000004
-console.log(0.3 - 0.2)
-0.09999999999999998
-</code></pre><p>为什么不是0.3与0.1呢?</p>
-<h3 id="u539F_u56E0"><a href="#u539F_u56E0" class="headerlink" title="原因"></a>原因</h3><pre><code>Javascript采用了IEEE-745浮点数表示法（几乎所有的编程语言都采用），
-这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024。
-遗憾的是我们常用的分数（特别是在金融的计算方面）都是十进制分数1/10，1/100等。
-二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字。---------以上来自《Javascript权威指南P37》
-</code></pre><p>那么让我们看一下二进制中0.1与0.2到底是多少</p>
-<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
-0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
-</code></pre><p>但是在js中小数位数是有限的:</p>
-<pre><code>console.log(Number(0.1).toString(2))
-0.0001100110011001100110011001100110011001100110011001101
+		<p>手打,学习,来自阮一峰的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">博客</a><br>想要学 node.js 与最新的框架 ,最好先学ES6</p>
+<h2 id="u5B57_u7B26_u4E32_u7684_u6269_u5C55"><a href="#u5B57_u7B26_u4E32_u7684_u6269_u5C55" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h2><h3 id="includes_28_29_2CstratsWith_28_29_2CendsWith_28_29"><a href="#includes_28_29_2CstratsWith_28_29_2CendsWith_28_29" class="headerlink" title="includes(),stratsWith(),endsWith()"></a>includes(),stratsWith(),endsWith()</h3><p>ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.</p>
+<pre><code>includes(): 返回布尔值, 表示是否找到了参数字符串.
+startsWith(): 返回布尔值, 表示参数字符串是否在原字符串的头部
+endsWith(): 返回布尔值, 表示参数字符串是否在源字符串的尾部
 
-console.log(Number(0.2).toString(2))
-0.001100110011001100110011001100110011001100110011001101
-</code></pre><p>将他们的结果相加，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
-<h3 id="u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><a href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5" class="headerlink" title="为什么java可以"></a>为什么java可以</h3><p>像Java之类的强类型语言也有同样的情况,不过它们已经在底层进行了优化与封装</p>
-<h3 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在运算前我们把参加运算的数先升级(<span class="number">10</span>的X的次方)到整数，等运算完后再降级(<span class="number">0.1</span>的X的次方)</span><br><span class="line">根据需要进行取整如:Math.round(),Math.ceil(),Math.floor() ,parseInt()</span><br><span class="line">根据需要保留指定位数的小数:如toFixed()</span><br></pre></td></tr></table></figure>  
+var s = &quot;Hellow world!&quot;;
+s.startsWith(&apos;Hellow&apos;)//true
+s.endsWith(&apos;!&apos;)//true
+s.includes(&apos;o&apos;)//true     
+</code></pre><p>这三个方法都支持第二个参数, 表示开始搜索的位置</p>
+<pre><code>var s = &apos;Hello world!&apos;;
+s.startsWith(&apos;word&apos;, 6) //true
+s.endsWith(&apos;Hello&apos;, 5) //true
+s.includes(&apos;Hello&apos;, 6) //false
+上面代码表示, 使用第二个参数n时,endsWith的行为与其他两个方法有所不同. 它针对前n个字符, 而其它两个方法针对从第n个位置直到字符串结束
+</code></pre><h3 id="repeat_28_29"><a href="#repeat_28_29" class="headerlink" title="repeat()"></a>repeat()</h3><p>repeat方法返回一个新字符串, 表示将原字符串重复n次</p>
+<pre><code>&apos;x&apos;.repeat(3)//&quot;xxx&quot;
+&apos;hello&apos;.repeat(2) //&quot;hellohello&quot;
+&apos;na&apos;.repeat(0) //&quot;&quot;
+</code></pre><p>如果是小数,会被取整</p>
+<pre><code>&apos;na&apos;.repeat(2.9)//&quot;nana&quot;
+</code></pre><p>如果repeat的参数时负数或者Infinity或undefined, 会报错.</p>
+<pre><code>&apos;na&apos;.repeat(Infinity)
+//RangeErrow
+&apos;na&apos;.repeat(-1)
+//RangeError
+</code></pre><p>但是, 如果蚕食是0 到-1之间的小数, 则等同于0, 这是因为会先进行取整原酸, 0 到-1之间的小数, 取整以后等于-0, repeat视同为0</p>
+<pre><code>&apos;na&apos;.repeat(-0.9)   //&quot;&quot; 
+</code></pre><p>参数NaN等同于0</p>
+<pre><code>&apos;na&apos;.repeat(NaN)//&quot;&quot;
+</code></pre><p>如果repeat的参数时字符串, 则会先转换成数字.</p>
+<pre><code>&apos;na&apos;.repeat(&apos;na&apos;)//&quot;&quot;
+&apos;na&apos;.repeat(&apos;3&apos;)//&quot;nanana&quot;
+</code></pre><h3 id="padStart_28_29_2CpadEnd_28_29"><a href="#padStart_28_29_2CpadEnd_28_29" class="headerlink" title="padStart(),padEnd()"></a>padStart(),padEnd()</h3><p>ES7推出了字符串补全长度的功能.如果某个字符串不够指定长度, 会在头部或尾部补全. padStrat用于头部补全, padEnd用于尾部补全</p>
+<pre><code>&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;
+&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;
+
+&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;
+&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;
+</code></pre><p>上面代码中，padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。</p>
+<p>如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。</p>
+<pre><code>&apos;xxx&apos;.padStart(2, &apos;ab&apos;) // &apos;xxx&apos;
+&apos;xxx&apos;.padEnd(2, &apos;ab&apos;) // &apos;xxx&apos;
+</code></pre><p>如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。</p>
+<pre><code>&apos;abc&apos;.padStart(10, &apos;0123456789&apos;)
+// &apos;0123456abc&apos;
+</code></pre><p>如果省略第二个参数，则会用空格补全长度。</p>
+<pre><code>&apos;x&apos;.padStart(4) // &apos;   x&apos;
+&apos;x&apos;.padEnd(4) // &apos;x   &apos;
+</code></pre><p>padStart的常见用途是为数值补全指定位数。下面代码生成10位的数值字符串。</p>
+<pre><code>&apos;1&apos;.padStart(10, &apos;0&apos;) // &quot;0000000001&quot;
+&apos;12&apos;.padStart(10, &apos;0&apos;) // &quot;0000000012&quot;
+&apos;123456&apos;.padStart(10, &apos;0&apos;) // &quot;0000123456&quot;
+</code></pre><p>另一个用途是提示字符串格式。</p>
+<pre><code>&apos;12&apos;.padStart(10, &apos;YYYY-MM-DD&apos;) // &quot;YYYY-MM-12&quot;
+&apos;09-12&apos;.padStart(10, &apos;YYYY-MM-DD&apos;) // &quot;YYYY-09-12&quot;
+</code></pre><h3 id="u6A21_u677F_u5B57_u7B26_u4E32"><a href="#u6A21_u677F_u5B57_u7B26_u4E32" class="headerlink" title="模板字符串"></a>模板字符串</h3><pre><code>传统的JavaScript语言，输出模板通常是这样写的。
+
+$(&apos;#result&apos;).append(
+  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +
+  &apos;items in your basket, &apos; +
+  &apos;&lt;em&gt;&apos; + basket.onSale +
+  &apos;&lt;/em&gt; are on sale!&apos;
+);
+</code></pre><p>上面这种写法相当繁琐不方便，ES6引入了模板字符串解决这个问题。</p>
+<pre><code>$(&apos;#result&apos;).append(`
+  There are &lt;b&gt;${basket.count}&lt;/b&gt; items
+   in your basket, &lt;em&gt;${basket.onSale}&lt;/em&gt;
+  are on sale!
+`);
+</code></pre><p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</p>
+<pre><code>// 普通字符串
+`In JavaScript &apos;\n&apos; is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.`
+
+console.log(`string text line 1
+string text line 2`);
+
+// 字符串中嵌入变量
+var name = &quot;Bob&quot;, time = &quot;today&quot;;
+`Hello ${name}, how are you ${time}?`
+</code></pre><p>上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</p>
+<p>号，则前面要用反斜杠转义。</p>
+<pre><code>var greeting = `\`Yo\` World!`;
+</code></pre><p>如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。</p>
+<pre><code>$(&apos;#list&apos;).html(`
+&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+&lt;/ul&gt;
+`);
+</code></pre><p>上面代码中，所有模板字符串的空格和换行，都是被保留的，比如<ul>标签前面会有一个换行。如果你不想要这个换行，可以使用trim方法消除它。</ul></p>
+<pre><code>$(&apos;#list&apos;).html(`
+&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+&lt;/ul&gt;
+`.trim());
+</code></pre><p>模板字符串中嵌入变量，需要将变量名写在${}之中。</p>
+<pre><code>function authorize(user, action) {
+  if (!user.hasPrivilege(action)) {
+    throw new Error(
+      // 传统写法为
+      // &apos;User &apos;
+      // + user.name
+      // + &apos; is not authorized to do &apos;
+      // + action
+      // + &apos;.&apos;
+      `User ${user.name} is not authorized to do ${action}.`);
+  }
+}
+</code></pre><p>大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。</p>
+<pre><code>var x = 1;
+var y = 2;
+
+`${x} + ${y} = ${x + y}`
+// &quot;1 + 2 = 3&quot;
+
+`${x} + ${y * 2} = ${x + y * 2}`
+// &quot;1 + 4 = 5&quot;
+
+var obj = {x: 1, y: 2};
+`${obj.x + obj.y}`
+// 3
+</code></pre><p>模板字符串之中还能调用函数。</p>
+<pre><code>function fn() {
+  return &quot;Hello World&quot;;
+}
+
+`foo ${fn()} bar`
+// foo Hello World bar
+</code></pre><p>如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的toString方法。</p>
+<p>如果模板字符串中的变量没有声明，将报错。</p>
+<pre><code>// 变量place没有声明
+var msg = `Hello, ${place}`;
+// 报错
+</code></pre><p>由于模板字符串的大括号内部，就是执行JavaScript代码，因此如果大括号内部是一个字符串，将会原样输出。</p>
+<pre><code>`Hello ${&apos;World&apos;}`
+// &quot;Hello World&quot;
+</code></pre><p>模板字符串甚至还能嵌套。<br>    const tmpl = addrs =&gt; <code>&lt;table&gt;
+      ${addrs.map(addr =&gt;</code><br>        <tr><td>${addr.first}</td></tr><br>        <tr><td>${addr.last}</td></tr><br>      <code>).join(&#39;&#39;)}
+      &lt;/table&gt;</code>;</p>
+<p>上面代码中，模板字符串的变量之中，又嵌入了另一个模板字符串，使用方法如下。</p>
+<pre><code>const data = [
+    { first: &apos;&lt;Jane&gt;&apos;, last: &apos;Bond&apos; },
+    { first: &apos;Lars&apos;, last: &apos;&lt;Croft&gt;&apos; },
+];
+
+console.log(tmpl(data));
+// &lt;table&gt;
+//
+//   &lt;tr&gt;&lt;td&gt;&lt;Jane&gt;&lt;/td&gt;&lt;/tr&gt;
+//   &lt;tr&gt;&lt;td&gt;Bond&lt;/td&gt;&lt;/tr&gt;
+//
+//   &lt;tr&gt;&lt;td&gt;Lars&lt;/td&gt;&lt;/tr&gt;
+//   &lt;tr&gt;&lt;td&gt;&lt;Croft&gt;&lt;/td&gt;&lt;/tr&gt;
+//
+// &lt;/table&gt;
+</code></pre><p>如果需要引用模板字符串本身，在需要时执行，可以像下面这样写。</p>
+<pre><code>// 写法一
+let str = &apos;return &apos; + &apos;`Hello ${name}!`&apos;;
+let func = new Function(&apos;name&apos;, str);
+func(&apos;Jack&apos;) // &quot;Hello Jack!&quot;
+
+// 写法二
+let str = &apos;(name) =&gt; `Hello ${name}!`&apos;;
+let func = eval.call(null, str);
+func(&apos;Jack&apos;) // &quot;Hello Jack!&quot;
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -152,13 +291,18 @@ console.log(Number(0.2).toString(2))
 </div>
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ECMA6/">ECMA6</a>
+  </div>
+
 </div>
 
 
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/02/29/js小数精度/" data-title="js小数精度 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/07/25/ECMA6入门之字符串的扩展/" data-title="ECMA6入门之字符串的扩展 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -172,18 +316,18 @@ console.log(Number(0.2).toString(2))
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/03/08/link与@import引入css/" title="link与@import引入css">
+ <a href="/2016/08/01/EDM编码规范/" title="EDM编码规范">
   <strong>上一篇：</strong><br/>
   <span>
-  link与@import引入css</span>
+  EDM编码规范</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/02/28/z-index层级/"  title="z-index层级">
+<a href="/2016/07/17/ECMA6入门之解构赋值/"  title="ECMA6入门学习之解构赋值">
  <strong>下一篇：</strong><br/> 
- <span>z-index层级
+ <span>ECMA6入门学习之解构赋值
 </span>
 </a>
 </div>
@@ -192,7 +336,7 @@ console.log(Number(0.2).toString(2))
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/02/29/js小数精度/" data-title="js小数精度" data-url="http://HeartWalker.cc/2016/02/29/js小数精度/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/25/ECMA6入门之字符串的扩展/" data-title="ECMA6入门之字符串的扩展" data-url="http://HeartWalker.cc/2016/07/25/ECMA6入门之字符串的扩展/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -215,7 +359,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u793A_u4F8B"><span class="toc-number">1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u539F_u56E0"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E3A_u4EC0_u4E48java_u53EF_u4EE5"><span class="toc-number">3.</span> <span class="toc-text">为什么java可以</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">解决方法</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B57_u7B26_u4E32_u7684_u6269_u5C55"><span class="toc-number">1.</span> <span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#includes_28_29_2CstratsWith_28_29_2CendsWith_28_29"><span class="toc-number">1.1.</span> <span class="toc-text">includes(),stratsWith(),endsWith()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeat_28_29"><span class="toc-number">1.2.</span> <span class="toc-text">repeat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padStart_28_29_2CpadEnd_28_29"><span class="toc-number">1.3.</span> <span class="toc-text">padStart(),padEnd()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6A21_u677F_u5B57_u7B26_u4E32"><span class="toc-number">1.4.</span> <span class="toc-text">模板字符串</span></a></li></ol></li></ol>
  
   </div>
 

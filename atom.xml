@@ -73,6 +73,201 @@
   </entry>
   
   <entry>
+    <title>ECMA6入门之字符串的扩展</title>
+    <link href="http://HeartWalker.cc/2016/07/25/ECMA6%E5%85%A5%E9%97%A8%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://HeartWalker.cc/2016/07/25/ECMA6入门之字符串的扩展/</id>
+    <published>2016-07-25T14:26:10.000Z</published>
+    <updated>2016-08-01T14:28:04.491Z</updated>
+    
+    <content type="html">&lt;p&gt;手打,学习,来自阮一峰的&lt;a href=&quot;http://es6.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;&lt;br&gt;想要学 node.js 与最新的框架 ,最好先学ES6&lt;/p&gt;
+&lt;h2 id=&quot;u5B57_u7B26_u4E32_u7684_u6269_u5C55&quot;&gt;&lt;a href=&quot;#u5B57_u7B26_u4E32_u7684_u6269_u5C55&quot; class=&quot;headerlink&quot; title=&quot;字符串的扩展&quot;&gt;&lt;/a&gt;字符串的扩展&lt;/h2&gt;&lt;h3 id=&quot;includes_28_29_2CstratsWith_28_29_2CendsWith_28_29&quot;&gt;&lt;a href=&quot;#includes_28_29_2CstratsWith_28_29_2CendsWith_28_29&quot; class=&quot;headerlink&quot; title=&quot;includes(),stratsWith(),endsWith()&quot;&gt;&lt;/a&gt;includes(),stratsWith(),endsWith()&lt;/h3&gt;&lt;p&gt;ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;includes(): 返回布尔值, 表示是否找到了参数字符串.
+startsWith(): 返回布尔值, 表示参数字符串是否在原字符串的头部
+endsWith(): 返回布尔值, 表示参数字符串是否在源字符串的尾部
+
+var s = &amp;quot;Hellow world!&amp;quot;;
+s.startsWith(&amp;apos;Hellow&amp;apos;)//true
+s.endsWith(&amp;apos;!&amp;apos;)//true
+s.includes(&amp;apos;o&amp;apos;)//true     
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这三个方法都支持第二个参数, 表示开始搜索的位置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var s = &amp;apos;Hello world!&amp;apos;;
+s.startsWith(&amp;apos;word&amp;apos;, 6) //true
+s.endsWith(&amp;apos;Hello&amp;apos;, 5) //true
+s.includes(&amp;apos;Hello&amp;apos;, 6) //false
+上面代码表示, 使用第二个参数n时,endsWith的行为与其他两个方法有所不同. 它针对前n个字符, 而其它两个方法针对从第n个位置直到字符串结束
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;repeat_28_29&quot;&gt;&lt;a href=&quot;#repeat_28_29&quot; class=&quot;headerlink&quot; title=&quot;repeat()&quot;&gt;&lt;/a&gt;repeat()&lt;/h3&gt;&lt;p&gt;repeat方法返回一个新字符串, 表示将原字符串重复n次&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;x&amp;apos;.repeat(3)//&amp;quot;xxx&amp;quot;
+&amp;apos;hello&amp;apos;.repeat(2) //&amp;quot;hellohello&amp;quot;
+&amp;apos;na&amp;apos;.repeat(0) //&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果是小数,会被取整&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;na&amp;apos;.repeat(2.9)//&amp;quot;nana&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果repeat的参数时负数或者Infinity或undefined, 会报错.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;na&amp;apos;.repeat(Infinity)
+//RangeErrow
+&amp;apos;na&amp;apos;.repeat(-1)
+//RangeError
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是, 如果蚕食是0 到-1之间的小数, 则等同于0, 这是因为会先进行取整原酸, 0 到-1之间的小数, 取整以后等于-0, repeat视同为0&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;na&amp;apos;.repeat(-0.9)   //&amp;quot;&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参数NaN等同于0&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;na&amp;apos;.repeat(NaN)//&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果repeat的参数时字符串, 则会先转换成数字.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;na&amp;apos;.repeat(&amp;apos;na&amp;apos;)//&amp;quot;&amp;quot;
+&amp;apos;na&amp;apos;.repeat(&amp;apos;3&amp;apos;)//&amp;quot;nanana&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;padStart_28_29_2CpadEnd_28_29&quot;&gt;&lt;a href=&quot;#padStart_28_29_2CpadEnd_28_29&quot; class=&quot;headerlink&quot; title=&quot;padStart(),padEnd()&quot;&gt;&lt;/a&gt;padStart(),padEnd()&lt;/h3&gt;&lt;p&gt;ES7推出了字符串补全长度的功能.如果某个字符串不够指定长度, 会在头部或尾部补全. padStrat用于头部补全, padEnd用于尾部补全&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;x&amp;apos;.padStart(5, &amp;apos;ab&amp;apos;) // &amp;apos;ababx&amp;apos;
+&amp;apos;x&amp;apos;.padStart(4, &amp;apos;ab&amp;apos;) // &amp;apos;abax&amp;apos;
+
+&amp;apos;x&amp;apos;.padEnd(5, &amp;apos;ab&amp;apos;) // &amp;apos;xabab&amp;apos;
+&amp;apos;x&amp;apos;.padEnd(4, &amp;apos;ab&amp;apos;) // &amp;apos;xaba&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码中，padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。&lt;/p&gt;
+&lt;p&gt;如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;xxx&amp;apos;.padStart(2, &amp;apos;ab&amp;apos;) // &amp;apos;xxx&amp;apos;
+&amp;apos;xxx&amp;apos;.padEnd(2, &amp;apos;ab&amp;apos;) // &amp;apos;xxx&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;abc&amp;apos;.padStart(10, &amp;apos;0123456789&amp;apos;)
+// &amp;apos;0123456abc&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果省略第二个参数，则会用空格补全长度。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;x&amp;apos;.padStart(4) // &amp;apos;   x&amp;apos;
+&amp;apos;x&amp;apos;.padEnd(4) // &amp;apos;x   &amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;padStart的常见用途是为数值补全指定位数。下面代码生成10位的数值字符串。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;1&amp;apos;.padStart(10, &amp;apos;0&amp;apos;) // &amp;quot;0000000001&amp;quot;
+&amp;apos;12&amp;apos;.padStart(10, &amp;apos;0&amp;apos;) // &amp;quot;0000000012&amp;quot;
+&amp;apos;123456&amp;apos;.padStart(10, &amp;apos;0&amp;apos;) // &amp;quot;0000123456&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;另一个用途是提示字符串格式。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;12&amp;apos;.padStart(10, &amp;apos;YYYY-MM-DD&amp;apos;) // &amp;quot;YYYY-MM-12&amp;quot;
+&amp;apos;09-12&amp;apos;.padStart(10, &amp;apos;YYYY-MM-DD&amp;apos;) // &amp;quot;YYYY-09-12&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u6A21_u677F_u5B57_u7B26_u4E32&quot;&gt;&lt;a href=&quot;#u6A21_u677F_u5B57_u7B26_u4E32&quot; class=&quot;headerlink&quot; title=&quot;模板字符串&quot;&gt;&lt;/a&gt;模板字符串&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;传统的JavaScript语言，输出模板通常是这样写的。
+
+$(&amp;apos;#result&amp;apos;).append(
+  &amp;apos;There are &amp;lt;b&amp;gt;&amp;apos; + basket.count + &amp;apos;&amp;lt;/b&amp;gt; &amp;apos; +
+  &amp;apos;items in your basket, &amp;apos; +
+  &amp;apos;&amp;lt;em&amp;gt;&amp;apos; + basket.onSale +
+  &amp;apos;&amp;lt;/em&amp;gt; are on sale!&amp;apos;
+);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面这种写法相当繁琐不方便，ES6引入了模板字符串解决这个问题。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&amp;apos;#result&amp;apos;).append(`
+  There are &amp;lt;b&amp;gt;${basket.count}&amp;lt;/b&amp;gt; items
+   in your basket, &amp;lt;em&amp;gt;${basket.onSale}&amp;lt;/em&amp;gt;
+  are on sale!
+`);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 普通字符串
+`In JavaScript &amp;apos;\n&amp;apos; is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.`
+
+console.log(`string text line 1
+string text line 2`);
+
+// 字符串中嵌入变量
+var name = &amp;quot;Bob&amp;quot;, time = &amp;quot;today&amp;quot;;
+`Hello ${name}, how are you ${time}?`
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。&lt;/p&gt;
+&lt;p&gt;号，则前面要用反斜杠转义。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var greeting = `\`Yo\` World!`;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&amp;apos;#list&amp;apos;).html(`
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;first&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;second&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+`);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面代码中，所有模板字符串的空格和换行，都是被保留的，比如&lt;ul&gt;标签前面会有一个换行。如果你不想要这个换行，可以使用trim方法消除它。&lt;/ul&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&amp;apos;#list&amp;apos;).html(`
+&amp;lt;ul&amp;gt;
+  &amp;lt;li&amp;gt;first&amp;lt;/li&amp;gt;
+  &amp;lt;li&amp;gt;second&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+`.trim());
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;模板字符串中嵌入变量，需要将变量名写在${}之中。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function authorize(user, action) {
+  if (!user.hasPrivilege(action)) {
+    throw new Error(
+      // 传统写法为
+      // &amp;apos;User &amp;apos;
+      // + user.name
+      // + &amp;apos; is not authorized to do &amp;apos;
+      // + action
+      // + &amp;apos;.&amp;apos;
+      `User ${user.name} is not authorized to do ${action}.`);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var x = 1;
+var y = 2;
+
+`${x} + ${y} = ${x + y}`
+// &amp;quot;1 + 2 = 3&amp;quot;
+
+`${x} + ${y * 2} = ${x + y * 2}`
+// &amp;quot;1 + 4 = 5&amp;quot;
+
+var obj = {x: 1, y: 2};
+`${obj.x + obj.y}`
+// 3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;模板字符串之中还能调用函数。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function fn() {
+  return &amp;quot;Hello World&amp;quot;;
+}
+
+`foo ${fn()} bar`
+// foo Hello World bar
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的toString方法。&lt;/p&gt;
+&lt;p&gt;如果模板字符串中的变量没有声明，将报错。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 变量place没有声明
+var msg = `Hello, ${place}`;
+// 报错
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;由于模板字符串的大括号内部，就是执行JavaScript代码，因此如果大括号内部是一个字符串，将会原样输出。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;`Hello ${&amp;apos;World&amp;apos;}`
+// &amp;quot;Hello World&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;模板字符串甚至还能嵌套。&lt;br&gt;    const tmpl = addrs =&amp;gt; &lt;code&gt;&amp;lt;table&amp;gt;
+      ${addrs.map(addr =&amp;gt;&lt;/code&gt;&lt;br&gt;        &lt;tr&gt;&lt;td&gt;${addr.first}&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;        &lt;tr&gt;&lt;td&gt;${addr.last}&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;      &lt;code&gt;).join(&amp;#39;&amp;#39;)}
+      &amp;lt;/table&amp;gt;&lt;/code&gt;;&lt;/p&gt;
+&lt;p&gt;上面代码中，模板字符串的变量之中，又嵌入了另一个模板字符串，使用方法如下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const data = [
+    { first: &amp;apos;&amp;lt;Jane&amp;gt;&amp;apos;, last: &amp;apos;Bond&amp;apos; },
+    { first: &amp;apos;Lars&amp;apos;, last: &amp;apos;&amp;lt;Croft&amp;gt;&amp;apos; },
+];
+
+console.log(tmpl(data));
+// &amp;lt;table&amp;gt;
+//
+//   &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;&amp;lt;Jane&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;
+//   &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Bond&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;
+//
+//   &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;Lars&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;
+//   &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;&amp;lt;Croft&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;
+//
+// &amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果需要引用模板字符串本身，在需要时执行，可以像下面这样写。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 写法一
+let str = &amp;apos;return &amp;apos; + &amp;apos;`Hello ${name}!`&amp;apos;;
+let func = new Function(&amp;apos;name&amp;apos;, str);
+func(&amp;apos;Jack&amp;apos;) // &amp;quot;Hello Jack!&amp;quot;
+
+// 写法二
+let str = &amp;apos;(name) =&amp;gt; `Hello ${name}!`&amp;apos;;
+let func = eval.call(null, str);
+func(&amp;apos;Jack&amp;apos;) // &amp;quot;Hello Jack!&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;手打,学习,来自阮一峰的&lt;a href=&quot;http://es6.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;&lt;br&gt;想要学 node.js 与最新的框架 ,最好先学ES6&lt;/p&gt;
+&lt;h2 id=&quot;u5B57_u
+    
+    </summary>
+    
+      <category term="js" scheme="http://HeartWalker.cc/categories/js/"/>
+    
+    
+      <category term="ECMA6" scheme="http://HeartWalker.cc/tags/ECMA6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ECMA6入门学习之解构赋值</title>
     <link href="http://HeartWalker.cc/2016/07/17/ECMA6%E5%85%A5%E9%97%A8%E4%B9%8B%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     <id>http://HeartWalker.cc/2016/07/17/ECMA6入门之解构赋值/</id>
@@ -1225,73 +1420,6 @@ event.dataTransfer.getData(k); 获得被拖的数据
 &lt;pre&gt;&lt;code&gt;draggable=&amp;quot;true&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;属性来设置此元素是否可以进行拖拽操作，其中图片、链接默认是开启的。&lt;/p&gt;
 &lt;h3 id=&quot;u4E8B_u4
-    
-    </summary>
-    
-      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
-    
-    
-      <category term="H5" scheme="http://HeartWalker.cc/tags/H5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5API之历史管理</title>
-    <link href="http://HeartWalker.cc/2016/05/21/HTML5API%E4%B9%8B%E5%8E%86%E5%8F%B2%E7%AE%A1%E7%90%86/"/>
-    <id>http://HeartWalker.cc/2016/05/21/HTML5API之历史管理/</id>
-    <published>2016-05-21T05:31:29.000Z</published>
-    <updated>2016-05-21T07:41:48.503Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u65E7_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u65E7_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;旧方法&quot;&gt;&lt;/a&gt;旧方法&lt;/h3&gt;&lt;p&gt;旧版本中我们用 BOM 的 history 对象来管理历史记录&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;history.back(); 回退
-history.forward(); 前进
-history.go(n);  前进/后退n步，正值前进，负值后退
-history.length; 历史记录条数(同一个站点下的历史记录的长度)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u65B0_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u65B0_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;新方法&quot;&gt;&lt;/a&gt;新方法&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;pushState(data, title, url) &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;追加一条历史记录:&lt;br&gt;在当前页面之前插入一个一模一样的页面并将当前页面的 url 更改为方法中设置的 url&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;data 用于存储自定义数据，通常设为null
-title 网页标题，基本上没有被浏览器支持，一般设为空
-url 以当前域为基础增加一条历史记录，不可跨域设置
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;例: &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-    // 1、pushState可以往历史记录添加一条记录
-    var btn = document.getElementById(&amp;apos;btn&amp;apos;);       
-    btn.onclick = function () {
-        // history对象的新方法pushState
-        // 可以追加一条历史记录
-        // 追加完成后，当前页面并未刷新
-        history.pushState(null, &amp;apos;title&amp;apos;, &amp;apos;/text.html&amp;apos;);
-        // 1、代表是传递的数据，一般可能传null
-        // 2、代表网页标题，但是浏览器不支持
-        // 3、追加的历史记录
-    }       
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;replaceState(data, title, url) &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;与pushState()基本相同，不同之处在于replaceState()，只是替换当前url，不会增加/减少历史记录。&lt;/p&gt;
-&lt;h3 id=&quot;u4E8B_u4EF6_u76D1_u542C&quot;&gt;&lt;a href=&quot;#u4E8B_u4EF6_u76D1_u542C&quot; class=&quot;headerlink&quot; title=&quot;事件监听&quot;&gt;&lt;/a&gt;事件监听&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;onpopstate;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;当前进或后退时则触发，通过事件对象ev.state可以读取到存储的数据，监听是要给window。&lt;br&gt;例:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-    var btn = document.getElementById(&amp;apos;btn&amp;apos;);
-    btn.onclick = function () {
-        // 追加历史记录
-        history.pushState({key: 123}, &amp;apos;title&amp;apos;, &amp;apos;/text.html&amp;apos;);
-    }
-    // 监听历史的变化
-    window.onpopstate = function (ev) {
-        console.log(ev.state);
-        console.log(ev);
-    }
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u65E7_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u65E7_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;旧方法&quot;&gt;&lt;/a&gt;旧方法&lt;/h3&gt;&lt;p&gt;旧版本中我们用 BOM 的 history 对象来管理历史记录&lt;/p&gt;
-&lt;p
     
     </summary>
     

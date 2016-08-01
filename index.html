@@ -171,6 +171,240 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/07/25/ECMA6入门之字符串的扩展/" title="ECMA6入门之字符串的扩展" itemprop="url">ECMA6入门之字符串的扩展</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-25T14:26:10.000Z" itemprop="datePublished"> 發表於 2016-07-25</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>手打,学习,来自阮一峰的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">博客</a><br>想要学 node.js 与最新的框架 ,最好先学ES6</p>
+<h2 id="u5B57_u7B26_u4E32_u7684_u6269_u5C55"><a href="#u5B57_u7B26_u4E32_u7684_u6269_u5C55" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h2><h3 id="includes_28_29_2CstratsWith_28_29_2CendsWith_28_29"><a href="#includes_28_29_2CstratsWith_28_29_2CendsWith_28_29" class="headerlink" title="includes(),stratsWith(),endsWith()"></a>includes(),stratsWith(),endsWith()</h3><p>ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.</p>
+<pre><code>includes(): 返回布尔值, 表示是否找到了参数字符串.
+startsWith(): 返回布尔值, 表示参数字符串是否在原字符串的头部
+endsWith(): 返回布尔值, 表示参数字符串是否在源字符串的尾部
+
+var s = &quot;Hellow world!&quot;;
+s.startsWith(&apos;Hellow&apos;)//true
+s.endsWith(&apos;!&apos;)//true
+s.includes(&apos;o&apos;)//true     
+</code></pre><p>这三个方法都支持第二个参数, 表示开始搜索的位置</p>
+<pre><code>var s = &apos;Hello world!&apos;;
+s.startsWith(&apos;word&apos;, 6) //true
+s.endsWith(&apos;Hello&apos;, 5) //true
+s.includes(&apos;Hello&apos;, 6) //false
+上面代码表示, 使用第二个参数n时,endsWith的行为与其他两个方法有所不同. 它针对前n个字符, 而其它两个方法针对从第n个位置直到字符串结束
+</code></pre><h3 id="repeat_28_29"><a href="#repeat_28_29" class="headerlink" title="repeat()"></a>repeat()</h3><p>repeat方法返回一个新字符串, 表示将原字符串重复n次</p>
+<pre><code>&apos;x&apos;.repeat(3)//&quot;xxx&quot;
+&apos;hello&apos;.repeat(2) //&quot;hellohello&quot;
+&apos;na&apos;.repeat(0) //&quot;&quot;
+</code></pre><p>如果是小数,会被取整</p>
+<pre><code>&apos;na&apos;.repeat(2.9)//&quot;nana&quot;
+</code></pre><p>如果repeat的参数时负数或者Infinity或undefined, 会报错.</p>
+<pre><code>&apos;na&apos;.repeat(Infinity)
+//RangeErrow
+&apos;na&apos;.repeat(-1)
+//RangeError
+</code></pre><p>但是, 如果蚕食是0 到-1之间的小数, 则等同于0, 这是因为会先进行取整原酸, 0 到-1之间的小数, 取整以后等于-0, repeat视同为0</p>
+<pre><code>&apos;na&apos;.repeat(-0.9)   //&quot;&quot; 
+</code></pre><p>参数NaN等同于0</p>
+<pre><code>&apos;na&apos;.repeat(NaN)//&quot;&quot;
+</code></pre><p>如果repeat的参数时字符串, 则会先转换成数字.</p>
+<pre><code>&apos;na&apos;.repeat(&apos;na&apos;)//&quot;&quot;
+&apos;na&apos;.repeat(&apos;3&apos;)//&quot;nanana&quot;
+</code></pre><h3 id="padStart_28_29_2CpadEnd_28_29"><a href="#padStart_28_29_2CpadEnd_28_29" class="headerlink" title="padStart(),padEnd()"></a>padStart(),padEnd()</h3><p>ES7推出了字符串补全长度的功能.如果某个字符串不够指定长度, 会在头部或尾部补全. padStrat用于头部补全, padEnd用于尾部补全</p>
+<pre><code>&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;
+&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;
+
+&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;
+&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;
+</code></pre><p>上面代码中，padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。</p>
+<p>如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。</p>
+<pre><code>&apos;xxx&apos;.padStart(2, &apos;ab&apos;) // &apos;xxx&apos;
+&apos;xxx&apos;.padEnd(2, &apos;ab&apos;) // &apos;xxx&apos;
+</code></pre><p>如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。</p>
+<pre><code>&apos;abc&apos;.padStart(10, &apos;0123456789&apos;)
+// &apos;0123456abc&apos;
+</code></pre><p>如果省略第二个参数，则会用空格补全长度。</p>
+<pre><code>&apos;x&apos;.padStart(4) // &apos;   x&apos;
+&apos;x&apos;.padEnd(4) // &apos;x   &apos;
+</code></pre><p>padStart的常见用途是为数值补全指定位数。下面代码生成10位的数值字符串。</p>
+<pre><code>&apos;1&apos;.padStart(10, &apos;0&apos;) // &quot;0000000001&quot;
+&apos;12&apos;.padStart(10, &apos;0&apos;) // &quot;0000000012&quot;
+&apos;123456&apos;.padStart(10, &apos;0&apos;) // &quot;0000123456&quot;
+</code></pre><p>另一个用途是提示字符串格式。</p>
+<pre><code>&apos;12&apos;.padStart(10, &apos;YYYY-MM-DD&apos;) // &quot;YYYY-MM-12&quot;
+&apos;09-12&apos;.padStart(10, &apos;YYYY-MM-DD&apos;) // &quot;YYYY-09-12&quot;
+</code></pre><h3 id="u6A21_u677F_u5B57_u7B26_u4E32"><a href="#u6A21_u677F_u5B57_u7B26_u4E32" class="headerlink" title="模板字符串"></a>模板字符串</h3><pre><code>传统的JavaScript语言，输出模板通常是这样写的。
+
+$(&apos;#result&apos;).append(
+  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +
+  &apos;items in your basket, &apos; +
+  &apos;&lt;em&gt;&apos; + basket.onSale +
+  &apos;&lt;/em&gt; are on sale!&apos;
+);
+</code></pre><p>上面这种写法相当繁琐不方便，ES6引入了模板字符串解决这个问题。</p>
+<pre><code>$(&apos;#result&apos;).append(`
+  There are &lt;b&gt;${basket.count}&lt;/b&gt; items
+   in your basket, &lt;em&gt;${basket.onSale}&lt;/em&gt;
+  are on sale!
+`);
+</code></pre><p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</p>
+<pre><code>// 普通字符串
+`In JavaScript &apos;\n&apos; is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.`
+
+console.log(`string text line 1
+string text line 2`);
+
+// 字符串中嵌入变量
+var name = &quot;Bob&quot;, time = &quot;today&quot;;
+`Hello ${name}, how are you ${time}?`
+</code></pre><p>上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</p>
+<p>号，则前面要用反斜杠转义。</p>
+<pre><code>var greeting = `\`Yo\` World!`;
+</code></pre><p>如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。</p>
+<pre><code>$(&apos;#list&apos;).html(`
+&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+&lt;/ul&gt;
+`);
+</code></pre><p>上面代码中，所有模板字符串的空格和换行，都是被保留的，比如<ul>标签前面会有一个换行。如果你不想要这个换行，可以使用trim方法消除它。</ul></p>
+<pre><code>$(&apos;#list&apos;).html(`
+&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+&lt;/ul&gt;
+`.trim());
+</code></pre><p>模板字符串中嵌入变量，需要将变量名写在${}之中。</p>
+<pre><code>function authorize(user, action) {
+  if (!user.hasPrivilege(action)) {
+    throw new Error(
+      // 传统写法为
+      // &apos;User &apos;
+      // + user.name
+      // + &apos; is not authorized to do &apos;
+      // + action
+      // + &apos;.&apos;
+      `User ${user.name} is not authorized to do ${action}.`);
+  }
+}
+</code></pre><p>大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。</p>
+<pre><code>var x = 1;
+var y = 2;
+
+`${x} + ${y} = ${x + y}`
+// &quot;1 + 2 = 3&quot;
+
+`${x} + ${y * 2} = ${x + y * 2}`
+// &quot;1 + 4 = 5&quot;
+
+var obj = {x: 1, y: 2};
+`${obj.x + obj.y}`
+// 3
+</code></pre><p>模板字符串之中还能调用函数。</p>
+<pre><code>function fn() {
+  return &quot;Hello World&quot;;
+}
+
+`foo ${fn()} bar`
+// foo Hello World bar
+</code></pre><p>如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的toString方法。</p>
+<p>如果模板字符串中的变量没有声明，将报错。</p>
+<pre><code>// 变量place没有声明
+var msg = `Hello, ${place}`;
+// 报错
+</code></pre><p>由于模板字符串的大括号内部，就是执行JavaScript代码，因此如果大括号内部是一个字符串，将会原样输出。</p>
+<pre><code>`Hello ${&apos;World&apos;}`
+// &quot;Hello World&quot;
+</code></pre><p>模板字符串甚至还能嵌套。<br>    const tmpl = addrs =&gt; <code>&lt;table&gt;
+      ${addrs.map(addr =&gt;</code><br>        <tr><td>${addr.first}</td></tr><br>        <tr><td>${addr.last}</td></tr><br>      <code>).join(&#39;&#39;)}
+      &lt;/table&gt;</code>;</p>
+<p>上面代码中，模板字符串的变量之中，又嵌入了另一个模板字符串，使用方法如下。</p>
+<pre><code>const data = [
+    { first: &apos;&lt;Jane&gt;&apos;, last: &apos;Bond&apos; },
+    { first: &apos;Lars&apos;, last: &apos;&lt;Croft&gt;&apos; },
+];
+
+console.log(tmpl(data));
+// &lt;table&gt;
+//
+//   &lt;tr&gt;&lt;td&gt;&lt;Jane&gt;&lt;/td&gt;&lt;/tr&gt;
+//   &lt;tr&gt;&lt;td&gt;Bond&lt;/td&gt;&lt;/tr&gt;
+//
+//   &lt;tr&gt;&lt;td&gt;Lars&lt;/td&gt;&lt;/tr&gt;
+//   &lt;tr&gt;&lt;td&gt;&lt;Croft&gt;&lt;/td&gt;&lt;/tr&gt;
+//
+// &lt;/table&gt;
+</code></pre><p>如果需要引用模板字符串本身，在需要时执行，可以像下面这样写。</p>
+<pre><code>// 写法一
+let str = &apos;return &apos; + &apos;`Hello ${name}!`&apos;;
+let func = new Function(&apos;name&apos;, str);
+func(&apos;Jack&apos;) // &quot;Hello Jack!&quot;
+
+// 写法二
+let str = &apos;(name) =&gt; `Hello ${name}!`&apos;;
+let func = eval.call(null, str);
+func(&apos;Jack&apos;) // &quot;Hello Jack!&quot;
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/js/">js</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ECMA6/">ECMA6</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/07/25/ECMA6入门之字符串的扩展/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/25/ECMA6入门之字符串的扩展/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/07/17/ECMA6入门之解构赋值/" title="ECMA6入门学习之解构赋值" itemprop="url">ECMA6入门学习之解构赋值</a>
   </h1>
   <p class="article-author">By
@@ -1326,69 +1560,6 @@ Output paths to refresh: $FileNameWithoutExtension$.css
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/06/26/JS设计模式之代理模式/" title="JS设计模式之代理模式" itemprop="url">JS设计模式之代理模式</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-06-26T14:04:26.000Z" itemprop="datePublished"> 發表於 2016-06-26</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h3><p>代理模式是为一个对象提供提供代用品或占位符,以便控制对他的访问<br>代理模式的关键是,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制对这个对象的访问,客户实际访问的是替身对象</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/设计模式/">设计模式</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/06/26/JS设计模式之代理模式/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/06/26/JS设计模式之代理模式/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1425,7 +1596,7 @@ Output paths to refresh: $FileNameWithoutExtension$.css
 		  
 		
 		  
-			<li><a href="/categories/js/" title="js">js<sup>22</sup></a></li>
+			<li><a href="/categories/js/" title="js">js<sup>23</sup></a></li>
 		  
 		
 		  
@@ -1452,7 +1623,7 @@ Output paths to refresh: $FileNameWithoutExtension$.css
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 12px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 13.33px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 15px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 11.67px;">事件</a> <a href="/tags/优化/" style="font-size: 11.67px;">优化</a> <a href="/tags/作用域/" style="font-size: 18.33px;">作用域</a> <a href="/tags/函数/" style="font-size: 11.67px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 11.67px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16.67px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16.67px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 
