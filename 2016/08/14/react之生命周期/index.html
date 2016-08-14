@@ -4,26 +4,42 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>人之力有穷 | HeartWalker&#39;s Blog</title>
+    <title>react之生命周期 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. 
-我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁,">
+    <meta name="description" content="组件的生命周期分为三个状态Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+处理函数React 为每个状态都提供了两种处理函数，will函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。
+
+componentWillMount()
+ 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人之力有穷">
-<meta property="og:url" content="http://HeartWalker.cc/2016/06/10/人之力有穷/index.html">
+<meta property="og:title" content="react之生命周期">
+<meta property="og:url" content="http://HeartWalker.cc/2016/08/14/react之生命周期/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. 
-我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁,">
-<meta property="og:updated_time" content="2016-06-10T03:35:40.678Z">
+<meta property="og:description" content="组件的生命周期分为三个状态Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+处理函数React 为每个状态都提供了两种处理函数，will函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。
+
+componentWillMount()
+ 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/549190/201603/549190-20160320001355490-136229096.png">
+<meta property="og:updated_time" content="2016-08-14T01:52:02.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人之力有穷">
-<meta name="twitter:description" content="想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. 
-我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁,">
+<meta name="twitter:title" content="react之生命周期">
+<meta name="twitter:description" content="组件的生命周期分为三个状态Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+处理函数React 为每个状态都提供了两种处理函数，will函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。
+
+componentWillMount()
+ 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -82,14 +98,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/10/人之力有穷/" title="人之力有穷" itemprop="url">人之力有穷</a>
+      <a href="/2016/08/14/react之生命周期/" title="react之生命周期" itemprop="url">react之生命周期</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-10T03:15:02.000Z" itemprop="datePublished"> 發表於 2016-06-10</time>
+    <time datetime="2016-08-14T01:48:57.000Z" itemprop="datePublished"> 發表於 2016-08-14</time>
     
   </p>
 </header>
@@ -98,12 +114,41 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001"><span class="toc-number">1.</span> <span class="toc-text">组件的生命周期分为三个状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5904_u7406_u51FD_u6570"><span class="toc-number">2.</span> <span class="toc-text">处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6D41_u7A0B_u56FE"><span class="toc-number">3.</span> <span class="toc-text">流程图</span></a></li></ol>
 		
 		</div>
 		
-		<p>想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. </p>
-<p>我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁, 奈何 奈何 奈何</p>
+		<h3 id="u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001"><a href="#u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001" class="headerlink" title="组件的生命周期分为三个状态"></a>组件的生命周期分为三个状态</h3><pre><code>Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+</code></pre><h3 id="u5904_u7406_u51FD_u6570"><a href="#u5904_u7406_u51FD_u6570" class="headerlink" title="处理函数"></a>处理函数</h3><p>React 为每个状态都提供了两种处理函数，will函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
+<ol>
+<li><p>componentWillMount()</p>
+<p> 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里面调用 setState 改变状态，并且不会导致额外调用一次 render</p>
+</li>
+<li><p>componentDidMount()</p>
+<p> 只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 ReactDOM.findDOMNode(this) 获取到组件的 DOM 节点。</p>
+</li>
+<li><p>componentWillUpdate(object nextProps, object nextState)</p>
+<p> 组件实例即将重新渲染时被调用<br> 这个方法在初次渲染时不会被调用。<br> 注意：不能在此方法内调用setState()。</p>
+</li>
+<li><p>componentDidUpdate(object prevProps, object prevState)</p>
+<p> 组件实例重新渲染后被调用<br> 这个方法在初次渲染时不会被调用。</p>
+</li>
+<li><p>componentWillUnmount()</p>
+<p> 组件实例即将从DOM树移除时被调用<br> 这个方法在整个生命周期中只会被调用一次。</p>
+</li>
+</ol>
+<p>此外，React 还提供两种特殊状态的处理函数。</p>
+<ol>
+<li><p>componentWillReceiveProps(object nextProps)</p>
+<p> 已加载组件收到新的参数时调用,参数nextProps表示即将应用到组件实例上的新属性值。这个方法在初次渲染时不会被调用。在此方法内调用setState()不会引起重新渲染。</p>
+</li>
+<li><p>shouldComponentUpdate(object nextProps, object nextState)</p>
+<p> 组件实例即将重新渲染时被调用<br> 参数nextProps传入即将应用到组件实例上的新属性值，参数nextState传入组件实例即将被 设置的状态值。如果这个方法返回false，那么组件实例就不会被重新渲染。除非我们明确地 知道，新的属性和状态不需要进行重新渲染，否则这个方法都应该返回true。<br> 这个方法在初次渲染时或通过forceUpdate()方法进行渲染时不会被调用。</p>
+<h3 id="u6D41_u7A0B_u56FE"><a href="#u6D41_u7A0B_u56FE" class="headerlink" title="流程图"></a>流程图</h3></li>
+</ol>
+<p><img src="http://images2015.cnblogs.com/blog/549190/201603/549190-20160320001355490-136229096.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -111,13 +156,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/生活/">生活</a>
+  <a class="article-category-link" href="/categories/框架/">框架</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/吐槽/">吐槽</a>
+  <span></span> <a href="/tags/react/">react</a>
   </div>
 
 </div>
@@ -126,7 +171,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/06/10/人之力有穷/" data-title="人之力有穷 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/08/14/react之生命周期/" data-title="react之生命周期 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -139,19 +184,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/06/16/gulp参考/" title="gulp参考">
-  <strong>上一篇：</strong><br/>
-  <span>
-  gulp参考</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/06/05/HTML5API之indexedDB/"  title="HTML5API之indexedDB">
+<a href="/2016/08/07/ESMA6入门之set与map/"  title="ESMA6入门之set与map">
  <strong>下一篇：</strong><br/> 
- <span>HTML5API之indexedDB
+ <span>ESMA6入门之set与map
 </span>
 </a>
 </div>
@@ -160,7 +197,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/06/10/人之力有穷/" data-title="人之力有穷" data-url="http://HeartWalker.cc/2016/06/10/人之力有穷/"></div>
+	<div class="ds-thread" data-thread-key="2016/08/14/react之生命周期/" data-title="react之生命周期" data-url="http://HeartWalker.cc/2016/08/14/react之生命周期/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -183,7 +220,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001"><span class="toc-number">1.</span> <span class="toc-text">组件的生命周期分为三个状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5904_u7406_u51FD_u6570"><span class="toc-number">2.</span> <span class="toc-text">处理函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6D41_u7A0B_u56FE"><span class="toc-number">3.</span> <span class="toc-text">流程图</span></a></li></ol>
  
   </div>
 

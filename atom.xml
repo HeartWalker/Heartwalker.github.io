@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-08-07T03:32:19.601Z</updated>
+  <updated>2016-08-14T01:52:02.110Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react之生命周期</title>
+    <link href="http://HeartWalker.cc/2016/08/14/react%E4%B9%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>http://HeartWalker.cc/2016/08/14/react之生命周期/</id>
+    <published>2016-08-14T01:48:57.000Z</published>
+    <updated>2016-08-14T01:52:02.110Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001&quot;&gt;&lt;a href=&quot;#u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001&quot; class=&quot;headerlink&quot; title=&quot;组件的生命周期分为三个状态&quot;&gt;&lt;/a&gt;组件的生命周期分为三个状态&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u5904_u7406_u51FD_u6570&quot;&gt;&lt;a href=&quot;#u5904_u7406_u51FD_u6570&quot; class=&quot;headerlink&quot; title=&quot;处理函数&quot;&gt;&lt;/a&gt;处理函数&lt;/h3&gt;&lt;p&gt;React 为每个状态都提供了两种处理函数，will函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;componentWillMount()&lt;/p&gt;
+&lt;p&gt; 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里面调用 setState 改变状态，并且不会导致额外调用一次 render&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;componentDidMount()&lt;/p&gt;
+&lt;p&gt; 只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 ReactDOM.findDOMNode(this) 获取到组件的 DOM 节点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;componentWillUpdate(object nextProps, object nextState)&lt;/p&gt;
+&lt;p&gt; 组件实例即将重新渲染时被调用&lt;br&gt; 这个方法在初次渲染时不会被调用。&lt;br&gt; 注意：不能在此方法内调用setState()。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;componentDidUpdate(object prevProps, object prevState)&lt;/p&gt;
+&lt;p&gt; 组件实例重新渲染后被调用&lt;br&gt; 这个方法在初次渲染时不会被调用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;componentWillUnmount()&lt;/p&gt;
+&lt;p&gt; 组件实例即将从DOM树移除时被调用&lt;br&gt; 这个方法在整个生命周期中只会被调用一次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;此外，React 还提供两种特殊状态的处理函数。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;componentWillReceiveProps(object nextProps)&lt;/p&gt;
+&lt;p&gt; 已加载组件收到新的参数时调用,参数nextProps表示即将应用到组件实例上的新属性值。这个方法在初次渲染时不会被调用。在此方法内调用setState()不会引起重新渲染。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;shouldComponentUpdate(object nextProps, object nextState)&lt;/p&gt;
+&lt;p&gt; 组件实例即将重新渲染时被调用&lt;br&gt; 参数nextProps传入即将应用到组件实例上的新属性值，参数nextState传入组件实例即将被 设置的状态值。如果这个方法返回false，那么组件实例就不会被重新渲染。除非我们明确地 知道，新的属性和状态不需要进行重新渲染，否则这个方法都应该返回true。&lt;br&gt; 这个方法在初次渲染时或通过forceUpdate()方法进行渲染时不会被调用。&lt;/p&gt;
+&lt;h3 id=&quot;u6D41_u7A0B_u56FE&quot;&gt;&lt;a href=&quot;#u6D41_u7A0B_u56FE&quot; class=&quot;headerlink&quot; title=&quot;流程图&quot;&gt;&lt;/a&gt;流程图&lt;/h3&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/549190/201603/549190-20160320001355490-136229096.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001&quot;&gt;&lt;a href=&quot;#u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u
+    
+    </summary>
+    
+      <category term="框架" scheme="http://HeartWalker.cc/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="react" scheme="http://HeartWalker.cc/tags/react/"/>
+    
+  </entry>
   
   <entry>
     <title>ESMA6入门之set与map</title>
@@ -1930,38 +1983,6 @@ Output paths to refresh: $FileNameWithoutExtension$.css
     
     
       <category term="通信" scheme="http://HeartWalker.cc/tags/%E9%80%9A%E4%BF%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5API之应用缓存</title>
-    <link href="http://HeartWalker.cc/2016/05/21/HTML5API%E4%B9%8B%E5%BA%94%E7%94%A8%E7%BC%93%E5%AD%98/"/>
-    <id>http://HeartWalker.cc/2016/05/21/HTML5API之应用缓存/</id>
-    <published>2016-05-21T05:31:51.000Z</published>
-    <updated>2016-05-21T15:16:34.297Z</updated>
-    
-    <content type="html">&lt;p&gt;本来想写一写, 去 MDN 上一看突然发现&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Deprecated
-This feature has been removed from the Web standards. 
-Though some browsers may still support it, it is in the process of being dropped. 
-Do not use it in old or new projects. 
-Pages or Web apps using it may break at any time.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其已被废弃并从标准中移除, 便不再整理&lt;br&gt;(更多信息来自MDN)[&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache&lt;/a&gt;]&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本来想写一写, 去 MDN 上一看突然发现&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Deprecated
-This feature has been removed from the Web standards. 
-Though some browsers may still sup
-    
-    </summary>
-    
-      <category term="web" scheme="http://HeartWalker.cc/categories/web/"/>
-    
-    
-      <category term="H5" scheme="http://HeartWalker.cc/tags/H5/"/>
     
   </entry>
   

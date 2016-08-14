@@ -80,6 +80,186 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/06/前端优化/" title="前端优化(持续更新中)" itemprop="url">前端优化(持续更新中)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-05T17:39:44.000Z" itemprop="datePublished"> 發表於 2016-04-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u6027_u80FD_u9EC4_u91D1_u6CD5_u5219"><a href="#u6027_u80FD_u9EC4_u91D1_u6CD5_u5219" class="headerlink" title="性能黄金法则"></a>性能黄金法则</h3><p>只有10%-20%的最终用户响应时间花在了下载HTML文档上, 其余的80%-90%时间花在了下载页面中的所有组件上</p>
+<h3 id="u51CF_u5C11HTTP_u8BF7_u6C42"><a href="#u51CF_u5C11HTTP_u8BF7_u6C42" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h3><ol>
+<li><strong>合并背景图片</strong><br>就是常说的精灵图, 将多个背景图片合并到一张图片上, 然后利用background-position来定位它. 有趣的是它还会降低图片总的下载量, 虽然合并图片后图片中的空白会增多,  但是图片自身的开销(颜色表, 格式信息,等等)会减少.</li>
+<li><strong>合并样式表</strong><br>将多个css文件合并成一个css文件 </li>
+<li><strong>合并脚本</strong><br>将多个js文件合并成一个js文件</li>
+<li><strong>图片地图(图像映射)</strong><br>通过&lt; img /&gt;后添加&lt; map &gt;和&lt; area &gt;设置。<br>&lt; map &gt;元素表明映射的开始<br>&lt; area &gt;元素表明每个区域，如果要把一个图片分4个区域，则用4个area。<br>&lt; map &gt;元素只有一个name属性.<br>下面介绍area元素的属性：<br>(1) shape：必须的属性，用于描述区域的形状，rectangle\poly\circle\default可选,default指的是还没有被定义的区域。<br>(2) coords：指定区域的坐标。比如矩形有4个坐标，前两个是左上角的x,y坐标，后两个是右下角的x,y坐标。<br>(3) href和nohref：href指定目的的链接，如果不指定href属性，则需要指定nohref，nohref=”nohref”<br>(4) target：和&lt; a &gt;一样。<br>注：<br>(1)在&lt; img&gt;中设置usemap属性。<br>(2)在&lt; map&gt;中设置name属性。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"planets.jpg"</span> border=<span class="string">"0"</span> usemap=<span class="string">"#planetmap"</span> alt=<span class="string">"Planets"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;map name=<span class="string">"planetmap"</span> id=<span class="string">"planetmap"</span>&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"circle"</span> coords=<span class="string">"180,139,14"</span> href =<span class="string">"venus.html"</span> alt=<span class="string">"Venus"</span> /&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"circle"</span> coords=<span class="string">"129,161,10"</span> href =<span class="string">"mercur.html"</span> alt=<span class="string">"Mercury"</span> /&gt;</span><br><span class="line">  &lt;area shape=<span class="string">"rect"</span> coords=<span class="string">"0,0,110,260"</span> href =<span class="string">"sun.html"</span> alt=<span class="string">"Sun"</span> /&gt;</span><br><span class="line">&lt;/map&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29"><a href="#u5185_u5BB9_u53D1_u5E03_u7F51_u7EDC_28CDN_29" class="headerlink" title="内容发布网络(CDN)"></a>内容发布网络(CDN)</h3><p>　　毫无疑问用户与服务器的物理距离越近, 则HTTP响应时间越短. 但是不要尝试使用分布式架构重新设计Web应用程序, 这样的应用程序决定了重新设计将带来令人恐惧的任务, 如同步会话状态和在服务器放置地点之间复制数据库事务. 重新设计这一步骤可能会推迟-甚至无法实现缩短用户和你的内容之间的距离这一愿望.<br>　　更靠谱更简单的方法是将组件Web服务器分散开.<br>　　内容分发网络（CDN）是一组分散在不同地理位置的web服务器，用来更有效的给用户发送内容. 选择用来发送内容的服务器是基于网络可用度的测量. 例如：选跳数（hop）最少的或者响应时间最快的服务器<br>CDN用于发布静态内容, 如图片 脚本 样式表 和Flash, 除了缩短响应时间外, 它们的服务包括备份 扩展存储能力和进行缓存.  CDN还有利于缓和Web流量峰值压力. </p>
+<h3 id="u6DFB_u52A0Expires_u5934_u548CCache-control"><a href="#u6DFB_u52A0Expires_u5934_u548CCache-control" class="headerlink" title="添加Expires头和Cache-control"></a>添加Expires头和Cache-control</h3><pre><code>对于静态组件：通过设置一个遥远的将来时间作为 Expires 来实现永不失效
+多余动态组件：用合适的 Cache-Control HTTP头来让浏览器进行条件性的请求
+</code></pre><p>Web服务器使用Expires头来告诉Web客户端它可以使用一个组件的的当前副本, 直到指定的时间为止, 如:</p>
+<pre><code>Expires: Thu, 15 Apr 2030 20:00:00 GMT
+</code></pre><p>这是一个有效期非常长久的Expires头, 它告诉浏览器这个响应在2030年4月15日前不会改变</p>
+<p>但是因为Expires头使用了一个特定的时间, 它要求服务器和客户端的时钟严格同步. 另外, 过期日期需要经常检查, 并且一旦未来这一天到来了, 还需要在服务器配置中提供一个新的日期.</p>
+<p>因此在 HTTP1.1中引入了Cache-control头来克服Expires头的限制. Cache-control使用max-age指令指定组件被缓存多久. 它以秒为单位定义了一个更新床. 如果从组件被请求开始过去的秒数小于max-age, 浏览器就使用缓存的版本, 这就避免了额外的HTTP请求. 一个长久的 max-age头 可以将刷新窗设置为未来 10 年. </p>
+<pre><code>Cache-Control:  max-age= 315360000
+</code></pre><p>如果Expires和 max-age同时出现, max-age指令将重写Expires头</p>
+<p>如果你用的是Apache服务器，用ExpiresDefault指令来设置相对于当前日期的有效期。下面的例子设置了图片 脚本和样式表从请求时间起10年的有效期：</p>
+<pre><code>&lt;FilesMatch &quot;\.(gif|gpg|js|css)$&quot;&gt;
+ExpiresDefault &quot;access plus 10 years&quot;
+&lt;FilesMatch&gt;
+</code></pre><p>如果你用一个遥远的未来时间做有效期，就不得不在组件发生变化后及时修改组件的文件名; 为能够获取最新的文件，最有效的解决方案是修改其所有链接，这样，全新的请求将从原始服务器下载最新的内容</p>
+<h3 id="u5E94_u7528_u7F13_u5B58cache_manifest"><a href="#u5E94_u7528_u7F13_u5B58cache_manifest" class="headerlink" title="应用缓存cache manifest"></a>应用缓存cache manifest</h3><p>H5</p>
+<h3 id="Gzip_u538B_u7F29"><a href="#Gzip_u538B_u7F29" class="headerlink" title="Gzip压缩"></a>Gzip压缩</h3><p>从HTTP/1.1开始，web客户端就有了支持压缩的Accept-Encoding HTTP请求头。</p>
+<pre><code>Accept-Encoding: gzip
+</code></pre><p>如果web服务器看到这个请求头，它就会用客户端列出的一种方式来压缩响应。web服务器通过Content-Encoding相应头来通知客户端。</p>
+<pre><code>Content-Encoding: gzip
+</code></pre><p>Gzip是目前最常见的高效压缩方法，由GNU项目开发的免费格式, 并被标准化为 RFC 1952 。 </p>
+<p>压缩脚本和样式表是非常值得的，同时还有XML和JSON在内的文本。图片和PDF不应该压缩，因为它们本来就已经被压缩了。但是压缩本身也有成本–服务器要压缩,客户端要解压; 根据经验通常对大于1KB或2KB的文件进行压缩.</p>
+<p>代理缓存问题：<br>Web服务器基于Accept-Encoding来检测是否对响应进行压缩。不管是否压缩过，浏览器都会基于响应中的其他HTTP头如Expires和Cache-Control来缓存响应。由于代理服务器的存在, 代理服务器在响应设置gzip压缩或未设置gzip压缩的请求时会产生混乱, 因此需要在服务器的Vary响应头中包含Accept-Encoding, 这样服务器会给没有设置gzip压缩的请求缓存未压缩内容, 给设置gzip压缩的的请求缓存压缩内容。</p>
+<pre><code>Vary: Accept-Encoding
+</code></pre><h3 id="u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8"><a href="#u5C06_u6837_u5F0F_u8868_u653E_u5230_u9876_u90E8" class="headerlink" title="将样式表放到顶部"></a>将样式表放到顶部</h3><p>将样式表放到顶部对于加载页面所需的实际时间没有太多影响，它影响更多的是浏览器对这些组件顺序的反应。<br>为避免当样式变化时重绘页面中的元素，浏览器会等待位于底部的样式表加载完成后才会呈现，这时浏览器会延迟任何可视化组件。<br>实际上，用户感觉缓慢的页面反而是可视化组建加载得更快的页面。使用LINK标签将样式表放在文档的HEAD中可以解决该问题。<br>可参考本人博客 <a href="/2016/03/08/link与@import引入css/">link与@import引入css</a></p>
+<h3 id="u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8"><a href="#u5C06_u811A_u672C_u653E_u5728_u5E95_u90E8" class="headerlink" title="将脚本放在底部"></a>将脚本放在底部</h3><p><strong>并行下载</strong><br>对响应时间影响最大的是页面中组件的数量，如果一个Web页面平均地将其组件分别放在两个，整体响应时间将可以减少大约一半。但并行下载数量并不是越多越快，因为增加并行下载数销的，其优劣取决于带宽和cpu速度。<br><strong>脚本阻塞下载</strong><br>并行下载组件的优点是很明显的，然而，在下载脚本时并行下载实际上被禁用的。即使使用了不同的主机名，浏览器也不会启动其他的下载。其中一个原因是，脚本可能使用document.write来修改，因此浏览器会等待，已确保页面能够恰当地布局。另一个原因是为了保证脚本能够按照正确行。</p>
+<p>在使用脚本时，对于所有位于脚本以下的内容，逐步呈现都被阻塞了。将脚本放在页面的底部，这不会阻止页面内容的呈现, 而且页面中的可视内容可以尽早下载。但是有时很难将脚本移到底部，例如document.write向页面中插入内容，就不能移动到其页面后面的位置了。</p>
+<p>注: 现在的最新浏览器已经支持并行下载, 并能保证它们的执行顺序</p>
+<h3 id="u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F"><a href="#u907F_u514D_u4F7F_u7528CSS_u8868_u8FBE_u5F0F" class="headerlink" title="避免使用CSS表达式"></a>避免使用CSS表达式</h3><p>基本已经无人使用</p>
+<p>从IE5开始支持，但 从IE8起就不推荐使用了 。</p>
+<p>表达式最大的问题是它们经常被重复计算，比我们想象的次数还要多。</p>
+<h3 id="u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS"><a href="#u4F7F_u7528_u5916_u90E8JavaScript_u4E0ECSS" class="headerlink" title="使用外部JavaScript与CSS"></a>使用外部JavaScript与CSS</h3><p>纯粹而言使用内联脚本与样式更快一些</p>
+<p>但是使用外部的脚本与样式表可以设置缓存, 并且如果你的网站中的每一个页面都使用了相同的JavaScript和Css，使用外部文件可以提高这些组件的重用率, 因为当用户在页面间浏览时，JavaScript和Css组件已经位于浏览器的缓存中了</p>
+<p>而且使用外部脚本与样式表符合行为 样式 结构分离, 有利于网站的维护</p>
+<h3 id="u51CF_u5C11DNS_u67E5_u627E"><a href="#u51CF_u5C11DNS_u67E5_u627E" class="headerlink" title="减少DNS查找"></a>减少DNS查找</h3><p>Internet是通过IP地址来查找服务器的。由于IP地址很难记忆，通常使用包含主机名的URL来取代它，但当浏览器发送其请求时，IP地址仍然是必需的。这就是Domain Name System(DNS) 所处的角色。DNS也有开销，通常浏览器查找一个给定的主机名的IP地址要花费20-120毫秒。响应时间依赖于DNS解析器（通常由你的ISP提供）、它所承担的请求压力、你与它之间的距离和你的带宽速度。</p>
+<p><strong>使用DNS缓存</strong></p>
+<p>DNS查找可以被缓存起来提高性能。这种缓存可以发生在由你的ISP或局域网中的一台特殊的缓存服务器上，但这里探讨的是发生在独立用户的计算机上的DNS缓存。在用户请求了一个主机名之后，DNS信息会留在操作系统的DNS缓存中，之后对于该主机名的请求将无需进行过多的DNS查找，至少短时间内不需要。</p>
+<p><strong>影响DNS缓存的因素</strong></p>
+<p>首先，服务器可以表明记录可以被缓存多久。查找返回的DNS记录包含了一个存活时间（Time-to-live,TTL）值。该值告诉客户端可以对该记录缓存多久，尽管操作系统缓存会考虑TTL值，但浏览器通常忽略该值，并设置它自己的时间限制。另外浏览器对缓存的DNS记录的数量也有限制，TTL设置值通常是1天。</p>
+<p><strong>适当的主机名数量</strong></p>
+<p> 当客户端的DNS缓存为空（浏览器和操作系统都是）时，DNS查找的数量与Web页面中唯一主机名的数量相等。这包括页面URL、图片、脚本文件、样式表、Flash对象等的主机名。减少唯一主机名的数量就可以就可以减少DNS查找的数量。</p>
+<p>通过使用Keep-Alive和较少的域名来减少DNS查找</p>
+<h3 id="u7CBE_u7B80JavaScript_u4E0ECSS"><a href="#u7CBE_u7B80JavaScript_u4E0ECSS" class="headerlink" title="精简JavaScript与CSS"></a>精简JavaScript与CSS</h3><p>精简JavaScript通常也叫作压缩JavaScript, 不过请与Gzip压缩区分开</p>
+<p>精简JavaScript是从代码中移除不必要的字符以减少其大小，进而改善加载时间的实践。在代码被精简后，所有的注释以及不必要的空白字符（空格、换行和制表符）都将被移除。对于JavaScript而言，这可以改善响应时间效率，因为需要下载的文件大小减少了。精简JavaScript流行的工具有JSMin, YUI Compressor 等。</p>
+<p>还有一种处理JavaScript的方式叫作混淆</p>
+<p>混淆是可以应用在源代码上的另外一种优化方式。和精简一样，它也会移除注释和空白，同时它还会改写代码。作为改写的一部分，函数和变量的名字将被转换为更短的字符串，这时的代码更加精炼。但是会带来三个弊端：可能引入错误、增加调试难度、需要对JavaScript关键字标记. 混淆的效果并不比精简高很多, 所以还是慎重使用吧, 当然现在有一种技术叫 Source Map</p>
+<p>当然了, CSS文件同样可以精简</p>
+<h3 id="u907F_u514D_u91CD_u5B9A_u5411"><a href="#u907F_u514D_u91CD_u5B9A_u5411" class="headerlink" title="避免重定向"></a>避免重定向</h3><p>重定向用于将用户从一个URL重新路由到另一个URL，种类有很多，常用的是301和302。除此之外还有别的跳转方式：refresh元标签和JavaScript，但如果你必须得做重定向，最好用标准的3xxHTTP状态码，主要是为了让返回按钮能正常使用。 </p>
+<p>重定向会拖慢用户体验，在用户和HTML文档之间插入重定向会延迟页面上的所有东西，页面无法渲染，组件也无法开始下载，直到HTML文档被送达浏览器。</p>
+<p>重定向最常见的用途是把旧站点连接到新的站点，还可以连接同一站点的不同部分，针对用户的不同情况（浏览器类型，用户帐号类型等等）做一些处理。用重定向来连接两个网站是最简单的，只需要少量的额外代码。虽然在这些时候使用重定向减少了开发人员的开发复杂度，但降低了用户体验。一种替代方案是用 Alias 和 mod_rewrite ，前提是两个代码路径都在相同的服务器上。如果是因为域名变化而使用了重定向，就可以创建一条CNAME（创建一个指向另一个域名的DNS记录作为别名）结合 Alias 或者 mod_rewrite 指令。</p>
+<h3 id="u5220_u9664_u91CD_u590D_u811A_u672C"><a href="#u5220_u9664_u91CD_u590D_u811A_u672C" class="headerlink" title="删除重复脚本"></a>删除重复脚本</h3><p>开发一个网站需要极大数量的资源，除了核心团队要构建网站外，其他团队也会向页面贡献HTML代码。由于来自不同团队的很多人都要向页面中添加HTML，很容易想到相同的脚本可能会被添加多次</p>
+<p>重复脚本会伤害性能—引起不必要的HTTP请求和执行JavaScript所消耗的时间</p>
+<h3 id="u914D_u7F6EETag"><a href="#u914D_u7F6EETag" class="headerlink" title="配置ETag"></a>配置ETag</h3><p>实体标签（Entity Tag，ETag）是Web服务器和浏览器用于确认缓存组件的有效性的一种机制。减少呈现页面时所必需的HTTP请求的数量是加速用户体验的最佳方式。可以通过最大化浏览器缓存组件的能力来实现这一目标，但当网站被宿主在多于一台服务器上时，ETag头可能会阻碍缓存。</p>
+<p>ETag带来的问题 ETag的问题在于，通常使用组件的某些属性来构造它，这些属性对于特定的、寄宿了网站的服务器来说是唯一的。当浏览器从一台服务器上获取了原始组件，之后又向另外一台不同的服务器发起条件GET请求时，ETag是不会匹配的—-而对于使用服务器集群来处理请求的网站来说，这是很常见的一种情况。默认情况下，对于拥有多台服务器的网站，Apache和IIS向ETag中嵌入的数据都会大大地降低有效性验证的成功率。    </p>
+<p>解决该问题的两种方式：选择ETag的配置方式或者直接移除ETag</p>
+<h3 id="u4F7FAjax_u53EF_u7F13_u5B58"><a href="#u4F7FAjax_u53EF_u7F13_u5B58" class="headerlink" title="使Ajax可缓存"></a>使Ajax可缓存</h3><p>改善Ajax请求的最重要的方式就是使响应可缓存, 下面的规则同样适用于Ajax：</p>
+<pre><code>Gzip组件
+减少DNS查找
+压缩JavaScript
+避免重定向
+配置ETags
+</code></pre><h3 id="u6743_u8861"><a href="#u6743_u8861" class="headerlink" title="权衡"></a>权衡</h3><p>当我们做性能优化时, 不要浪费时间尝试为那些不消耗大量时间的代码提速. 评估优先, 拒绝任何不能提供良好效益的优化.</p>
+<p>通常来说, 减少JavaScript循环的次数与循环增量的开销, 和优化对DOM的操作是值得的</p>
+<h3 id="u7B80_u5316CSS_u64CD_u4F5C_u7B26"><a href="#u7B80_u5316CSS_u64CD_u4F5C_u7B26" class="headerlink" title="简化CSS操作符"></a>简化CSS操作符</h3><p>什么是高效的选择符</p>
+<p>看看如下规则</p>
+<pre><code>#toc &gt; li {font-weight: bold};
+</code></pre><p>大多数人会认为浏览器是从左到右匹配规则的, 因此会推测这条规则的开销不高. <strong>事实上,CSS选择符是从右到左匹配的</strong>, 因此上边的规则开销实际上相当高, 浏览器必须遍历每个li元素并确定它们的父元素 id 是不是 toc; 如果是后代选择器的话性能消耗会更大.</p>
+<p>编写高效的CSS选择符</p>
+<ol>
+<li>避免使用通配符</li>
+<li>不要限定ID选择符</li>
+<li>不要限定类选择符</li>
+<li>让规则越具体越好</li>
+<li>避免使用后代选择符</li>
+<li>避免使用标签-子选择符</li>
+<li>依靠继承</li>
+<li>关注关键选择符(即最右边的选择符参数, 它对开销起了主要影响)</li>
+<li>关注回流的影响</li>
+</ol>
+<p>糟糕的选择符对性能影响有多大</p>
+<p>毫无疑问复杂的选择符会影响性能, 但实际上优化后的CSS选择符减少的开销是微不足道的, 并且CSS选择符的影响对规则和DOM元素的数量增长是非线性的; 在IE7中那些高开销的子代与后代选择符只有超过 18000 条开销才会突然升高(实际开发中基本不可能匹配到如此多的规则), 并且现代高级浏览器对选择符进行了优化</p>
+<p>最佳实践</p>
+<p>如果你要兼容低版本IE浏览器, 编写高效的选择符是有必要的,<br>但是编写高效的选择符本身也需要成本: 增加页面成本, 降低样式灵活性等,<br>而在主流浏览器中选择符性能已经被极大提速, 绝大部分你都可以按自己的习惯来书写</p>
+<p>这需要你的权衡</p>
+<h3 id="u7BA1_u7406_u5185_u5B58"><a href="#u7BA1_u7406_u5185_u5B58" class="headerlink" title="管理内存"></a>管理内存</h3><p>尽量少的使用内存, 手动解除对内存的引用, 清除不用的对象; 虽然浏览器会回收不用的内存, 但在老旧的浏览器中并不是那么完美, 还会有一些意外的问题; 幸运的是最新的浏览器已经做到非常好了</p>
+<h3 id="u7F16_u5199_u9AD8_u6548_u7684JavaScript"><a href="#u7F16_u5199_u9AD8_u6548_u7684JavaScript" class="headerlink" title="编写高效的JavaScript"></a>编写高效的JavaScript</h3><ol>
+<li>管理作用域非常重要, 因为存取非局部变量要比局部变量耗时更多. 尽量避免使用会正常作用域链的结构, 比如使用 with 语句和try-catch语句中的 catch 从句. 如果非局部变量的使用超过一次, 那么为了降低性能损耗, 就应该将它存储到一个局部变量中.</li>
+<li>存储和读取数据的方式对脚本性能影响极大. 字面量和局部变量最是最快的; 存取数组元素和对象属性会引起性能损耗. 如果数组元素或对象属性的使用超过一次, 那么为了提高存取速度, 就应该将它存储到一个局部变量中</li>
+<li>条件判断有三种处理方式: if语句 switch 语句和数组查找. if 语句适用于少量离散值或一段区间值得判断; switch语句最好用于3-10个离散值的判断; 数组查找在处理大量离散值时效率最高.(如非必要, 不要使用for in 循环)</li>
+<li>在JavaScript中, 循环经常会成为性能瓶颈. 为了是循环最高效, 可以使用倒序的方式来处理元素. 如果必须要进行大量的迭代, 还可以考虑Duff策略来提高执行速度(只在IE6 7 8 中有明显的效果).</li>
+<li>谨慎使用HTMLCollection对象. 每次存取这类对象的属性, 都会重新查询DOM 中匹配的节点. 为了避免这种高昂的开销, 只有在必要时才存取  HTMLCollection对象, 并将经常存取的值(例如length属性) 存储在局部变量中.</li>
+</ol>
+<h3 id="u5C3D_u91CF_u5C11_u7528iframe"><a href="#u5C3D_u91CF_u5C11_u7528iframe" class="headerlink" title="尽量少用iframe"></a>尽量少用iframe</h3><p> 优点</p>
+<pre><code>引入缓慢的第三方内容，比如标志和广告
+安全沙箱
+并行下载脚本
+</code></pre><p> 缺点</p>
+<pre><code>代价高昂，即使是空白的iframe
+阻塞页面加载
+非语义
+</code></pre><h3 id="u56FE_u50CF_u4F18_u5316"><a href="#u56FE_u50CF_u4F18_u5316" class="headerlink" title="图像优化"></a>图像优化</h3><h3 id="u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE"><a href="#u534F_u5546_u7F13_u5B58_u6D41_u7A0B_u56FE" class="headerlink" title="协商缓存流程图"></a>协商缓存流程图</h3><p><img src="/images/cache.png" alt=""></p>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>所有的优化都和可以总结为一下几方面:</p>
+<ol>
+<li>减少HTTP请求, 包括减少HTTP的请求次数, 减少HTTP的请求响应时间,  减少HTTP请求的内容的大小</li>
+<li>优化加载时用户体验</li>
+<li>优化用户操作时的体验</li>
+</ol>
+<h3 id="u6CE8"><a href="#u6CE8" class="headerlink" title="注"></a>注</h3><p>有许多优化都是基于浏览器, 得益于浏览器的高速发展, 以前许多需要复杂方法(其实我也没仔细看, 貌似很厉害的样子)<br>实现的优化都已经不再适用, 因为浏览器已经实现那些功能, 所以也没有列出来.</p>
+<p>什么时候IE9甚至IE11之前版本的浏览器能在国内消失, 那真是要好好庆贺一番 </p>
+<h3 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h3><p>&lt;&lt;高性能网站建设指南&gt;&gt;<br>&lt;&lt;高性能网站建设进阶指南&gt;&gt;<br>这两本书是如此的经典, 即使在许多年后的今天仍然有非常大的参考价值, 可能一些旧的技术已经落后, 更好更新的技术不断的出现, 但其中体现的思想却不会过时</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/web/">web</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/优化/">优化</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/04/06/前端优化/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/04/06/前端优化/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/06/js作用域其四-闭包/" title="js作用域其四:闭包" itemprop="url">js作用域其四:闭包</a>
   </h1>
   <p class="article-author">By
@@ -738,81 +918,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/21/JS事件中target与currentTarget/" title="JS事件中target与currentTarget " itemprop="url">JS事件中target与currentTarget </a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-21T12:43:59.000Z" itemprop="datePublished"> 發表於 2016-03-21</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA"><a href="#u5148_u6765_u4E00_u6BB5_u7F51_u4E0A_u6D41_u884C_u7684_u89E3_u91CA" class="headerlink" title="先来一段网上流行的解释"></a>先来一段网上流行的解释</h3><p>target是事件的调用对象(event dispatcher)，currentTarget是事件的处理对象(event processor)</p>
-<p>target在事件流的目标阶段；currentTarget在事件流的捕获，目标及冒泡阶段。只有当事件流处在目标阶段的时候，两个的指向才是一样的，而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象（一般为父级）。</p>
-<p><strong><em>是不是有点晦涩,看了以后还是似懂非懂,一般网上的案例也是难以明白,于是我又专门测试了一下,然后用通俗的语言总结起来</em></strong></p>
-<h3 id="u6848_u4F8B"><a href="#u6848_u4F8B" class="headerlink" title="案例"></a>案例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head lang=<span class="string">"en"</span>&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;    </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"按钮"</span> id=<span class="string">"btn"</span>/&gt;</span><br><span class="line">&lt;div id=<span class="string">"div"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"button"</span> value=<span class="string">"div里面的按钮"</span> id=<span class="string">"btnStop"</span>/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            document.getElementById(<span class="string">'btn'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btn.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'div'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'div.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            document.getElementById(<span class="string">'btnStop'</span>).onclick = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">                console.log(<span class="string">'btnStop.onclick---------------'</span>);</span><br><span class="line">                console.log(<span class="string">'currentTarget: '</span>);</span><br><span class="line">                console.log(e.currentTarget);</span><br><span class="line">                console.log(<span class="string">'target: '</span>);</span><br><span class="line">                console.log(e.target);</span><br><span class="line">                console.log(<span class="string">'this '</span>);</span><br><span class="line">                console.log(this);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>下边是测试在控制台的结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"按钮"</span> id=​<span class="string">"btn"</span>&gt;​</span><br><span class="line"></span><br><span class="line">btnStop.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"> this </span><br><span class="line">&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line"></span><br><span class="line">div.onclick---------------</span><br><span class="line">currentTarget: </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br><span class="line">target: </span><br><span class="line"> &lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​</span><br><span class="line">this </span><br><span class="line">&lt;div id=​<span class="string">"div"</span>&gt;​&lt;input <span class="built_in">type</span>=​<span class="string">"button"</span> value=​<span class="string">"div里面的按钮"</span> id=​<span class="string">"btnStop"</span>&gt;​&lt;/div&gt;​</span><br></pre></td></tr></table></figure></p>
-<pre><code>注:测试环境为当前最新版的firefox与chrome浏览器
-</code></pre><h3 id="u603B_u7ED3_3A"><a href="#u603B_u7ED3_3A" class="headerlink" title="总结:"></a>总结:</h3><ol>
-<li>currentTarget就是绑定事件的节点,哪个节点绑定事件就是哪个节点</li>
-<li>currentTarget与this总是相同的</li>
-<li>target是最终触发事件的节点</li>
-<li>currentTarget与target有时相同有时不同</li>
-<li>只有当绑定事件的节点对象是最终触发事件的节点对象时currentTarget才等于target</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/事件/">事件</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/03/21/JS事件中target与currentTarget/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/21/JS事件中target与currentTarget/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -861,6 +966,10 @@
 		  
 		
 		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
 		  
 		
@@ -876,7 +985,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 

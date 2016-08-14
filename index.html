@@ -80,6 +80,99 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/08/14/react之生命周期/" title="react之生命周期" itemprop="url">react之生命周期</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-14T01:48:57.000Z" itemprop="datePublished"> 發表於 2016-08-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001"><a href="#u7EC4_u4EF6_u7684_u751F_u547D_u5468_u671F_u5206_u4E3A_u4E09_u4E2A_u72B6_u6001" class="headerlink" title="组件的生命周期分为三个状态"></a>组件的生命周期分为三个状态</h3><pre><code>Mounting：已插入真实 DOM
+Updating：正在被重新渲染
+Unmounting：已移出真实 DOM
+</code></pre><h3 id="u5904_u7406_u51FD_u6570"><a href="#u5904_u7406_u51FD_u6570" class="headerlink" title="处理函数"></a>处理函数</h3><p>React 为每个状态都提供了两种处理函数，will函数在进入状态之前调用，did 函数在进入状态之后调用，三种状态共计五种处理函数。</p>
+<ol>
+<li><p>componentWillMount()</p>
+<p> 只会在装载之前调用一次，在 render 之前调用，你可以在这个方法里面调用 setState 改变状态，并且不会导致额外调用一次 render</p>
+</li>
+<li><p>componentDidMount()</p>
+<p> 只会在装载完成之后调用一次，在 render 之后调用，从这里开始可以通过 ReactDOM.findDOMNode(this) 获取到组件的 DOM 节点。</p>
+</li>
+<li><p>componentWillUpdate(object nextProps, object nextState)</p>
+<p> 组件实例即将重新渲染时被调用<br> 这个方法在初次渲染时不会被调用。<br> 注意：不能在此方法内调用setState()。</p>
+</li>
+<li><p>componentDidUpdate(object prevProps, object prevState)</p>
+<p> 组件实例重新渲染后被调用<br> 这个方法在初次渲染时不会被调用。</p>
+</li>
+<li><p>componentWillUnmount()</p>
+<p> 组件实例即将从DOM树移除时被调用<br> 这个方法在整个生命周期中只会被调用一次。</p>
+</li>
+</ol>
+<p>此外，React 还提供两种特殊状态的处理函数。</p>
+<ol>
+<li><p>componentWillReceiveProps(object nextProps)</p>
+<p> 已加载组件收到新的参数时调用,参数nextProps表示即将应用到组件实例上的新属性值。这个方法在初次渲染时不会被调用。在此方法内调用setState()不会引起重新渲染。</p>
+</li>
+<li><p>shouldComponentUpdate(object nextProps, object nextState)</p>
+<p> 组件实例即将重新渲染时被调用<br> 参数nextProps传入即将应用到组件实例上的新属性值，参数nextState传入组件实例即将被 设置的状态值。如果这个方法返回false，那么组件实例就不会被重新渲染。除非我们明确地 知道，新的属性和状态不需要进行重新渲染，否则这个方法都应该返回true。<br> 这个方法在初次渲染时或通过forceUpdate()方法进行渲染时不会被调用。</p>
+<h3 id="u6D41_u7A0B_u56FE"><a href="#u6D41_u7A0B_u56FE" class="headerlink" title="流程图"></a>流程图</h3></li>
+</ol>
+<p><img src="http://images2015.cnblogs.com/blog/549190/201603/549190-20160320001355490-136229096.png" alt=""></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/框架/">框架</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react/">react</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/08/14/react之生命周期/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/08/14/react之生命周期/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/08/07/ESMA6入门之set与map/" title="ESMA6入门之set与map" itemprop="url">ESMA6入门之set与map</a>
   </h1>
   <p class="article-author">By
@@ -1927,171 +2020,6 @@ window.b //undefined
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/07/02/算法学习/" title="算法学习" itemprop="url">算法学习</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-07-02T06:31:52.000Z" itemprop="datePublished"> 發表於 2016-07-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>JS常见算法学习收集整理</p>
-<h2 id="u6392_u5E8F"><a href="#u6392_u5E8F" class="headerlink" title="排序"></a>排序</h2><h3 id="u6392_u5E8F_u6982_u5FF5"><a href="#u6392_u5E8F_u6982_u5FF5" class="headerlink" title="排序概念"></a>排序概念</h3><p>排序就是要整理文件中的记录，使之按关键字递增(或递减)次序排列起来。其确切定义如下：输入：n 个记录 R1，R2，…，Rn，其相应的关键字分别为 K1，K2，…，Kn。输出：Ril，Ri2，…，Rin，使得 Ki1≤Ki2≤…≤Kin。(或 Ki1≥Ki2≥…≥Kin)。</p>
-<p>排序算法的依据–关键字，关键字可以是数字类型，也可以是字符类型。<br>排序算法的稳定性</p>
-<p>当待排序记录的关键字均不相同时，排序结果是惟一的，否则排序结果不唯一。在待排序的文件中，若存在多个关键字相同的记录，经过排序后这些具有相同关键字的记录之间的相对次序保持不变，该排序方法是稳定的；若具有相同关键字的记录之间的相对次序发生变化，则称这种排序方法是不稳定的。<br>排序算法的空间复杂度</p>
-<p>若排序算法所需的辅助空间并不依赖于问题的规模n，即辅助空间是O(1)，则称之为就地排序(In-PlaceSou)。 非就地排序一般要求的辅助空间为O(n)。</p>
-<h3 id="u76F4_u63A5_u63D2_u5165_u6392_u5E8F"><a href="#u76F4_u63A5_u63D2_u5165_u6392_u5E8F" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><p>把待排序的纪录按其关键码值的大小逐个插入到一个已经排好序的有序序列中，直到所有的纪录插入完为止，得到一个新的有序序列。</p>
-<p>设无序数组为a[0…n-1]。</p>
-<pre><code>1.初始时，a[0]自成1个有序区，无序区为a[1..n-1]。
-
-2.令i=1,将a[i]插入当前的有序区a[0…i-1]中形成a[0…i]的有序区间。
-
-3.i++并重复第二步直到i==n-1，排序完成。
-</code></pre><p>一趟直接插入排序方法</p>
-<p>具体做法：</p>
-<p>将待插入记录 a[i]的关键字从右向左依次与有序区中记录 aj的关键字进行比较：</p>
-<pre><code>1.若 a[j]的关键字大于 a[i]的关键字，则将 a[j]后移一个位置；
-
-2.若 a[j]的关键字小于或等于 a[i]的关键字，则查找过程结束，j+1 即为 a[i]的插入位置。
-</code></pre><p>关键字比a[i]的关键字大的记录均已后移，所以 j+1 的位置已经腾空，只要将 a[i] 直接插入此位置即可完成一趟直接插入排序。</p>
-<p>例如待排序数组a[0]=8,a[1]=5,a[2]=10,a[3]=12,a[4]=7,a[5]=6</p>
-<p>第一趟：a[0]=8，有序,a[1…5]无序。</p>
-<p>第二趟：temp=5，a[1]=5 &lt; a[0]=8, 8往后移一位，a[1]=8,a[0]=5,a[0…1]有序,a[2…5]无序。</p>
-<p>第三、四趟：a[2]=10 &gt; a[1]=8,a[3]=12 &gt; a[2]=10，有序无须移动，a[4…5]无序。</p>
-<p>第五趟：temp=7，a[4]=7 &lt; a[3]=12,12往后移一位，a[4]=12，依次类推…直到a[0]=5 &lt; temp，即a[1]=7。</p>
-<p>第六趟类比第五趟，可以得到6插入位置为a[1]=6。排序完成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var insertSort = <span class="keyword">function</span>(array)&#123;</span><br><span class="line">    var i = <span class="number">1</span>,temp,len = array.length;</span><br><span class="line">    <span class="keyword">for</span>(; i&lt;len;++i)&#123;</span><br><span class="line">        temp = array[i];</span><br><span class="line">        j = i;</span><br><span class="line">        <span class="keyword">while</span>(--j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[j] &gt; temp)&#123;</span><br><span class="line">                array[j+<span class="number">1</span>] = array[j];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        array[j+<span class="number">1</span>]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> array;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>直接插入排序算法时间复杂度：O(n^2)；空间复杂度：O(1)。直接插入排序是稳定的排序方法。</p>
-<h3 id="u5192_u6CE1_u6392_u5E8F"><a href="#u5192_u6CE1_u6392_u5E8F" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>两两比较待排序记录的关键字，发现两个记录的次序相反时即进行交换，直到没有反序的记录为止。按照从小到大或者从大到小的顺序进行交换,这样一趟过去后,最大或最小的数字被交换到了最后一位。</p>
-<p>冒泡排序算法的运作过程：（从小到大排序）</p>
-<p>设数组a[0..n-1]长度为n,</p>
-<pre><code>1．比较相邻的前后二个数据，如果前面数据大于后面的数据，就将二个数据交换。
-
-2．这样对数组的第0个数据到n-1个数据进行一次遍历后，最大的一个数据就“沉”到数组第n-1个位置。
-
-3．n=n-1，如果n不为0就重复前面二步，否则排序完成。
-</code></pre><p>例子为从小到大排序,原始待排序数组| 7 | 2 | 4 | 1 | 5 |</p>
-<p>第一趟排序(外循环)</p>
-<p>第一次两两比较7 &gt; 2交换(内循环)</p>
-<p>交换前状态| 7 | 2 | 4 | 1 | 5 |</p>
-<p>交换后状态| 2 | 7 | 4 | 1 | 5 |</p>
-<p>第二次两两比较,7 &gt; 4交换</p>
-<p>交换前状态| 2 | 7 | 4 | 1 | 5 |</p>
-<p>交换后状态| 2 | 4 | 7 | 1 | 5 |</p>
-<p>第三次两两比较,7 &gt; 1交换</p>
-<p>交换前状态| 2 | 4 | 7 | 1 | 5 |</p>
-<p>交换后状态| 2 | 4 | 1 | 7 | 5 |</p>
-<p>第四次两两比较,7 &gt; 5交换</p>
-<p>交换前状态| 2 | 4 | 1 | 7 | 5 |</p>
-<p>交换后状态| 2 | 4 | 1 | 5 | 7 |</p>
-<p>第二趟排序(外循环)</p>
-<p>第一次两两比较2 &lt; 4不交换</p>
-<p>交换前状态| 2 | 4 | 1 | 5 | 7 |</p>
-<p>交换后状态| 2 | 4 | 1 | 5 | 7 |</p>
-<p>第二次两两比较,4 &gt; 1交换</p>
-<p>交换前状态| 2 | 4 | 1 | 5 | 7 |</p>
-<p>交换后状态| 2 | 1 | 4 | 5 | 7 |</p>
-<p>第三趟排序(外循环)</p>
-<p>第一次两两比较2 &gt; 1交换</p>
-<p>交换后状态| 2 | 1 | 4 | 5 | 7 |</p>
-<p>交换后状态| 1 | 2 | 4 | 5 | 7 |</p>
-<p>第二次两两比较,2 &lt; 4不交换</p>
-<p>交换后状态| 1 | 2 | 4 | 5 | 7 |</p>
-<p>交换后状态| 1 | 2 | 4 | 5 | 7 |</p>
-<p>排序完毕,输出最终结果1 2 4 5 7</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var bubbleSort = <span class="keyword">function</span>(array)&#123;</span><br><span class="line">            var i = <span class="number">0</span>,</span><br><span class="line">                len = array.length,</span><br><span class="line">                j,</span><br><span class="line">                temp;</span><br><span class="line">                <span class="keyword">for</span>(;i &lt; len;i++)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; len; j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(array[i] &lt; array[j])&#123;</span><br><span class="line">                            temp = array[j];</span><br><span class="line">                            array[j] = array[i];</span><br><span class="line">                            array[i] = temp;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">return</span> array;</span><br><span class="line">        &#125;;</span><br><span class="line">//或者这样更好理解</span><br><span class="line">        <span class="keyword">function</span> bubbleSort(arr) &#123;</span><br><span class="line">            var i = arr.length, j;</span><br><span class="line">            var temp;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                        temp = arr[j];</span><br><span class="line">                        arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                        arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>冒泡排序时间复杂度，最好情况：数组已有序O(n)；最坏情况:数组反序O(n^2)，平均时间复杂度：O(n^2)。空间复杂度，冒泡排序是原地排序，空间复杂度为O(1)。冒泡排序算法是稳定的排序算法。</p>
-<h3 id="u76F4_u63A5_u9009_u62E9_u6392_u5E8F"><a href="#u76F4_u63A5_u9009_u62E9_u6392_u5E8F" class="headerlink" title="直接选择排序"></a>直接选择排序</h3><p>无序数组a[0…n-1]，第一次从a[0]~a[n-1]中选取最小值，与a[0]交换，第二次从a[1]~a[n-1]中选取最小值，与a[1]交换，….，第i次从a[i-1]~a[n-1]中选取最小值，与a[i-1]交换，…..，第n-1次从a[n-2]~a[n-1]中选取最小值，与a[n-2]交换，总共通过n-1次，得到一个按关键字从小到大排列的有序序列·</p>
-<p>直接选择排序算法过程如下:</p>
-<p>给定n=7，数组a中的7个元素为[8,3,2,1,7,4,6]</p>
-<pre><code>初始状态 [ 8 3 2 1 7 4 6]
-
-第1次，数组a[0..6]中最小的数为a[3]=1，交换a[3]&lt;-&gt;a[0]，交换结果[ 1 3 2 8 7 4 6]
-
-第2次，数组a[1..6]中最小的数为a[2]=2，交换a[2]&lt;-&gt;a[1]，交换结果[ 1 2 3 8 7 4 6]
-
-第3次，数组a[2..6]中最小的数为a[2]=3，交换a[2]&lt;-&gt;a[2]，交换结果[ 1 2 3 8 7 4 6]
-
-第4次，数组a[3..6]中最小的数为a[5]=4，交换a[5]&lt;-&gt;a[3]，交换结果[ 1 2 3 4 6 8 7]
-
-第5次，数组a[4..6]中最小的数为a[4]=6，交换a[4]&lt;-&gt;a[4]，交换结果[ 1 2 3 4 6 8 7]
-
-第6次，数组a[5..6]中最小的数为a[6]=7，交换a[6]&lt;-&gt;a[5]，交换结果[ 1 2 3 4 6 7 8]
-</code></pre><p>排序完成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">var selectSort = <span class="keyword">function</span>(array)&#123;</span><br><span class="line">    var i = <span class="number">0</span>,</span><br><span class="line">        j,</span><br><span class="line">        min,</span><br><span class="line">        temp,</span><br><span class="line">        len = array.length;</span><br><span class="line">    <span class="keyword">for</span>(;i &lt; len - <span class="number">1</span>;i++)&#123;</span><br><span class="line">        min = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>; j&lt; len;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(array[min] &gt; array[j])&#123;</span><br><span class="line">                min = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = array[i];</span><br><span class="line">        array[i] = array[min];</span><br><span class="line">        array[min] = temp; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> array;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在直接选择排序中，共需要进行n-1次选择和交换，每次选择需要进行 n-i 次比较 (1&lt;=i&lt;=n-1),而每次交换最多需要3次移动，因此，总的比较次数C=(n*n - n)/2，时间复杂度O(n^2)。直接选择排序为原地排序，空间复杂度O(1)。直接选择排序不是稳定的排序算法。</p>
-<h3 id="u5E0C_u5C14_u6392_u5E8F"><a href="#u5E0C_u5C14_u6392_u5E8F" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。</p>
-<p>希尔排序算法过程：</p>
-<p>先取一个正整数gap</p>
-<p>例如数组a[49, 38, 65, 97, 26, 13, 27, 49, 55, 4]</p>
-<p>第1次 步长 gap = 10 / 2 = 5</p>
-<p>分成了五组(49, 13) (38, 27) (65, 49) (97, 55) (26, 4)，</p>
-<p>每组排序后变成了(13, 49) (27, 38) (49, 65) (55, 97) (4, 26)。</p>
-<p>第1次排序结果：13 27 49 55 4 49 38 65 97 26</p>
-<p>第2次 步长 gap = 5 / 2 = 2</p>
-<p>分成了2组(13,49,4,38,97) (27,55,49,65,26)</p>
-<p>每组排序后变成了(4,13,38,49,97) (26,27,49,55,65)</p>
-<p>第2次排序结果：4 26 13 27 38 49 49 55 97 65</p>
-<p>第3次 步长 gap = 2 / 2 = 1</p>
-<p>分为一组，直接插入排序后，数组有序。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var shellSort = <span class="keyword">function</span>(array)&#123;</span><br><span class="line">     var len = array.length, gap = parseInt(len/<span class="number">2</span>), </span><br><span class="line">         i, j, tmp;</span><br><span class="line">      <span class="keyword">while</span>(gap &gt; <span class="number">0</span>)&#123;</span><br><span class="line">         //循环使i=gap</span><br><span class="line">         <span class="keyword">for</span>(i=gap; i&lt;len; i++)&#123;</span><br><span class="line">             //给临时值tmp赋值为array[i]</span><br><span class="line">             tmp = array[i];</span><br><span class="line">             //j是i减去增量</span><br><span class="line">             j = i - gap;</span><br><span class="line">                 <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; tmp &lt; array[j])&#123;</span><br><span class="line">                     array[i] = array[j];</span><br><span class="line">                     j = j - gap;</span><br><span class="line"></span><br><span class="line">                 &#125;</span><br><span class="line">             array[j+gap] = tmp;</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line">         //改变增量gap 控制循环</span><br><span class="line">         gap = parseInt(gap/<span class="number">2</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">return</span> array;</span><br><span class="line"> &#125;;</span><br><span class="line">//或者这样</span><br><span class="line">    var shellSort = <span class="keyword">function</span>(array)&#123;</span><br><span class="line"></span><br><span class="line">    var len=array.length;</span><br><span class="line">    <span class="keyword">for</span>(var gap=Math.floor(len/<span class="number">2</span>); gap&gt;<span class="number">0</span>; gap=Math.floor(gap/<span class="number">2</span>))&#123;</span><br><span class="line">        <span class="keyword">for</span>(var i=gap; i&lt;len; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(var j=i-gap; j&gt;=<span class="number">0</span>&amp;&amp;array[j]&gt;array[gap+j]; j-=gap)&#123;</span><br><span class="line">                var temp = array[j];</span><br><span class="line">                array[j] = array[gap+j];</span><br><span class="line">                array[gap+j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>希尔排序的时间复杂度与增量序列的选取有关，例如希尔增量时间复杂度为O(n²)，而Hibbard增量的希尔排序的时间复杂度为O(n^(3/2))，希尔排序时间复杂度的下界是n*log2n，希尔排序时间复杂度O(Nlog2N)，空间复杂度O(1)。希尔排序不是稳定排序算法。</p>
-<h3 id="u5FEB_u901F_u6392_u5E8F"><a href="#u5FEB_u901F_u6392_u5E8F" class="headerlink" title="快速排序"></a>快速排序</h3><p>首先从数组a中选取一个基准点（通常我们取中间项作为基准点），然后遍历数组，把小于基准点的项放到基准点左边集合，把大于基准点的项放到基准点右边集合。再对左边和右边两个集合重复前面的操作，直到每个子集就剩下一个元素。其实就是一个递归的思想。</p>
-<p>依旧拿数组a=[12,3,43,11,56,90,7,66,82]举例，我们先选取一个基准点pivot=a[Math.floor(a.length/2)]，即a[4]值为56，然后便利数组中的剩余项，把小于56的数组项放在左边的数组left中，把大于等于56的数组项放在右边的数组right中，第一轮操作结束后left=[12,3,43,11,7]，right=[90,66,82]，然后再对left和right重复以上的操作，直到left和right仅剩一项或为空时结束。最后返回left+pivot+right。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> quickSort(arr)&#123;</span><br><span class="line">        var len=arr.length;//获取arr的长度</span><br><span class="line">        <span class="keyword">if</span>(len&lt;=<span class="number">1</span>)&#123;//如果arr的长度小于等于<span class="number">1</span>则直接返回arr</span><br><span class="line">            <span class="built_in">return</span> arr;</span><br><span class="line">        &#125;</span><br><span class="line">        var pIndex=Math.floor(len/<span class="number">2</span>);//获取基准点的索引下标</span><br><span class="line">        var pivot=arr[<span class="number">0</span>];</span><br><span class="line">        var left=[];</span><br><span class="line">        var right=[];</span><br><span class="line">        <span class="keyword">for</span>(var i=<span class="number">1</span>; i&lt;arr.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i]&lt;pivot)&#123;//如果小于基准点就放到数组l中</span><br><span class="line">                left.push(arr[i]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;//如果大于等于基准点就放到右边数组中</span><br><span class="line">                right.push(arr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> quickSort(left).concat(pivot,quickSort(right));//递归不断重复整个过程</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>快速排序算法平均时间复杂度O(nlgn)，最坏O(n^2)。快速排序需要栈空间来实现递归，如果数组按局等方式被分割时，则最大的递归深度为 log n，需要的栈空间为 O(log n)。最坏的情况下在递归的每一级上，数组分割成长度为0的左子数组和长度为 n - 1 的右数组。这种情况下，递归的深度就成为 n，需要的栈空间为 O(n)。快速排序不是稳定排序算法。</p>
-<h2 id="u611F_u6168"><a href="#u611F_u6168" class="headerlink" title="感慨"></a>感慨</h2><p>算法这种东西不经常用,学起来也比较伤脑,而且学了忘学了又忘,果然对我这个特别平凡的人来说算法不太适合么<br>好烦 不搞了</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/东成西就/">东成西就</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/算法/">算法</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/07/02/算法学习/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/02/算法学习/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -2140,6 +2068,10 @@ window.b //undefined
 		  
 		
 		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
 		  
 		
@@ -2155,7 +2087,7 @@ window.b //undefined
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 
