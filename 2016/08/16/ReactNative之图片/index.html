@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>JS设计模式之代理模式 | HeartWalker&#39;s Blog</title>
+    <title>ReactNative之图片 | HeartWalker&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Heart Walker">
     
 
     
-    <meta name="description" content="概念代理模式是为一个对象提供提供代用品或占位符,以便控制对他的访问代理模式的关键是,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制对这个对象的访问,客户实际访问的是替身对象">
+    <meta name="description" content="source:图片引用地址
+网络图片:source={ { uri: &amp;apos;http//xx.png&amp;apos;}}
+本地图片:source={require(&amp;apos;./xx.png&amp;apos;)}
+如果你有my-icon.ios.png和my-icon.android.png，Packager就会根据平台而选择不同的文件。
+你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS设计模式之代理模式">
-<meta property="og:url" content="http://HeartWalker.cc/2016/06/26/JS设计模式之代理模式/index.html">
+<meta property="og:title" content="ReactNative之图片">
+<meta property="og:url" content="http://HeartWalker.cc/2016/08/16/ReactNative之图片/index.html">
 <meta property="og:site_name" content="HeartWalker's Blog">
-<meta property="og:description" content="概念代理模式是为一个对象提供提供代用品或占位符,以便控制对他的访问代理模式的关键是,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制对这个对象的访问,客户实际访问的是替身对象">
-<meta property="og:updated_time" content="2016-07-17T11:47:16.974Z">
+<meta property="og:description" content="source:图片引用地址
+网络图片:source={ { uri: &amp;apos;http//xx.png&amp;apos;}}
+本地图片:source={require(&amp;apos;./xx.png&amp;apos;)}
+如果你有my-icon.ios.png和my-icon.android.png，Packager就会根据平台而选择不同的文件。
+你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精">
+<meta property="og:updated_time" content="2016-08-16T15:01:42.296Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS设计模式之代理模式">
-<meta name="twitter:description" content="概念代理模式是为一个对象提供提供代用品或占位符,以便控制对他的访问代理模式的关键是,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制对这个对象的访问,客户实际访问的是替身对象">
+<meta name="twitter:title" content="ReactNative之图片">
+<meta name="twitter:description" content="source:图片引用地址
+网络图片:source={ { uri: &amp;apos;http//xx.png&amp;apos;}}
+本地图片:source={require(&amp;apos;./xx.png&amp;apos;)}
+如果你有my-icon.ios.png和my-icon.android.png，Packager就会根据平台而选择不同的文件。
+你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精">
 
     
     <link rel="alternative" href="/atom.xml" title="HeartWalker&#39;s Blog" type="application/atom+xml">
@@ -79,14 +91,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/26/JS设计模式之代理模式/" title="JS设计模式之代理模式" itemprop="url">JS设计模式之代理模式</a>
+      <a href="/2016/08/16/ReactNative之图片/" title="ReactNative之图片" itemprop="url">ReactNative之图片</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-26T14:04:26.000Z" itemprop="datePublished"> 發表於 2016-06-26</time>
+    <time datetime="2016-08-16T14:44:00.000Z" itemprop="datePublished"> 發表於 2016-08-16</time>
     
   </p>
 </header>
@@ -95,25 +107,49 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u5FF5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h3><p>代理模式是为一个对象提供提供代用品或占位符,以便控制对他的访问<br>代理模式的关键是,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制对这个对象的访问,客户实际访问的是替身对象</p>
-  
+		<p>source:图片引用地址</p>
+<pre><code>网络图片:source={ { uri: &apos;http//xx.png&apos;}}
+本地图片:source={require(&apos;./xx.png&apos;)}
+</code></pre><p>如果你有my-icon.ios.png和my-icon.android.png，Packager就会根据平台而选择不同的文件。</p>
+<p>你还可以使用@2x，@3x这样的文件名后缀，来为不同的屏幕精度提供图片</p>
+<p>注意:为了使新的图片资源机制正常工作,require中图片的名字必须是一个静态字符串, 因为React Native 在编译代码时处理所有的require声明，而不是在运行时的动态处理</p>
+<pre><code>// 正确
+&lt;Image source={require(&apos;./my-icon.png&apos;)} /&gt;
+
+// 错误
+var icon = this.props.active ? &apos;my-icon-active&apos; : &apos;my-icon-inactive&apos;;
+&lt;Image source={require(&apos;./&apos; + icon + &apos;.png&apos;)} /&gt;
+
+// 正确
+var icon = this.props.active ? require(&apos;./my-icon-active.png&apos;) : require(&apos;./my-icon-inactive.png&apos;);
+&lt;Image source={icon} /&gt;
+</code></pre><p>网络图片需要手动指定尺寸<br>在浏览器中，如果你不给图片指定尺寸，那么浏览器会首先渲染一个0x0大小的元素占位，然后下载图片，在下载完成后再基于正确的尺寸来渲染图片。这样做的最大问题是UI会在图片加载的过程中上下跳动，使得用户体验非常糟糕。</p>
+<p>注意: 在html中只设置宽高的一个,图片会等比例缩放, 但在RN中并不会,因为它会提前渲染宽高,所以在RN中你要同时指定图片的宽高</p>
+<p>在React Native中我们有意避免了这一行为。如此一来开发者就需要做更多工作来提前知晓远程图片的尺寸（或宽高比），但我们相信这样可以带来更好的用户体验。然而，从已经打包好的应用资源文件中读取图片（使用require(‘image!x’)语法）则无需指定尺寸，因为它们的尺寸在加载时就可以立刻知道。</p>
+<p>开发者们常面对的一种需求就是类似web中的背景图（background-image）。要实现这一用例，只需简单地创建一个<image>组件，然后把需要背景图的子组件嵌入其中即可。</image></p>
+<pre><code>return (
+&lt;Image source={...}&gt;
+    &lt;Text&gt;Inside&lt;/Text&gt;
+&lt;/Image&gt;
+);
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  <a class="article-category-link" href="/categories/框架/">框架</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/设计模式/">设计模式</a>
+  <span></span> <a href="/tags/react-native/">react-native</a>
   </div>
 
 </div>
@@ -122,7 +158,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://HeartWalker.cc/2016/06/26/JS设计模式之代理模式/" data-title="JS设计模式之代理模式 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://HeartWalker.cc/2016/08/16/ReactNative之图片/" data-title="ReactNative之图片 | HeartWalker&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +171,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/06/29/在webstorm中使用sass/" title="在webstorm中使用sass">
-  <strong>上一篇：</strong><br/>
-  <span>
-  在webstorm中使用sass</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/06/22/JS设计模式之策略模式/"  title="JS设计模式之策略模式">
+<a href="/2016/08/14/react之生命周期/"  title="react之生命周期">
  <strong>下一篇：</strong><br/> 
- <span>JS设计模式之策略模式
+ <span>react之生命周期
 </span>
 </a>
 </div>
@@ -156,7 +184,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/06/26/JS设计模式之代理模式/" data-title="JS设计模式之代理模式" data-url="http://HeartWalker.cc/2016/06/26/JS设计模式之代理模式/"></div>
+	<div class="ds-thread" data-thread-key="2016/08/16/ReactNative之图片/" data-title="ReactNative之图片" data-url="http://HeartWalker.cc/2016/08/16/ReactNative之图片/"></div>
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"animewalker"};
@@ -179,7 +207,7 @@ var duoshuoQuery = {short_name:"animewalker"};
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u6982_u5FF5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li></ol>
+ 
  
   </div>
 
