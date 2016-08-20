@@ -80,6 +80,83 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/08/20/ReactNative之屏幕宽高与像素密度/" title="ReactNative之屏幕宽高与像素密度" itemprop="url">ReactNative之屏幕宽高与像素密度</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-20T07:20:38.000Z" itemprop="datePublished"> 發表於 2016-08-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在React Native中，组件的宽度，高度都是不用写单位的，宽高的数值的单位默认是 dp</p>
+<h3 id="Dimensions"><a href="#Dimensions" class="headerlink" title="Dimensions"></a>Dimensions</h3><p>react-native使用Dimensions来获取设备屏幕的宽和高，使用之前首先引入该模块</p>
+<pre><code>import {Dimensions} from &apos;react-native&apos;;
+</code></pre><p>然后就可以使用它</p>
+<pre><code>var {height, width} = Dimensions.get(&apos;window&apos;);
+</code></pre><p>获取的值的单位都是dp<br>初始的尺寸信息应该在runApplication之后被执行，所以它可以在任何其他的require被执行之前就可用。不过在稍后可能还会更新。</p>
+<p>注意：尽管尺寸信息立即就可用，但它可能会在将来被修改（譬如设备的方向改变），所以基于这些常量的渲染逻辑和样式应当每次render之后都调用此函数，而不是将对应的值保存下来。（举例来说，你可能需要使用内联的样式而不是在StyleSheet中保存相应的尺寸）。</p>
+<h3 id="PixelRatio"><a href="#PixelRatio" class="headerlink" title="PixelRatio"></a>PixelRatio</h3><p>PixelRatio类提供了访问设备的像素密度的方法,使用之前首先引入该模块</p>
+<pre><code>import {PixelRatio} from &apos;react-native&apos;;
+</code></pre><p>方法   </p>
+<pre><code>PixelRatio.get() 返回设备的像素密度
+</code></pre><p>RN中设置一条线的最小高度 不应该用 height：1，而应该使用 1/PixelRatio.get()</p>
+<p>static getPixelSizeForLayoutSize(layoutSize: number)</p>
+<p>将一个布局尺寸(dp)转换为像素尺寸(px)。</p>
+<p>一定会返回一个整数数值。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/框架/">框架</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react-native/">react-native</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/08/20/ReactNative之屏幕宽高与像素密度/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/08/20/ReactNative之屏幕宽高与像素密度/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/08/16/ReactNative之图片/" title="ReactNative之图片" itemprop="url">ReactNative之图片</a>
   </h1>
   <p class="article-author">By
@@ -1963,71 +2040,6 @@ cache  =  true,
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/07/03/J设计模式之迭代器模式/" title="J设计模式之迭代器模式" itemprop="url">J设计模式之迭代器模式</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-07-03T09:50:30.000Z" itemprop="datePublished"> 發表於 2016-07-03</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="u6982_u5FF5"><a href="#u6982_u5FF5" class="headerlink" title="概念"></a>概念</h3><p>迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素,而又不需要暴露该对象的内部表示.迭代器模式可以吧迭代的过程从业务逻辑中分离出来,在使用迭代器模式之后,即使不关心对象的内部构造,也可以按顺序访问其中的每个元素.<br>大部分语言都有内部迭代器的实现,ECMAScript5也增加了数组的迭代方法 forEach </p>
-<h3 id="u5185_u90E8_u8FED_u4EE3_u5668"><a href="#u5185_u90E8_u8FED_u4EE3_u5668" class="headerlink" title="内部迭代器"></a>内部迭代器</h3><p>内部迭代器是函数的内部已经定义好了迭代器规则,它完全接手整个迭代过程,外部只需要一次初始调用<br>下边实现一个自己的内部迭代器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var each = <span class="keyword">function</span>(arr, fn)&#123;</span><br><span class="line">    //这里只考虑arr是数组</span><br><span class="line">        var i, l = arr.length;</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; l; i++ ) &#123;</span><br><span class="line">            //把下标和元素当做参数传递给fn函数,并提供跳出的方法,如果fn的返回值为<span class="literal">false</span>则提前终止循环</span><br><span class="line">            <span class="keyword">if</span> ( fn.call( arr[ i ], i, arr[ i ] ) === <span class="literal">false</span> ) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="u5916_u90E8_u8FED_u4EE3_u5668"><a href="#u5916_u90E8_u8FED_u4EE3_u5668" class="headerlink" title="外部迭代器"></a>外部迭代器</h3><p>外部迭代器必须显示地请求迭代下一个元素,我们可以手工控制迭代的过程或顺序,相比内部迭代器有更强的灵活性<br>下边实现一个自己的外部迭代器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var Iterator  = <span class="keyword">function</span>(obj)&#123;</span><br><span class="line">    var current = <span class="number">0</span>;</span><br><span class="line">    var next = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        current += <span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    var isDone = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> current &gt;= obj.length;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    var getCurrItem = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> obj[ current ];</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">        next:next,</span><br><span class="line">        isDone: isDone,</span><br><span class="line">        getSingle: getCurrItem</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/设计模式/">设计模式</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/07/03/J设计模式之迭代器模式/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/03/J设计模式之迭代器模式/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -2076,7 +2088,7 @@ cache  =  true,
 		  
 		
 		  
-			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+			<li><a href="/categories/框架/" title="框架">框架<sup>3</sup></a></li>
 		  
 		
 		  
@@ -2095,7 +2107,7 @@ cache  =  true,
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 12px;">react-native</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 
