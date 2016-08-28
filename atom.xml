@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://HeartWalker.cc/"/>
-  <updated>2016-08-20T08:18:11.194Z</updated>
+  <updated>2016-08-28T16:17:12.278Z</updated>
   <id>http://HeartWalker.cc/</id>
   
   <author>
@@ -14,6 +14,140 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ReactNative之获取ScrollView组件的滚动距离</title>
+    <link href="http://HeartWalker.cc/2016/08/29/ReactNative%E4%B9%8B%E8%8E%B7%E5%8F%96scrollView%E7%BB%84%E4%BB%B6%E7%9A%84%E6%BB%9A%E5%8A%A8%E8%B7%9D%E7%A6%BB/"/>
+    <id>http://HeartWalker.cc/2016/08/29/ReactNative之获取scrollView组件的滚动距离/</id>
+    <published>2016-08-28T16:02:28.000Z</published>
+    <updated>2016-08-28T16:17:12.278Z</updated>
+    
+    <content type="html">&lt;p&gt;在web经常会计算页面的滚动距离来实现一些特效，在RN中滚动效果大多是用ScrollView与ListView来实现的，它们都有一个onScroll回调函数，可以用如下方法来获得该组件的滚动距离，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;ScrollView
+    onScroll={(event)=&amp;gt;{
+        console.log(event.nativeEvent.contevtOffset.x);//水平滚动距离
+        console.log(event.nativeEvent.contevtOffset.y)；//垂直滚动距离            
+    }}
+/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下图是onScroll事件目标的nativeEvent属性，还包含了组件的一些其它位置信息&lt;br&gt;  &lt;img src=&quot;/images/nativeEvent.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在web经常会计算页面的滚动距离来实现一些特效，在RN中滚动效果大多是用ScrollView与ListView来实现的，它们都有一个onScroll回调函数，可以用如下方法来获得该组件的滚动距离，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;ScrollView
+    onSc
+    
+    </summary>
+    
+      <category term="框架" scheme="http://HeartWalker.cc/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="react-native" scheme="http://HeartWalker.cc/tags/react-native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactNative之获取组件位置信息</title>
+    <link href="http://HeartWalker.cc/2016/08/28/ReactNative%E4%B9%8B%E8%8E%B7%E5%8F%96%E7%BB%84%E4%BB%B6%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/"/>
+    <id>http://HeartWalker.cc/2016/08/28/ReactNative之获取组件位置信息/</id>
+    <published>2016-08-28T15:44:33.000Z</published>
+    <updated>2016-08-28T16:16:41.912Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u5176_u4E00_uFF1A&quot;&gt;&lt;a href=&quot;#u5176_u4E00_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;其一：&quot;&gt;&lt;/a&gt;其一：&lt;/h3&gt;&lt;p&gt;获取组件，使用measure方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; this.refs.xxx.measure((fx,fy,width,height,px,py)=&amp;gt;{
+    console.log(\` fx--${fx},fy--${fy},width--${width},height--${height},px--${px},py--${py},\`)
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注：经测试，在0.31版本时，这个方法在ListView中是无效的，也可能有其它无效的&lt;/p&gt;
+&lt;h3 id=&quot;u5176_u4E8C_uFF1A&quot;&gt;&lt;a href=&quot;#u5176_u4E8C_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;其二：&quot;&gt;&lt;/a&gt;其二：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;import ReactNative, { UIManager} from &amp;apos;react-native&amp;apos;;
+
+    UIManager.measure(ReactNative.findNodeHandle(this.refs[&amp;apos;xxx&amp;apos;]), (x, y, w, h, px, py)=&amp;gt;{
+        //代码
+        });
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是在网上请教的一位大神得到的方法，比较好用&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u5176_u4E00_uFF1A&quot;&gt;&lt;a href=&quot;#u5176_u4E00_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;其一：&quot;&gt;&lt;/a&gt;其一：&lt;/h3&gt;&lt;p&gt;获取组件，使用measure方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; this.
+    
+    </summary>
+    
+      <category term="框架" scheme="http://HeartWalker.cc/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="react-native" scheme="http://HeartWalker.cc/tags/react-native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactNative之兼容不同平台</title>
+    <link href="http://HeartWalker.cc/2016/08/28/ReactNative%E4%B9%8B%E5%85%BC%E5%AE%B9%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0/"/>
+    <id>http://HeartWalker.cc/2016/08/28/ReactNative之兼容不同平台/</id>
+    <published>2016-08-28T15:32:02.000Z</published>
+    <updated>2016-08-28T15:41:02.772Z</updated>
+    
+    <content type="html">&lt;p&gt;由于Android与IOS的差异性，有时候需要为不同的平台些写不同的代码&lt;br&gt;React Native还提供了两种简单区分平台的方案：&lt;/p&gt;
+&lt;h3 id=&quot;u7279_u5B9A_u5E73_u53F0_u6269_u5C55_u540D&quot;&gt;&lt;a href=&quot;#u7279_u5B9A_u5E73_u53F0_u6269_u5C55_u540D&quot; class=&quot;headerlink&quot; title=&quot;特定平台扩展名&quot;&gt;&lt;/a&gt;特定平台扩展名&lt;/h3&gt;&lt;p&gt;React Native会检测某个文件是否具有.ios.或是.android.的扩展名，然后根据当前运行的平台加载正确对应的文件。&lt;/p&gt;
+&lt;p&gt;假设你的项目中有如下两个文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;BigButton.ios.js
+BigButton.android.js
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样命名组件后你就可以在其他组件中直接引用，而无需关心当前运行的平台是哪个。&lt;br&gt;这个规则对图片同样适用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import BigButton from &amp;apos;./components/BigButton&amp;apos;;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;React Native会根据运行平台的不同引入正确对应的组件。&lt;/p&gt;
+&lt;p&gt;还有个实用的方法是Platform.select()，它可以以Platform.OS为key，从传入的对象中返回对应平台的值，见下面的示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var { Platform } = React;
+
+var styles = StyleSheet.create({
+container: {
+flex: 1,
+    ...Platform.select({
+  ios: {
+    backgroundColor: &amp;apos;red&amp;apos;,
+  },
+  android: {
+    backgroundColor: &amp;apos;blue&amp;apos;,
+    },
+}),
+},
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的代码会根据平台的不同返回不同的container样式——iOS上背景色为红色，而android为蓝色。&lt;/p&gt;
+&lt;p&gt;这一方法可以接受任何合法类型的参数，因此你也可以直接用它针对不同平台返回不同的组件，像下面这样：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var Component = Platform.select({
+ios: () =&amp;gt; require(&amp;apos;ComponentIOS&amp;apos;),
+android: () =&amp;gt; require(&amp;apos;ComponentAndroid&amp;apos;),
+})();
+
+&amp;lt;Component /&amp;gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u5E73_u53F0_u6A21_u5757&quot;&gt;&lt;a href=&quot;#u5E73_u53F0_u6A21_u5757&quot; class=&quot;headerlink&quot; title=&quot;平台模块&quot;&gt;&lt;/a&gt;平台模块&lt;/h3&gt;&lt;p&gt;React Native提供了一个检测当前运行平台的模块。如果组件只有一小部分代码需要依据平台定制，那么这个模块就可以派上用场。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { Platform } from &amp;apos;react-native&amp;apos;;
+
+var styles = StyleSheet.create({
+height: (Platform.OS === &amp;apos;ios&amp;apos;) ? 200 : 100,
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Platform.OS在iOS上会返回ios，而在Android设备或模拟器上则会返回android。&lt;/p&gt;
+&lt;p&gt;检测Android版本&lt;br&gt;在Android上，平台模块还可以用来检测当前所运行的Android平台的版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { Platform } from &amp;apos;react-native&amp;apos;;
+
+if(Platform.Version === 21){
+    console.log(&amp;apos;Running on Lollipop!&amp;apos;);
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于Android与IOS的差异性，有时候需要为不同的平台些写不同的代码&lt;br&gt;React Native还提供了两种简单区分平台的方案：&lt;/p&gt;
+&lt;h3 id=&quot;u7279_u5B9A_u5E73_u53F0_u6269_u5C55_u540D&quot;&gt;&lt;a href=&quot;#u72
+    
+    </summary>
+    
+      <category term="框架" scheme="http://HeartWalker.cc/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="react-native" scheme="http://HeartWalker.cc/tags/react-native/"/>
+    
+  </entry>
   
   <entry>
     <title>ReactNative之屏幕宽高与像素密度</title>
@@ -1922,100 +2056,6 @@ Output paths to refresh: $FileNameWithoutExtension$.css
     
       <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>JS设计模式之单例模式</title>
-    <link href="http://HeartWalker.cc/2016/06/21/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://HeartWalker.cc/2016/06/21/JS设计模式之单例模式/</id>
-    <published>2016-06-20T23:28:28.000Z</published>
-    <updated>2016-06-22T23:15:26.022Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;保证一个类仅有一个实例, 并提供一个访问它的全局访问点 &lt;/p&gt;
-&lt;h3 id=&quot;u4E00_u4E2A_u7B80_u5355_u7684_u5355_u4F8B&quot;&gt;&lt;a href=&quot;#u4E00_u4E2A_u7B80_u5355_u7684_u5355_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;一个简单的单例&quot;&gt;&lt;/a&gt;一个简单的单例&lt;/h3&gt;&lt;p&gt;用一个变量标志当前是否已经为某个类创建过对象, 如果有,则在下一次获取该类的实例时直接返回之前创建的对象&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       var Singleton = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(name)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            this.name = name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            this.instance = null;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Singleton.prototype.getName = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            alert(this.name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Singleton.getInstance = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(name)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!this.instance)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                this.instance = new Singleton(name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; this.instance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var a = Singleton.getInstance(&lt;span class=&quot;string&quot;&gt;&#39;sven1&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        var b = Singleton.getInstance(&lt;span class=&quot;string&quot;&gt;&#39;sven2&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.log(a === b); //&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u60F0_u6027_u5355_u4F8B&quot;&gt;&lt;a href=&quot;#u60F0_u6027_u5355_u4F8B&quot; class=&quot;headerlink&quot; title=&quot;惰性单例&quot;&gt;&lt;/a&gt;惰性单例&lt;/h3&gt;&lt;p&gt;惰性单例指的是在需要的时候才创建对象实例. 并且我没可以把单例的逻辑抽象出来, 形成通用的惰性单例&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //抽离出的单例逻辑&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var getSingle = &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(fn)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       var result;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; result || (result = fn.apply(this, arguments));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   //执行的函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   var createLoginLayer = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;function&lt;/span&gt;&lt;/span&gt;()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       var div = document.createElement(&lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       div.innerHTML =&lt;span class=&quot;string&quot;&gt;&#39;我是登录框&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       document.body.appendChild(div);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; div;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   var createSingleLoginLayer = getSingle(createLoginLayer);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这是一个创建登录框的案例, 我们可以在任何需要的时候调用&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;createSingleLoginLayer();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;并且如果我们需要创建一个iframe 或其他 DOM 节点只需再写一个 执行的函数 ,并重用getSingle&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;保证一个类仅有一个实例, 并提供一个访问它的全局访问点 &lt;/p&gt;
-&lt;h3 id=&quot;u4E00_u4E2A
-    
-    </summary>
-    
-      <category term="设计模式" scheme="http://HeartWalker.cc/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="设计模式" scheme="http://HeartWalker.cc/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gulp参考</title>
-    <link href="http://HeartWalker.cc/2016/06/16/gulp%E5%8F%82%E8%80%83/"/>
-    <id>http://HeartWalker.cc/2016/06/16/gulp参考/</id>
-    <published>2016-06-15T22:22:10.000Z</published>
-    <updated>2016-06-15T22:54:27.482Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;gulp学习与使用参考网址收录&lt;/p&gt;
-&lt;h3 id=&quot;gulp&quot;&gt;&lt;a href=&quot;#gulp&quot; class=&quot;headerlink&quot; title=&quot;gulp&quot;&gt;&lt;/a&gt;gulp&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.gulpjs.com.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中文网&lt;/a&gt;&lt;br&gt;    &lt;a href=&quot;http://gulpjs.com/plugins/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;插件&lt;/a&gt;&lt;br&gt;    &lt;a href=&quot;https://wizardforcel.gitbooks.io/gulp-doc/content/2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gitbook&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;gulp_u6838_u5FC3API&quot;&gt;&lt;a href=&quot;#gulp_u6838_u5FC3API&quot; class=&quot;headerlink&quot; title=&quot;gulp核心API&quot;&gt;&lt;/a&gt;gulp核心API&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.ydcss.com/archives/424&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ydcss.com/archives/424&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.hubwiz.com/class/562089cb1bc20c980538e25b#&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.hubwiz.com/class/562089cb1bc20c980538e25b#&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u5E38_u7528_u63D2_u4EF6_u6536_u96C6&quot;&gt;&lt;a href=&quot;#u5E38_u7528_u63D2_u4EF6_u6536_u96C6&quot; class=&quot;headerlink&quot; title=&quot;常用插件收集&quot;&gt;&lt;/a&gt;常用插件收集&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://markgoodyear.com/2014/01/getting-started-with-gulp/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://markgoodyear.com/2014/01/getting-started-with-gulp/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;删除文件和文件夹&lt;br&gt;&lt;a href=&quot;https://github.com/sindresorhus/del&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;del&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;合并js文件&lt;br&gt;&lt;a href=&quot;https://github.com/contra/gulp-concat&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-concat&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;合并css文件&lt;br&gt;&lt;a href=&quot;https://github.com/mariocasciaro/gulp-concat-css&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-concat-css&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;重命名文件&lt;br&gt;&lt;a href=&quot;https://github.com/hparra/gulp-rename&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-rename&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;压缩js&lt;br&gt;    &lt;a href=&quot;https://github.com/terinjokes/gulp-uglify&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-uglify&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;压缩css&lt;br&gt;&lt;a href=&quot;https://github.com/ben-eb/gulp-cssnano&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-cssnano&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;压缩页面&lt;br&gt;&lt;a href=&quot;https://github.com/sanfords/gulp-minify-html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-minify-html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;压缩照片&lt;br&gt;   &lt;a href=&quot;https://github.com/sindresorhus/gulp-imagemin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-imagemin&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;自动打开浏览器&lt;br&gt;&lt;a href=&quot;https://github.com/stevelacy/gulp-open&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-open&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;依赖自动加载&lt;br&gt;[gulp-load-plugins]&lt;/p&gt;
-&lt;p&gt;自动刷新页面&lt;br&gt;    &lt;a href=&quot;https://github.com/vohof/gulp-livereload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp-livereload&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;gulp-useref&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u524D_u8A00&quot;&gt;&lt;a href=&quot;#u524D_u8A00&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;gulp学习与使用参考网址收录&lt;/p&gt;
-&lt;h3 id=&quot;gulp&quot;&gt;&lt;a href=&quot;#gulp&quot; cl
-    
-    </summary>
-    
-      <category term="东成西就" scheme="http://HeartWalker.cc/categories/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1/"/>
-    
-    
-      <category term="gulp" scheme="http://HeartWalker.cc/tags/gulp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人之力有穷</title>
-    <link href="http://HeartWalker.cc/2016/06/10/%E4%BA%BA%E4%B9%8B%E5%8A%9B%E6%9C%89%E7%A9%B7/"/>
-    <id>http://HeartWalker.cc/2016/06/10/人之力有穷/</id>
-    <published>2016-06-10T03:15:02.000Z</published>
-    <updated>2016-06-10T03:35:40.678Z</updated>
-    
-    <content type="html">&lt;p&gt;想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. &lt;/p&gt;
-&lt;p&gt;我想把一切都做好, 我想知道所有知识, 我想要进行一切的娱乐, 但是那是不可能的, 人的力量终究是有穷尽的, 现实与肉体更是逃不开的枷锁, 奈何 奈何 奈何&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;想知道的太多, 想学的太多, 想玩的也太多, 人的欲望真是无穷尽, 追寻的过程中有时喜悦, 有时迷茫, 有时恐惧. 想必一个天才也不能实现它的追求, 更不要说我这样一个普通人了. 人有七情六欲, 此乃天使, 也是恶魔; 人还有生老病死, 更乃是未知的命运. &lt;/p&gt;
-&lt;p&gt;
-    
-    </summary>
-    
-      <category term="生活" scheme="http://HeartWalker.cc/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="吐槽" scheme="http://HeartWalker.cc/tags/%E5%90%90%E6%A7%BD/"/>
     
   </entry>
   
