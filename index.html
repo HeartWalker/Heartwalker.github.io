@@ -80,6 +80,136 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/10/11/去掉IE下input的叉号/" title="去掉IE下input的叉号" itemprop="url">去掉IE下input的叉号</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-11T14:56:25.000Z" itemprop="datePublished"> 發表於 2016-10-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>不得不说IE挺烦人的，每个版本会有新问题</p>
+<p>IE10下的Input Text和谷歌下面的 input search 一旦输入内容，会在最右端出现一个叉号，点击后，内容就会自动清空，看似方便，其实有些场景并不需要，需要写代码清除掉。</p>
+<p>代码如下：</p>
+<pre><code>input::-webkit-search-cancel-button{
+display: none;
+}  --清除谷歌浏览器下的 search 叉号
+input[type=search]::-ms-clear{
+display: none;
+}  --清除IE下的 search 叉号
+</code></pre><p>当然如果想清除所有的input的话 ，只需把[type=search]去掉即可。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css兼容/">css兼容</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/10/11/去掉IE下input的叉号/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/10/11/去掉IE下input的叉号/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/10/11/“吐槽加班”/" title="吐槽加班" itemprop="url">吐槽加班</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-11T14:51:34.000Z" itemprop="datePublished"> 發表於 2016-10-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近一直在加班， 每天忙得要死，没有生活，也没有时间学习，这种情况估计要持续到年底，累啊，真心累，身体累，心也累，有时候真感觉坚持不下去</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/生活/">生活</a>
+</div>
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/10/11/“吐槽加班”/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/10/11/“吐槽加班”/" data-count-type="comments">评论</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/08/29/ReactNative之获取scrollView组件的滚动距离/" title="ReactNative之获取ScrollView组件的滚动距离" itemprop="url">ReactNative之获取ScrollView组件的滚动距离</a>
   </h1>
   <p class="article-author">By
@@ -1290,511 +1420,6 @@ c.dec()
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/07/25/ECMA6入门之字符串的扩展/" title="ECMA6入门之字符串的扩展" itemprop="url">ECMA6入门之字符串的扩展</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-07-25T14:26:10.000Z" itemprop="datePublished"> 發表於 2016-07-25</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>手打,学习,来自阮一峰的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">博客</a><br>想要学 node.js 与最新的框架 ,最好先学ES6</p>
-<h2 id="u5B57_u7B26_u4E32_u7684_u6269_u5C55"><a href="#u5B57_u7B26_u4E32_u7684_u6269_u5C55" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h2><h3 id="includes_28_29_2CstratsWith_28_29_2CendsWith_28_29"><a href="#includes_28_29_2CstratsWith_28_29_2CendsWith_28_29" class="headerlink" title="includes(),stratsWith(),endsWith()"></a>includes(),stratsWith(),endsWith()</h3><p>ES5中,JavaScript有indexOf方法与lastIndexOf()方法, 可以用来确定一个字符串是否包含在另一个字符串中. ES6又提供了三种新方法.</p>
-<pre><code>includes(): 返回布尔值, 表示是否找到了参数字符串.
-startsWith(): 返回布尔值, 表示参数字符串是否在原字符串的头部
-endsWith(): 返回布尔值, 表示参数字符串是否在源字符串的尾部
-
-var s = &quot;Hellow world!&quot;;
-s.startsWith(&apos;Hellow&apos;)//true
-s.endsWith(&apos;!&apos;)//true
-s.includes(&apos;o&apos;)//true     
-</code></pre><p>这三个方法都支持第二个参数, 表示开始搜索的位置</p>
-<pre><code>var s = &apos;Hello world!&apos;;
-s.startsWith(&apos;word&apos;, 6) //true
-s.endsWith(&apos;Hello&apos;, 5) //true
-s.includes(&apos;Hello&apos;, 6) //false
-上面代码表示, 使用第二个参数n时,endsWith的行为与其他两个方法有所不同. 它针对前n个字符, 而其它两个方法针对从第n个位置直到字符串结束
-</code></pre><h3 id="repeat_28_29"><a href="#repeat_28_29" class="headerlink" title="repeat()"></a>repeat()</h3><p>repeat方法返回一个新字符串, 表示将原字符串重复n次</p>
-<pre><code>&apos;x&apos;.repeat(3)//&quot;xxx&quot;
-&apos;hello&apos;.repeat(2) //&quot;hellohello&quot;
-&apos;na&apos;.repeat(0) //&quot;&quot;
-</code></pre><p>如果是小数,会被取整</p>
-<pre><code>&apos;na&apos;.repeat(2.9)//&quot;nana&quot;
-</code></pre><p>如果repeat的参数时负数或者Infinity或undefined, 会报错.</p>
-<pre><code>&apos;na&apos;.repeat(Infinity)
-//RangeErrow
-&apos;na&apos;.repeat(-1)
-//RangeError
-</code></pre><p>但是, 如果蚕食是0 到-1之间的小数, 则等同于0, 这是因为会先进行取整原酸, 0 到-1之间的小数, 取整以后等于-0, repeat视同为0</p>
-<pre><code>&apos;na&apos;.repeat(-0.9)   //&quot;&quot; 
-</code></pre><p>参数NaN等同于0</p>
-<pre><code>&apos;na&apos;.repeat(NaN)//&quot;&quot;
-</code></pre><p>如果repeat的参数时字符串, 则会先转换成数字.</p>
-<pre><code>&apos;na&apos;.repeat(&apos;na&apos;)//&quot;&quot;
-&apos;na&apos;.repeat(&apos;3&apos;)//&quot;nanana&quot;
-</code></pre><h3 id="padStart_28_29_2CpadEnd_28_29"><a href="#padStart_28_29_2CpadEnd_28_29" class="headerlink" title="padStart(),padEnd()"></a>padStart(),padEnd()</h3><p>ES7推出了字符串补全长度的功能.如果某个字符串不够指定长度, 会在头部或尾部补全. padStrat用于头部补全, padEnd用于尾部补全</p>
-<pre><code>&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;
-&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;
-
-&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;
-&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;
-</code></pre><p>上面代码中，padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。</p>
-<p>如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。</p>
-<pre><code>&apos;xxx&apos;.padStart(2, &apos;ab&apos;) // &apos;xxx&apos;
-&apos;xxx&apos;.padEnd(2, &apos;ab&apos;) // &apos;xxx&apos;
-</code></pre><p>如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。</p>
-<pre><code>&apos;abc&apos;.padStart(10, &apos;0123456789&apos;)
-// &apos;0123456abc&apos;
-</code></pre><p>如果省略第二个参数，则会用空格补全长度。</p>
-<pre><code>&apos;x&apos;.padStart(4) // &apos;   x&apos;
-&apos;x&apos;.padEnd(4) // &apos;x   &apos;
-</code></pre><p>padStart的常见用途是为数值补全指定位数。下面代码生成10位的数值字符串。</p>
-<pre><code>&apos;1&apos;.padStart(10, &apos;0&apos;) // &quot;0000000001&quot;
-&apos;12&apos;.padStart(10, &apos;0&apos;) // &quot;0000000012&quot;
-&apos;123456&apos;.padStart(10, &apos;0&apos;) // &quot;0000123456&quot;
-</code></pre><p>另一个用途是提示字符串格式。</p>
-<pre><code>&apos;12&apos;.padStart(10, &apos;YYYY-MM-DD&apos;) // &quot;YYYY-MM-12&quot;
-&apos;09-12&apos;.padStart(10, &apos;YYYY-MM-DD&apos;) // &quot;YYYY-09-12&quot;
-</code></pre><h3 id="u6A21_u677F_u5B57_u7B26_u4E32"><a href="#u6A21_u677F_u5B57_u7B26_u4E32" class="headerlink" title="模板字符串"></a>模板字符串</h3><pre><code>传统的JavaScript语言，输出模板通常是这样写的。
-
-$(&apos;#result&apos;).append(
-  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +
-  &apos;items in your basket, &apos; +
-  &apos;&lt;em&gt;&apos; + basket.onSale +
-  &apos;&lt;/em&gt; are on sale!&apos;
-);
-</code></pre><p>上面这种写法相当繁琐不方便，ES6引入了模板字符串解决这个问题。</p>
-<pre><code>$(&apos;#result&apos;).append(`
-  There are &lt;b&gt;${basket.count}&lt;/b&gt; items
-   in your basket, &lt;em&gt;${basket.onSale}&lt;/em&gt;
-  are on sale!
-`);
-</code></pre><p>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</p>
-<pre><code>// 普通字符串
-`In JavaScript &apos;\n&apos; is a line-feed.`
-
-// 多行字符串
-`In JavaScript this is
- not legal.`
-
-console.log(`string text line 1
-string text line 2`);
-
-// 字符串中嵌入变量
-var name = &quot;Bob&quot;, time = &quot;today&quot;;
-`Hello ${name}, how are you ${time}?`
-</code></pre><p>上面代码中的模板字符串，都是用反引号表示。如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。</p>
-<p>号，则前面要用反斜杠转义。</p>
-<pre><code>var greeting = `\`Yo\` World!`;
-</code></pre><p>如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。</p>
-<pre><code>$(&apos;#list&apos;).html(`
-&lt;ul&gt;
-  &lt;li&gt;first&lt;/li&gt;
-  &lt;li&gt;second&lt;/li&gt;
-&lt;/ul&gt;
-`);
-</code></pre><p>上面代码中，所有模板字符串的空格和换行，都是被保留的，比如<ul>标签前面会有一个换行。如果你不想要这个换行，可以使用trim方法消除它。</ul></p>
-<pre><code>$(&apos;#list&apos;).html(`
-&lt;ul&gt;
-  &lt;li&gt;first&lt;/li&gt;
-  &lt;li&gt;second&lt;/li&gt;
-&lt;/ul&gt;
-`.trim());
-</code></pre><p>模板字符串中嵌入变量，需要将变量名写在${}之中。</p>
-<pre><code>function authorize(user, action) {
-  if (!user.hasPrivilege(action)) {
-    throw new Error(
-      // 传统写法为
-      // &apos;User &apos;
-      // + user.name
-      // + &apos; is not authorized to do &apos;
-      // + action
-      // + &apos;.&apos;
-      `User ${user.name} is not authorized to do ${action}.`);
-  }
-}
-</code></pre><p>大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。</p>
-<pre><code>var x = 1;
-var y = 2;
-
-`${x} + ${y} = ${x + y}`
-// &quot;1 + 2 = 3&quot;
-
-`${x} + ${y * 2} = ${x + y * 2}`
-// &quot;1 + 4 = 5&quot;
-
-var obj = {x: 1, y: 2};
-`${obj.x + obj.y}`
-// 3
-</code></pre><p>模板字符串之中还能调用函数。</p>
-<pre><code>function fn() {
-  return &quot;Hello World&quot;;
-}
-
-`foo ${fn()} bar`
-// foo Hello World bar
-</code></pre><p>如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的toString方法。</p>
-<p>如果模板字符串中的变量没有声明，将报错。</p>
-<pre><code>// 变量place没有声明
-var msg = `Hello, ${place}`;
-// 报错
-</code></pre><p>由于模板字符串的大括号内部，就是执行JavaScript代码，因此如果大括号内部是一个字符串，将会原样输出。</p>
-<pre><code>`Hello ${&apos;World&apos;}`
-// &quot;Hello World&quot;
-</code></pre><p>模板字符串甚至还能嵌套。<br>    const tmpl = addrs =&gt; <code>&lt;table&gt;
-      ${addrs.map(addr =&gt;</code><br>        <tr><td>${addr.first}</td></tr><br>        <tr><td>${addr.last}</td></tr><br>      <code>).join(&#39;&#39;)}
-      &lt;/table&gt;</code>;</p>
-<p>上面代码中，模板字符串的变量之中，又嵌入了另一个模板字符串，使用方法如下。</p>
-<pre><code>const data = [
-    { first: &apos;&lt;Jane&gt;&apos;, last: &apos;Bond&apos; },
-    { first: &apos;Lars&apos;, last: &apos;&lt;Croft&gt;&apos; },
-];
-
-console.log(tmpl(data));
-// &lt;table&gt;
-//
-//   &lt;tr&gt;&lt;td&gt;&lt;Jane&gt;&lt;/td&gt;&lt;/tr&gt;
-//   &lt;tr&gt;&lt;td&gt;Bond&lt;/td&gt;&lt;/tr&gt;
-//
-//   &lt;tr&gt;&lt;td&gt;Lars&lt;/td&gt;&lt;/tr&gt;
-//   &lt;tr&gt;&lt;td&gt;&lt;Croft&gt;&lt;/td&gt;&lt;/tr&gt;
-//
-// &lt;/table&gt;
-</code></pre><p>如果需要引用模板字符串本身，在需要时执行，可以像下面这样写。</p>
-<pre><code>// 写法一
-let str = &apos;return &apos; + &apos;`Hello ${name}!`&apos;;
-let func = new Function(&apos;name&apos;, str);
-func(&apos;Jack&apos;) // &quot;Hello Jack!&quot;
-
-// 写法二
-let str = &apos;(name) =&gt; `Hello ${name}!`&apos;;
-let func = eval.call(null, str);
-func(&apos;Jack&apos;) // &quot;Hello Jack!&quot;
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ECMA6/">ECMA6</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/07/25/ECMA6入门之字符串的扩展/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/25/ECMA6入门之字符串的扩展/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/07/17/ECMA6入门之let与const/" title="ECMA6入门学习之let与const" itemprop="url">ECMA6入门学习之let与const</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Heart Walker" target="_blank" itemprop="author">Heart Walker</a>
-		
-  <p class="article-time">
-    <time datetime="2016-07-17T11:28:47.000Z" itemprop="datePublished"> 發表於 2016-07-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>手打,学习,来自阮一峰的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">博客</a><br>想要学 node.js 与最新的框架 ,最好先学ES6</p>
-<h2 id="let_u547D_u4EE4"><a href="#let_u547D_u4EE4" class="headerlink" title="let命令"></a>let命令</h2><h3 id="u57FA_u672C_u7528_u6CD5"><a href="#u57FA_u672C_u7528_u6CD5" class="headerlink" title="基本用法"></a>基本用法</h3><p>ES6新增了let命令, 用来声明变量. 它的用法类似var,但是所声明的变量, 只在let命令行所在的代码块内有效</p>
-<pre><code>{
-    let a = 10;
-    var b = 1;
-};
-a //Uncaught ReferenceError: a is not defined
-b //1
-</code></pre><p>我们通常使用的for循环计数器</p>
-<pre><code>for(let i = 0; i &lt; 10; i++){};
-console.log(i);  //Uncaught ReferenceError: i is not defined(…  
-</code></pre><p>上面的代码计数器i, 只在for循环体内有效</p>
-<p>下面的代码如果使用var,最后输出的是10</p>
-<pre><code>var a = [];
-for(var i= 0; i &lt; 10; i++){
-    a[ i ] = function(){
-        console.log(i);
-    };
-}    
-a[6](); //10
-</code></pre><p>上面代码中, 变量i是var声明的, 在全局范围内都有小. 所以每一次循环, 新的i值都会覆盖旧值, 导致最后输出的是最后一轮的i的值.</p>
-<p>如果使用let, 声明的变量仅在块级作用域内有效, 最后输出的是6</p>
-<pre><code>var a = [];
-for(let i = 0; i &lt; 10;i++){
-    a[i] = function(){
-        console.log(i);
-    };
-}    
-a[6](); //6
-</code></pre><p>上面代码中,变量i是let声明的,当前的i只在本轮循环内有效, 所以每一次循环的i其实都是一个新的变量,所以最后输出的是6</p>
-<h3 id="u4E0D_u5B58_u5728_u53D8_u91CF_u63D0_u5347"><a href="#u4E0D_u5B58_u5728_u53D8_u91CF_u63D0_u5347" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h3><p>let不像var那样会发生”变量提升”现象. 所以,变量一定要在在声明后使用,否则报错.</p>
-<pre><code>console.log(foo); //undefiend
-console.log(bar); // Uncaught ReferenceError: bar is not defined
-var foo = 2;
-let bar = 2;
-</code></pre><p>上面代码中, 变量foo用var命令声明,会发生变量提升,既脚本开始运行时,变量foo已经存在了,但没有值,所以会输出undefined. 变量bar用let命令声明, 不会发生变量提升. 这表示在声明它之前, 变量bar是不存在的,这时如果用到它,就会抛出一个错误.</p>
-<h3 id="u6682_u65F6_u6027_u6B7B_u533A"><a href="#u6682_u65F6_u6027_u6B7B_u533A" class="headerlink" title="暂时性死区"></a>暂时性死区</h3><p>只要块级作用域内存在let命令, 他所声明的变量就”绑定”(binding)这个区域,不再受外部的影响.</p>
-<pre><code>var tmp = 123;
-if(true){
-    tmp = &apos;abc&apos;; //ReferenceError
-    let tmp;
-}
-</code></pre><p>上面代码中,存在全局变量tmp, 但是块级作用于能let又声明了一个局部变量tmp, 导致了后者绑定在这个块级作用域, 所以在let声明变量前,对tmp赋值会报错.</p>
-<p>ES6明确规定,如果区块中存在let和const命令, 这个区块对这些命令声明的变量, 从一开始就形成了封闭作用域. 凡是在声明之前就使用这些变量, 就会报错.</p>
-<p>总之, 在代码块内, 使用let命令声明变量之前, 该变量都是不可用的. 这在于发生, 称为”暂时性死区”(temporal dead zone, 简称 TDZ)</p>
-<pre><code>if(true){
-    //TDZ开始
-    tem = &apos;abc&apos;; //ReferenceError
-    console.log(tmp); //ReferenceError
-
-    let tmp; //TDZ结束
-    console.log(tmp); //undefiend
-
-    tmp = 123;
-    console.log(tmp); //123
-}
-</code></pre><p>上面代码中, 在let命令声明变量tmp之前, 都属于tmp的”死区”</p>
-<p>“暂时性死区”也意味着typeof不再是一个百分百安全的操作;</p>
-<pre><code>typeof x; //ReferenceError
-let x;
-</code></pre><p>上面代码中, 变量x使用let命令声明,所以在声明之前,都属于x的”死区”,只要用到该变量就会报错. 因此, typeof 运行时就会抛出一个 ReferenceError.<br>作为比较, 如果一个变量根本没有被声明, 使用typeof反而不会报错.</p>
-<pre><code>typeof undeclared_variable;//&quot;undefiend&quot;
-</code></pre><p>上面代码中, undeclared_variable是一个不存在的变量名, 结果返回”undefined”. 所以, 在没有let之前, typeof运算符是百分之百安全的, 永远不会报错. 现在这一点不成立了. 这样的设计是为了让大家养成良好的变成习惯, 变量一定要在声明后使用, 否则就报错.</p>
-<p>有些”死区”比较隐蔽, 不太容易发现.</p>
-<pre><code>function bar(x = 2, y = x){
-    return [x,y];
-}
-bar(); //报错
-</code></pre><p>上面代码中, 调用bar函数之所以报错(某些实现可能不报错), 是因为参数x默认值等于另一个参数y,而此时y还没有声明, 属于”死区”. 如果y的默认值是x,就不会报错,因为此时x已经声明了.</p>
-<pre><code>function bar(x = 2, y = x){
-    return [x,y];
-}
-bar(); //[2,2]
-</code></pre><p>ES6规定暂时性死区和不存在变量提升,主要是为了减少运行时错误,防止在变量声明前就使用这个变量,从而导致意料之外的行为. 这样的错误在ES5是很常见的, 现在有了这种规定, 避免此类错误就很容易了. </p>
-<p>总之, 暂时性死区的本质就是, 只要一进入当前作用域, 所要使用的变量就已经存在了, 但是不可获取, 只要等到声明变量的那一行代码出现, 才可以获取和使用该变量.    </p>
-<h3 id="let_u4E0D_u5141_u8BB8_u91CD_u590D_u58F0_u660E"><a href="#let_u4E0D_u5141_u8BB8_u91CD_u590D_u58F0_u660E" class="headerlink" title="let不允许重复声明"></a>let不允许重复声明</h3><pre><code>//报错
-function test(){
-    let a = 10;
-    var a = 1;
-}
-//报错
-function test(){
-    let a = 10;
-    let a = 1;
-}
-</code></pre><p>因此, 不能在函数内部重新声明参数</p>
-<pre><code>function func(arg){
-    let arg;//报错
-} 
-function func(arg){
-    {
-        let arg; //不报错
-    }
-}
-</code></pre><h3 id="u5757_u7EA7_u4F5C_u7528_u57DF"><a href="#u5757_u7EA7_u4F5C_u7528_u57DF" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>为什么需要块级作用域?<br>ES5只有全局作用域和函数作用域, 没有块级作用域,这带来很多不合理的场景.<br>第一种场景, 内层变量可能会覆盖外层变量.</p>
-<pre><code>var tmp = new Date();
-function f(){
-   console.log(tmp);
-   if(false){
-       var tmp = &quot;hellow world&quot;;
-   }
-}   
-f();//undefiend
-</code></pre><p>上面代码中, 函数f执行后,输出结果为undefined, 原因在于变量提升, 导致内层的tmp变量覆盖了外层的tmp变量</p>
-<p>第二种场景, 用来计数的循环变量泄露为全局变量</p>
-<pre><code>var s = &apos;hello&apos;;
-for(var i = 0; i&lt;s.length; i++){
-    console.log(s[i]);
-}
-console.log(i); //5
-</code></pre><p>上面代码中, 变量i只是用来控制循环, 但是循环结束后, 它并没有消失, 泄露成了全局变量    </p>
-<h3 id="ES6_u7684_u5757_u7EA7_u4F5C_u7528_u57DF"><a href="#ES6_u7684_u5757_u7EA7_u4F5C_u7528_u57DF" class="headerlink" title="ES6的块级作用域"></a>ES6的块级作用域</h3><p>let实际上为JavaScript新增了块级作用域</p>
-<pre><code>function f1(){
-    let n = 5;
-    if(true){
-        let n = 10;
-    }
-    console.log(n); 
-}
-f1(); //5
-</code></pre><p>上面的函数有两个代码块, 都声明了变量n, 运行后输出5. 这表示外城代码块不收内层代码块的影响. 如果使用var变量定义n, 最后的输出值就是10</p>
-<p>ES6允许块级作用域的任意嵌套.<br>    { { { { {let insane = ‘Hello World’} } } } };<br>上面代码使用了一个五层的块级作用域. 外层作用域无法读取内层作用域的变量.</p>
-<pre><code>{ { { {
-    {let insane = &apos;Hello Word&apos;};
-    console.log(insane); //报错
-    } } } } ;
-</code></pre><p>内层作用域可以定义外层作用域的同名变量</p>
-<pre><code>{ { { {
-    let insane = &apos;Hello World&apos;;
-    {let insane = &apos;Hello World&apos;}
-    } } } } 
-</code></pre><p>块级作用域的出现, 实际上( ⊙ o ⊙ )使得获得广泛易用的立即执行匿名函数(IIFE)不在必要了</p>
-<pre><code>//IIFE写法
-(function(){
-    var tmp = 111;
-})();
-//块级作用域写法
-{
-    let tmp = 111;
-}
-</code></pre><h2 id="const_u547D_u4EE4"><a href="#const_u547D_u4EE4" class="headerlink" title="const命令"></a>const命令</h2><p>const 声明一个只读的常量. 一旦声明, 常量的值就不能改变</p>
-<pre><code>const PI = 3.1415;
-PI //3.1415
-PI = 3;//TypeError: Assignment to constant variable
-</code></pre><p>上面代码表明改变常量的值会报错</p>
-<p>construction声明的变量不得改变值, 这意味着, const一旦声明变量,就必须立即初始化,不能留到以后赋值</p>
-<pre><code>const foo;
-//SystaxErrow:Missing initializer in const declaration    
-</code></pre><p>上面代码表示, 对于const 来说, 只要声明不赋值, 就会报错</p>
-<p>const的作用域与let命令相同; 只在声明所在的块级作用域内有效</p>
-<pre><code>if(true){
-    const MAX = 5;
-}
-MAX //Uncaught ReferenceError: MAX is not defined
-</code></pre><p>const 命令声明的常量也是不提升的, 同样存在暂时性死区, 只能在声明的位置后面使用</p>
-<pre><code>if(true){
-    console.log(MAX); //ReferenceError
-    const MAX = 5;
-}
-</code></pre><p>上面代码在常量MAX声明之前就调用, 结果报错</p>
-<p>const声明的常量, 也与let一样不可重复声明</p>
-<pre><code>var message = &quot;Hellow&quot;;
-let age = 25;
-//以下两行都会报错
-const message = &quot;Goodbye&quot;;
-const age = 30;
-</code></pre><p>对于符合类型的变量, 变量名不指向数据, 而是指向数据所在的地址. const命令指示保证变量名指向的地址不变, 并不保证该地址的数据不变, 所以讲一个对象声明为常量必须非常小心</p>
-<pre><code>const foo = {};
-foo.prop = 123;
-foo.prop //123
-foo = {};//TypeError:&quot;foo&quot; is read-only
-</code></pre><p>上面代码中, 常量foo储存的是一个地址,这个地址指向一个对象. 不可变的指示真个地址, 既不能把foo指向另一个地址, 但对象本身是可变的, 所以依然可以为其添加新属性. </p>
-<p>下面是另一个例子.</p>
-<pre><code>const a = [];
-a.push(&apos;Hellow&apos;);
-a.length = 0;
-a = [&apos;Dave&apos;]; //报错
-</code></pre><p>上面代码中,常量a是一个数组, 这个数组本身是可写的, 但是如果将另一个数组赋值给a, 就会报错.</p>
-<p>如果真的想将对象冻结, 应该使用Object.freeze方法.</p>
-<pre><code>const foo = Object.freeze({});
-//常规模式时,下面一行不起作用;
-//严格模式时,该行会报错
-foo.prop = 123;
-</code></pre><p>上面代码中, 常量foo指向一个冻结的对象, 所以添加新属性时不起作用, 严格模式时还会报错.</p>
-<p>除了将对象本身冻结, 对象的属性也应该冻结. 下面是一个将对象彻底冻结的函数.(既深冻结)</p>
-<pre><code>var constantize  = (obj) =&gt;{
-    Obj.freeze(obj);
-    Object.keys(obj).forEach(key, value) =&gt;{
-        if( typeof obj[key] === &apos;obj&apos;){
-            constantize(obj[key]);
-        }
-    };
-}   ;   
-</code></pre><p>ES5只有两种声明变量的方法: var命令和function命令. ES6除了添加let和const命令, 另外还有两种声明变量的方法import和class命令. 所以ES6一共有6中声明变量的方法.</p>
-<h2 id="u5168_u5C40_u5BF9_u8C61_u7684_u5C5E_u6027"><a href="#u5168_u5C40_u5BF9_u8C61_u7684_u5C5E_u6027" class="headerlink" title="全局对象的属性"></a>全局对象的属性</h2><p>全局对象是最顶层的对象, 在浏览器环境指的是window对象,在Node.js指的是global对象. ES5中,全局对象的属性和全局变量是等价的</p>
-<pre><code>window.a = 1;
-a //1
-a = 2;
-window.a //2
-</code></pre><p>上面代码中, 全局对象的属性赋值与全局变量的赋值,是同一件事. (对Node来说,这一条支队REPL环境中使用, 模块环境之中, 全局变量必须显示的声明成global对象的属性).</p>
-<p>未声明的全局变量, 自动成为全局属性的window的属性, 这被认为是JavaScript语言最大的设计败笔之一. 这样的设计带来了两个很大的问题, 首先是没法再编译时就报出变量未声明的错误, 只有运行时才能知道, 其次程序员很容易不知不觉地就创建全局变量(比如打字出错). 另一方面, 从语义上讲, 语言的顶层对象时一个有实体含义的对象, 也是不适合的.</p>
-<p>ES6为了改变着一点, 一方面规定, 为了保持兼容性, var命令和function命令声明的全局变量, 依旧是全局对象的属性; 另一方面规定, let命令, const命令, class命令声明的全局变量, 不属于全局对象的属性. 也就是说, 从ES6开始, 全局变量将逐步与全局对象属性脱钩.</p>
-<pre><code>var a = 1;
-//如果在Node的REPL环境, 可以写成global.a
-//或者采用通用的方法, 写成this.a
-window.a //1
-let b = 1;
-window.b //undefined
-</code></pre><p>上面代码中, 全局变量 a 由 var命令声明, 所以它是全局对象的属性; 全局变量b由let命令声明, 所以它不是全局对象的属性, 反回 undefiend<br>(待验证:  在node模块中, var 全局定义变量只会在本模块生效, 若直接 赋值 会在各个引用的模块中生效)</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/js/">js</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ECMA6/">ECMA6</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2016/07/17/ECMA6入门之let与const/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/17/ECMA6入门之let与const/" data-count-type="comments">评论</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -1827,7 +1452,7 @@ window.b //undefined
 		  
 		
 		  
-			<li><a href="/categories/css/" title="css">css<sup>9</sup></a></li>
+			<li><a href="/categories/css/" title="css">css<sup>10</sup></a></li>
 		  
 		
 		  
@@ -1847,7 +1472,7 @@ window.b //undefined
 		  
 		
 		  
-			<li><a href="/categories/生活/" title="生活">生活<sup>7</sup></a></li>
+			<li><a href="/categories/生活/" title="生活">生活<sup>8</sup></a></li>
 		  
 		
 		  
@@ -1862,7 +1487,7 @@ window.b //undefined
   <div class="tagcloudlist">
     <p class="asidetitle">標簽雲</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 16px;">react-native</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+       <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ECMA6/" style="font-size: 14px;">ECMA6</a> <a href="/tags/H5/" style="font-size: 20px;">H5</a> <a href="/tags/css兼容/" style="font-size: 10px;">css兼容</a> <a href="/tags/css布局/" style="font-size: 14px;">css布局</a> <a href="/tags/edm/" style="font-size: 10px;">edm</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 16px;">react-native</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/事件/" style="font-size: 12px;">事件</a> <a href="/tags/优化/" style="font-size: 12px;">优化</a> <a href="/tags/作用域/" style="font-size: 18px;">作用域</a> <a href="/tags/函数/" style="font-size: 12px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/变量类型/" style="font-size: 12px;">变量类型</a> <a href="/tags/吐槽/" style="font-size: 16px;">吐槽</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/调错/" style="font-size: 10px;">调错</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     </div>
   </div>
 
